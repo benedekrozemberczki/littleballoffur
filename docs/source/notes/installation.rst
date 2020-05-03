@@ -7,7 +7,7 @@ Install the package by using pip:
 
         $ pip install littleballoffur
 
-Upgrade your outdated Karate Club version by using:
+Upgrade your outdated Little Ball of Fur version by using:
 
     .. code-block:: none
 
