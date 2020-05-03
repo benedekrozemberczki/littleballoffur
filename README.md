@@ -7,7 +7,6 @@
 
 --------------------------------------------------------------------------------
 
-
 **Little Ball of Fur** is an unsupervised machine learning extension library for [NetworkX](https://networkx.github.io/).
 
 
@@ -68,7 +67,7 @@ In detail, the sampling methods were implemented.
 
 **Graph Level Embedding**
 
-Head over to our [documentation](https://karateclub.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
+Head over to our [documentation](https://littleballoffur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
 
 If you notice anything unexpected, please open an [issue](https://github.com/benedekrozemberczki/littleballoffur/issues) and let us know.
