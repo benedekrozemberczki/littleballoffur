@@ -6,7 +6,7 @@ setup(
   packages = find_packages(),
   version = "0.0.1",
   license = "MIT",
-  description = "A general purpose library for community detection, network embedding, and graph mining research.",
+  description = "A general purpose library for subsampling large graphs.",
   author = "Benedek Rozemberczki",
   author_email = "benedek.rozemberczki@gmail.com",
   url = "https://github.com/benedekrozemberczki/karateclub",
