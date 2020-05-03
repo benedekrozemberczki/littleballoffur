@@ -18,4 +18,4 @@ To check your current package version just simply run:
 
     .. code-block:: none
 
-        $ pip freeze | grep karateclub
+        $ pip freeze | grep littleballoffur
