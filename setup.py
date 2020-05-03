@@ -9,7 +9,7 @@ setup(
   description = "A general purpose library for subsampling large graphs.",
   author = "Benedek Rozemberczki",
   author_email = "benedek.rozemberczki@gmail.com",
-  url = "https://github.com/benedekrozemberczki/karateclub",
+  url = "https://github.com/benedekrozemberczki/littleballoffur",
   download_url = "https://github.com/benedekrozemberczki/littleballoffur/archive/v_00001.tar.gz",
   keywords = ["community", "detection", "networkx", "graph", "clustering","graph-sampling","sampling","random-walk","forest-fire" "embedding","network","deepwalk","graph2vec","node2vec","deep","learning","louvain","machine-learning","deep-learning","deeplearning"],
   install_requires=[
