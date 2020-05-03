@@ -158,7 +158,7 @@ We are motivated to constantly make Karate Club even better.
 
 **Installation**
 
-Karate Club can be installed with the following pip command.
+Little Ball of Fur can be installed with the following pip command.
 
 ```sh
 $ pip install littleballoffur
