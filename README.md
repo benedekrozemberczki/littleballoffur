@@ -161,13 +161,13 @@ We are motivated to constantly make Karate Club even better.
 Karate Club can be installed with the following pip command.
 
 ```sh
-$ pip install karateclub
+$ pip install littleballoffur
 ```
 
 As we create new releases frequently, upgrading the package casually might be beneficial.
 
 ```sh
-$ pip install karateclub --upgrade
+$ pip install littleballoffur --upgrade
 ```
 
 --------------------------------------------------------------------------------
