@@ -2,13 +2,13 @@
  ![Version](https://badge.fury.io/py/karateclub.svg?style=plastic) ![License](https://img.shields.io/github/license/benedekrozemberczki/karateclub.svg?color=blue&style=plastic) [![PyPI download month](https://img.shields.io/pypi/dm/karateclub.svg?color=blue&style=plastic)](https://pypi.python.org/pypi/karateclub/)  [![Arxiv](https://img.shields.io/badge/ArXiv-2003.04819-orange.svg?color=blue&style=plastic)](https://arxiv.org/abs/2003.04819) ![Astro](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fastronomer.ullaakut.eu%2Fshields%3Fowner%3Dbenedekrozemberczki%26name%3Dkarateclub)
 
 <p align="center">
-  <img width="90%" src="https://github.com/benedekrozemberczki/karateclub/blob/master/karatelogo.jpg?sanitize=true" />
+  <img width="90%" src="https://github.com/benedekrozemberczki/karateclub/blob/master/littleballoffur.jpg?sanitize=true" />
 </p>
 
 --------------------------------------------------------------------------------
 
 
-**Karate Club** is an unsupervised machine learning extension library for [NetworkX](https://networkx.github.io/).
+**Little Ball of Fur** is an unsupervised machine learning extension library for [NetworkX](https://networkx.github.io/).
 
 
 
