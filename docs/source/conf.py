@@ -1,8 +1,7 @@
 import datetime
 import sphinx_rtd_theme
 import doctest
-import karateclub
-import community
+import littleballoffur
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -18,11 +17,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 author = 'Benedek Rozemberczki'
-project = 'karateclub'
+project = 'Little Ball of Fur'
 copyright = '{}, {}'.format(datetime.datetime.now().year, author)
-
-#version = karateclub.__version__
-#release = karateclub.__version__
 
 html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
