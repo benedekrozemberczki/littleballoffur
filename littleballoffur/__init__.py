@@ -1,6 +1,6 @@
 
-from karateclub.dataset import *
-from karateclub.sampler import Sampler
+from littleballoffur.dataset import *
+from littleballoffur.sampler import Sampler
 
 __all__ = [
     'littleballoffur',

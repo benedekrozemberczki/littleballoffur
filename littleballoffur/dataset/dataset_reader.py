@@ -4,7 +4,6 @@ import pandas as pd
 import networkx as nx
 from six.moves import urllib
 
-
 class GraphReader(object):
     r"""Class to read benchmark datasets for the sampling task.
 
