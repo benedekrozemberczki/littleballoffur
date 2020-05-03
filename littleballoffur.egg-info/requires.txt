@@ -1,5 +1,0 @@
-networkx
-tqdm
-python-louvain
-pandas
-six
