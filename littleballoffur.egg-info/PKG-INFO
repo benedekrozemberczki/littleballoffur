@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: littleballoffur
+Version: 0.0.1
+Summary: A general purpose library for subsampling large graphs.
+Home-page: https://github.com/benedekrozemberczki/littleballoffur
+Author: Benedek Rozemberczki
+Author-email: benedek.rozemberczki@gmail.com
+License: MIT
+Download-URL: https://github.com/benedekrozemberczki/littleballoffur/archive/v_00001.tar.gz
+Description: UNKNOWN
+Keywords: community,detection,networkx,graph,clustering,graph-sampling,sampling,random-walk,forest-fire,embedding,network,deepwalk,graph2vec,node2vec,deep,learning,louvain,machine-learning,deep-learning,deeplearning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.5
