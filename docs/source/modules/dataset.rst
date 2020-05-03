@@ -1,6 +1,6 @@
-karateclub.dataset
+littleballoffur.dataset
 ========================
 
-.. automodule:: karateclub.dataset.dataset_reader
+.. automodule:: littleballoffur.dataset.dataset_reader
     :members:
     :undoc-members:
