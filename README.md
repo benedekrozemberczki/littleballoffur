@@ -151,7 +151,7 @@ For a quick start, check out our [examples](https://github.com/benedekrozembercz
 
 If you notice anything unexpected, please open an [issue](https://github.com/benedekrozemberczki/littleballoffur/issues) and let us know.
 If you are missing a specific method, feel free to open a [feature request](https://github.com/benedekrozemberczki/littleballoffur/issues).
-We are motivated to constantly make Karate Club even better.
+We are motivated to constantly make *Little Ball of Fur* even better.
 
 
 --------------------------------------------------------------------------------
