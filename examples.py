@@ -25,3 +25,12 @@ new_graph = sampler.sample(graph)
 sampler = RandomNodeSampler()
 
 new_graph = sampler.sample(graph)
+
+
+#------------------------------
+# Random Edge Sampler example
+#------------------------------
+
+sampler = RandomEdgeSampler()
+
+new_graph = sampler.sample(graph)
