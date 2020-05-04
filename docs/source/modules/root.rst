@@ -1,13 +1,27 @@
-karateclub
+littleballoffur
 ==================
 
 .. contents:: Contents
     :local:
 
-
-Vertex sampling
+Node sampling
 --------------------
 
-.. automodule:: karateclub.community_detection.overlapping.ego_splitter
+.. automodule:: littleballoffur.node_sampling.randomnodesampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.node_sampling.randomwalknodesampler
+    :members:
+    :undoc-members:
+
+Edge sampling
+--------------------
+
+.. automodule:: littleballoffur.edge_sampling.randomedgesampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.edge_sampling.randomedgesamplerwithinduction
     :members:
     :undoc-members:
