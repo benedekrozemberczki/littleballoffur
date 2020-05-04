@@ -1,4 +1,4 @@
-littleballoffur.dataset
+Little Ball of Fur Datasets
 ========================
 
 .. automodule:: littleballoffur.dataset.dataset_reader
