@@ -60,3 +60,7 @@ class Sampler(object):
         self._check_directedness(graph)
         self._check_indexing(graph)
 
+    def _check_number_of_nodes(self):
+
+
+

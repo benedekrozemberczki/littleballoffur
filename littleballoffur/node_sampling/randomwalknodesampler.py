@@ -45,6 +45,7 @@ class RandomWalkNodeSampler(Sampler):
         Return types:
             * **new_graph* *(NetworkX graph)* - The graph of sampled nodes.
         """
+        self._check_graph()
         self._graph = graph
         self._create_initial_node_set()
         while len(self._sampled_nodes) < self.number_of_nodes:
