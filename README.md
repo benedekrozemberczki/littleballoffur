@@ -54,11 +54,9 @@ print(splitter.get_memberships())
 
 In detail, the sampling methods were implemented.
 
-**Category A**
+**Node sampling**
 
-**Category B**
-
-**Category C**
+**Edge sampling**
 
 Head over to our [documentation](https://littleballoffur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
