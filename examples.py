@@ -4,6 +4,7 @@ import networkx as nx
 
 from littleballoffur.dataset import GraphReader
 from littleballoffur.node_sampling import RandomWalkNodeSampler, RandomNodeSampler
+from littleballoffur.edge_sampling import RandomEdgeSampler
  
 #--------------------------------
 # Random Walk Node Sampler example
