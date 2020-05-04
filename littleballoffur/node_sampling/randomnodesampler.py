@@ -3,7 +3,7 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomNodeSampler(Sampler):
-    r"""An implementation of node sampling randomly.
+    r"""An implementation of random node sampling.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
@@ -18,11 +18,12 @@ class RandomNodeSampler(Sampler):
         """
         Choosing initial nodes.
         """
-        self._sampled_nodes = random.sample([node for node in range(self._graph.number_of_nodes())])
+        nodes = [node for node in range(self._graph.number_of_nodes())]
+        self._sampled_nodes = random.sample(nodes, self.number_of_nodes)
 
     def sample(self, graph):
         """
-        Sampling nodes with a single random walk.
+        Sampling nodes randomly.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
