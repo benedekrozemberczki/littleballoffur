@@ -1,4 +1,4 @@
-"""Example runs with Karate Club."""
+"""Example runs with Little Ball of Fur."""
 
 import networkx as nx
 
