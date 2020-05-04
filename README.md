@@ -9,8 +9,6 @@
 
 **Little Ball of Fur** is a graph subsampling extension library for [NetworkX](https://networkx.github.io/).
 
-
-
 Please look at the **[Documentation](https://littleballoffur.readthedocs.io/)** and **[External Resources](https://littleballoffur.readthedocs.io/en/latest/notes/resources.html)**.
 
 **Little Ball of Fur** consists of state-of-the-art methods to do subsampling on graph structured data. To put it simply it is a Swiss Army knife for graph subsampling research. First, it includes a large variety of vertex and edge sampling techniques. Second, it provides a unified application public interface which makes the use of subsampling algorithms trivial. 
