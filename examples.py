@@ -3,11 +3,12 @@
 import networkx as nx
 
 from littleballoffur.dataset import GraphReader
-
+from littleballoffur.node_sampling import RandomWalkNodeSampler 
+ 
 #----------------------
 # Graph reader example
 #----------------------
 
-reader = GraphReader("facebook")
+reader = GraphReader("twitch")
 
 graph = reader.get_graph()
