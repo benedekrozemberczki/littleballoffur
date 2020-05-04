@@ -13,10 +13,16 @@ class RandomWalkNodeSampler(Sampler):
         random.seed(self.seed)
  
     def _create_initial_node_set(self):
+        """
+        Choosing an initial node.
+        """
         self._current_node = random.choice(range(self._graph.number_of_nodes()))
         self._sampled_nodes = set([self._current_node])
 
     def _do_a_step(self):
+        """
+        Doing a single random walk step.
+        """
         neighbors = self._graph.neighbors(self._current_node)
         self._current_node = random.choice([neighbor for neighbor in neighbors])
         self._sampled_nodes.add(self._current_node)
