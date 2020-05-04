@@ -23,7 +23,7 @@ If you find *Little Ball of Fur* and the new datasets useful in your research, p
 
 ```bibtex
 >@misc{littleballoffur2020,
-       title={Little Ball of Fur:},
+       title={Little Ball of Fur: A Python Library for Graph Subsampling},
        author={Benedek Rozemberczki},
        year={2020},
 }
