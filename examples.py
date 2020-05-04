@@ -7,7 +7,7 @@ from littleballoffur.node_sampling import RandomWalkNodeSampler, RandomNodeSampl
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomEdgeSamplerWithInduction
  
 #--------------------------------
-# Random Walk Node Sampler example
+# Random Walk Node Sampler Example
 #--------------------------------
 
 reader = GraphReader("twitch")
@@ -19,7 +19,7 @@ sampler = RandomWalkNodeSampler()
 new_graph = sampler.sample(graph)
 
 #------------------------------
-# Random Node Sampler example
+# Random Node Sampler Example
 #------------------------------
 
 sampler = RandomNodeSampler()
@@ -27,8 +27,17 @@ sampler = RandomNodeSampler()
 new_graph = sampler.sample(graph)
 
 #------------------------------
-# Random Edge Sampler example
+# Random Edge Sampler Example
 #------------------------------
+
+sampler = RandomEdgeSampler()
+
+new_graph = sampler.sample(graph)
+
+
+#---------------------------------------------
+# Random Edge Sampler With Induction Example
+#---------------------------------------------
 
 sampler = RandomEdgeSampler()
 
