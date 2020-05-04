@@ -66,12 +66,23 @@ class Sampler(object):
         self._check_indexing(graph)
 
     def _check_number_of_nodes(self, graph):
-        """Checking the size of the graph."""
+        """Checking the size of the graph - nodes."""
         try:
            if self.number_of_nodes > graph.number_of_nodes():
                raise ValueError("The number of nodes is too large. Please see requirements.")
         except:
-           exit("The number of nodes is too large. Please see requirements.")     
+           exit("The number of nodes is too large. Please see requirements.")   
+
+
+    def _check_number_of_edges(self, graph):
+        """Checking the size of the graph - edges."""
+        try:
+           if self.number_of_edges > graph.number_of_edges():
+               raise ValueError("The number of edges is too large. Please see requirements.")
+        except:
+           exit("The number of edges is too large. Please see requirements.")     
+ 
+  
  
 
 
