@@ -37,7 +37,7 @@ class RandomWalkNodeSampler(Sampler):
 
     def sample(self, graph):
         """
-        Sampling nodes with random walks.
+        Sampling nodes with a single random walk.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
