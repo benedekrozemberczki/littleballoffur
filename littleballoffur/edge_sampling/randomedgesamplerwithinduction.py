@@ -3,8 +3,9 @@ import networkx as nx
 from littleballoffur.edge_sampling import RandomEdgeSampler
 
 class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
-
-
+    """
+    An implementation of random edge sampling with edge set induction.
+    """
     def _induce_graph(self):
         """
         Inducing all of the edges given the sampled edges
