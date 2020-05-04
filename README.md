@@ -33,19 +33,19 @@ If you find *Little Ball of Fur* and the new datasets useful in your research, p
 **A simple example**
 
 *Little Ball of Fur* makes the use of modern graph subsampling techniques quite easy (see [here](https://littleballoffur.readthedocs.io/en/latest/notes/introduction.html) for the accompanying tutorial).
-For example, this is all it takes to use on a Watts-Strogatz graph [Random Walk Sampling](https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf):
+For example, this is all it takes to use [Random Walk Node Sampling](https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf) on a Watts-Strogatz graph:
 
 ```python
 import networkx as nx
-from karateclub import EgoNetSplitter
+from littleballoffur import RandomWalkNodeSampler
 
 g = nx.newman_watts_strogatz_graph(1000, 20, 0.05)
 
-splitter = EgoNetSplitter(1.0)
+sampler = RandomWalkNodeSampler()
 
-splitter.fit(g)
+new_graph = sampler.sample(graph)
 
-print(splitter.get_memberships())
+
 ```
 
 --------------------------------------------------------------------------------

@@ -13,6 +13,8 @@ reader = GraphReader("twitch")
 
 graph = reader.get_graph()
 
+print(nx.transitivity(graph))
+
 sampler = RandomWalkNodeSampler()
 
 new_graph = sampler.sample(graph)
