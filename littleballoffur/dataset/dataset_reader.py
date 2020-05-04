@@ -30,7 +30,6 @@ class GraphReader(object):
         Reading the dataset from the web.
         """
         path = os.path.join(self.base_url, self.dataset)
-        print(path)
         data = urllib.request.urlopen(path).read()
         data = self._pandas_reader(data)
         return data
