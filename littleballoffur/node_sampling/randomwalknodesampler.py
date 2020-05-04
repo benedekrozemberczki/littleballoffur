@@ -3,13 +3,18 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomWalkNodeSampler(Sampler):
-
+    """
+    
+    """
     def __init__(self, number_of_nodes=100, seed=42):
         self.seed = seed
         self.number_of_nodes = number_of_nodes
         self._set_seed()
 
     def _set_seed(self)
+        """
+        Creating the initial random seed.
+        """
         random.seed(self.seed)
  
     def _create_initial_node_set(self):
