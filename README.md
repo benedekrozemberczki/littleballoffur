@@ -13,7 +13,7 @@
 
 Please look at the **[Documentation](https://littleballoffur.readthedocs.io/)** and **[External Resources](https://littleballoffur.readthedocs.io/en/latest/notes/resources.html)**.
 
-*Karate Club* consists of state-of-the-art methods to do unsupervised learning on graph structured data. To put it simply it is a Swiss Army knife for small-scale graph mining research. First, it provides network embedding techniques at the node and graph level. Second, it includes a variety of overlapping and non-overlapping community detection methods.
+*Little Ball of Fur* consists of state-of-the-art methods to do subsampling on graph structured data. To put it simply it is a Swiss Army knife for graph subsampling research. First, it provides network embedding techniques at the node and graph level. Second, it includes a variety of overlapping and non-overlapping community detection methods.
 
 --------------------------------------------------------------------------------
 
