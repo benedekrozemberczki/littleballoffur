@@ -19,12 +19,12 @@ Please look at the **[Documentation](https://littleballoffur.readthedocs.io/)** 
 
 **Citing**
 
-If you find *Karate Club* and the new datasets useful in your research, please consider citing the following paper:
+If you find *Little Ball of Fur* and the new datasets useful in your research, please consider citing the following paper:
 
 ```bibtex
->@misc{karateclub2020,
-       title={An API Oriented Open-source Python Framework for Unsupervised Learning on Graphs},
-       author={Benedek Rozemberczki and Rik Sarkar},
+>@misc{littleballoffur2020,
+       title={Little Ball of Fur:},
+       author={Benedek Rozemberczki},
        year={2020},
 }
 ```
