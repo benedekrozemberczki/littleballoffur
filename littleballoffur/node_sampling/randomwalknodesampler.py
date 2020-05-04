@@ -40,7 +40,7 @@ class RandomWalkNodeSampler(Sampler):
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
 
         Return types:
-            * **embedding** *(Numpy array)* - The graph of sampled nodes.
+            * **new_graph* *(NetworkX graph)* - The graph of sampled nodes.
         """
         self._graph = graph
         self._create_initial_node_set()
