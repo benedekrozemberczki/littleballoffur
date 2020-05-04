@@ -1,13 +1,17 @@
 import random
 import networkx as nx
-from littleballoffur.sampler import Sampler
 from littleballoffur.edge_sampling import RandomEdgeSampler
 
-class RandomEdgeSamplerWithInduction(Sampler):
+class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
 
 
     def _induce_graph(self):
-        nodes = set([edge[0] for edge in self.] + [edge[1] for edge in self.])
+        """
+        Inducing all of the edges given the sampled edges
+        """
+        nodes = set([node for edge in self.sampled_edges for node in edge])
+        new_graph = self._graph.subgraph(nodes)
+        return new_graph
 
     def sample(self, graph):
         """
