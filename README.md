@@ -13,13 +13,13 @@
 
 Please look at the **[Documentation](https://littleballoffur.readthedocs.io/)** and **[External Resources](https://littleballoffur.readthedocs.io/en/latest/notes/resources.html)**.
 
-*Little Ball of Fur* consists of state-of-the-art methods to do subsampling on graph structured data. To put it simply it is a Swiss Army knife for graph subsampling research. First, it includes a large variety of vertex and edge sampling techniques. Second, it provides a unified application public interface which makes the use of subsampling algorithms trivial. 
+**Little Ball of Fur** consists of state-of-the-art methods to do subsampling on graph structured data. To put it simply it is a Swiss Army knife for graph subsampling research. First, it includes a large variety of vertex and edge sampling techniques. Second, it provides a unified application public interface which makes the use of subsampling algorithms trivial. 
 
 --------------------------------------------------------------------------------
 
 **Citing**
 
-If you find *Little Ball of Fur* and the new datasets useful in your research, please consider citing the following paper:
+If you find **Little Ball of Fur** and the new datasets useful in your research, please consider citing the following paper:
 
 ```bibtex
 >@misc{littleballoffur2020,
@@ -32,7 +32,7 @@ If you find *Little Ball of Fur* and the new datasets useful in your research, p
 
 **A simple example**
 
-*Little Ball of Fur* makes the use of modern graph subsampling techniques quite easy (see [here](https://littleballoffur.readthedocs.io/en/latest/notes/introduction.html) for the accompanying tutorial).
+**Little Ball of Fur** makes using modern graph subsampling techniques quite easy (see [here](https://littleballoffur.readthedocs.io/en/latest/notes/introduction.html) for the accompanying tutorial).
 For example, this is all it takes to use [Random Walk Node Sampling](https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf) on a Watts-Strogatz graph:
 
 ```python
@@ -61,14 +61,14 @@ For a quick start, check out our [examples](https://github.com/benedekrozembercz
 
 If you notice anything unexpected, please open an [issue](https://github.com/benedekrozemberczki/littleballoffur/issues) and let us know.
 If you are missing a specific method, feel free to open a [feature request](https://github.com/benedekrozemberczki/littleballoffur/issues).
-We are motivated to constantly make *Little Ball of Fur* even better.
+We are motivated to constantly make **Little Ball of Fur** even better.
 
 
 --------------------------------------------------------------------------------
 
 **Installation**
 
-Little Ball of Fur can be installed with the following pip command.
+**Little Ball of Fur** can be installed with the following pip command.
 
 ```sh
 $ pip install littleballoffur
