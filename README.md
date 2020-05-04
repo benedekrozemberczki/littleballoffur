@@ -44,8 +44,6 @@ g = nx.newman_watts_strogatz_graph(1000, 20, 0.05)
 sampler = RandomWalkNodeSampler()
 
 new_graph = sampler.sample(graph)
-
-
 ```
 
 --------------------------------------------------------------------------------
