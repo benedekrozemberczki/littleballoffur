@@ -14,6 +14,10 @@ class Sampler(object):
         """Sample from a model."""
         pass
 
+    def _set_seed(self):
+        """Creating the initial random seed."""
+        random.seed(self.seed)
+
 
     def _check_networkx_graph(self, graph):
         try:
@@ -60,7 +64,14 @@ class Sampler(object):
         self._check_directedness(graph)
         self._check_indexing(graph)
 
-    def _check_number_of_nodes(self):
+    def _check_number_of_nodes(self, graph):
+        """Checking the size of the graph."""
+        try:
+           if self._number_of_nodes > graph.number_of_nodes():
+               raise ValueError("The number of nodes is too large. Please see requirements.")
+        except:
+           exit("The number of nodes is too large. Please see requirements.")     
+ 
 
 
 
