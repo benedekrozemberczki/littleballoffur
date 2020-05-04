@@ -5,9 +5,13 @@ from littleballoffur.sampler import Sampler
 class RandomWalkNodeSampler(Sampler):
 
     def __init__(self, number_of_nodes=100, seed=42):
-        random.seed(42)
+        self.seed = seed
         self.number_of_nodes = number_of_nodes
+        self._set_seed()
 
+    def _set_seed(self)
+        random.seed(self.seed)
+ 
     def _create_initial_node_set(self):
         self._current_node = random.choice(range(self._graph.number_of_nodes()))
         self._sampled_nodes = set([self._current_node])
