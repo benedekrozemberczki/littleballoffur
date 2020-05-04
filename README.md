@@ -7,7 +7,7 @@
 
 --------------------------------------------------------------------------------
 
-**Little Ball of Fur** is an unsupervised machine learning extension library for [NetworkX](https://networkx.github.io/).
+**Little Ball of Fur** is a graph subsampling extension library for [NetworkX](https://networkx.github.io/).
 
 
 
