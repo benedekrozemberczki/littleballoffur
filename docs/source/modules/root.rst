@@ -4,7 +4,7 @@ littleballoffur
 .. contents:: Contents
     :local:
 
-Node sampling
+Node Sampling
 --------------------
 
 .. automodule:: littleballoffur.node_sampling.randomnodesampler
@@ -15,7 +15,7 @@ Node sampling
     :members:
     :undoc-members:
 
-Edge sampling
+Edge Sampling
 --------------------
 
 .. automodule:: littleballoffur.edge_sampling.randomedgesampler

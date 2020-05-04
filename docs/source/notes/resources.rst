@@ -1,7 +1,7 @@
 External resources
 ==================
 
-Vertex Sampling
+Node Sampling
 --------------------
 
 
