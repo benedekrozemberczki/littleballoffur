@@ -19,7 +19,7 @@ class RandomEdgeSampler(Sampler):
         Choosing initial edges.
         """
         edges = [edge for edge in self._graph.edges()]
-        self._sampled_edges = random.sample(edge, self.number_of_edges)
+        self._sampled_edges = random.sample(edges, self.number_of_edges)
 
     def sample(self, graph):
         """
