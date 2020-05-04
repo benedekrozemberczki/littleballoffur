@@ -3,12 +3,15 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomWalkNodeSampler(Sampler):
-    """
-    
+    r"""An implementation of node sampling by random walks.
+
+    Args:
+        number_of_nodes (int): Number of nodes. Default is 100.
+        seed (int): Random seed. Default is 42.
     """
     def __init__(self, number_of_nodes=100, seed=42):
-        self.seed = seed
         self.number_of_nodes = number_of_nodes
+        self.seed = seed
         self._set_seed()
 
     def _set_seed(self)
@@ -48,6 +51,3 @@ class RandomWalkNodeSampler(Sampler):
             self._do_a_step()
         new_graph = self._graph.subgraph(self._sampled_nodes)
         return new_graph
-        
-
-
