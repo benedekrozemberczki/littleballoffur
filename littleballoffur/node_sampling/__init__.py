@@ -1,1 +1,2 @@
 from .randomwalknodesampler import RandomWalkNodeSampler
+from .randomnodesampler import RandomNodeSampler

@@ -1,3 +1,4 @@
+import random
 import networkx as nx
 
 """General Sampler base class."""
@@ -67,7 +68,7 @@ class Sampler(object):
     def _check_number_of_nodes(self, graph):
         """Checking the size of the graph."""
         try:
-           if self._number_of_nodes > graph.number_of_nodes():
+           if self.number_of_nodes > graph.number_of_nodes():
                raise ValueError("The number of nodes is too large. Please see requirements.")
         except:
            exit("The number of nodes is too large. Please see requirements.")     
