@@ -16,7 +16,7 @@ class RandomWalkNodeSampler(Sampler):
         Creating the initial random seed.
         """
         random.seed(self.seed)
- 
+
     def _create_initial_node_set(self):
         """
         Choosing an initial node.
@@ -31,9 +31,17 @@ class RandomWalkNodeSampler(Sampler):
         neighbors = self._graph.neighbors(self._current_node)
         self._current_node = random.choice([neighbor for neighbor in neighbors])
         self._sampled_nodes.add(self._current_node)
-        
 
     def sample(self, graph):
+        """
+        Sampling nodes with random walks.
+
+        Arg types:
+            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+
+        Return types:
+            * **embedding** *(Numpy array)* - The graph of sampled nodes.
+        """
         self._graph = graph
         self._create_initial_node_set()
         while len(self._sampled_nodes) < self.number_of_nodes:
