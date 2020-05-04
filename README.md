@@ -32,8 +32,8 @@ If you find *Little Ball of Fur* and the new datasets useful in your research, p
 
 **A simple example**
 
-*Karate Club* makes the use of modern community detection techniques quite easy (see [here](https://karateclub.readthedocs.io/en/latest/notes/introduction.html) for the accompanying tutorial).
-For example, this is all it takes to use on a Watts-Strogatz graph [Ego-splitting](https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf):
+*Little Ball of Fur* makes the use of modern graph subsampling techniques quite easy (see [here](https://littleballoffur.readthedocs.io/en/latest/notes/introduction.html) for the accompanying tutorial).
+For example, this is all it takes to use on a Watts-Strogatz graph [Random Walk Sampling](https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf):
 
 ```python
 import networkx as nx
