@@ -9,7 +9,7 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         """
         Inducing all of the edges given the sampled edges
         """
-        nodes = set([node for edge in self.sampled_edges for node in edge])
+        nodes = set([node for edge in self._sampled_edges for node in edge])
         new_graph = self._graph.subgraph(nodes)
         return new_graph
 

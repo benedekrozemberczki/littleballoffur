@@ -39,7 +39,7 @@ new_graph = sampler.sample(graph)
 # Random Edge Sampler With Induction Example
 #---------------------------------------------
 
-sampler = RandomEdgeSampler()
+sampler = RandomEdgeSamplerWithInduction()
 
 new_graph = sampler.sample(graph)
 
