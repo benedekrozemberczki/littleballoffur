@@ -17,6 +17,7 @@ setup(
           "tqdm",
           "python-louvain",
           "pandas",
+          "numpy",
           "six",
       ],
   classifiers=[
