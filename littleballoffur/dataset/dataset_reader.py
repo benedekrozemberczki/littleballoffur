@@ -9,7 +9,7 @@ class GraphReader(object):
     r"""Class to read benchmark datasets for the sampling task.
 
     Args:
-        dataset (str): Dataset of interest  on of facebook/wikipedia/github/twitch/deezer/lastfm. Default is 'wikipedia'.
+        dataset (str): Dataset of interest. One of facebook/wikipedia/github/twitch/deezer/lastfm. Default is 'wikipedia'.
     """
     def __init__(self, dataset="wikipedia"):
         self.dataset = dataset + "_edges.csv"
