@@ -1,5 +1,6 @@
 import io
 import os
+import numpy as np
 import pandas as pd
 import networkx as nx
 from six.moves import urllib
@@ -12,7 +13,7 @@ class GraphReader(object):
     """
     def __init__(self, dataset="wikipedia"):
         self.dataset = dataset + "_edges.csv"
-        self.base_url = "https://github.com/benedekrozemberczki/karateclub/raw/master/dataset/"
+        self.base_url = "https://github.com/benedekrozemberczki/littleballoffur/raw/master/dataset/"
 
     def _pandas_reader(self, bytes):
         """
@@ -24,11 +25,12 @@ class GraphReader(object):
                           dtype={"switch": np.int32})
         return tab
 
-    def _dataset_reader(self, end):
+    def _dataset_reader(self):
         """
         Reading the dataset from the web.
         """
-        path = os.path.join(self.base_url, self.dataset, end)
+        path = os.path.join(self.base_url, self.dataset)
+        print(path)
         data = urllib.request.urlopen(path).read()
         data = self._pandas_reader(data)
         return data
