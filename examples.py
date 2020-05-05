@@ -3,7 +3,7 @@
 import networkx as nx
 
 from littleballoffur.dataset import GraphReader
-from littleballoffur.node_sampling import RandomNodeSampler
+from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler
 from littleballoffur.expansion_sampling import RandomWalkSampler
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomEdgeSamplerWithInduction
  
@@ -40,5 +40,13 @@ new_graph = sampler.sample(graph)
 #--------------------------------------------
 
 sampler = RandomEdgeSamplerWithInduction()
+
+new_graph = sampler.sample(graph)
+
+#-----------------------------
+# Degree Based Sampler Example
+#-----------------------------
+
+sampler = DegreeBasedSampler()
 
 new_graph = sampler.sample(graph)
