@@ -38,7 +38,7 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
 
     def sample(self, graph):
         """
-        Sampling nodes with a single random walk that restarts.
+        Sampling nodes with a Metropolis Hastings single random walk.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
