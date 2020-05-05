@@ -10,7 +10,7 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
         seed (int): Random seed. Default is 42.
         alpha (float): Rejection constraint exponent. Default is 1.0.
     """
-    def __init__(self, number_of_nodes=100, seed=42, p=0.1):
+    def __init__(self, number_of_nodes=100, seed=42, alpha=1.0):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self.alpha = alpha
