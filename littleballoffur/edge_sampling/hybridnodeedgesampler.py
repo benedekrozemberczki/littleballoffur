@@ -25,7 +25,6 @@ class HybridNodeEdgeSampler(Sampler):
             edge = sorted([source_node, target_node])
             edge = tuple(edge)
             self._sampled_edges.add(edge)
-            
 
     def sample(self, graph):
         """
