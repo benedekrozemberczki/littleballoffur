@@ -11,10 +11,6 @@ Node Sampling
     :members:
     :undoc-members:
 
-.. automodule:: littleballoffur.node_sampling.randomwalknodesampler
-    :members:
-    :undoc-members:
-
 Edge Sampling
 --------------------
 
@@ -25,3 +21,12 @@ Edge Sampling
 .. automodule:: littleballoffur.edge_sampling.randomedgesamplerwithinduction
     :members:
     :undoc-members:
+
+
+Expansion Sampling
+--------------------
+
+.. automodule:: littleballoffur.expansion_sampling.randomwalksampler
+    :members:
+    :undoc-members:
+
