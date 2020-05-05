@@ -80,7 +80,7 @@ Case Study of Unbiased Sampling of OSNs](https://ieeexplore.ieee.org/document/54
 * **[Random Walk With Jump Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.expansion_sampling.randomwalkwithjumpsampler)** from Ribeiro *et al.*: [Estimating and Sampling Graphs with
 Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM IMC 2010)
 
-* **[Random Walk With Jump Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.expansion_sampling.metropolishastingsrandomwalksampler)** from Hubler *et al.*: [Metropolis Algorithms for Representative Subgraph Sampling](http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf) (ICDM 2008)
+* **[Metropolis Hastings Random Walk With Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.expansion_sampling.metropolishastingsrandomwalksampler)** from Hubler *et al.*: [Metropolis Algorithms for Representative Subgraph Sampling](http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf) (ICDM 2008)
 
 Head over to our [documentation](https://littleballoffur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
