@@ -7,9 +7,9 @@ from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler,
 from littleballoffur.expansion_sampling import RandomWalkSampler
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
  
-#---------------------------------
+#-----------------------------
 # Random Walk Sampler Example
-#---------------------------------
+#-----------------------------
 
 reader = GraphReader("twitch")
 
@@ -51,9 +51,9 @@ new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
-#-----------------------------
+#------------------------------
 # Degree Based Sampler Example
-#-----------------------------
+#------------------------------
 
 sampler = DegreeBasedSampler()
 
@@ -61,9 +61,9 @@ new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
-#-----------------------------
+#--------------------------------
 # PageRank Based Sampler Example
-#-----------------------------
+#--------------------------------
 
 sampler = PageRankBasedSampler()
 
@@ -71,9 +71,9 @@ new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
-#-----------------------------
+#----------------------------------
 # Random Node Edge Sampler Example
-#-----------------------------
+#----------------------------------
 
 sampler = RandomNodeEdgeSampler()
 
@@ -81,9 +81,9 @@ new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
-#-----------------------------
+#----------------------------------
 # Hybrid Node Edge Sampler Example
-#-----------------------------
+#----------------------------------
 
 sampler = HybridNodeEdgeSampler()
 
