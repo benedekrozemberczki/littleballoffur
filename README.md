@@ -35,11 +35,11 @@ For example, this is all it takes to use [Random Walk Node Sampling](https://www
 
 ```python
 import networkx as nx
-from littleballoffur import RandomWalkNodeSampler
+from littleballoffur import RandomWalkSampler
 
 g = nx.newman_watts_strogatz_graph(1000, 20, 0.05)
 
-sampler = RandomWalkNodeSampler()
+sampler = RandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 ```
