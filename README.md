@@ -60,9 +60,9 @@ In detail, the following sampling methods were implemented.
 
 **Edge Sampling**
 
-* **[Uniform Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)**
+* **[Uniform Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologiesfor Faster Simulations]() ()
 
-* **[Uniform Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)**
+* **[Uniform Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologiesfor Faster Simulations]() ()
 
 **Expansion Sampling**
 
