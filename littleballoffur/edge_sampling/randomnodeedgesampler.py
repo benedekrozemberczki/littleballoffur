@@ -25,7 +25,6 @@ class RandomNodeEdgeSampler(Sampler):
             edge = sorted([source_node, target_node])
             edge = tuple(edge)
             self._sampled_edges.add(edge)
-            print(len(self._sampled_edges))
             
 
     def sample(self, graph):
@@ -41,5 +40,6 @@ class RandomNodeEdgeSampler(Sampler):
         self._check_graph(graph)
         self._check_number_of_edges(graph)
         self._graph = graph
+        self._create_initial_edge_set()
         new_graph = nx.from_edgelist(self._sampled_edges)
         return new_graph

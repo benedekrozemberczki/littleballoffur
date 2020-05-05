@@ -5,7 +5,7 @@ import networkx as nx
 from littleballoffur.dataset import GraphReader
 from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
 from littleballoffur.expansion_sampling import RandomWalkSampler
-from littleballoffur.edge_sampling import RandomEdgeSampler, RandomEdgeSamplerWithInduction
+from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, RandomEdgeSamplerWithInduction
  
 #---------------------------------
 # Random Walk Sampler Example
@@ -66,6 +66,17 @@ print(nx.transitivity(new_graph))
 #-----------------------------
 
 sampler = PageRankBasedSampler()
+
+new_graph = sampler.sample(graph)
+
+print(nx.transitivity(new_graph))
+
+
+#-----------------------------
+# Random Node Edge Sampler Example
+#-----------------------------
+
+sampler = RandomNodeEdgeSampler()
 
 new_graph = sampler.sample(graph)
 
