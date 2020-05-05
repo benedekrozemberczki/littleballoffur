@@ -58,7 +58,7 @@ In detail, the following sampling methods were implemented.
 
 * **[Uniform Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)**
 
-* **[Uniform Random Edge Sampler with Induction](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)**
+* **[Uniform Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)**
 
 **Expansion sampling**
 
