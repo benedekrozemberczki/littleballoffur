@@ -52,7 +52,7 @@ In detail, the following sampling methods were implemented.
 
 **Node Sampling**
 
-* **[Uniform Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)** from Stumpf *et al.*: [SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks](https://www.pnas.org/content/102/12/4221) (PNAS 2005)
+* **[Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)** from Stumpf *et al.*: [SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks](https://www.pnas.org/content/102/12/4221) (PNAS 2005)
 
 * **[Degree Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.degreebasedsampler.DegreeBasedSampler)** from Adamic *et al.*: [Search In Power-Law Networks](https://arxiv.org/abs/cs/0103016) (Physical Review E 2001)
 
@@ -60,9 +60,9 @@ In detail, the following sampling methods were implemented.
 
 **Edge Sampling**
 
-* **[Uniform Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologiesfor Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
+* **[Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologiesfor Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
 
-* **[Uniform Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologiesfor Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
+* **[Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologiesfor Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
 
 **Expansion Sampling**
 
