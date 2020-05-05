@@ -50,17 +50,17 @@ new_graph = sampler.sample(graph)
 
 In detail, the following sampling methods were implemented.
 
-**Node sampling**
+**Node Sampling**
 
 * **[Uniform Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)**
 
-**Edge sampling**
+**Edge Sampling**
 
 * **[Uniform Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)**
 
 * **[Uniform Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)**
 
-**Expansion sampling**
+**Expansion Sampling**
 
 * **[Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.expansion_sampling.randomwalksampler)** from Gjoka *et al.*: [Walking in Facebook: A
 Case Study of Unbiased Sampling of OSNs](https://ieeexplore.ieee.org/document/5462078) (INFOCOM 2010)
