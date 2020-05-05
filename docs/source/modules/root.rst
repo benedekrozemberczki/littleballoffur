@@ -58,3 +58,7 @@ Expansion Sampling
     :members:
     :undoc-members:
 
+.. automodule:: littleballoffur.expansion_sampling.metropolishastingsrandomwalksampler
+    :members:
+    :undoc-members:
+
