@@ -46,3 +46,8 @@ Expansion Sampling
     :members:
     :undoc-members:
 
+
+.. automodule:: littleballoffur.expansion_sampling.randomwalkwithrestartsampler
+    :members:
+    :undoc-members:
+
