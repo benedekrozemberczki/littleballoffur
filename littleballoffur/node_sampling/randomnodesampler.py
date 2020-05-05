@@ -29,7 +29,7 @@ class RandomNodeSampler(Sampler):
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph* *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
         """
         self._check_graph(graph)
         self._check_number_of_nodes(graph)
