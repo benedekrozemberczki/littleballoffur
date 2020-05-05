@@ -8,7 +8,7 @@ class RandomWalkWithJumpSampler(Sampler):
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
-        p (float): Jump probability. Default is 0.1.
+        p (float): Jump (teleport) probability. Default is 0.1.
     """
     def __init__(self, number_of_nodes=100, seed=42, p=0.1):
         self.number_of_nodes = number_of_nodes
