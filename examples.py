@@ -3,18 +3,19 @@
 import networkx as nx
 
 from littleballoffur.dataset import GraphReader
-from littleballoffur.node_sampling import RandomWalkNodeSampler, RandomNodeSampler
+from littleballoffur.node_sampling import RandomNodeSampler
+from littleballoffur.expansion_sampling import RandomWalkSampler
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomEdgeSamplerWithInduction
  
 #---------------------------------
-# Random Walk Node Sampler Example
+# Random Walk Sampler Example
 #---------------------------------
 
 reader = GraphReader("twitch")
 
 graph = reader.get_graph()
 
-sampler = RandomWalkNodeSampler()
+sampler = RandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 

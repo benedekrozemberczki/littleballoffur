@@ -10,7 +10,6 @@ class Sampler(object):
         """Creatinng a sampler."""
         pass
 
-
     def sample(self):
         """Sample from a model."""
         pass
@@ -19,7 +18,6 @@ class Sampler(object):
         """Creating the initial random seed."""
         random.seed(self.seed)
 
-
     def _check_networkx_graph(self, graph):
         try:
             if not isinstance(graph, nx.classes.graph.Graph):
@@ -27,7 +25,6 @@ class Sampler(object):
         except:
                 exit("This is not a NetworkX graph. Please see requirements.")
    
-
     def _check_connectivity(self, graph):
         """Checking the connected nature of a single graph."""
         try:
@@ -73,7 +70,6 @@ class Sampler(object):
         except:
            exit("The number of nodes is too large. Please see requirements.")   
 
-
     def _check_number_of_edges(self, graph):
         """Checking the size of the graph - edges."""
         try:
@@ -81,9 +77,3 @@ class Sampler(object):
                raise ValueError("The number of edges is too large. Please see requirements.")
         except:
            exit("The number of edges is too large. Please see requirements.")     
- 
-  
- 
-
-
-
