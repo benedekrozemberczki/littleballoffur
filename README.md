@@ -37,7 +37,7 @@ For example, this is all it takes to use [Random Walk Node Sampling](https://www
 import networkx as nx
 from littleballoffur import RandomWalkSampler
 
-g = nx.newman_watts_strogatz_graph(1000, 20, 0.05)
+graph = nx.newman_watts_strogatz_graph(1000, 20, 0.05)
 
 sampler = RandomWalkSampler()
 
@@ -55,6 +55,8 @@ In detail, the sampling methods were implemented.
 **Edge sampling**
 
 **Expansion sampling**
+
+
 
 Head over to our [documentation](https://littleballoffur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
