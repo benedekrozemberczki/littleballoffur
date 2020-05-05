@@ -54,9 +54,11 @@ In detail, the sampling methods were implemented.
 
 * **[Uniform Random Node Sampler](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)**
 
-* **[Uniform Random Node Sampler](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)**
-
 **Edge sampling**
+
+* **[Uniform Random Edge Sampler](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)**
+
+* **[Uniform Random Edge Sampler with Induction](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)**
 
 **Expansion sampling**
 
