@@ -19,6 +19,8 @@ sampler = RandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 
+print(nx.transitivity(new_graph))
+
 #-----------------------------
 # Random Node Sampler Example
 #-----------------------------
@@ -26,6 +28,8 @@ new_graph = sampler.sample(graph)
 sampler = RandomNodeSampler()
 
 new_graph = sampler.sample(graph)
+
+print(nx.transitivity(new_graph))
 
 #-----------------------------
 # Random Edge Sampler Example
@@ -35,6 +39,8 @@ sampler = RandomEdgeSampler()
 
 new_graph = sampler.sample(graph)
 
+print(nx.transitivity(new_graph))
+
 #--------------------------------------------
 # Random Edge Sampler With Induction Example
 #--------------------------------------------
@@ -42,6 +48,8 @@ new_graph = sampler.sample(graph)
 sampler = RandomEdgeSamplerWithInduction()
 
 new_graph = sampler.sample(graph)
+
+print(nx.transitivity(new_graph))
 
 #-----------------------------
 # Degree Based Sampler Example
@@ -51,6 +59,7 @@ sampler = DegreeBasedSampler()
 
 new_graph = sampler.sample(graph)
 
+print(nx.transitivity(new_graph))
 
 #-----------------------------
 # PageRank Based Sampler Example
@@ -59,3 +68,5 @@ new_graph = sampler.sample(graph)
 sampler = PageRankBasedSampler()
 
 new_graph = sampler.sample(graph)
+
+print(nx.transitivity(new_graph))
