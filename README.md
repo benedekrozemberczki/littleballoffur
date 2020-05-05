@@ -48,7 +48,7 @@ new_graph = sampler.sample(graph)
 
 **Methods included**
 
-In detail, the sampling methods were implemented.
+In detail, the following sampling methods were implemented.
 
 **Node sampling**
 
