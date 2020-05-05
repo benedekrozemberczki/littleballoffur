@@ -27,6 +27,10 @@ Edge Sampling
     :members:
     :undoc-members:
 
+.. automodule:: littleballoffur.edge_sampling.randomnodeedgesampler
+    :members:
+    :undoc-members:
+
 .. automodule:: littleballoffur.edge_sampling.randomedgesamplerwithinduction
     :members:
     :undoc-members:
