@@ -3,7 +3,7 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomNodeNeighborSampler(Sampler):
-    r"""An implementation of random node sampling.
+    r"""An implementation of random node-neighbor sampling.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
@@ -20,6 +20,8 @@ class RandomNodeNeighborSampler(Sampler):
         """
         nodes = [node for node in range(self._graph.number_of_nodes())]
         self._sampled_nodes = random.sample(nodes, self.number_of_nodes)
+        neighbors = [neighbor for node in self._sampled_nodes for neighbor in self._graph.neighbors(node)]
+        self._sampled_nodes = set(self.sampled_nodes + neighbors)     
 
     def sample(self, graph):
         """
