@@ -29,7 +29,7 @@ class RandomWalkWithRestartSampler(Sampler):
         Doing a single random walk step.
         """
         score = random.uniform(0, 1)
-        if score < p:
+        if score < self.p:
             self._current_node = self._initial_node
         else:
             neighbors = self._graph.neighbors(self._current_node)
