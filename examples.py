@@ -4,7 +4,7 @@ import networkx as nx
 
 from littleballoffur.dataset import GraphReader
 from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
-from littleballoffur.expansion_sampling import RandomWalkSampler, RandomNodeNeighborSampler
+from littleballoffur.expansion_sampling import RandomWalkSampler, RandomNodeNeighborSampler, MetropolisHastingsRandomWalkSampler
 from littleballoffur.expansion_sampling import RandomWalkWithRestartSampler, RandomWalkWithJumpSampler
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
  
@@ -122,3 +122,14 @@ sampler = RandomWalkWithJumpSampler()
 new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
+
+#-----------------------------------------
+# Metropolis Hastings Random Walk Example
+#-----------------------------------------
+
+sampler = MetropolisHastingsRandomWalkSampler()
+
+new_graph = sampler.sample(graph)
+
+print(nx.transitivity(new_graph))
+
