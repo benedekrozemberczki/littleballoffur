@@ -52,9 +52,9 @@ In detail, the following sampling methods were implemented.
 
 **Node Sampling**
 
-* **[Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)** from Stumpf *et al.*: [SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks](https://www.pnas.org/content/102/12/4221) (PNAS 2005)
-
 * **[Degree Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.degreebasedsampler.DegreeBasedSampler)** from Adamic *et al.*: [Search In Power-Law Networks](https://arxiv.org/abs/cs/0103016) (Physical Review E 2001)
+
+* **[Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)** from Stumpf *et al.*: [SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks](https://www.pnas.org/content/102/12/4221) (PNAS 2005)
 
 * **[PageRank Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.pagerankbasedsampler.PageRankBasedSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
 
