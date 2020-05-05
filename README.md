@@ -54,6 +54,8 @@ In detail, the following sampling methods were implemented.
 
 * **[Uniform Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)**
 
+* **[Degree Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.degreebasedsampler.DegreeBasedSampler)** from Adamic *et al.*: [Search In Power-Law Networks](https://ieeexplore.ieee.org/document/5462078) (Physical Review E 2001)
+
 **Edge Sampling**
 
 * **[Uniform Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)**
