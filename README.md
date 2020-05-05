@@ -56,7 +56,8 @@ In detail, the sampling methods were implemented.
 
 **Expansion sampling**
 
-
+* **[Random Walk Sampler](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)** from Gjoka *et al.*: [Walking in Facebook: A
+Case Study of Unbiased Sampling of OSNs](https://ieeexplore.ieee.org/document/5462078) (INFOCOM 2010)
 
 Head over to our [documentation](https://littleballoffur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
