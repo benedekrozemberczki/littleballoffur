@@ -56,13 +56,13 @@ In detail, the following sampling methods were implemented.
 
 **Edge sampling**
 
-* **[Uniform Random Edge Sampler](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)**
+* **[Uniform Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)**
 
 * **[Uniform Random Edge Sampler with Induction](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)**
 
 **Expansion sampling**
 
-* **[Random Walk Sampler](https://littleballoffur.readthedocs.io/en/latest/modules/root.html#littleballoffur.expansion_sampling.randomwalksampler.RandomWalkSampler)** from Gjoka *et al.*: [Walking in Facebook: A
+* **[Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.expansion_sampling.randomwalksampler)** from Gjoka *et al.*: [Walking in Facebook: A
 Case Study of Unbiased Sampling of OSNs](https://ieeexplore.ieee.org/document/5462078) (INFOCOM 2010)
 
 Head over to our [documentation](https://littleballoffur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
