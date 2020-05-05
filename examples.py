@@ -112,5 +112,15 @@ new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
+#--------------------------------------
+# Random Walk With Jump Example
+#--------------------------------------
+
+sampler = RandomWalkWithJumpSampler()
+
+new_graph = sampler.sample(graph)
+
+print(nx.transitivity(new_graph))
+
 
 
