@@ -11,6 +11,11 @@ Node Sampling
     :members:
     :undoc-members:
 
+.. automodule:: littleballoffur.node_sampling.degreebasedsampler
+    :members:
+    :undoc-members:
+
+
 Edge Sampling
 --------------------
 
