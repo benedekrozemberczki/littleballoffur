@@ -71,7 +71,6 @@ new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
-
 #-----------------------------
 # Random Node Edge Sampler Example
 #-----------------------------
