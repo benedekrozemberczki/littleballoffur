@@ -1,4 +1,5 @@
 import random
+import numpy as np
 import networkx as nx
 
 """General Sampler base class."""
@@ -17,6 +18,7 @@ class Sampler(object):
     def _set_seed(self):
         """Creating the initial random seed."""
         random.seed(self.seed)
+        np.random.seed(self.seed)
 
     def _check_networkx_graph(self, graph):
         try:
