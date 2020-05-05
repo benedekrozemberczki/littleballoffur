@@ -2,3 +2,4 @@ from .randomwalksampler import RandomWalkSampler
 from .randomnodeneighborsampler import RandomNodeNeighborSampler
 from .randomwalkwithrestartsampler import RandomWalkWithRestartSampler
 from .randomwalkwithjumpsampler import RandomWalkWithJumpSampler
+from .metropolishastingsrandomwalksampler import MetropolisHastingsRandomWalkSampler
