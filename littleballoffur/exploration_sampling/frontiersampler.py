@@ -19,6 +19,9 @@ class FrontierSampler(Sampler):
 
 
     def _reweight(self):
+        """
+        Create new seed weights.
+        """
         self._seed_weights = [self._graph.degree(seed) for seed in self._seeds]
         weight_sum = np.sum(self._seed_weights)
         self._seed_weights = [float(weight)/weight_sum for weight in self._seed_weights]
@@ -31,6 +34,9 @@ class FrontierSampler(Sampler):
         self._seeds = random.sample(nodes, self.number_of_seeds)
 
     def _do_update(self):
+        """
+        Choose new seed node.
+        """
         sample = np.random.choice(self._seeds, 1, replace=False, p=self._seed_weights)[0]
         index = self._seeds.index(sample)
         new_seed = random.choice([neb for neb in self._graph.neighbors(sample)])
@@ -41,6 +47,15 @@ class FrontierSampler(Sampler):
 
  
     def sample(self, graph):
+        """
+        Sampling nodes and edges with a frontier sampler.
+
+        Arg types:
+            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+
+        Return types:
+            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+        """
         self._nodes = set()
         self._edges = set()
         self._check_graph(graph)
