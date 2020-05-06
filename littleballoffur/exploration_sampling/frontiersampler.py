@@ -8,7 +8,7 @@ class FrontierSampler(Sampler):
 
     Args:
         number_of_seeds (int): Number of seed nodes. Default is 3.
-        budget (int): Number of sampling steps. Default is 1000.
+        number_of_nodes (int): Number of sampling steps. Default is 100.
         seed (int): Random seed. Default is 42.
     """
     def __init__(self, number_of_seeds=3, number_of_nodes=100, seed=42):
