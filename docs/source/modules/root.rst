@@ -62,3 +62,7 @@ Exploration Sampling
     :members:
     :undoc-members:
 
+.. automodule:: littleballoffur.exploration_sampling.frontiersampler
+    :members:
+    :undoc-members:
+
