@@ -39,26 +39,26 @@ Edge Sampling
     :members:
     :undoc-members:
 
-Expansion Sampling
+Exploration Sampling
 --------------------
 
-.. automodule:: littleballoffur.expansion_sampling.randomwalksampler
+.. automodule:: littleballoffur.exploration_sampling.randomwalksampler
     :members:
     :undoc-members:
 
-.. automodule:: littleballoffur.expansion_sampling.randomnodeneighborsampler
+.. automodule:: littleballoffur.exploration_sampling.randomnodeneighborsampler
     :members:
     :undoc-members:
 
-.. automodule:: littleballoffur.expansion_sampling.randomwalkwithrestartsampler
+.. automodule:: littleballoffur.exploration_sampling.randomwalkwithrestartsampler
     :members:
     :undoc-members:
 
-.. automodule:: littleballoffur.expansion_sampling.randomwalkwithjumpsampler
+.. automodule:: littleballoffur.exploration_sampling.randomwalkwithjumpsampler
     :members:
     :undoc-members:
 
-.. automodule:: littleballoffur.expansion_sampling.metropolishastingsrandomwalksampler
+.. automodule:: littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler
     :members:
     :undoc-members:
 
