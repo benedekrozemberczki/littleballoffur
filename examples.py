@@ -20,7 +20,7 @@ graph = reader.get_graph()
 
 sampler = FrontierSampler()
 
-sampler.sample(graph)
+new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
@@ -30,7 +30,7 @@ print(nx.transitivity(new_graph))
 
 sampler = ForestFireSampler()
 
-sampler.sample(graph)
+new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
