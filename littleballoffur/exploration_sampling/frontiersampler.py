@@ -35,10 +35,13 @@ class FrontierSampler(Sampler):
         index = self._seeds.index(sample)
         new_seed = random.choice([neb for neb in self._graph.neighbors(sample)])
         self._edges.add((sample, new_seed))
+        self._nodes.add(sample)
+        self._nodes.add(new_seed)
         self._seeds[index] = new_seed
 
  
     def sample(self, graph):
+        self._nodes = set()
         self._edges = set()
         self._check_graph(graph)
         self._graph = graph
