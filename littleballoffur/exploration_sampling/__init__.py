@@ -1,3 +1,4 @@
+from .frontiersampler import FrontierSampler
 from .randomwalksampler import RandomWalkSampler
 from .randomnodeneighborsampler import RandomNodeNeighborSampler
 from .randomwalkwithrestartsampler import RandomWalkWithRestartSampler

@@ -16,28 +16,10 @@ class FrontierSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_node_set(self):
+    def _create_initial_seed_set(self):
         """
         Choosing initial nodes.
         """
         nodes = [node for node in range(self._graph.number_of_nodes())]
-        self._sampled_nodes = random.sample(nodes, self.number_of_nodes)
-        neighbors = [neighbor for node in self._sampled_nodes for neighbor in self._graph.neighbors(node)]
-        self._sampled_nodes = set(self._sampled_nodes + neighbors)     
-
-    def sample(self, graph):
-        """
-        Sampling nodes randomly.
-
-        Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
-
-        Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
-        """
-        self._check_graph(graph)
-        self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_initial_node_set()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
-        return new_graph
+        self._sampled_seeds = set(random.sample(nodes, self.number_of_seeds)) 
+ 
