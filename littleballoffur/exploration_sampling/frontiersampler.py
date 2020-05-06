@@ -41,7 +41,6 @@ class FrontierSampler(Sampler):
     def sample(self, graph):
         self._edges = set()
         self._check_graph(graph)
-        self._check_number_of_nodes(graph)
         self._graph = graph
         self._create_initial_seed_set()
         for _ in range(self.budget):
