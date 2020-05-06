@@ -66,7 +66,7 @@ In detail, the following sampling methods were implemented.
 
 * **[Hybrid Node-Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.hybridnodeedgesampler.HybridNodeEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologies for Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
 
-* **[Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologies for Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
+* **[Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)** from Ahmed *et al.*: [Network Sampling: From Static to Streaming Graphs](https://dl.acm.org/doi/10.1145/2601438) (TKDD 2013)
 
 **Expansion Sampling**
 
