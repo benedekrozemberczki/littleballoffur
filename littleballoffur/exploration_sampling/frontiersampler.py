@@ -11,9 +11,9 @@ class FrontierSampler(Sampler):
         budget (int): Number of sampling steps. Default is 1000.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_seeds=3, budget=1000, seed=42):
+    def __init__(self, number_of_seeds=3, number_of_nodes=100, seed=42):
         self.number_of_seeds = number_of_seeds
-        self.budget = budget
+        self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
 
@@ -46,7 +46,7 @@ class FrontierSampler(Sampler):
         self._check_graph(graph)
         self._graph = graph
         self._create_initial_seed_set()
-        for _ in range(self.budget):
+        while len(self._nodes) < self.number_of_nodes:
             self._reweight()
             self._do_update()
         new_graph = nx.from_edgelist(self._edges)
