@@ -5,22 +5,34 @@ import networkx as nx
 from littleballoffur.dataset import GraphReader
 from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
 from littleballoffur.exploration_sampling import RandomWalkSampler, RandomNodeNeighborSampler, MetropolisHastingsRandomWalkSampler
-from littleballoffur.exploration_sampling import RandomWalkWithRestartSampler, RandomWalkWithJumpSampler, FrontierSampler
+from littleballoffur.exploration_sampling import RandomWalkWithRestartSampler, RandomWalkWithJumpSampler, FrontierSampler, ForestFireSampler
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
  
-#--------------------------
-# Frontier Sampler Example
-#--------------------------
+
 
 reader = GraphReader("twitch")
 
 graph = reader.get_graph()
 
+#--------------------------
+# Frontier Sampler Example
+#--------------------------
+
 sampler = FrontierSampler()
 
 sampler.sample(graph)
 
-quit()
+print(nx.transitivity(new_graph))
+
+#---------------------------
+# ForestFire Sampler Example
+#---------------------------
+
+sampler = ForestFireSampler()
+
+sampler.sample(graph)
+
+print(nx.transitivity(new_graph))
 
 #-----------------------------
 # Random Walk Sampler Example
