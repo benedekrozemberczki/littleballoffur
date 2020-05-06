@@ -18,6 +18,8 @@ graph = reader.get_graph()
 
 sampler = FrontierSampler()
 
+sampler.sample(graph)
+
 quit()
 
 #-----------------------------
