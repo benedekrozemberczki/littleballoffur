@@ -17,7 +17,6 @@ class FrontierSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-
     def _reweight(self):
         """
         Create new seed weights.
@@ -45,7 +44,6 @@ class FrontierSampler(Sampler):
         self._nodes.add(new_seed)
         self._seeds[index] = new_seed
 
- 
     def sample(self, graph):
         """
         Sampling nodes and edges with a frontier sampler.
