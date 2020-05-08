@@ -146,7 +146,7 @@ Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Inte
     sampler = HybridNodeEdgeSampler(number_of_edges = number_of_edges)
     new_graph = sampler.sample(graph)
 
-The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a model, we sample from the Wikipedia graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
 
 .. code-block:: python
 
@@ -164,60 +164,47 @@ The constructor defines a model, we sample from the Facebook graph with the ``sa
 Exploration sampling
 --------------------
 
-The third machine learning task that we look at is the classification of threads from the online forum Reddit. The threads
-can be of of two types - discussion and non-discussion based ones. Our goal is to predict the type of the thread based on
-the topological (structural) properties of the graphs. The specific dataset that we look a 10 thousand graph subsample of
-the Reddit 204K dataset which contains a large number of threads from the spring of 2018. The graphs in the dataset do not
-have a specific feature. Because of this we use the degree centrality as a string feature.
-For details about the dataset `see this paper <https://arxiv.org/abs/2003.04819>`_.
 
-We first need to load the Reddit 10K dataset. We will use the use the graphs and the discussion/non-discussion target vector.
-These are returned as a list of ``NetworkX`` graphs and ``numpy`` array respectively.
+The second task that we will look at is sampling a subgraph by drawing a representative set of edges from a Wikipedia graph. In this network
+nodes represent Wikipedia pages about Crocodiles and the edges between them are mutual links. For details
+about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
+
+We first need to load the Wikipedia dataset which is returned as a ``NetworkX`` graph.
 
 .. code-block:: python
 
-    from karateclub.dataset import GraphSetReader
+    from littleballoffur import GraphReader
 
-    reader = GraphSetReader("reddit10k")
+    reader = GraphReader("wikipedia")
 
-    graphs = reader.get_graphs()
-    y = reader.get_target()
+    graph = reader.get_graph()
 
-We fit a Graph2Vec graph level embedding, with the standard hyperparameter settings. These are pretty widely used settings.
-First, we use the model constructor without custom parameters. Second, we fit the model to the graphs. Third, we get the graph embedding
-which is a ``numpy`` array.
+The constructor defines the parametrized graph reader object again, while the ``get_graph`` method reads the dataset.
 
-.. code-block:: python
-
-    from karateclub import Graph2Vec
-
-    model = Graph2Vec()
-    model.fit(graphs)
-    X = model.get_embedding()
-
-We use the graph embedding features as predictors of the thread type. So let us create a train-test split of the explanatory variables
-and the target variable with Scikit-Learn. We will use a test data ratio of 20%. Here it is.
+Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Internet Topologies for Faster Simulations <http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_. We will sample approximately 50% of the original edges from the network.
 
 .. code-block:: python
 
-    from sklearn.model_selection import train_test_split
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-Using the training data (``X_train`` and ``y_train``) we learn a logistic regression model to predict the probability of a thread being discussion based. We perform inference on the test 
-set for this target. Finally, we evaluate the model performance by printing an area under the ROC curve value.
-
-.. code-block:: python
-
-    from sklearn.metrics import roc_auc_score
-    from sklearn.linear_model import LogisticRegression
+    from littleballoffur import HybridNodeEdgeSampler
     
-    downstream_model = LogisticRegression(random_state=0).fit(X_train, y_train)
-    y_hat = downstream_model.predict_proba(X_test)[:, 1]
-    auc = roc_auc_score(y_test, y_hat)
-    print('AUC: {:.4f}'.format(auc))
-    >>> AUC: 0.7127
+    number_of_edges = int(0.5*graph.number_of_edges())
+    sampler = HybridNodeEdgeSampler(number_of_edges = number_of_edges)
+    new_graph = sampler.sample(graph)
 
+The constructor defines a model, we sample from the Wikipedia graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+
+.. code-block:: python
+
+    import networkx as nx
+
+    transitivity = nx.transitivity(graph)
+    transitivity_sampled = nx.transitivity(new_graph)
+
+    print('Transitivity Original: {:.4f}'.format(transitivity))
+    print('Transitivity Sampled: {:.4f}'.format(transitivity_sampled))
+
+    >>> Transitivity Original: 0.0261
+    >>> Transitivity Sampled: 0.0070
 
 Benchmark datasets
 ------------------
