@@ -92,15 +92,14 @@ We first need to load the Facebook page-page network dataset which is returned a
 
 The constructor defines the parametrized graph reader object while the ``get_graph`` method reads the data.
 
-Now let's use the ``PageRank Proportional Node Sampling`` method from `Near Linear Time Algorithm to Detect Community Structures in Large-Scale Networks <https://arxiv.org/abs/0709.2938>`_. 
+Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. 
 
 .. code-block:: python
 
-    from karateclub import LabelPropagation
+    from littleballoffur import PageRankSampler
     
-    model = LabelPropagation()
-    model.fit(graph)
-    cluster_membership = model.get_memberships()
+    sampler = PageRankSampler()
+    new_graph = sampler.sampler(graph)
 
 The constructor defines a model, we fit the model on the Facebook graph with the ``fit`` method and return the cluster memberships
 with the ``get_memberships`` method as a dictionary.
