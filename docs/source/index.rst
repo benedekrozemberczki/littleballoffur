@@ -8,9 +8,9 @@ Karate Club Documentation
 
 .. code-block:: latex
 
-    >@misc{karateclub2020,
-           title={An API Oriented Open-source Python Framework for Unsupervised Learning on Graphs},
-           author={Benedek Rozemberczki and Rik Sarkar},
+    >@misc{littleballoffur2020,
+           title={Little Ball of Fur: A Python Library for Graph Subsampling},
+           author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
            year={2020},
     }
 
