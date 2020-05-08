@@ -7,3 +7,6 @@ Node Sampling
 
 Edge Sampling
 --------------------
+
+Exploration Sampling
+--------------------

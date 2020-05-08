@@ -3,8 +3,7 @@ Introduction by example
 
 *Karate Club* is an unsupervised machine learning extension library for `NetworkX <https://networkx.github.io/>`_.
 
-
-*Karate Club* consists of state-of-the-art methods to do unsupervised learning on graph structured data. To put it simply it is a Swiss Army knife for small-scale graph mining research. First, it provides network embedding techniques at the node and graph level. Second, it includes a variety of overlapping and non-overlapping community detection methods. Implemented methods cover a wide range of network science (`NetSci <https://netscisociety.net/home>`_, `CompleNet <https://complenet.weebly.com/>`_, data mining `ICDM <http://icdm2019.bigke.org/>`_, `CIKM <http://www.cikm2019.net/>`_, `KDD <https://www.kdd.org/kdd2020/>`_, artificial intelligence (`AAAI <http://www.aaai.org/Conferences/conferences.php>`_, `IJCAI <https://www.ijcai.org/>`_) and machine learning (`NeurIPS <https://nips.cc/>`_, `ICML <https://icml.cc/>`_, `ICLR <https://iclr.cc/>`_) conferences, workshops, and pieces from prominent journals.  
+*Little Ball of Fur* consists of methods to do sampling of graph structured data. To put it simply it is a Swiss Army knife for graph sampling tasks. First, it includes a large variety of vertex, edge and expansions sampling techniques. Second, it provides a unified application public interface which makes the application of sampling algorithms trivial for end-users. Implemented methods cover a wide range of networking (`Networking <https://link.springer.com/conference/networking>`_, `INFOCOM <https://infocom2020.ieee-infocom.org/>`_, `SIGCOMM  <http://www.sigcomm.org/>`_) and data mining (`KDD <https://www.kdd.org/kdd2020/>`_, `TKDD <https://dl.acm.org/journal/tkdd>`_, `ICDE <http://www.wikicfp.com/cfp/program?id=1331&s=ICDE&f=International%20Conference%20on%20Data%20Engineering>`_) conferences, workshops, and pieces from prominent journals.
 
 --------------------------------------------------------------------------------
 
@@ -14,13 +13,10 @@ If you find *Karate Club* useful in your research, please consider citing the fo
 
 .. code-block:: latex
 
-    >@misc{karateclub2020,
-           title={An API Oriented Open-source Python Framework for Unsupervised Learning on Graphs},
+    >@misc{littleballoffur2020,
+           title={Little Ball of Fur: A Python Library for Graph Subsampling},
            author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
            year={2020},
-           eprint={2003.04819},
-           archivePrefix={arXiv},
-           primaryClass={cs.LG}
     }
 
 Overview
