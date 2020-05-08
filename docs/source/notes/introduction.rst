@@ -92,7 +92,7 @@ We first need to load the Facebook page-page network dataset which is returned a
 
 The constructor defines the parametrized graph reader object while the ``get_graph`` method reads the data.
 
-Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. We will sample 50% of the original nodes.
+Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. We will sample approximately 50% of the original nodes from the network.
 
 .. code-block:: python
 
