@@ -100,7 +100,7 @@ Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling 
     
     number_of_nodes = int(0.5*graph.number_of_nodes())
     sampler = PageRankBasedSampler(number_of_nodes = number_of_nodes)
-    new_graph = sampler.sampler(graph)
+    new_graph = sampler.sample(graph)
 
 The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
 
