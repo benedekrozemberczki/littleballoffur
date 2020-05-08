@@ -56,7 +56,7 @@ Little Ball of Fur uses the design principles of Scikit-Learn which means that t
     model = RandomWalkSampler()
     new_graph = model.sample(graph)
 
-This can be modified to use a ``ForestFireSampler`` embedding with minimal effort like this.
+This snippet can be modified to use a ``ForestFireSampler`` with minimal effort like this.
 
 .. code-block:: python
 
