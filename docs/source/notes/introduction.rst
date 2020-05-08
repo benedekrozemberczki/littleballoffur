@@ -3,7 +3,7 @@ Introduction by example
 
 *Little Ball of Fur* is a graph sampling extension library for `NetworkX <https://networkx.github.io/>`_.
 
-*Little Ball of Fur* consists of methods to do sampling of graph structured data. To put it simply it is a Swiss Army knife for graph sampling tasks. First, it includes a large variety of vertex, edge and expansions sampling techniques. Second, it provides a unified application public interface which makes the application of sampling algorithms trivial for end-users. Implemented methods cover a wide range of networking (`Networking <https://link.springer.com/conference/networking>`_, `INFOCOM <https://infocom2020.ieee-infocom.org/>`_, `SIGCOMM  <http://www.sigcomm.org/>`_) and data mining (`KDD <https://www.kdd.org/kdd2020/>`_, `TKDD <https://dl.acm.org/journal/tkdd>`_, `ICDE <http://www.wikicfp.com/cfp/program?id=1331&s=ICDE&f=International%20Conference%20on%20Data%20Engineering>`_) conferences, workshops, and pieces from prominent journals.
+*Little Ball of Fur* consists of methods which sample from graphs. To put it simply it is a Swiss Army knife for graph sampling tasks. First, it includes a large variety of vertex, edge and expansions sampling techniques. Second, it provides a unified application public interface which makes the application of sampling algorithms trivial for end-users. Implemented methods cover a wide range of networking (`Networking <https://link.springer.com/conference/networking>`_, `INFOCOM <https://infocom2020.ieee-infocom.org/>`_, `SIGCOMM  <http://www.sigcomm.org/>`_) and data mining (`KDD <https://www.kdd.org/kdd2020/>`_, `TKDD <https://dl.acm.org/journal/tkdd>`_, `ICDE <http://www.wikicfp.com/cfp/program?id=1331&s=ICDE&f=International%20Conference%20on%20Data%20Engineering>`_) conferences, workshops, and pieces from prominent journals.
 
 --------------------------------------------------------------------------------
 
@@ -15,7 +15,7 @@ If you find *Little Ball of Fur* useful in your research, please consider citing
 
     >@misc{littleballoffur2020,
            title={Little Ball of Fur: A Python Library for Graph Subsampling},
-           author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
+           author={Benedek Rozemberczki and Oliver Kiss},
            year={2020},
     }
 
@@ -69,8 +69,8 @@ This snippet can be modified to use a ``ForestFireSampler`` with minimal effort 
     new_graph = model.sample(graph)
 
 Looking at these two snippets the advantage of the API driven design is evident. First, one had to change the import of the sampler. Second, we needed to change the sampler construction and the default hyperparameters
-were already set. The public methods provided by ``RandomWalkSampler`` and ``ForestFireSampler`` are the same. A subsample is is returned by
-``sample``. This allows for quick and minimal changes to the code when a sampling procedure performs poorly.
+were already set. The public methods provided by ``RandomWalkSampler`` and ``ForestFireSampler`` are the same. A subsample is returned by
+``sample``. This allows for quick and minimal changes to the code when a sampling procedure performs poorly and has to be replaced.
 
 
 Node sampling
@@ -102,7 +102,7 @@ Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling 
     sampler = PageRankBasedSampler(number_of_nodes = number_of_nodes)
     new_graph = sampler.sample(graph)
 
-The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a graph sampler, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
 
 .. code-block:: python
 
@@ -134,7 +134,7 @@ We first need to load the Wikipedia dataset which is returned as a ``NetworkX`` 
 
     graph = reader.get_graph()
 
-The constructor defines the parametrized graph reader object again, while the ``get_graph`` method reads the dataset.
+The constructor defines the parametrized graph reader object while the ``get_graph`` method reads the dataset.
 
 Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Internet Topologies for Faster Simulations <http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_. We will sample approximately 50% of the original edges from the network.
 
@@ -146,7 +146,7 @@ Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Inte
     sampler = HybridNodeEdgeSampler(number_of_edges = number_of_edges)
     new_graph = sampler.sample(graph)
 
-The constructor defines a model, we sample from the Wikipedia graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a graph sampler, we sample from the Wikipedia graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
 
 .. code-block:: python
 
@@ -164,8 +164,7 @@ The constructor defines a model, we sample from the Wikipedia graph with the ``s
 Exploration sampling
 --------------------
 
-
-The second task that we will look at is sampling a subgraph by drawing a representative set of edges from a Wikipedia graph. In this network
+The final task that we will look at is sampling a subgraph by exploration from a Deezer social network. In this network
 nodes represent Wikipedia pages about Crocodiles and the edges between them are mutual links. For details
 about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
 
@@ -191,7 +190,7 @@ Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Inte
     sampler = HybridNodeEdgeSampler(number_of_edges = number_of_edges)
     new_graph = sampler.sample(graph)
 
-The constructor defines a model, we sample from the Wikipedia graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a graph sampler, we sample from the Wikipedia graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
 
 .. code-block:: python
 
