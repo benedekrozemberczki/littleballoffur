@@ -114,8 +114,8 @@ The constructor defines a model, we sample from the Facebook graph with the ``sa
     print('Transitivity Original: {:.4f}'.format(transitivity))
     print('Transitivity Sampled: {:.4f}'.format(transitivity_sampled))
 
-    >>> Transitivity Original: 0.34374
-    >>> Transitivity Sampled: 0.34374
+    >>> Transitivity Original: 0.2323
+    >>> Transitivity Sampled: 0.2673
 
 Edge sampling
 --------------
