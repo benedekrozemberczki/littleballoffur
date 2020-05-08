@@ -136,14 +136,14 @@ We first need to load the Wikipedia dataset which is returned as a ``NetworkX`` 
 
 The constructor defines the parametrized graph reader object again, while the ``get_graph`` method reads the dataset.
 
-Now let's use the ``Hybro Node-Edge Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. We will sample approximately 50% of the original nodes from the network.
+Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Internet Topologies for Faster Simulations <http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_. We will sample approximately 50% of the original edges from the network.
 
 .. code-block:: python
 
-    from littleballoffur import PageRankBasedSampler
+    from littleballoffur import HybridNodeEdgeSampler
     
-    number_of_nodes = int(0.5*graph.number_of_nodes())
-    sampler = PageRankBasedSampler(number_of_nodes = number_of_nodes)
+    number_of_edges = int(0.5*graph.number_of_edges())
+    sampler = HybridNodeEdgeSampler(number_of_edges = number_of_edges)
     new_graph = sampler.sampler(graph)
 
 The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
