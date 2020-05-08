@@ -76,22 +76,19 @@ were already set. The public methods provided by ``RandomWalkSampler`` and ``For
 Node sampling
 -------------------
 
-The first machine learning task that we will do is the clustering of pages on Facebook. In this network
-nodes represent official verified Facebook pages and the links between them are mutual likes. The pages
-have categories and we will look how well the cluster and group memberships are aligned. For details
+The first task that we will look at is sampling a subgraph by drawing a representative set of nodes from a Facebook graph. In this network
+nodes represent official verified Facebook pages and the links between them are mutual likes. For details
 about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
 
-We first need to load the Facebook page-page network dataset. We will use the page-page graph and the 
-page category vector. These are returned as a ``NetworkX`` graph and ``numpy`` array respectively.
+We first need to load the Facebook page-page network dataset which is returned as a ``NetworkX`` graph.
 
 .. code-block:: python
 
-    from karateclub import GraphReader
+    from littleballoffur import GraphReader
 
     reader = GraphReader("facebook")
 
     graph = reader.get_graph()
-    target = reader.get_target()
 
 The constructor defines the graph reader object while the methods ``get_graph`` and ``get_target`` read the data.
 
