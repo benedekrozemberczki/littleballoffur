@@ -83,10 +83,10 @@ Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sa
 Case Study of Unbiased Sampling of OSNs](https://ieeexplore.ieee.org/document/5462078) (INFOCOM 2010)
 
 * **[Random Walk With Jump Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.randomwalkwithjumpsampler)** from Ribeiro *et al.*: [Estimating and Sampling Graphs with
-Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM IMC 2010)
+Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM 2010)
 
 * **[Frontier Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.frontiersampler)** from Ribeiro *et al.*: [Estimating and Sampling Graphs with
-Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM IMC 2010)
+Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM 2010)
 
 * **[Rejection Constrained Metropolis Hastings Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler)** from Hubler *et al.*: [On Random Walk Based Graph Sampling](http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf) (ICDE 2015)
 
