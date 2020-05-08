@@ -164,7 +164,7 @@ The constructor defines a graph sampler, we sample edges from the Wikipedia grap
 Exploration sampling
 --------------------
 
-The final task that we will look at taking a subgraph with exploration sampling from a GitHub social network. In this graph
+The third task that we will look at is extracting a subgraph with exploration sampling from a GitHub social network. In this graph
 nodes represent GitHub developers and the edges between them are mutual follower relationships. For details
 about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
 
