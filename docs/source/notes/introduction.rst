@@ -92,31 +92,30 @@ We first need to load the Facebook page-page network dataset which is returned a
 
 The constructor defines the parametrized graph reader object while the ``get_graph`` method reads the data.
 
-Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. 
+Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. We will sample 50% of the original nodes.
 
 .. code-block:: python
 
     from littleballoffur import PageRankSampler
     
-    sampler = PageRankSampler()
+    number_of_nodes = int(0.5*graph.number_of_nodes())
+    sampler = PageRankSampler(number_of_nodes = number_of_nodes)
     new_graph = sampler.sampler(graph)
 
-The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph.
-
-
-Finally we can evaluate the clustering using normalized mutual information. First we need to create an ordered list of the node memberships.
-We use the ground truth about the cluster memberships for calculating the NMI.
-
+The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
 
 .. code-block:: python
 
-    from sklearn.metrics.cluster import normalized_mutual_info_score
+    import networkx as nx
 
-    cluster_membership = [cluster_membership[node] for node in range(len(cluster_membership))]
+    transitivity = nx.transitivity(graph)
+    transitivity_sampled = nx.transitivity(new_graph)
 
-    nmi = normalized_mutual_info_score(target, cluster_membership)
-    print('NMI: {:.4f}'.format(nmi))
-    >>> NMI: 0.34374
+    print('Transitivity Original: {:.4f}'.format(transitivity))
+    print('Transitivity Sampled: {:.4f}'.format(transitivity_sampled))
+
+    >>> Transitivity Original: 0.34374
+    >>> Transitivity Sampled: 0.34374
 
 Edge sampling
 --------------
