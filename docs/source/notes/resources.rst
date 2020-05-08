@@ -7,7 +7,7 @@ External resources
 
 * Jure Leskovec and Christos Faloutsos: **Sampling From Large Graphs** `Paper <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
-* Alessandro Epasto, Silvio Lattanzi, Renato Paes Leme: **Ego-splitting Framework: from Non-Overlapping to Overlapping Clusters** `Paper <https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf>`_
+* Vaishnavi Krishnamurthy, Michalis Faloutsos, Marek Chrobak, Li Lao, Jun-Hong Cui, Allon G. Percus: **Reducing Large Internet Topologies for Faster Simulations** `Paper <https://link.springer.com/chapter/10.1007/11422778_27>`_
 
 * Alessandro Epasto, Silvio Lattanzi, Renato Paes Leme: **Ego-splitting Framework: from Non-Overlapping to Overlapping Clusters** `Paper <https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf>`_
 
@@ -16,4 +16,3 @@ External resources
 * Alessandro Epasto, Silvio Lattanzi, Renato Paes Leme: **Ego-splitting Framework: from Non-Overlapping to Overlapping Clusters** `Paper <https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf>`_
 
 * Alessandro Epasto, Silvio Lattanzi, Renato Paes Leme: **Ego-splitting Framework: from Non-Overlapping to Overlapping Clusters** `Paper <https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf>`_
-
