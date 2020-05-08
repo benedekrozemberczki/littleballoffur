@@ -144,7 +144,7 @@ Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Inte
     
     number_of_edges = int(0.5*graph.number_of_edges())
     sampler = HybridNodeEdgeSampler(number_of_edges = number_of_edges)
-    new_graph = sampler.sampler(graph)
+    new_graph = sampler.sample(graph)
 
 The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
 
@@ -158,8 +158,8 @@ The constructor defines a model, we sample from the Facebook graph with the ``sa
     print('Transitivity Original: {:.4f}'.format(transitivity))
     print('Transitivity Sampled: {:.4f}'.format(transitivity_sampled))
 
-    >>> Transitivity Original: 0.2323
-    >>> Transitivity Sampled: 0.2673
+    >>> Transitivity Original: 0.0261
+    >>> Transitivity Sampled: 0.0070
 
 Exploration sampling
 --------------------
