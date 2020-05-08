@@ -31,15 +31,13 @@ We shortly overview the fundamental concepts and features of Little Ball of Fur 
 Standardized dataset ingestion
 ------------------------------
 
-Little Ball of Fur assumes that the NetworkX graph provided by the user for node embedding and community detection has the following important properties:
+Little Ball of Fur assumes that the NetworkX graph provided by the user has the following important properties:
 
 - The graph is undirected.
 - The graph is connected (it consists of a single strongly connected component).
 - Nodes are indexed with integers.
 - There are no orphaned nodes in the graph.
 - The node indexing starts with zero and the indices are consecutive.
-
-Node attribute matrices can be provided as ``scipy sparse`` and ``numpy`` arrays. 
 
 The returned community membership dictionaries and embedding matrices use the same numeric, consecutive indexing.
 
