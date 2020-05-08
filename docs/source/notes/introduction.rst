@@ -44,37 +44,33 @@ The returned NetworkX graph uses the same indexing.
 API driven design
 -----------------
 
-Little Ball of Fur uses the design principles of Scikit-Learn which means that the algorithms in the package share the same API. Each graph sampling procedure
-is implemented as a class which inherits from ``Sampler``. The constructors of the sampling algorithms are used to set the hyperparameters. The sampling procedures have
-default hyperparameters that work well out of the box. This means that non expert users do not have to make decisions about these in advance and only a little fine tuning is required. For each class the ``sample`` public method provides sampling from the graph This API driven design means that one can sample a subgraph from a Watts-Strogatz graph with just like this.
+Little Ball of Fur uses the design principles of Scikit-Learn which means that the algorithms in the package share the same API. Each graph sampling procedure is implemented as a class which inherits from ``Sampler``. The constructors of the sampling algorithms are used to set the hyperparameters. The sampling procedures have default hyperparameters that work well out of the box. This means that non expert users do not have to make decisions about these in advance and only a little fine tuning is required. For each class the ``sample`` public method provides sampling from the graph This API driven design means that one can sample a subgraph from a Watts-Strogatz graph with a ``RandomWalkSampler`` just like this.
 
 .. code-block:: python
 
     import networkx as nx
-    from karateclub import DeepWalk
+    from littleballoffur import RandomWalkSampler
     
-    g = nx.newman_watts_strogatz_graph(100, 20, 0.05)
+    graph = nx.newman_watts_strogatz_graph(1000, 20, 0.05)
 
-    model = DeepWalk()
-    model.fit(g)
-    embedding = model.get_embedding()
+    model = RandomWalkSampler()
+    new_graph = model.sample(graph)
 
-This can be modified to create a ``Walklets`` embedding with minimal effort like this.
+This can be modified to use a ``ForestFireSampler`` embedding with minimal effort like this.
 
 .. code-block:: python
 
     import networkx as nx
-    from karateclub.node_embedding.neighbourhood import Walklets
+    from littleballoffur import ForestFireSampler
     
-    g = nx.newman_watts_strogatz_graph(100, 20, 0.05)
+    graph = nx.newman_watts_strogatz_graph(1000, 20, 0.05)
 
-    model = Walklets()
-    model.fit(g)
-    embedding = model.get_embedding()
+    model = ForestFireSampler()
+    new_graph = model.sample(graph)
 
-Looking at these two snippets the advantage of the API driven design is evident. First, one had to change the import of the model. Second, we needed to change the model construction and the default hyperparameters
-were already set. The public methods provided by ``DeepWalk`` and ``Walklets`` are the same. An embedding is learned with ``fit`` and it is returned by
-``get_embedding``. This allows for quick and minimal changes to the code when a model performs poorly.
+Looking at these two snippets the advantage of the API driven design is evident. First, one had to change the import of the sampler. Second, we needed to change the sampler construction and the default hyperparameters
+were already set. The public methods provided by ``RandomWalkSampler`` and ``ForestFireSampler`` are the same. A subsample is is returned by
+``sample``. This allows for quick and minimal changes to the code when a sampling procedure performs poorly.
 
 
 Node sampling
