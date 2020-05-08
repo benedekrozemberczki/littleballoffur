@@ -120,57 +120,46 @@ The constructor defines a model, we sample from the Facebook graph with the ``sa
 Edge sampling
 --------------
 
-The second machine learning task that we look at is the identification of users from the UK who abuse the platform on Twitch. 
-In the social network of interest nodes represent users and the links are mutual friendships between the users. Our goal is
-to perform binary classification of the users (platform abusers and general good guy users).  For details
+The first task that we will look at is sampling a subgraph by drawing a representative set of nodes from a Facebook graph. In this network
+nodes represent official verified Facebook pages and the links between them are mutual likes. For details
 about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
 
-We first need to load the Twitch UK dataset. We will use the user friendship graph and the 
-abusive user target vector. These are returned as a ``NetworkX`` graph and ``numpy`` array respectively.
+We first need to load the Facebook page-page network dataset which is returned as a ``NetworkX`` graph.
 
 .. code-block:: python
 
-    from karateclub.dataset import GraphReader
+    from littleballoffur import GraphReader
 
-    reader = GraphReader("twitch")
+    reader = GraphReader("facebook")
 
     graph = reader.get_graph()
-    y = reader.get_target()
 
-We fit a `Diff2vec node embedding <https://arxiv.org/abs/2001.07463>`_, with a low number of dimensions, diffusions per source node, and short Euler walks.
-First, we use the model constructor with custom parameters. Second, we fit the model to the graph. Third, we get the node embedding
-which is a ``numpy`` array.
+The constructor defines the parametrized graph reader object while the ``get_graph`` method reads the data.
 
-.. code-block:: python
-
-    from karateclub import Diff2Vec
-
-    model = Diff2Vec(diffusion_number=2, diffusion_cover=20, dimensions=16)
-    model.fit(graph)
-    X = model.get_embedding()
-
-We use the node embedding features as predictors of the abusive behaviour. So let us create a train-test split of the explanatory variables
-and the target variable with Scikit-Learn. We will use a test data ratio of 20%. Here it is.
+Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. We will sample approximately 50% of the original nodes from the network.
 
 .. code-block:: python
 
-    from sklearn.model_selection import train_test_split
-
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-Using the training data (``X_train`` and ``y_train``) we learn a logistic regression model to predict the probability of someone being an abusive user. We perform inference on the test 
-set for this target. Finally, we evaluate the model performance by printing an area under the ROC curve value.
-
-.. code-block:: python
-
-    from sklearn.metrics import roc_auc_score
-    from sklearn.linear_model import LogisticRegression
+    from littleballoffur import PageRankBasedSampler
     
-    downstream_model = LogisticRegression(random_state=0).fit(X_train, y_train)
-    y_hat = downstream_model.predict_proba(X_test)[:, 1]
-    auc = roc_auc_score(y_test, y_hat)
-    print('AUC: {:.4f}'.format(auc))
-    >>> AUC: 0.6069
+    number_of_nodes = int(0.5*graph.number_of_nodes())
+    sampler = PageRankBasedSampler(number_of_nodes = number_of_nodes)
+    new_graph = sampler.sampler(graph)
+
+The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+
+.. code-block:: python
+
+    import networkx as nx
+
+    transitivity = nx.transitivity(graph)
+    transitivity_sampled = nx.transitivity(new_graph)
+
+    print('Transitivity Original: {:.4f}'.format(transitivity))
+    print('Transitivity Sampled: {:.4f}'.format(transitivity_sampled))
+
+    >>> Transitivity Original: 0.2323
+    >>> Transitivity Sampled: 0.2673
 
 Exploration sampling
 --------------------
