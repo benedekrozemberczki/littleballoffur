@@ -90,9 +90,9 @@ We first need to load the Facebook page-page network dataset which is returned a
 
     graph = reader.get_graph()
 
-The constructor defines the graph reader object while the methods ``get_graph`` and ``get_target`` read the data.
+The constructor defines the graph reader object while the ``get_graph`` method reads the data.
 
-Now let's use the ``Label Propagation`` community detection method from `Near Linear Time Algorithm to Detect Community Structures in Large-Scale Networks <https://arxiv.org/abs/0709.2938>`_. 
+Now let's use the ``PageRank Proportional Node Sampling`` method from `Near Linear Time Algorithm to Detect Community Structures in Large-Scale Networks <https://arxiv.org/abs/0709.2938>`_. 
 
 .. code-block:: python
 
@@ -119,21 +119,6 @@ We use the ground truth about the cluster memberships for calculating the NMI.
     nmi = normalized_mutual_info_score(target, cluster_membership)
     print('NMI: {:.4f}'.format(nmi))
     >>> NMI: 0.34374
-
-It is worth noting that the clustering methods in Karate Club work on arbitrary ``NetworkX`` graphs that follow the 
-dataset formatting requirements. One could simply cluster a randomly generated Watts-Strogatz graph just like this.
-
-.. code-block:: python
-
-    import networkx as nx
-    from karateclub import LabelPropagation
-    
-    graph = nx.newman_watts_strogatz_graph(100, 20, 0.05)
-
-    model = LabelPropagation()
-    model.fit(graph)
-    cluster_membership = model.get_memberships()  
-
 
 Edge sampling
 --------------
