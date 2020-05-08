@@ -19,4 +19,4 @@ External resources
 
 * Bruno Ribeiro, Don Towsley: **Estimating and Sampling Graphs with Multidimensional Random Walks** `Paper <https://arxiv.org/abs/1002.1751>`_
 
-* Minas Gjoka, Maciej Kurant, Carter T. Butts, Athina Markopoulou: **Walking in Facebook: A Case Study of Unbiased Sampling of OSNs** `Paper <https://ieeexplore.ieee.org/document/5462078>`_
+*  Rong-Hua Li, Jeffrey Xu Yu, Lu Qin, Rui Mao, Tan Jin: **On Random Walk Based Graph Sampling** `Paper <https://ieeexplore.ieee.org/document/7113345>`_
