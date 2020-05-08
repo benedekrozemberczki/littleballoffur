@@ -5,7 +5,7 @@ External resources
 
 * Michael P. H. Stumpf, Carsten Wiuf, and Robert M. May: **SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks** `Paper <https://www.pnas.org/content/102/12/4221>`_
 
-* Jure Leskovec and Christos Faloutsos: **Sampling From Large Graphs** `Paper <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
+* Jure Leskovec, Christos Faloutsos: **Sampling From Large Graphs** `Paper <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
 * Vaishnavi Krishnamurthy, Michalis Faloutsos, Marek Chrobak, Li Lao, Jun-Hong Cui, Allon G. Percus: **Reducing Large Internet Topologies for Faster Simulations** `Paper <https://link.springer.com/chapter/10.1007/11422778_27>`_
 
