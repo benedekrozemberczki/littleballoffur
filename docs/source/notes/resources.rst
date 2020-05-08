@@ -9,7 +9,7 @@ External resources
 
 * Vaishnavi Krishnamurthy, Michalis Faloutsos, Marek Chrobak, Li Lao, Jun-Hong Cui, Allon G. Percus: **Reducing Large Internet Topologies for Faster Simulations** `Paper <https://link.springer.com/chapter/10.1007/11422778_27>`_
 
-* Nesreen K. Ahmed, Jennifer L Neville: **Network Sampling: From Static to Streaming Graphs** `Paper <https://dl.acm.org/doi/10.1145/2601438>`_
+* Nesreen K. Ahmed, Jennifer L. Neville: **Network Sampling: From Static to Streaming Graphs** `Paper <https://dl.acm.org/doi/10.1145/2601438>`_
 
 * Jure Leskovec, Jon Kleinberg, Christos Faloutsos: **Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations** `Paper <https://www.cs.cornell.edu/home/kleinber/kdd05-time.pdf>`_
 
@@ -19,4 +19,4 @@ External resources
 
 * Bruno Ribeiro, Don Towsley: **Estimating and Sampling Graphs with Multidimensional Random Walks** `Paper <https://arxiv.org/abs/1002.1751>`_
 
-*  Rong-Hua Li, Jeffrey Xu Yu, Lu Qin, Rui Mao, Tan Jin: **On Random Walk Based Graph Sampling** `Paper <https://ieeexplore.ieee.org/document/7113345>`_
+* Rong-Hua Li, Jeffrey Xu Yu, Lu Qin, Rui Mao, Tan Jin: **On Random Walk Based Graph Sampling** `Paper <https://ieeexplore.ieee.org/document/7113345>`_
