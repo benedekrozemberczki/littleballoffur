@@ -39,7 +39,7 @@ Little Ball of Fur assumes that the NetworkX graph provided by the user has the 
 - There are no orphaned nodes in the graph.
 - The node indexing starts with zero and the indices are consecutive.
 
-The returned community membership dictionaries and embedding matrices use the same numeric, consecutive indexing.
+The returned NetworkX graph uses the same indexing.
 
 API driven design
 -----------------
