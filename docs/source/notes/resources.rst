@@ -15,4 +15,4 @@ External resources
 
 * Christian Hübler, Hans-Peter Kriegel, Karsten Borgwardt, Zoubin Ghahramani: **Metropolis Algorithms for Representative Subgraph Sampling** `Paper <http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf>`_
 
-* Alessandro Epasto, Silvio Lattanzi, Renato Paes Leme: **Walking in Facebook: A Case Study of Unbiased Sampling of OSNs** `Paper <https://ieeexplore.ieee.org/document/5462078>`_
+*  Minas Gjoka, Maciej Kurant, Carter T. Butts, Athina Markopoulou: **Walking in Facebook: A Case Study of Unbiased Sampling of OSNs** `Paper <https://ieeexplore.ieee.org/document/5462078>`_
