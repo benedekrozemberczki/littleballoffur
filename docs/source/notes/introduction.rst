@@ -102,7 +102,7 @@ Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling 
     sampler = PageRankBasedSampler(number_of_nodes = number_of_nodes)
     new_graph = sampler.sample(graph)
 
-The constructor defines a graph sampler, we sample from the Facebook graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a graph sampler, we sample nodes from the Facebook graph with the ``sample`` method and return the induced subgraph. Finally, we can evaluate the sample quality by comparing clustering coefficient values calculated for the original and subsampled graphs. We somewhat overestimated the transitivity.
 
 .. code-block:: python
 
@@ -146,7 +146,7 @@ Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Inte
     sampler = HybridNodeEdgeSampler(number_of_edges = number_of_edges)
     new_graph = sampler.sample(graph)
 
-The constructor defines a graph sampler, we sample from the Wikipedia graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a graph sampler, we sample edges from the Wikipedia graph with the ``sample`` method and return the induced subgraph. Finally, we can evaluate the sample quality by comparing clustering coefficient values calculated for the original and subsampled graphs. We massively underestimated the transitivity.
 
 .. code-block:: python
 
