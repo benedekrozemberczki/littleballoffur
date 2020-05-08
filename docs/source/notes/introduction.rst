@@ -258,7 +258,7 @@ set for this target. Finally, we evaluate the model performance by printing an a
 Benchmark datasets
 ------------------
 
-We included a number of datasets which can be used for comparing the performance of embedding and clustering algorithms. In case of node level learning these are as follows:
+We included a number of datasets which can be used for comparing the performance of sampling algorithms. These are the following:
 
 - `Twitch user network from the UK. <https://arxiv.org/abs/1909.13021>`_
 - `Wikipedia page-page network with articles about Crocodiles. <https://arxiv.org/abs/1909.13021>`_
