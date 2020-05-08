@@ -3,7 +3,7 @@ Introduction by example
 
 *Little Ball of Fur* is a graph sampling extension library for `NetworkX <https://networkx.github.io/>`_.
 
-*Little Ball of Fur* consists of methods which sample from graphs. To put it simply it is a Swiss Army knife for graph sampling tasks. First, it includes a large variety of vertex, edge and expansions sampling techniques. Second, it provides a unified application public interface which makes the application of sampling algorithms trivial for end-users. Implemented methods cover a wide range of networking (`Networking <https://link.springer.com/conference/networking>`_, `INFOCOM <https://infocom2020.ieee-infocom.org/>`_, `SIGCOMM  <http://www.sigcomm.org/>`_) and data mining (`KDD <https://www.kdd.org/kdd2020/>`_, `TKDD <https://dl.acm.org/journal/tkdd>`_, `ICDE <http://www.wikicfp.com/cfp/program?id=1331&s=ICDE&f=International%20Conference%20on%20Data%20Engineering>`_) conferences, workshops, and pieces from prominent journals.
+*Little Ball of Fur* consists of methods which sample from graphs. To put it simply it is a Swiss Army knife for graph sampling tasks. First, it includes a large variety of vertex, edge, and exploration sampling techniques. Second, it provides a unified application public interface which makes the application of sampling algorithms trivial for end-users. Implemented methods cover a wide range of networking (`Networking <https://link.springer.com/conference/networking>`_, `INFOCOM <https://infocom2020.ieee-infocom.org/>`_, `SIGCOMM  <http://www.sigcomm.org/>`_) and data mining (`KDD <https://www.kdd.org/kdd2020/>`_, `TKDD <https://dl.acm.org/journal/tkdd>`_, `ICDE <http://www.wikicfp.com/cfp/program?id=1331&s=ICDE&f=International%20Conference%20on%20Data%20Engineering>`_) conferences, workshops, and pieces from prominent journals.
 
 --------------------------------------------------------------------------------
 
@@ -180,17 +180,17 @@ We first need to load the GitHub dataset which is returned as a ``NetworkX`` gra
 
 The constructor defines the parametrized graph reader object again, while the ``get_graph`` method reads the dataset.
 
-Now let's use the ``Hybrid Node-Edge Sampling`` method from `Reducing Large Internet Topologies for Faster Simulations <http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_. We will sample approximately 50% of the original edges from the network.
+Now let's use the ``Metropolis-Hastings Random Walk Sampler`` method from `Metropolis Algorithms for Representative Subgraph Sampling <http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf>`_. We will sample approximately 50% of the original nodes from the network.
 
 .. code-block:: python
 
-    from littleballoffur import HybridNodeEdgeSampler
+    from littleballoffur import MetropolisHastingsRandomWalkSampler
     
-    number_of_edges = int(0.5*graph.number_of_edges())
-    sampler = HybridNodeEdgeSampler(number_of_edges = number_of_edges)
+    number_of_nodes = int(0.5*graph.number_of_nodes())
+    sampler = MetropolisHastingsRandomWalkSampler(number_of_nodes = number_of_nodes)
     new_graph = sampler.sample(graph)
 
-The constructor defines a graph sampler, we sample from the Wikipedia graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a graph sampler, we sample from the Github graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
 
 .. code-block:: python
 
