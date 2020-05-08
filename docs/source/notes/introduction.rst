@@ -31,7 +31,7 @@ We shortly overview the fundamental concepts and features of Little Ball of Fur 
 Standardized dataset ingestion
 ------------------------------
 
-Little Ball of Fur assumes that the NetworkX graph provided by the user has the following important properties:
+Little Ball of Fur assumes that the ``NetworkX`` graph provided by the user has the following important properties:
 
 - The graph is undirected.
 - The graph is connected (it consists of a single strongly connected component).
@@ -39,7 +39,7 @@ Little Ball of Fur assumes that the NetworkX graph provided by the user has the 
 - There are no orphaned nodes in the graph.
 - The node indexing starts with zero and the indices are consecutive.
 
-The returned NetworkX graph uses the same indexing.
+The returned ``NetworkX`` graph uses the same indexing.
 
 API driven design
 -----------------
@@ -90,7 +90,7 @@ We first need to load the Facebook page-page network dataset which is returned a
 
     graph = reader.get_graph()
 
-The constructor defines the graph reader object while the ``get_graph`` method reads the data.
+The constructor defines the parametrized graph reader object while the ``get_graph`` method reads the data.
 
 Now let's use the ``PageRank Proportional Node Sampling`` method from `Near Linear Time Algorithm to Detect Community Structures in Large-Scale Networks <https://arxiv.org/abs/0709.2938>`_. 
 
