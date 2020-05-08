@@ -202,8 +202,8 @@ The constructor defines a graph sampler, we sample from the Github graph with th
     print('Transitivity Original: {:.4f}'.format(transitivity))
     print('Transitivity Sampled: {:.4f}'.format(transitivity_sampled))
 
-    >>> Transitivity Original: 0.0261
-    >>> Transitivity Sampled: 0.0070
+    >>> Transitivity Original: 0.0124
+    >>> Transitivity Sampled: 0.0228
 
 Benchmark datasets
 ------------------
