@@ -120,23 +120,23 @@ The constructor defines a model, we sample from the Facebook graph with the ``sa
 Edge sampling
 --------------
 
-The first task that we will look at is sampling a subgraph by drawing a representative set of nodes from a Facebook graph. In this network
-nodes represent official verified Facebook pages and the links between them are mutual likes. For details
+The second task that we will look at is sampling a subgraph by drawing a representative set of edges from a Wikipedia graph. In this network
+nodes represent Wikipedia pages about Crocodiles and the edges between them are mutual links. For details
 about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
 
-We first need to load the Facebook page-page network dataset which is returned as a ``NetworkX`` graph.
+We first need to load the Wikipedia dataset which is returned as a ``NetworkX`` graph.
 
 .. code-block:: python
 
     from littleballoffur import GraphReader
 
-    reader = GraphReader("facebook")
+    reader = GraphReader("wikipedia")
 
     graph = reader.get_graph()
 
-The constructor defines the parametrized graph reader object while the ``get_graph`` method reads the data.
+The constructor defines the parametrized graph reader object again, while the ``get_graph`` method reads the dataset.
 
-Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. We will sample approximately 50% of the original nodes from the network.
+Now let's use the ``Hybro Node-Edge Sampling`` method from `Sampling From Large Graphs <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_. We will sample approximately 50% of the original nodes from the network.
 
 .. code-block:: python
 
