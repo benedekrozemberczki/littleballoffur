@@ -23,7 +23,7 @@ Overview
 =======================
 --------------------------------------------------------------------------------
 
-We shortly overview the fundamental concepts and features of Karate Club through simple examples. These are the following:
+We shortly overview the fundamental concepts and features of Little Ball of Fur through simple examples. These are the following:
 
 .. contents::
     :local:
@@ -78,7 +78,7 @@ were already set. The public methods provided by ``DeepWalk`` and ``Walklets`` a
 ``get_embedding``. This allows for quick and minimal changes to the code when a model performs poorly.
 
 
-Community detection
+Node sampling
 -------------------
 
 The first machine learning task that we will do is the clustering of pages on Facebook. In this network
@@ -143,7 +143,7 @@ dataset formatting requirements. One could simply cluster a randomly generated W
     cluster_membership = model.get_memberships()  
 
 
-Node embedding
+Edge sampling
 --------------
 
 The second machine learning task that we look at is the identification of users from the UK who abuse the platform on Twitch. 
@@ -198,8 +198,8 @@ set for this target. Finally, we evaluate the model performance by printing an a
     print('AUC: {:.4f}'.format(auc))
     >>> AUC: 0.6069
 
-Graph embedding
---------------
+Exploration sampling
+--------------------
 
 The third machine learning task that we look at is the classification of threads from the online forum Reddit. The threads
 can be of of two types - discussion and non-discussion based ones. Our goal is to predict the type of the thread based on
