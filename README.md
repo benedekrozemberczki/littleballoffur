@@ -70,8 +70,7 @@ In detail, the following sampling methods were implemented.
 
 **Exploration Based Sampling**
 
-* **[Forest Fire Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.forestfiresampler)** from Leskovec *et al.*: [Graphs over Time: Densification Laws, Shrinking
-Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2005)
+* **[Forest Fire Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.forestfiresampler)** from Leskovec *et al.*: [Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2005)
 
 * **[Random Node-Neighbor Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.randomnodeneighborsampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
 
@@ -79,14 +78,11 @@ Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sa
 
 * **[Metropolis Hastings Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler)** from Hubler *et al.*: [Metropolis Algorithms for Representative Subgraph Sampling](http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf) (ICDM 2008)
 
-* **[Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.randomwalksampler)** from Gjoka *et al.*: [Walking in Facebook: A
-Case Study of Unbiased Sampling of OSNs](https://ieeexplore.ieee.org/document/5462078) (INFOCOM 2010)
+* **[Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.randomwalksampler)** from Gjoka *et al.*: [Walking in Facebook: A Case Study of Unbiased Sampling of OSNs](https://ieeexplore.ieee.org/document/5462078) (INFOCOM 2010)
 
-* **[Random Walk With Jump Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.randomwalkwithjumpsampler)** from Ribeiro *et al.*: [Estimating and Sampling Graphs with
-Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM 2010)
+* **[Random Walk With Jump Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.randomwalkwithjumpsampler)** from Ribeiro *et al.*: [Estimating and Sampling Graphs with Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM 2010)
 
-* **[Frontier Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.frontiersampler)** from Ribeiro *et al.*: [Estimating and Sampling Graphs with
-Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM 2010)
+* **[Frontier Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.frontiersampler)** from Ribeiro *et al.*: [Estimating and Sampling Graphs with Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM 2010)
 
 * **[Rejection Constrained Metropolis Hastings Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler)** from Hubler *et al.*: [On Random Walk Based Graph Sampling](http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf) (ICDE 2015)
 

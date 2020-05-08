@@ -15,4 +15,4 @@ External resources
 
 * Christian Hübler, Hans-Peter Kriegel, Karsten Borgwardt, Zoubin Ghahramani: **Metropolis Algorithms for Representative Subgraph Sampling** `Paper <http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf>`_
 
-* Alessandro Epasto, Silvio Lattanzi, Renato Paes Leme: **Ego-splitting Framework: from Non-Overlapping to Overlapping Clusters** `Paper <https://www.eecs.yorku.ca/course_archive/2017-18/F/6412/reading/kdd17p145.pdf>`_
+* Alessandro Epasto, Silvio Lattanzi, Renato Paes Leme: **Walking in Facebook: A Case Study of Unbiased Sampling of OSNs** `Paper <https://ieeexplore.ieee.org/document/5462078>`_
