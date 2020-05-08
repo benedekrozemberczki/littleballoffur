@@ -1,7 +1,7 @@
 Introduction by example
 =======================
 
-*Karate Club* is an unsupervised machine learning extension library for `NetworkX <https://networkx.github.io/>`_.
+*Little Ball of Fur* is a graph sampling extension library for `NetworkX <https://networkx.github.io/>`_.
 
 *Little Ball of Fur* consists of methods to do sampling of graph structured data. To put it simply it is a Swiss Army knife for graph sampling tasks. First, it includes a large variety of vertex, edge and expansions sampling techniques. Second, it provides a unified application public interface which makes the application of sampling algorithms trivial for end-users. Implemented methods cover a wide range of networking (`Networking <https://link.springer.com/conference/networking>`_, `INFOCOM <https://infocom2020.ieee-infocom.org/>`_, `SIGCOMM  <http://www.sigcomm.org/>`_) and data mining (`KDD <https://www.kdd.org/kdd2020/>`_, `TKDD <https://dl.acm.org/journal/tkdd>`_, `ICDE <http://www.wikicfp.com/cfp/program?id=1331&s=ICDE&f=International%20Conference%20on%20Data%20Engineering>`_) conferences, workshops, and pieces from prominent journals.
 
@@ -9,7 +9,7 @@ Introduction by example
 
 **Citing**
 
-If you find *Karate Club* useful in your research, please consider citing the following paper:
+If you find *Little Ball of Fur* useful in your research, please consider citing the following paper:
 
 .. code-block:: latex
 
