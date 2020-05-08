@@ -101,8 +101,7 @@ Now let's use the ``PageRank Proportional Node Sampling`` method from `Sampling 
     sampler = PageRankSampler()
     new_graph = sampler.sampler(graph)
 
-The constructor defines a model, we fit the model on the Facebook graph with the ``fit`` method and return the cluster memberships
-with the ``get_memberships`` method as a dictionary.
+The constructor defines a model, we sample from the Facebook graph with the ``sample`` method and return the new graph.
 
 
 Finally we can evaluate the clustering using normalized mutual information. First we need to create an ordered list of the node memberships.
