@@ -164,17 +164,17 @@ The constructor defines a graph sampler, we sample edges from the Wikipedia grap
 Exploration sampling
 --------------------
 
-The final task that we will look at is sampling a subgraph by exploration from a Deezer social network. In this network
-nodes represent Wikipedia pages about Crocodiles and the edges between them are mutual links. For details
+The final task that we will look at is sampling a subgraph with exploration sampling from a GitHub social network. In this network
+nodes represent GitHub developers and the edges between them are mutual follower relationships. For details
 about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
 
-We first need to load the Wikipedia dataset which is returned as a ``NetworkX`` graph.
+We first need to load the GitHub dataset which is returned as a ``NetworkX`` graph.
 
 .. code-block:: python
 
     from littleballoffur import GraphReader
 
-    reader = GraphReader("wikipedia")
+    reader = GraphReader("github")
 
     graph = reader.get_graph()
 
