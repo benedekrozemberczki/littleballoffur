@@ -9,7 +9,6 @@ from littleballoffur.exploration_sampling import RandomWalkWithRestartSampler, R
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
  
 
-
 reader = GraphReader("twitch")
 
 graph = reader.get_graph()
