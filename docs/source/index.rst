@@ -9,7 +9,7 @@ Little Ball of Fur Documentation
 
     >@misc{littleballoffur2020,
            title={Little Ball of Fur: A Python Library for Graph Subsampling},
-           author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
+           author={Benedek Rozemberczki and Oliver Kiss},
            year={2020},
     }
 

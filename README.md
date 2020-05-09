@@ -22,7 +22,7 @@ If you find **Little Ball of Fur** and the new datasets useful in your research,
 ```bibtex
 >@misc{littleballoffur2020,
        title={Little Ball of Fur: A Python Library for Graph Subsampling},
-       author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
+       author={Benedek Rozemberczki and Oliver Kiss},
        year={2020},
 }
 ```
