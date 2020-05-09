@@ -2,7 +2,6 @@ import random
 import numpy as np
 import networkx as nx
 
-"""General Sampler base class."""
 
 class Sampler(object):
     """Sampler base class with constructor and public methods."""
