@@ -214,3 +214,4 @@ We included a number of datasets which can be used for comparing the performance
 - `Wikipedia page-page network with articles about Crocodiles. <https://arxiv.org/abs/1909.13021>`_
 - `GitHub machine learning and web developers social network. <https://arxiv.org/abs/1909.13021>`_
 - `Facebook verified page-page network. <https://arxiv.org/abs/1909.13021>`_
+- `Deezer Hungarian user network. <https://arxiv.org/abs/1909.13021>`_
