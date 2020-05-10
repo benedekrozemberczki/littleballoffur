@@ -22,3 +22,5 @@ External resources
 * Arun Maiya, Tanya-Berger Wolf: **Sampling Community Structure** `Paper <http://arun.maiya.net/papers/maiya_etal-sampcomm.pdf>`_
 
 * Rong-Hua Li, Jeffrey Xu Yu, Lu Qin, Rui Mao, Tan Jin: **On Random Walk Based Graph Sampling** `Paper <https://ieeexplore.ieee.org/document/7113345>`_
+
+* Zhuojie Zhou, Nan Zhang, Gautam  Das: **Leveraging History for Faster Sampling of Online Social Networks** `Paper <https://dl.acm.org/doi/10.5555/2794367.2794373>`_
