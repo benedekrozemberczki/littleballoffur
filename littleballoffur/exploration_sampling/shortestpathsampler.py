@@ -16,9 +16,8 @@ class ShortestPathSampler(Sampler):
         self._set_seed()
 
 
-    def _set_seed_sets(self):
+    def _set_seed_set(self):
         self._nodes = set()
-        self._edges = set()
 
     def _sample_a_node(self):
         return random.choice(range(self._graph.number_of_nodes()))
@@ -40,9 +39,18 @@ class ShortestPathSampler(Sampler):
         """
         self._check_graph(graph)
         self._graph = graph
+        self._set_seed_set()
         while len(self._nodes) < self.number_of_nodes:
-            source, target = self._a_sample_pair()
+            source, target = self._sample_a_pair()
             if source != target:
-                path = nx.shortest_path(self._graph, source = source, target = target)
-                print(path)
+                path = nx.shortest_path(self._graph, source, target)
+                for node in path:
+                    self._nodes.add(node)
+                    if len(self._nodes) > self.number_of_nodes:
+                        break
+
+        new_graph = graph.subgraph(self._nodes)
+        return new_graph
+                    
+                     
 
