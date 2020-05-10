@@ -70,3 +70,6 @@ Exploration Sampling
     :members:
     :undoc-members:
 
+.. automodule:: littleballoffur.exploration_sampling.communitystructureexpansionsampler
+    :members:
+    :undoc-members:
