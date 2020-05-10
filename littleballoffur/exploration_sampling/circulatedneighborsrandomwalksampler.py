@@ -1,7 +1,5 @@
 import random
-import numpy as np
 import networkx as nx
-from collections import deque
 from littleballoffur.sampler import Sampler
 
 class CirculatedNeighborsRandomWalkSampler(Sampler):
