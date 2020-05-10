@@ -90,6 +90,9 @@ In detail, the following sampling methods were implemented.
 
 * **[Circulated Neighbors Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.circulatedneighborsrandomwalksampler)** from Zhou *et al.*: [Leveraging History for Faster Sampling of Online Social Networks](https://dl.acm.org/doi/10.5555/2794367.2794373) (VLDB 2015)
 
+* **[Shortes Path Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.circulatedneighborsrandomwalksampler)** from Rezvanian *et al.*: [Sampling Social Networks Using Shortest Paths](https://dl.acm.org/doi/10.5555/2794367.2794373) (VLDB 2015)
+
+
 
 Head over to our [documentation](https://littleballoffur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
