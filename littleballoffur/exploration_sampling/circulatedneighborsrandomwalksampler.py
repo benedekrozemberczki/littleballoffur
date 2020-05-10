@@ -20,7 +20,7 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         """
         Choosing a seed node.
         """
-        self._sampled_nodes = set([random.choice(range(self._graph.number_of_nodes()))])
+        self._sampled_nodes = set()
 
     def sample(self, graph):
         """
@@ -36,6 +36,5 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         self._check_number_of_nodes(graph)
         self._graph = graph
         self._create_node_set()
-        #while len(self._sampled_nodes) < self.number_of_nodes:
              
         return new_graph
