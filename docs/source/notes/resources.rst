@@ -19,4 +19,6 @@ External resources
 
 * Bruno Ribeiro, Don Towsley: **Estimating and Sampling Graphs with Multidimensional Random Walks** `Paper <https://arxiv.org/abs/1002.1751>`_
 
+* Arun Maiya, Tanya-Berger Wolf: **Sampling Community Structure** `Paper <http://arun.maiya.net/papers/maiya_etal-sampcomm.pdf>`_
+
 * Rong-Hua Li, Jeffrey Xu Yu, Lu Qin, Rui Mao, Tan Jin: **On Random Walk Based Graph Sampling** `Paper <https://ieeexplore.ieee.org/document/7113345>`_
