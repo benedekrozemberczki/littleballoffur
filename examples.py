@@ -8,10 +8,19 @@ from littleballoffur.exploration_sampling import RandomWalkSampler, RandomNodeNe
 from littleballoffur.exploration_sampling import RandomWalkWithRestartSampler, RandomWalkWithJumpSampler, FrontierSampler, ForestFireSampler
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler
+from littleballoffur.exploration_sampling import ShortestPathSampler
 
 reader = GraphReader("twitch")
 
 graph = reader.get_graph()
+
+sampler = ShortestPathSampler()
+
+new_graph = sampler.sample(graph)
+
+print(nx.transitivity(new_graph))
+
+quit()
 
 #-------------------------------------------
 # Circulated Neighbors Random Walk Sampler
@@ -21,9 +30,7 @@ sampler = CirculatedNeighborsRandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 
-nx.transitivity(new_graph)
-
-quit()
+print(nx.transitivity(new_graph))
 
 #-----------------------------------------------
 # Community Structure Expansion Sampler Example
