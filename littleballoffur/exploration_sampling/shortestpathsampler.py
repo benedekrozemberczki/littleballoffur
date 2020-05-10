@@ -17,12 +17,21 @@ class ShortestPathSampler(Sampler):
 
 
     def _set_seed_set(self):
+        """
+        Creating an initial set of nodes.
+        """
         self._nodes = set()
 
     def _sample_a_node(self):
+        """
+        Sampling a random node.
+        """
         return random.choice(range(self._graph.number_of_nodes()))
 
     def _sample_a_pair(self):
+        """
+        Sampling a pair of nodes for a shortest path.
+        """
         source = self._sample_a_node()
         target = self._sample_a_node()
         return source, target
