@@ -24,3 +24,5 @@ External resources
 * Rong-Hua Li, Jeffrey Xu Yu, Lu Qin, Rui Mao, Tan Jin: **On Random Walk Based Graph Sampling** `Paper <https://ieeexplore.ieee.org/document/7113345>`_
 
 * Zhuojie Zhou, Nan Zhang, Gautam  Das: **Leveraging History for Faster Sampling of Online Social Networks** `Paper <https://dl.acm.org/doi/10.5555/2794367.2794373>`_
+
+* Alireza Rezvanian, Mohammad Reza Meybodi: **Sampling Social Networks Using Shortest Paths** `Paper <https://www.sciencedirect.com/science/article/pii/S0378437115000321>`_
