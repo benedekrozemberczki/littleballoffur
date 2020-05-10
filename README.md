@@ -84,7 +84,7 @@ In detail, the following sampling methods were implemented.
 
 * **[Frontier Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.frontiersampler)** from Ribeiro *et al.*: [Estimating and Sampling Graphs with Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (SIGCOMM 2010)
 
-* **[Community Structure Expansion Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.communitystructureexpansionsampler)** from Maiya *et al.*: [Estimating and Sampling Graphs with Multidimensional Random Walks](https://arxiv.org/abs/1002.1751) (WWW 2010)
+* **[Community Structure Expansion Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.communitystructureexpansionsampler)** from Maiya *et al.*: [Sampling Community Structure](https://arxiv.org/abs/1002.1751) (WWW 2010)
 
 * **[Rejection Constrained Metropolis Hastings Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler)** from Li *et al.*: [On Random Walk Based Graph Sampling](https://ieeexplore.ieee.org/document/7113345) (ICDE 2015)
 
