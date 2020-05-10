@@ -22,9 +22,23 @@ class CommunityStructureExpansionSampler(Sampler):
         """
         self._sampled_nodes = set([random.choice(range(self._graph.number_of_nodes()))])
 
+
+    def _make_target_set(self):
+        self._targets = [neighbor for node in self._sampled_nodes for neighbor in self._graph.neighbors(node)]
+        self._targets = list(set(self._targets).difference(self._sampled_nodes))
+        random.shuffle(self._targets)
+
+    def _choose_new_node(self):
+        largest_expansion = 0
+        for node in self._targets:
+            expansion = len(set(self._graph.neighbors(node)).difference(self._sampled_nodes))
+            if expansion >= largest_expansion:
+                new_node = node
+        return new_node
+
     def sample(self, graph):
         """
-        Sampling nodes iteratively with a forest fire sampler.
+        Sampling nodes iteratively with a community structure.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
@@ -35,4 +49,12 @@ class CommunityStructureExpansionSampler(Sampler):
         self._check_graph(graph)
         self._check_number_of_nodes(graph)
         self._graph = graph
-        self._create_node_sets()
+        self._create_node_set()
+        while len(self._sampled_nodes) < self.number_of_nodes:
+            self._make_target_set()
+            new_node = self._choose_new_node()
+            self._sampled_nodes.add(new_node)
+        new_graph = self._graph.subgraph(self._sampled_nodes)
+        return new_graph
+
+                

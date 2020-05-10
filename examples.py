@@ -13,15 +13,17 @@ reader = GraphReader("twitch")
 
 graph = reader.get_graph()
 
-#--------------------------
-# Frontier Sampler Example
-#--------------------------
+#-----------------------------------------------
+# Community Structure Expansion Sampler Example
+#-----------------------------------------------
 
-sampler = FrontierSampler()
+sampler = CommunityStructureExpansionSampler()
 
 new_graph = sampler.sample(graph)
 
-print(new_graph)
+print(nx.transitivity(new_graph))
+
+quit()
 
 #--------------------------
 # Frontier Sampler Example
