@@ -24,21 +24,28 @@ class CommunityStructureExpansionSampler(Sampler):
 
 
     def _make_target_set(self):
+        """
+        Creating a new reshuffled frontier list of nodes.
+        """
         self._targets = [neighbor for node in self._sampled_nodes for neighbor in self._graph.neighbors(node)]
         self._targets = list(set(self._targets).difference(self._sampled_nodes))
         random.shuffle(self._targets)
 
     def _choose_new_node(self):
+        """
+        Choosing the node with the largest expansion.
+        The randomization of the list breaks ties randomly.
+        """
         largest_expansion = 0
         for node in self._targets:
             expansion = len(set(self._graph.neighbors(node)).difference(self._sampled_nodes))
             if expansion >= largest_expansion:
                 new_node = node
-        return new_node
+        self._sampled_nodes.add(new_node)
 
     def sample(self, graph):
         """
-        Sampling nodes iteratively with a community structure.
+        Sampling nodes iteratively with a community structure expansion sampler.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
@@ -52,8 +59,7 @@ class CommunityStructureExpansionSampler(Sampler):
         self._create_node_set()
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._make_target_set()
-            new_node = self._choose_new_node()
-            self._sampled_nodes.add(new_node)
+            self._choose_new_node()
         new_graph = self._graph.subgraph(self._sampled_nodes)
         return new_graph
 
