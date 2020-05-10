@@ -22,7 +22,6 @@ class CommunityStructureExpansionSampler(Sampler):
         """
         self._sampled_nodes = set([random.choice(range(self._graph.number_of_nodes()))])
 
-
     def _make_target_set(self):
         """
         Creating a new reshuffled frontier list of nodes.
