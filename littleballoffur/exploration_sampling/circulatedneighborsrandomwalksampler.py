@@ -55,7 +55,7 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
 
     def sample(self, graph):
         """
-        Sampling nodes iteratively with a community structure expansion sampler.
+        Sampling nodes iteratively with a circulated neighbor random walk sampler.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
