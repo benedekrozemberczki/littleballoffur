@@ -24,7 +24,6 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         self._current_node = random.choice(range(self._graph.number_of_nodes()))
         self._sampled_nodes.add(self._current_node)
 
-
     def _do_shuffling(self, node):
         """
         Shuffling the neighbors of a node in the circulated map.
@@ -51,7 +50,6 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
             self._do_shuffling(self._current_node)
         self._current_node = self._circulated_map[self._current_node].pop()
         self._sampled_nodes.add(self._current_node)
-
 
     def sample(self, graph):
         """
