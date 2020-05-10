@@ -61,5 +61,3 @@ class CommunityStructureExpansionSampler(Sampler):
             self._choose_new_node()
         new_graph = self._graph.subgraph(self._sampled_nodes)
         return new_graph
-
-                
