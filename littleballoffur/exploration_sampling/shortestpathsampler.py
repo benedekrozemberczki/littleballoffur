@@ -1,5 +1,4 @@
 import random
-import numpy as np
 import networkx as nx
 from littleballoffur.sampler import Sampler
 
@@ -14,7 +13,6 @@ class ShortestPathSampler(Sampler):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
-
 
     def _set_seed_set(self):
         """
@@ -60,6 +58,3 @@ class ShortestPathSampler(Sampler):
 
         new_graph = graph.subgraph(self._nodes)
         return new_graph
-                    
-                     
-
