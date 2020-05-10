@@ -36,11 +36,16 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         random.shuffle(self._circulated_map[node])
 
     def _create_circulated_map(self):
+        """
+        """
         self._circulated_map = {}
         for node in self._graph.nodes():
             self._do_shuffling(node)
 
     def _make_a_step(self):
+        """
+        Doing a single step of the circulated neighbor random walk.
+        """
         if len(self._circulated_map[self._current_node]) == 0:
             self._do_shuffling(self._current_node)
         self._current_node = self._circulated_map[self._current_node].pop()
