@@ -7,3 +7,4 @@ from .randomwalkwithjumpsampler import RandomWalkWithJumpSampler
 from .metropolishastingsrandomwalksampler import MetropolisHastingsRandomWalkSampler
 from .communitystructureexpansionsampler import CommunityStructureExpansionSampler
 from .circulatedneighborsrandomwalksampler import CirculatedNeighborsRandomWalkSampler
+from .shortestpathsampler import ShortestPathSampler
