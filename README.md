@@ -88,6 +88,9 @@ In detail, the following sampling methods were implemented.
 
 * **[Rejection Constrained Metropolis Hastings Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler)** from Li *et al.*: [On Random Walk Based Graph Sampling](https://ieeexplore.ieee.org/document/7113345) (ICDE 2015)
 
+* **[Circulated Neighbors Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.circulatedneighborsrandomwalksampler)** from Zhou *et al.*: [Leveraging History for Faster Sampling of Online Social Networks](https://dl.acm.org/doi/10.5555/2794367.2794373) (VLDB 2015)
+
+
 Head over to our [documentation](https://littleballoffur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
 
