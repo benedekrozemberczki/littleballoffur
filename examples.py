@@ -7,11 +7,21 @@ from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler,
 from littleballoffur.exploration_sampling import RandomWalkSampler, RandomNodeNeighborSampler, MetropolisHastingsRandomWalkSampler
 from littleballoffur.exploration_sampling import RandomWalkWithRestartSampler, RandomWalkWithJumpSampler, FrontierSampler, ForestFireSampler
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
- 
+from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler
 
 reader = GraphReader("twitch")
 
 graph = reader.get_graph()
+
+#--------------------------
+# Frontier Sampler Example
+#--------------------------
+
+sampler = FrontierSampler()
+
+new_graph = sampler.sample(graph)
+
+print(new_graph)
 
 #--------------------------
 # Frontier Sampler Example
