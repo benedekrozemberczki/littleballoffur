@@ -14,6 +14,10 @@ reader = GraphReader("twitch")
 
 graph = reader.get_graph()
 
+#------------------------
+# Shortest Path Sampler
+#------------------------
+
 sampler = ShortestPathSampler()
 
 new_graph = sampler.sample(graph)
