@@ -9,7 +9,7 @@ from littleballoffur.exploration_sampling import RandomWalkWithRestartSampler, R
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler
 from littleballoffur.exploration_sampling import ShortestPathSampler
-from littleballoffur.edge_sampling RandomEdgeSamplerWithPartialInduction
+from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
 
 reader = GraphReader("twitch")
 
@@ -19,7 +19,7 @@ graph = reader.get_graph()
 # Random Edge Sampler With Partial Induction
 #--------------------------------------------
 
-sampler = RandomEdgeSamplerWithPartialInduction()
+sampler = RandomEdgeSamplerWithPartialInduction(p=0.01)
 
 new_graph = sampler.sample(graph)
 

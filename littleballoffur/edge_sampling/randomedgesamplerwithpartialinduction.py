@@ -62,7 +62,6 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
             * **new_graph** *(NetworkX graph)* - The graph of sampled edges.
         """
         self._check_graph(graph)
-        self._check_number_of_edges(graph)
         self._graph = graph
         self._create_initial_set()
         self._sample_edges()
