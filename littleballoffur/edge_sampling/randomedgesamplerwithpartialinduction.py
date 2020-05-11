@@ -14,17 +14,9 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _induce_graph(self):
-        """
-        Inducing all of the edges given the sampled edges
-        """
-        nodes = set([node for edge in self._sampled_edges for node in edge])
-        new_graph = self._graph.subgraph(nodes)
-        return new_graph
-
     def sample(self, graph):
         """
-        Sampling edges randomly with induction.
+        Sampling edges randomly with partial induction.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
@@ -35,6 +27,4 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         self._check_graph(graph)
         self._check_number_of_edges(graph)
         self._graph = graph
-        self._create_initial_edge_set()
-        new_graph = self._induce_graph()
-        return new_graph
+        self._create_initial_set()
