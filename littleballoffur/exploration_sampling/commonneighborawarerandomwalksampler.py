@@ -28,23 +28,25 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         for node in self._graph.nodes():
             neighbors = [neighbor for neighbor in self._graph.neighbors(node)]
             neighbors = set(neighbors)
-            print(neighbors)
             scores = []
             for neighbor in neighbors:
                 fringe = set([neb for neb in self._graph.neighbors(neighbor)])
                 overlap = len(neighbors.intersection(fringe))
-                scores.append((overlap+1)/min(self._graph.degree(node)+1,self._graph.degree(neighbor)+1))
-            scores = np.array(scores)/sum(scores)
+                scores.append((overlap)/min(self._graph.degree(node),self._graph.degree(neighbor)))
+            scores = np.array(scores)+10**-10
             self._sampler[node] = {}
-            self._sampler[node]["neighbors"] = neighbors
-            self._sampler[node]["scores"] = scores
+            self._sampler[node]["neighbors"] = list(neighbors)
+            self._sampler[node]["scores"] = scores/np.sum(scores)
         
 
     def _do_a_step(self):
         """
         Doing a single random walk step.
         """
-        self._current_node = sample = np.random.choice(self._sampler[node]["neighbors"], 1, replace=False, p=self._sampler[node]["scores"])[0]
+        self._current_node = sample = np.random.choice(self._sampler[self._current_node]["neighbors"],
+                                                       1,
+                                                       replace=False,
+                                                       p=self._sampler[self._current_node]["scores"])[0]
         self._sampled_nodes.add(self._current_node)
 
     def sample(self, graph):
