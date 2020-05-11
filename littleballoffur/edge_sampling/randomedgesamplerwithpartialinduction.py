@@ -14,7 +14,6 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         self.seed = seed
         self._set_seed()
 
-
     def _create_initial_set(self):
         """
         Creatin an initial edge and node set and a reshuffled edge stream.
@@ -51,8 +50,6 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
                    self._insert_nodes(edge)
                    self._insert_edge(edge)
          self._edges = [edge for edge in self._edges]
-
-                
 
     def sample(self, graph):
         """
