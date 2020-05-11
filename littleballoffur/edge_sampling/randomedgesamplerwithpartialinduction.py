@@ -42,14 +42,14 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         Creating a subsampled edge list.
         """
         for edge in self._edge_stream:
-           if edge[0] in self._nodes and edge[1] in self._nodes:
-               self._insert_edge(edge)
-           else:
-               p = random.uniform(0, 1)
-               if p < self.p:
-                   self._insert_nodes(edge)
-                   self._insert_edge(edge)
-         self._edges = [edge for edge in self._edges]
+            if edge[0] in self._nodes and edge[1] in self._nodes:
+                self._insert_edge(edge)
+            else:
+                p = random.uniform(0, 1)
+                if p < self.p:
+                    self._insert_nodes(edge)
+                    self._insert_edge(edge)
+        self._edges = [edge for edge in self._edges]
 
     def sample(self, graph):
         """
