@@ -22,7 +22,6 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         self._current_node = random.choice(range(self._graph.number_of_nodes()))
         self._sampled_nodes = set([self._current_node])
 
-
     def _create_sampler(self):
         """
         Assigning edge weights.
