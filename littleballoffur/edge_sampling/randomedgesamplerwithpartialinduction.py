@@ -6,11 +6,11 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
     r"""An implementation of random edge sampling with partial edge set induction.
 
     Args:
-        p (int): Number of edges. Default is 100.
+        p (float): Sampling probability. Default is 0.5.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_edges=100, seed=42):
-        self.number_of_edges = number_of_edges
+    def __init__(self, p=0.5, seed=42):
+        self.p = p
         self.seed = seed
         self._set_seed()
 
