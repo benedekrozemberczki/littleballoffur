@@ -92,7 +92,7 @@ In detail, the following sampling methods were implemented.
 
 * **[Circulated Neighbors Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.circulatedneighborsrandomwalksampler.CirculatedNeighborsRandomWalkSampler)** from Zhou *et al.*: [Leveraging History for Faster Sampling of Online Social Networks](https://dl.acm.org/doi/10.5555/2794367.2794373) (VLDB 2015)
 
-* **[Shortes Path Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.shortestpathsampler.ShortestPathSampler)** from Rezvanian *et al.*: [Sampling Social Networks Using Shortest Paths](https://www.sciencedirect.com/science/article/pii/S0378437115000321) (Physica A 2015)
+* **[Shortest Path Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.shortestpathsampler.ShortestPathSampler)** from Rezvanian *et al.*: [Sampling Social Networks Using Shortest Paths](https://www.sciencedirect.com/science/article/pii/S0378437115000321) (Physica A 2015)
 
 * **[Common Neighbor Aware Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler.CommonNeighborAwareRandomWalkSampler)** from Li *et al.*: [Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness](https://ieeexplore.ieee.org/document/8731555) (ICDE 2019)
 
