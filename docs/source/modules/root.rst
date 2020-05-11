@@ -39,6 +39,10 @@ Edge Sampling
     :members:
     :undoc-members:
 
+.. automodule:: littleballoffur.edge_sampling.randomedgesamplerwithpartialinduction
+    :members:
+    :undoc-members:
+
 Exploration Sampling
 --------------------
 
