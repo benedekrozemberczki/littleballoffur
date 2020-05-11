@@ -24,6 +24,9 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
 
 
     def _create_sampler(self):
+        """
+        Assigning edge weights.
+        """
         self._sampler = {}
         for node in self._graph.nodes():
             neighbors = [neighbor for neighbor in self._graph.neighbors(node)]
