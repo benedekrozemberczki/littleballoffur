@@ -16,20 +16,32 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
 
 
     def _create_initial_set(self):
+        """
+        Creatin an initial edge and node set and a reshuffled edge stream.
+        """
         self._nodes = set()
         self._edges = set()
         self._edge_stream = [edge for edge in self._graph.edges()]
         random.shuffle(self._edge_stream)
 
     def _insert_edge(self, edge):
+        """
+        Adding an edge.
+        """
         self._edges.add((edge[0], edge[1]))
         self._edges.add((edge[1], edge[0]))
 
     def _insert_nodes(self, edge):
+        """
+        Adding edge endpoints to the node sets.
+        """
         self._nodes.add(edge[0])
         self._nodes.add(edge[1])
 
     def _sample_edges(self):
+        """
+        Creating a subsampled edge list.
+        """
         for edge in self._edge_stream:
            if edge[0] in self._nodes and edge[1] in self._nodes:
                self._insert_edge(edge)
