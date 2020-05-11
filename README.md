@@ -68,6 +68,8 @@ In detail, the following sampling methods were implemented.
 
 * **[Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)** from Ahmed *et al.*: [Network Sampling: From Static to Streaming Graphs](https://dl.acm.org/doi/10.1145/2601438) (TKDD 2013)
 
+* **[Random Edge Sampler with Partial Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithpartialinduction.RandomEdgeSamplerWithInduction)** from Ahmed *et al.*: [Network Sampling: From Static to Streaming Graphs](https://dl.acm.org/doi/10.1145/2601438) (TKDD 2013)
+
 **Exploration Based Sampling**
 
 * **[Forest Fire Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.forestfiresampler)** from Leskovec *et al.*: [Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2005)
