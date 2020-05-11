@@ -2,11 +2,11 @@ import random
 import networkx as nx
 from littleballoffur import Sampler
 
-class RandomEdgeSamplerWithPartialInduction(RandomEdgeSampler):
-    r"""An implementation of random edge sampling with edge set induction.
+class RandomEdgeSamplerWithPartialInduction(Sampler):
+    r"""An implementation of random edge sampling with partial edge set induction.
 
     Args:
-        number_of_edges (int): Number of edges. Default is 100.
+        p (int): Number of edges. Default is 100.
         seed (int): Random seed. Default is 42.
     """
     def __init__(self, number_of_edges=100, seed=42):
