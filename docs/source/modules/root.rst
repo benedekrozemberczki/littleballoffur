@@ -85,3 +85,7 @@ Exploration Sampling
 .. automodule:: littleballoffur.exploration_sampling.shortestpathsampler
     :members:
     :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler
+    :members:
+    :undoc-members:
