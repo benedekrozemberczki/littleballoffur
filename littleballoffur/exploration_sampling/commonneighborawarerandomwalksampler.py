@@ -1,4 +1,5 @@
 import random
+import numpy as np
 import networkx as nx
 from littleballoffur.sampler import Sampler
 
@@ -20,6 +21,19 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         """
         self._current_node = random.choice(range(self._graph.number_of_nodes()))
         self._sampled_nodes = set([self._current_node])
+
+
+    def _create_sampler(self):
+        self._sampler = {}
+        for node in self._graph.nodes():
+            neighbors = [neighbor for neighbor in self._graph.neighbors(node)]
+            self._sampler[node]["neighbors"] = neighbors
+            scores = []
+            neighbors = set(neighbors)
+            for neighbor in neighbors:
+                fringe = set([neb for neb in self._graph.neighbors(neighbor)])
+                overlap = len(neighbors.intersection(fringe))
+                print(overlap)
 
     def _do_a_step(self):
         """
@@ -43,7 +57,8 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         self._check_number_of_nodes(graph)
         self._graph = graph
         self._create_initial_node_set()
-        while len(self._sampled_nodes) < self.number_of_nodes:
-            self._do_a_step()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
-        return new_graph
+        self._create_sampler()
+        #while len(self._sampled_nodes) < self.number_of_nodes:
+        #    self._do_a_step()
+        #new_graph = self._graph.subgraph(self._sampled_nodes)
+        #return new_graph
