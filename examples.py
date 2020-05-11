@@ -15,6 +15,10 @@ reader = GraphReader("twitch")
 
 graph = reader.get_graph()
 
+#-------------------------------------------
+# Common Neighbor Aware Random Walk Sampler
+#-------------------------------------------
+
 sampler = CommonNeighborAwareRandomWalkSampler()
 
 new_graph = sampler.sample(graph)
