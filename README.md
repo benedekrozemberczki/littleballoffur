@@ -94,7 +94,7 @@ In detail, the following sampling methods were implemented.
 
 * **[Shortes Path Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.shortestpathsampler)** from Rezvanian *et al.*: [Sampling Social Networks Using Shortest Paths](https://www.sciencedirect.com/science/article/pii/S0378437115000321) (Physica A 2015)
 
-* **[Shortes Path Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler)** from Li *et al.*: [Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness](https://ieeexplore.ieee.org/document/8731555) (ICDE 2019)
+* **[Common Neighbor Aware Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler)** from Li *et al.*: [Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness](https://ieeexplore.ieee.org/document/8731555) (ICDE 2019)
 
 
 
