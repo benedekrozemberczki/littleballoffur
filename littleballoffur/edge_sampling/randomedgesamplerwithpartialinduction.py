@@ -1,8 +1,8 @@
 import random
 import networkx as nx
-from littleballoffur.edge_sampling import RandomEdgeSampler
+from littleballoffur import Sampler
 
-class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
+class RandomEdgeSamplerWithPartialInduction(RandomEdgeSampler):
     r"""An implementation of random edge sampling with edge set induction.
 
     Args:
@@ -13,6 +13,7 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         self.number_of_edges = number_of_edges
         self.seed = seed
         self._set_seed()
+
     def _induce_graph(self):
         """
         Inducing all of the edges given the sampled edges
