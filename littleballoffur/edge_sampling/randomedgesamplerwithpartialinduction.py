@@ -14,6 +14,34 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         self.seed = seed
         self._set_seed()
 
+
+    def _create_initial_set(self):
+        self._nodes = set()
+        self._edges = set()
+        self._edge_stream = [edge for edge in self._graph.edges()]
+        random.shuffle(self._edge_stream)
+
+    def _insert_edge(self, edge):
+        self._edges.add((edge[0], edge[1]))
+        self._edges.add((edge[1], edge[0]))
+
+    def _insert_nodes(self, edge):
+        self._nodes.add(edge[0])
+        self._nodes.add(edge[1])
+
+    def _sample_edges(self):
+        for edge in self._edge_stream:
+           if edge[0] in self._nodes and edge[1] in self._nodes:
+               self._insert_edge(edge)
+           else:
+               p = random.uniform(0, 1)
+               if p < self.p:
+                   self._insert_nodes(edge)
+                   self._insert_edge(edge)
+         self._edges = [edge for edge in self._edges]
+
+                
+
     def sample(self, graph):
         """
         Sampling edges randomly with partial induction.
@@ -28,3 +56,6 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         self._check_number_of_edges(graph)
         self._graph = graph
         self._create_initial_set()
+        self._sample_edges()
+        new_graph = nx.from_edgelist(self._edges)
+        return new_graph
