@@ -25,8 +25,6 @@ new_graph = sampler.sample(graph)
 
 print(nx.transitivity(new_graph))
 
-quit()
-
 #--------------------------------------------
 # Random Edge Sampler With Partial Induction
 #--------------------------------------------
