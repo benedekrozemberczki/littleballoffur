@@ -2,4 +2,4 @@ from .randomedgesampler import RandomEdgeSampler
 from .randomnodeedgesampler import RandomNodeEdgeSampler
 from .hybridnodeedgesampler import HybridNodeEdgeSampler
 from .randomedgesamplerwithinduction import RandomEdgeSamplerWithInduction
-from .randomedgesamplerwithinduction import RandomEdgeSamplerWithPartialInduction
+from .randomedgesamplerwithpartialinduction import RandomEdgeSamplerWithPartialInduction
