@@ -2,7 +2,7 @@ import random
 import networkx as nx
 from littleballoffur.sampler import Sampler
 
-class RandomWalkSampler(Sampler):
+class NonBackTrackingRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by random walks.
 
     Args:
