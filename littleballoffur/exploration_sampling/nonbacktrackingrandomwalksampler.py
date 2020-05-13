@@ -24,7 +24,7 @@ class NonBackTrackingRandomWalkSampler(Sampler):
 
     def _do_a_step(self):
         """
-        Doing a single random walk step.
+        Doing a single non back-tracking random walk step.
         """
         neighbors = [neighbor for neighbor in self._graph.neighbors(self._current_node)]
         self._target_node = random.choice(neighbors)
