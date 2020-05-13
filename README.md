@@ -96,6 +96,7 @@ In detail, the following sampling methods were implemented.
 
 * **[Common Neighbor Aware Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler.CommonNeighborAwareRandomWalkSampler)** from Li *et al.*: [Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness](https://ieeexplore.ieee.org/document/8731555) (ICDE 2019)
 
+* **[Common Neighbor Aware Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler.CommonNeighborAwareRandomWalkSampler)** from Li *et al.*: [Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness](https://ieeexplore.ieee.org/document/8731555) (ICDE 2019)
 
 Head over to our [documentation](https://little-ball-of-fur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
