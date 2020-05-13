@@ -89,3 +89,7 @@ Exploration Sampling
 .. automodule:: littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler
     :members:
     :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.nonbacktrackingrandomwalksampler
+    :members:
+    :undoc-members:
