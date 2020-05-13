@@ -31,7 +31,6 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         if self._graph.degree(self._current_node) > 1:
             while self._target_node == self._previous_node:
                 self._target_node = random.choice([neighbor for neighbor in neighbors])
-
         self._previous_node = self._current_node
         self._current_node = self._target_node
         self._sampled_nodes.add(self._current_node)
