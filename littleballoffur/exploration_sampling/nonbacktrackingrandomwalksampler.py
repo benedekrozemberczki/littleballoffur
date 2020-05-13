@@ -26,11 +26,11 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         """
         Doing a single random walk step.
         """
-        neighbors = self._graph.neighbors(self._current_node)
-        self._target_node = random.choice([neighbor for neighbor in neighbors])
+        neighbors = [neighbor for neighbor in self._graph.neighbors(self._current_node)]
+        self._target_node = random.choice(neighbors)
         if self._graph.degree(self._current_node) > 1:
             while self._target_node == self._previous_node:
-                self._target_node = random.choice([neighbor for neighbor in neighbors])
+                self._target_node = random.choice(neighbors)
         self._previous_node = self._current_node
         self._current_node = self._target_node
         self._sampled_nodes.add(self._current_node)
