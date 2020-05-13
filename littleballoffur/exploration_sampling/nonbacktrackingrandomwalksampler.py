@@ -20,7 +20,7 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         """
         self._current_node = random.choice(range(self._graph.number_of_nodes()))
         self._sampled_nodes = set([self._current_node])
-        self.previous_node = -1
+        self._previous_node = -1
 
     def _do_a_step(self):
         """
