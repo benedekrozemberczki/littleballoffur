@@ -3,7 +3,7 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class NonBackTrackingRandomWalkSampler(Sampler):
-    r"""An implementation of node sampling by random walks.
+    r"""An implementation of node sampling by non back-tracking random walks.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
@@ -31,7 +31,7 @@ class NonBackTrackingRandomWalkSampler(Sampler):
 
     def sample(self, graph):
         """
-        Sampling nodes with a single random walk.
+        Sampling nodes with a single non back-tracking random walk.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
