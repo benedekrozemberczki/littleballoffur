@@ -28,3 +28,6 @@ External resources
 * Alireza Rezvanian, Mohammad Reza Meybodi: **Sampling Social Networks Using Shortest Paths** `Paper <https://www.sciencedirect.com/science/article/pii/S0378437115000321>`_
 
 *  Yongkun Li, Zhiyong Wu, Shuai Lin, Hong Xie, Min Lv, Yinlong Xu, John C.S. Lui : **Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness** `Paper <https://ieeexplore.ieee.org/document/8731555>`_
+
+*  Chul-Ho Lee, Xin Xu, Do Young Eun : **Beyond Random Walk and Metropolis-Hastings Samplers: Why You Should Not Backtrack for Unbiased Graph Sampling** `Paper <https://ieeexplore.ieee.org/document/8731555>`_
+
