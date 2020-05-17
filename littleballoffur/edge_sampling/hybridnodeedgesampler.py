@@ -23,7 +23,7 @@ class HybridNodeEdgeSampler(Sampler):
         self._sampled_edges = set()
         edges = [edge for edge in self._graph.edges()]
         while len(self._sampled_edges) < self.number_of_edges:
-            score = random.uniform(0,1)
+            score = random.uniform(0, 1)
             if score < self.p:
                 source_node = random.choice(range(self._graph.number_of_nodes()))
                 target_node = random.choice([node for node in self._graph.neighbors(source_node)])
