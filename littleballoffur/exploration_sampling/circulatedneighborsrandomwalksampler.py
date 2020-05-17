@@ -65,6 +65,6 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         self._create_node_set()
         self._create_circulated_map()
         while len(self._sampled_nodes) < self.number_of_nodes:
-             self._make_a_step()
+            self._make_a_step()
         new_graph = graph.subgraph(self._sampled_nodes)
         return new_graph
