@@ -30,7 +30,7 @@ If you find **Little Ball of Fur** and the new datasets useful in your research,
 
 **A simple example**
 
-**Little Ball of Fur** makes using modern graph subsampling techniques quite easy (see [here](https://littleballoffur.readthedocs.io/en/latest/notes/introduction.html) for the accompanying tutorial).
+**Little Ball of Fur** makes using modern graph subsampling techniques quite easy (see [here](https://little-ball-of-fur.readthedocs.io/en/latest/notes/introduction.html) for the accompanying tutorial).
 For example, this is all it takes to use [Random Walk Sampling](https://ieeexplore.ieee.org/document/5462078) on a Watts-Strogatz graph:
 
 ```python
