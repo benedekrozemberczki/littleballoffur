@@ -24,13 +24,6 @@ sampler = DepthFirstSearchSampler(number_of_nodes=graph.number_of_nodes())
 
 new_graph = sampler.sample(graph)
 
-print(new_graph.number_of_nodes())
-print(new_graph.number_of_edges())
-print(nx.transitivity(new_graph))
-print(nx.is_connected(new_graph))
-
-quit()
-
 #------------------------------
 # Breadth First Search Sampler
 #------------------------------
