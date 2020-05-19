@@ -31,3 +31,5 @@ External resources
 
 *  Chul-Ho Lee, Xin Xu, Do Young Eun: **Beyond Random Walk and Metropolis-Hastings Samplers: Why You Should Not Backtrack for Unbiased Graph Sampling** `Paper <https://arxiv.org/abs/1204.4140>`_
 
+*  David Bruce Wilson: **Generating Random Spanning Trees More Quickly Than the Cover Time** `Paper <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.47.8598&rep=rep1&type=pdf>`_
+
