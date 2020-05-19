@@ -72,6 +72,8 @@ In detail, the following sampling methods were implemented.
 
 **Exploration Based Sampling**
 
+* **[Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.looperasedrandomwalksampler.LoopErasedRandomWalkSampler)** from Wilson: [Generating Random Spanning Trees More Quickly Than the Cover Time](https://ieeexplore.ieee.org/document/5462078) (STOC 1996)
+
 * **[Forest Fire Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.forestfiresampler.ForestFireSampler)** from Leskovec *et al.*: [Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2005)
 
 * **[Random Node-Neighbor Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#module-littleballoffur.exploration_sampling.randomnodeneighborsampler.RandomNodeNeighborSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
