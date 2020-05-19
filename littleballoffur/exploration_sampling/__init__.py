@@ -2,7 +2,7 @@ from .frontiersampler import FrontierSampler
 from .randomwalksampler import RandomWalkSampler
 from .forestfiresampler import ForestFireSampler
 from .shortestpathsampler import ShortestPathSampler
-from .breadthfristsearchsampler import BreadthFirstSearchSampler
+from .breadthfirstsearchsampler import BreadthFirstSearchSampler
 from .randomnodeneighborsampler import RandomNodeNeighborSampler
 from .randomwalkwithjumpsampler import RandomWalkWithJumpSampler
 from .looperasedrandomwalksampler import LoopErasedRandomWalkSampler
