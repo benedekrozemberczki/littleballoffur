@@ -50,6 +50,10 @@ Exploration Sampling
     :members:
     :undoc-members:
 
+.. automodule:: littleballoffur.exploration_sampling.looperasedrandomwalksampler
+    :members:
+    :undoc-members:
+
 .. automodule:: littleballoffur.exploration_sampling.randomnodeneighborsampler
     :members:
     :undoc-members:
