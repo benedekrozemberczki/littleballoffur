@@ -1,9 +1,9 @@
 import random
 import networkx as nx
-from queue import Queue 
+from queue import LifoQueue
 from littleballoffur.sampler import Sampler
 
-class BreadthFirstSearchSampler(Sampler):
+class DepthFirstSearchSampler(Sampler):
     r"""An implementation of node sampling by breadth first search.
 
     Args:
@@ -16,10 +16,10 @@ class BreadthFirstSearchSampler(Sampler):
         self._set_seed()
 
     def _create_seed_set(self):
-        self._queue = Queue()
+        self._queue = LifoQueue()
         start_node = random.choice(range(self._graph.number_of_nodes()))
         self._queue.put(start_node)
-        self._nodes = set([start_node])
+        self._nodes = set()
         self._edges = set()  
 
     def sample(self, graph):
@@ -38,15 +38,14 @@ class BreadthFirstSearchSampler(Sampler):
         self._create_seed_set()
         while len(self._nodes) < self.number_of_nodes:
             source = self._queue.get()
-            neighbors = [node for node in self._graph.neighbors(source)]
-            random.shuffle(neighbors)
-            for neighbor in neighbors:
-                if neighbor not in self._nodes:
-                    self._nodes.add(neighbor)
-                    self._edges.add((source, neighbor))
+            if source not in self._nodes:
+                neighbors = [node for node in self._graph.neighbors(source)]
+                random.shuffle(neighbors)
+                for neighbor in neighbors:
                     self._queue.put(neighbor)
-                    if len(self._nodes) > self.number_of_nodes:
-                        break
+                    if source not in self._nodes and neighbor not in self._nodes:
+                        self._edges.add((source, neighbor))
+                self._nodes.add(source)
         new_graph = nx.from_edgelist(self._edges)
         return new_graph
 
