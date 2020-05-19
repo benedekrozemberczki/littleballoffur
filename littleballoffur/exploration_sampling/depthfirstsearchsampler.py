@@ -20,7 +20,10 @@ class DepthFirstSearchSampler(Sampler):
         start_node = random.choice(range(self._graph.number_of_nodes()))
         self._queue.put(start_node)
         self._nodes = set()
-        self._edges = set()  
+        self._path = [] 
+
+    def _extract_edges(self):
+        self._edges = [[self._path[i],self._path[i+1]] for i in range(len(self._path)-1)]
 
     def sample(self, graph):
         """
@@ -43,9 +46,9 @@ class DepthFirstSearchSampler(Sampler):
                 random.shuffle(neighbors)
                 for neighbor in neighbors:
                     self._queue.put(neighbor)
-                    if source not in self._nodes and neighbor not in self._nodes:
-                        self._edges.add((source, neighbor))
                 self._nodes.add(source)
+                self._path.append(source)
+        self._extract_edges()
         new_graph = nx.from_edgelist(self._edges)
         return new_graph
 
