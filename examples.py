@@ -20,10 +20,12 @@ graph = reader.get_graph()
 # Breadth First Search Sampler
 #-------------------------------------------
 
-sampler = BreadthFirstSearchSampler()
+sampler = BreadthFirstSearchSampler(number_of_nodes=graph.number_of_nodes())
 
 new_graph = sampler.sample(graph)
 
+print(new_graph.number_of_nodes())
+print(new_graph.number_of_edges())
 print(nx.transitivity(new_graph))
 
 quit()

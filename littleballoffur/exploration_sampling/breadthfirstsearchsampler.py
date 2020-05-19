@@ -16,9 +16,9 @@ class BreadthFirstSearchSampler(Sampler):
         self._set_seed()
 
     def _create_seed_set(self):
-        self.queue = Queue()
+        self._queue = Queue()
         start_node = random.choice(range(self._graph.number_of_nodes()))
-        self.queue.add(start_node)
+        self._queue.put(start_node)
         self._nodes = set([start_node])
         self._edges = set()  
 
@@ -35,15 +35,16 @@ class BreadthFirstSearchSampler(Sampler):
         self._check_graph(graph)
         self._check_number_of_nodes(graph)
         self._graph = graph
+        self._create_seed_set()
         while len(self._nodes) < self.number_of_nodes:
-            source = self.queue.get()
+            source = self._queue.get()
             neighbors = [node for node in self._graph.neighbors(source)]
             random.shuffle(neighbors)
             for neighbor in neighbors:
                 if neighbor not in self._nodes:
                     self._nodes.add(neighbor)
                     self._edges.add((source, neighbor))
-                    self._queue.add(neighbor)
+                    self._queue.put(neighbor)
                     if len(self._nodes) > self.number_of_nodes:
                         break
         new_graph = nx.from_edgelist(self._edges)
