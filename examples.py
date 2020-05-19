@@ -17,10 +17,10 @@ reader = GraphReader("twitch")
 graph = reader.get_graph()
 
 #-------------------------------------------
-# Loop Erased Random Walk Sampler
+# Breadth First Search Sampler
 #-------------------------------------------
 
-sampler = LoopErasedRandomWalkSampler()
+sampler = BreadthFirstSearchSampler()
 
 new_graph = sampler.sample(graph)
 
