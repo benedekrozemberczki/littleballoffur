@@ -10,7 +10,7 @@ from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampl
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler
 from littleballoffur.exploration_sampling import ShortestPathSampler, CommonNeighborAwareRandomWalkSampler, NonBackTrackingRandomWalkSampler
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
-from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSample, DepthFirstSearchSampler
+from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler, DepthFirstSearchSampler
 
 reader = GraphReader("twitch")
 
