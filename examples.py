@@ -10,7 +10,7 @@ from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampl
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler
 from littleballoffur.exploration_sampling import ShortestPathSampler, CommonNeighborAwareRandomWalkSampler, NonBackTrackingRandomWalkSampler
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
-from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler
+from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler
 
 reader = GraphReader("twitch")
 
@@ -27,6 +27,14 @@ new_graph = sampler.sample(graph)
 print(nx.transitivity(new_graph))
 
 quit()
+
+#-------------------------------------------
+# Loop Erased Random Walk Sampler
+#-------------------------------------------
+
+sampler = LoopErasedRandomWalkSampler()
+
+new_graph = sampler.sample(graph)
 
 #-------------------------------------------
 # Common Neighbor Aware Random Walk Sampler
