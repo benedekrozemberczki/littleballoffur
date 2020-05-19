@@ -16,9 +16,9 @@ reader = GraphReader("twitch")
 
 graph = reader.get_graph()
 
-#-------------------------------------------
+#----------------------------
 # Depth First Search Sampler
-#-------------------------------------------
+#----------------------------
 
 sampler = DepthFirstSearchSampler(number_of_nodes=graph.number_of_nodes())
 
@@ -30,17 +30,17 @@ print(nx.transitivity(new_graph))
 
 quit()
 
-#-------------------------------------------
+#------------------------------
 # Breadth First Search Sampler
-#-------------------------------------------
+#------------------------------
 
 sampler = BreadthFirstSearchSampler(number_of_nodes=graph.number_of_nodes())
 
 new_graph = sampler.sample(graph)
 
-#-------------------------------------------
+#---------------------------------
 # Loop Erased Random Walk Sampler
-#-------------------------------------------
+#---------------------------------
 
 sampler = LoopErasedRandomWalkSampler()
 
