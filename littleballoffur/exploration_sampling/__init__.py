@@ -3,6 +3,7 @@ from .randomwalksampler import RandomWalkSampler
 from .forestfiresampler import ForestFireSampler
 from .shortestpathsampler import ShortestPathSampler
 from .breadthfirstsearchsampler import BreadthFirstSearchSampler
+from .depthfirstsearchsampler import DepthFirstSearchSampler
 from .randomnodeneighborsampler import RandomNodeNeighborSampler
 from .randomwalkwithjumpsampler import RandomWalkWithJumpSampler
 from .looperasedrandomwalksampler import LoopErasedRandomWalkSampler
