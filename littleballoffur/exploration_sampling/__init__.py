@@ -4,6 +4,7 @@ from .forestfiresampler import ForestFireSampler
 from .shortestpathsampler import ShortestPathSampler
 from .randomnodeneighborsampler import RandomNodeNeighborSampler
 from .randomwalkwithjumpsampler import RandomWalkWithJumpSampler
+from .looperasedrandomwalksampler import LoopErasedRandomWalkSampler
 from .randomwalkwithrestartsampler import RandomWalkWithRestartSampler
 from .nonbacktrackingrandomwalksampler import NonBackTrackingRandomWalkSampler
 from .communitystructureexpansionsampler import CommunityStructureExpansionSampler
