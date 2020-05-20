@@ -27,11 +27,13 @@ External resources
 
 * Alireza Rezvanian, Mohammad Reza Meybodi: **Sampling Social Networks Using Shortest Paths** `Paper <https://www.sciencedirect.com/science/article/pii/S0378437115000321>`_
 
-*  Yongkun Li, Zhiyong Wu, Shuai Lin, Hong Xie, Min Lv, Yinlong Xu, John C.S. Lui: **Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness** `Paper <https://ieeexplore.ieee.org/document/8731555>`_
+* Yongkun Li, Zhiyong Wu, Shuai Lin, Hong Xie, Min Lv, Yinlong Xu, John C.S. Lui: **Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness** `Paper <https://ieeexplore.ieee.org/document/8731555>`_
 
-*  Chul-Ho Lee, Xin Xu, Do Young Eun: **Beyond Random Walk and Metropolis-Hastings Samplers: Why You Should Not Backtrack for Unbiased Graph Sampling** `Paper <https://arxiv.org/abs/1204.4140>`_
+* Chul-Ho Lee, Xin Xu, Do Young Eun: **Beyond Random Walk and Metropolis-Hastings Samplers: Why You Should Not Backtrack for Unbiased Graph Sampling** `Paper <https://arxiv.org/abs/1204.4140>`_
 
-*  David Bruce Wilson: **Generating Random Spanning Trees More Quickly Than the Cover Time** `Paper <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.47.8598&rep=rep1&type=pdf>`_
+* David Bruce Wilson: **Generating Random Spanning Trees More Quickly Than the Cover Time** `Paper <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.47.8598&rep=rep1&type=pdf>`_
 
-*  Christian Doerr, Norbert Blenn: **Metric Convergence in Social Network Sampling** `Paper <https://dl.acm.org/doi/10.1145/2491159.2491168>`_
+* Christian Doerr, Norbert Blenn: **Metric Convergence in Social Network Sampling** `Paper <https://dl.acm.org/doi/10.1145/2491159.2491168>`_
+
+* Leo Goodman: **Snowball Sampling** `Paper <https://projecteuclid.org/euclid.aoms/1177705148>`_
 
