@@ -12,9 +12,16 @@ from littleballoffur.exploration_sampling import ShortestPathSampler, CommonNeig
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
 from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler, DepthFirstSearchSampler
 
-reader = GraphReader("twitch")
+reader = GraphReader("facebook")
 
 graph = reader.get_graph()
+
+
+sampler = LoopErasedRandomWalkSampler(number_of_nodes=graph.number_of_nodes())
+
+new_graph = sampler.sample(graph)
+
+quit()
 
 #----------------------------
 # Depth First Search Sampler

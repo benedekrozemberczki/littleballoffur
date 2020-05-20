@@ -16,6 +16,9 @@ class BreadthFirstSearchSampler(Sampler):
         self._set_seed()
 
     def _create_seed_set(self):
+        """
+        Creating seed sets of nodes and edges.
+        """
         self._queue = Queue()
         start_node = random.choice(range(self._graph.number_of_nodes()))
         self._queue.put(start_node)
@@ -24,7 +27,7 @@ class BreadthFirstSearchSampler(Sampler):
 
     def sample(self, graph):
         """
-        Sampling nodes with a single random walk.
+        Sampling nodes randomized breadt first search.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.

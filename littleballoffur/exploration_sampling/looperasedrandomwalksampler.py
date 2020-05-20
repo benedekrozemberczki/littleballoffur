@@ -3,7 +3,7 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class LoopErasedRandomWalkSampler(Sampler):
-    r"""An implementation of node sampling by random walks.
+    r"""An implementation of node sampling by loop-erased random walks.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
