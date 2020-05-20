@@ -29,7 +29,7 @@ class BreadthFirstSearchSampler(Sampler):
 
     def sample(self, graph):
         """
-        Sampling nodes randomized breadt first search.
+        Sampling a graph with randomized breadth first search.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
