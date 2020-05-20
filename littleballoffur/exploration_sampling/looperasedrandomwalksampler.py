@@ -14,6 +14,7 @@ class LoopErasedRandomWalkSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
+
     def _create_initial_node_set(self):
         """
         Choosing an initial node.
@@ -21,6 +22,7 @@ class LoopErasedRandomWalkSampler(Sampler):
         self._current_node = random.choice(range(self._graph.number_of_nodes()))
         self._sampled_nodes = set([self._current_node])
         self._sampled_edges = set()
+
 
     def _do_a_step(self):
         """
@@ -32,7 +34,7 @@ class LoopErasedRandomWalkSampler(Sampler):
             self._sampled_edges.add((self._current_node, new_node))
             self._sampled_nodes.add(new_node)
         self._current_node = new_node
-        
+
 
     def sample(self, graph):
         """
