@@ -25,7 +25,17 @@ class SnowBallSampler(Sampler):
         self._queue = Queue()
         start_node = random.choice(range(self._graph.number_of_nodes()))
         self._queue.put(start_node)
-        self._nodes = set([start_node]) 
+        self._nodes = set([start_node])
+
+
+    def _get_neighbors(self, source):
+        """
+        Get the neighbors of a node (if a node has more than k neighbors we choose randomly).
+        """
+        neighbors = [node for node in self._graph.neighbors(source)]
+        random.shuffle(neighbors)
+        neighbors = neighbors[0:min(len(neighbors), self.k)]
+        return neighbors
 
 
     def sample(self, graph):
@@ -44,8 +54,7 @@ class SnowBallSampler(Sampler):
         self._create_seed_set()
         while len(self._nodes) < self.number_of_nodes:
             source = self._queue.get()
-            neighbors = [node for node in self._graph.neighbors(source)]
-            random.shuffle(neighbors)
+            neighbors = self._get_neighbors(source)
             for neighbor in neighbors:
                 if neighbor not in self._nodes:
                     self._nodes.add(neighbor)
@@ -53,7 +62,7 @@ class SnowBallSampler(Sampler):
                     self._queue.put(neighbor)
                     if len(self._nodes) > self.number_of_nodes:
                         break
-        new_graph = nx.from_edgelist(self._edges)
+        new_graph = self._graph.subgraph(self._nodes)
         return new_graph
 
 
