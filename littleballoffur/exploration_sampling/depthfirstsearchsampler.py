@@ -4,7 +4,7 @@ from queue import LifoQueue
 from littleballoffur.sampler import Sampler
 
 class DepthFirstSearchSampler(Sampler):
-    r"""An implementation of node sampling by breadth first search.
+    r"""An implementation of node sampling by depth first search.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
@@ -23,6 +23,9 @@ class DepthFirstSearchSampler(Sampler):
         self._path = [] 
 
     def _extract_edges(self):
+        """
+        Extracting edges from the depth first search tree.
+        """
         self._edges = [[self._path[i],self._path[i+1]] for i in range(len(self._path)-1)]
 
     def sample(self, graph):
