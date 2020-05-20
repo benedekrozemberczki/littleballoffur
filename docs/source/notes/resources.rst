@@ -33,3 +33,5 @@ External resources
 
 *  David Bruce Wilson: **Generating Random Spanning Trees More Quickly Than the Cover Time** `Paper <http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.47.8598&rep=rep1&type=pdf>`_
 
+*  Christian Doerr, Norbert Blenn: **Metric Convergence in Social Network Sampling** `Paper <https://dl.acm.org/doi/10.1145/2491159.2491168>`_
+
