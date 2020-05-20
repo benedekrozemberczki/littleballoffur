@@ -15,7 +15,7 @@ setup(
               "graph-sampling", "sampling", "random-walk", "forest-fire",
               "embedding", "network", "deepwalk", "graph2vec", "node2vec",
               "deep", "learning", "louvain", "machine-learning", "deep-learning", "deeplearning"],
-  install_requires=[
+  install_requires = [
           "networkx",
           "tqdm",
           "python-louvain",
