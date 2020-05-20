@@ -46,6 +46,10 @@ Edge Sampling
 Exploration Sampling
 --------------------
 
+.. automodule:: littleballoffur.exploration_sampling.snowballsampler
+    :members:
+    :undoc-members:
+
 .. automodule:: littleballoffur.exploration_sampling.depthfirstsearchsampler
     :members:
     :undoc-members:
