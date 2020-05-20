@@ -19,13 +19,15 @@ reader = GraphReader("facebook")
 
 graph = reader.get_graph()
 
-#-------------------------------------------
+#-------------------
 # Snow Ball Sampler
-#-------------------------------------------
+#-------------------
 
 sampler = SnowBallSampler()
 
 new_graph = sampler.sample(graph)
+
+quit()
 
 #----------------------------
 # Depth First Search Sampler
