@@ -20,7 +20,7 @@ class SnowBallSampler(Sampler):
 
     def _create_seed_set(self):
         """
-        Creating seed sets of nodes and edges.
+        Creating a seed set of nodes.
         """
         self._queue = Queue()
         start_node = random.choice(range(self._graph.number_of_nodes()))
