@@ -3,8 +3,8 @@ import networkx as nx
 from queue import Queue 
 from littleballoffur.sampler import Sampler
 
-class BreadthFirstSearchSampler(Sampler):
-    r"""An implementation of node sampling by breadth first search.
+class SnowBallSampler(Sampler):
+    r"""An implementation of node sampling by snow ball search.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
