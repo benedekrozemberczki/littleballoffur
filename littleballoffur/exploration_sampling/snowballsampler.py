@@ -58,7 +58,6 @@ class SnowBallSampler(Sampler):
             for neighbor in neighbors:
                 if neighbor not in self._nodes:
                     self._nodes.add(neighbor)
-                    self._edges.add((source, neighbor))
                     self._queue.put(neighbor)
                     if len(self._nodes) > self.number_of_nodes:
                         break
