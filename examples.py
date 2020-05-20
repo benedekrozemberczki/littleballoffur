@@ -7,7 +7,7 @@ from littleballoffur.dataset import GraphReader
 from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
 
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler
-from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler, DepthFirstSearchSampler
+from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
 from littleballoffur.exploration_sampling import RandomWalkSampler, RandomNodeNeighborSampler, MetropolisHastingsRandomWalkSampler
 from littleballoffur.exploration_sampling import ShortestPathSampler, CommonNeighborAwareRandomWalkSampler, NonBackTrackingRandomWalkSampler
 from littleballoffur.exploration_sampling import RandomWalkWithRestartSampler, RandomWalkWithJumpSampler, FrontierSampler, ForestFireSampler
@@ -18,6 +18,14 @@ from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampl
 reader = GraphReader("facebook")
 
 graph = reader.get_graph()
+
+#-------------------------------------------
+# Snow Ball Sampler
+#-------------------------------------------
+
+sampler = SnowBallSampler()
+
+new_graph = sampler.sample(graph)
 
 #----------------------------
 # Depth First Search Sampler
