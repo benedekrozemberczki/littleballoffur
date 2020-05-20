@@ -16,6 +16,9 @@ class DepthFirstSearchSampler(Sampler):
         self._set_seed()
 
     def _create_seed_set(self):
+        """
+        Creating a visited node set and a traversal path list.
+        """
         self._queue = LifoQueue()
         start_node = random.choice(range(self._graph.number_of_nodes()))
         self._queue.put(start_node)
