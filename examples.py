@@ -16,13 +16,6 @@ reader = GraphReader("facebook")
 
 graph = reader.get_graph()
 
-
-sampler = LoopErasedRandomWalkSampler(number_of_nodes=graph.number_of_nodes())
-
-new_graph = sampler.sample(graph)
-
-quit()
-
 #----------------------------
 # Depth First Search Sampler
 #----------------------------
