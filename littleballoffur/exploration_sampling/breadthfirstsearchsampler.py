@@ -15,6 +15,7 @@ class BreadthFirstSearchSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
+
     def _create_seed_set(self):
         """
         Creating seed sets of nodes and edges.
@@ -24,6 +25,7 @@ class BreadthFirstSearchSampler(Sampler):
         self._queue.put(start_node)
         self._nodes = set([start_node])
         self._edges = set()  
+
 
     def sample(self, graph):
         """
