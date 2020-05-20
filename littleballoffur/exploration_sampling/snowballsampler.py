@@ -8,10 +8,12 @@ class SnowBallSampler(Sampler):
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
+        k (int): Bound on degree. Default is 50.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes=100, seed=42):
+    def __init__(self, number_of_nodes=100, k=50, seed=42):
         self.number_of_nodes = number_of_nodes
+        self.k = k
         self.seed = seed
         self._set_seed()
 
@@ -23,13 +25,12 @@ class SnowBallSampler(Sampler):
         self._queue = Queue()
         start_node = random.choice(range(self._graph.number_of_nodes()))
         self._queue.put(start_node)
-        self._nodes = set([start_node])
-        self._edges = set()  
+        self._nodes = set([start_node]) 
 
 
     def sample(self, graph):
         """
-        Sampling a graph with randomized breadth first search.
+        Sampling a graph with randomized snow ball sampling.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
