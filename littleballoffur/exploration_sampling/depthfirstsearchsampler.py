@@ -30,7 +30,7 @@ class DepthFirstSearchSampler(Sampler):
 
     def sample(self, graph):
         """
-        Sampling nodes with a single random walk.
+        Sampling nodes with depth first search.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
