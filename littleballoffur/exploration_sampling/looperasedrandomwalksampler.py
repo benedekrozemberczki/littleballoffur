@@ -52,5 +52,5 @@ class LoopErasedRandomWalkSampler(Sampler):
         self._create_initial_node_set()
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+        new_graph = nx.from_edgelist([edge for edge in self._sampled_edges])
         return new_graph
