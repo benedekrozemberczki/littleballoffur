@@ -27,8 +27,6 @@ sampler = SnowBallSampler()
 
 new_graph = sampler.sample(graph)
 
-quit()
-
 #----------------------------
 # Depth First Search Sampler
 #----------------------------
@@ -69,17 +67,13 @@ sampler = CommonNeighborAwareRandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #--------------------------------------------
 # Random Edge Sampler With Partial Induction
 #--------------------------------------------
 
-sampler = RandomEdgeSamplerWithPartialInduction(p=0.01)
+sampler = RandomEdgeSamplerWithPartialInduction()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
 
 #------------------------
 # Shortest Path Sampler
@@ -89,8 +83,6 @@ sampler = ShortestPathSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #-------------------------------------------
 # Circulated Neighbors Random Walk Sampler
 #-------------------------------------------
@@ -98,8 +90,6 @@ print(nx.transitivity(new_graph))
 sampler = CirculatedNeighborsRandomWalkSampler()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
 
 #-----------------------------------------------
 # Community Structure Expansion Sampler Example
@@ -109,8 +99,6 @@ sampler = CommunityStructureExpansionSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #--------------------------
 # Frontier Sampler Example
 #--------------------------
@@ -118,8 +106,6 @@ print(nx.transitivity(new_graph))
 sampler = FrontierSampler()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
 
 #---------------------------
 # ForestFire Sampler Example
@@ -129,8 +115,6 @@ sampler = ForestFireSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #-----------------------------
 # Random Walk Sampler Example
 #-----------------------------
@@ -138,8 +122,6 @@ print(nx.transitivity(new_graph))
 sampler = RandomWalkSampler()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
 
 #-----------------------------
 # Random Node Sampler Example
@@ -149,8 +131,6 @@ sampler = RandomNodeSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #-----------------------------
 # Random Edge Sampler Example
 #-----------------------------
@@ -158,8 +138,6 @@ print(nx.transitivity(new_graph))
 sampler = RandomEdgeSampler()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
 
 #--------------------------------------------
 # Random Edge Sampler With Induction Example
@@ -169,8 +147,6 @@ sampler = RandomEdgeSamplerWithInduction()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #------------------------------
 # Degree Based Sampler Example
 #------------------------------
@@ -178,8 +154,6 @@ print(nx.transitivity(new_graph))
 sampler = DegreeBasedSampler()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
 
 #--------------------------------
 # PageRank Based Sampler Example
@@ -189,8 +163,6 @@ sampler = PageRankBasedSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #----------------------------------
 # Random Node Edge Sampler Example
 #----------------------------------
@@ -198,8 +170,6 @@ print(nx.transitivity(new_graph))
 sampler = RandomNodeEdgeSampler()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
 
 #----------------------------------
 # Hybrid Node Edge Sampler Example
@@ -209,8 +179,6 @@ sampler = HybridNodeEdgeSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #--------------------------------------
 # Random Node Neighbor Sampler Example
 #--------------------------------------
@@ -218,9 +186,6 @@ print(nx.transitivity(new_graph))
 sampler = RandomNodeNeighborSampler()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
-
 
 #------------------------------------------
 # Random Walk With Restart Sampler Example
@@ -230,8 +195,6 @@ sampler = RandomWalkWithRestartSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #-------------------------------
 # Random Walk With Jump Example
 #-------------------------------
@@ -240,8 +203,6 @@ sampler = RandomWalkWithJumpSampler()
 
 new_graph = sampler.sample(graph)
 
-print(nx.transitivity(new_graph))
-
 #-----------------------------------------
 # Metropolis Hastings Random Walk Example
 #-----------------------------------------
@@ -249,6 +210,4 @@ print(nx.transitivity(new_graph))
 sampler = MetropolisHastingsRandomWalkSampler()
 
 new_graph = sampler.sample(graph)
-
-print(nx.transitivity(new_graph))
 
