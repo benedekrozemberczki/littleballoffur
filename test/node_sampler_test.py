@@ -13,3 +13,28 @@ def test_random_node_sampler():
     sub_graph = sampler.sample(graph)
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
+
+def test_degree_based_sampler():
+    """
+    Testing the size.
+    """
+    sampler = DegreeBasedSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    sub_graph = sampler.sample(graph)
+
+    assert sub_graph.number_of_nodes() == sampler.number_of_nodes
+
+
+def test_pagerank_based_sampler():
+    """
+    Testing the size.
+    """
+    sampler = PageRankBasedSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    sub_graph = sampler.sample(graph)
+
+    assert sub_graph.number_of_nodes() == sampler.number_of_nodes
