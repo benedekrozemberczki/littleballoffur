@@ -1,6 +1,13 @@
 from distutils.core import setup
 from setuptools import find_packages
 
+
+install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six"]
+
+setup_requires = ['pytest-runner']
+
+tests_require = ['pytest', 'pytest-cov', 'mock']
+
 setup(
   name = "littleballoffur",
   packages = find_packages(),
@@ -15,15 +22,10 @@ setup(
               "graph-sampling", "sampling", "random-walk", "forest-fire",
               "embedding", "network", "deepwalk", "graph2vec", "node2vec",
               "deep", "learning", "louvain", "machine-learning", "deep-learning", "deeplearning"],
-  install_requires = [
-          "networkx",
-          "tqdm",
-          "python-louvain",
-          "pandas",
-          "numpy",
-          "six",
-      ],
-  classifiers=[
+  install_requires = install_requires,
+  setup_requires = setup_requires,
+  tests_require = tests_require,
+  classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Build Tools",
