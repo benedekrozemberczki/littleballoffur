@@ -9,6 +9,7 @@ def test_reader():
     reader = GraphReader("facebook")
 
     graph = reader.get_graph()
-    print(nx.number_of_nodes(graph))
-    print(nx.number_of_edges(graph))
-    assert True == True
+
+    assert nx.number_of_nodes(graph) == 22470
+    assert nx.number_of_edges(graph) == 171002
+    assert nx.is_connected(graph) == True
