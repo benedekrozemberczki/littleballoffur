@@ -21,7 +21,7 @@ def test_sampler():
     """
     Testing the sampler base class.
     """
-    sampler = MetaSampler()
+    sampler = MetaSampler(seed=42)
     new_graph = sampler.sample(graph)
 
     assert sampler.seed == 42
