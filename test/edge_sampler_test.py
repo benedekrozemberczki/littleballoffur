@@ -1,8 +1,7 @@
 import networkx as nx
-
-
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction, RandomEdgeSamplerWithInduction
+
 
 def test_random_edge_sampler():
     """
