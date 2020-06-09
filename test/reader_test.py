@@ -11,4 +11,4 @@ def test_reader():
     graph = reader.get_graph()
     print(nx.number_of_nodes(graph))
     print(nx.number_of_edges(graph))
-    assert True==True
+    assert True == True
