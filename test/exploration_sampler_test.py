@@ -10,7 +10,7 @@ from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, Br
 
 def test_loop_erased_random_walk_sampler():
     """
-    Testing the edge retention rate.
+    Testing the number of nodes, connectivity and tree structure.
     """
     sampler = LoopErasedRandomWalkSampler()
 
@@ -24,7 +24,7 @@ def test_loop_erased_random_walk_sampler():
 
 def test_breadth_first_search_sampler():
     """
-    Testing the edge retention rate.
+    Testing the number of nodes, connectivity and tree structure.
     """
     sampler = BreadthFirstSearchSampler()
 
@@ -38,7 +38,7 @@ def test_breadth_first_search_sampler():
 
 def test_depth_first_search_sampler():
     """
-    Testing the edge retention rate.
+    Testing the number of nodes, connectivity and tree structure.
     """
     sampler = DepthFirstSearchSampler()
 
