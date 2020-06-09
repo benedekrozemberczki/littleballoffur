@@ -39,5 +39,13 @@ def test_hybrid_node_edge_sampler():
     new_graph = sampler.sample(graph)
 
     assert sampler.number_of_edges == new_graph.number_of_edges()
-    
 
+def test_induction_samplers():
+
+    induced_sampler = RandomEdgeSamplerWithInduction()
+    partially_induced_sampler = RandomEdgeSamplerWithPartialInduction()
+
+    induced_graph = induced_sampler.sample(graph)
+    partially_induced_graph = partially_induced_sampler.sample(graph)
+
+    assert nx.density(partially_induced_graph) <= nx.density(induced_graph)

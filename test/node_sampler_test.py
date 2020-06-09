@@ -14,6 +14,7 @@ def test_random_node_sampler():
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
 
+
 def test_degree_based_sampler():
     """
     Testing the size of the sample.
