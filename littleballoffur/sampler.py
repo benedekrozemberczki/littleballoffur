@@ -45,6 +45,7 @@ class Sampler(object):
 
     def _check_graph(self, graph):
         """Check the Little Ball of Fur assumptions about the graph."""
+        self._check_networkx_graph(graph)
         self._check_connectivity(graph)
         self._check_directedness(graph)
         self._check_indexing(graph)
