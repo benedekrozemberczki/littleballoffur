@@ -7,3 +7,4 @@ exclude_lines =
     except
     register_parameter
     warn
+    pass
