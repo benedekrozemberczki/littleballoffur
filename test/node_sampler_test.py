@@ -2,7 +2,7 @@ import networkx as nx
 
 from littleballoffur import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
 
-def node_sampler_test():
+def test_random_node_sampler():
     """
     Testing the size.
     """
