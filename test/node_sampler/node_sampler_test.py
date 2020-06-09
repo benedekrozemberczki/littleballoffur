@@ -1,6 +1,6 @@
 import networkx as nx
 
-from littleballoffur import NodeSampler, DegreeBasedSampler, PageRankBasedSampler
+from littleballoffur import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
 
 def node_sampler_test(sampler):
     """
@@ -12,7 +12,7 @@ def node_sampler_test(sampler):
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
 
-node_sampler_test(NodeSampler())
+node_sampler_test(RandomNodeSampler())
 
 node_sampler_test(DegreeBasedSampler())
 
