@@ -1,5 +1,4 @@
-from distutils.core import setup
-from setuptools import find_packages
+from setuptools import find_packages, setup
 
 
 install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six"]
