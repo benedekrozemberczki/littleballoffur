@@ -98,3 +98,16 @@ def test_snowball_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+
+def test_random_walk_sampler():
+    """
+    Testing the number of nodes and the connectivity.
+    """
+    sampler = RandomWalkSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
