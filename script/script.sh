@@ -20,3 +20,7 @@ if [ "${TRAVIS_OS_NAME}" = "windows" ]; then
   choco install miniconda3
   PATH=/c/tools/miniconda3/Scripts:$PATH
 fi
+
+conda update --yes conda
+
+conda create --yes -n test python="${PYTHON_VERSION}"
