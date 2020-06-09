@@ -41,9 +41,13 @@ def test_hybrid_node_edge_sampler():
     assert sampler.number_of_edges == new_graph.number_of_edges()
 
 def test_induction_samplers():
-
+    """
+    Testing the density of induced subgraphs
+    """
     induced_sampler = RandomEdgeSamplerWithInduction()
     partially_induced_sampler = RandomEdgeSamplerWithPartialInduction()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
 
     induced_graph = induced_sampler.sample(graph)
     partially_induced_graph = partially_induced_sampler.sample(graph)
