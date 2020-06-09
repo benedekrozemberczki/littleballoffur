@@ -9,12 +9,12 @@ class MetaSampler(Sampler):
       def __init__(self, seed):
           self.seed = seed
 
-      def fit(self, graph):
+      def sample(self, graph):
           """
           Returning the original graph.
           """
           self._set_seed()
-          self._check_graph()
+          self._check_graph(graph)
           return graph
 
 def test_sampler():
