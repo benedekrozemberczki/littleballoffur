@@ -24,6 +24,6 @@ def test_sampler():
     sampler = MetaSampler()
     new_graph = sampler.sample(graph)
 
-    assert sampler.seed = 42
+    assert sampler.seed == 42
     
 
