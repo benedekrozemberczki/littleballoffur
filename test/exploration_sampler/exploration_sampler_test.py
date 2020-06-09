@@ -15,5 +15,3 @@ def node_sampler_test(sampler):
 node_sampler_test(RandomWalkSampler())
 
 node_sampler_test(SnowBallSampler())
-
-node_sampler_test(ForestFireSampler())

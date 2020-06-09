@@ -7,7 +7,7 @@ os:
 
 env:
   jobs:
-    - PYTHON_VERSION=3.6
+    - PYTHON_VERSION=3.5
 
 install:
   - source script/conda.sh
