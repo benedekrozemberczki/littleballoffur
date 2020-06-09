@@ -33,7 +33,7 @@ class ForestFireSampler(Sampler):
         seed_node = random.choice(remaining_nodes)
         self._sampled_nodes.add(seed_node)
         node_queue = deque([seed_node])
-        while node_queue and len(self._sampled_nodes) < self.number_of_nodes:
+        while node_queue and (len(self._sampled_nodes) < self.number_of_nodes):
             top_node = node_queue.popleft()
             self._sampled_nodes.add(top_node)
             neighbors = {neb for neb in self._graph.neighbors(top_node)}
