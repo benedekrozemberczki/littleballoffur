@@ -22,6 +22,9 @@ def test_sampler():
     Testing the sampler base class.
     """
     sampler = MetaSampler(seed=42)
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
     new_graph = sampler.sample(graph)
 
     assert sampler.seed == 42
