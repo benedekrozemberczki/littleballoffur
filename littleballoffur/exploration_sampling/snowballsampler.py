@@ -59,7 +59,7 @@ class SnowBallSampler(Sampler):
                 if neighbor not in self._nodes:
                     self._nodes.add(neighbor)
                     self._queue.put(neighbor)
-                    if len(self._nodes) > self.number_of_nodes:
+                    if len(self._nodes) >= self.number_of_nodes:
                         break
         new_graph = self._graph.subgraph(self._nodes)
         return new_graph

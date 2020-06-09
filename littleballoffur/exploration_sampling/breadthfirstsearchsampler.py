@@ -50,7 +50,7 @@ class BreadthFirstSearchSampler(Sampler):
                     self._nodes.add(neighbor)
                     self._edges.add((source, neighbor))
                     self._queue.put(neighbor)
-                    if len(self._nodes) > self.number_of_nodes:
+                    if len(self._nodes) >= self.number_of_nodes:
                         break
         new_graph = nx.from_edgelist(self._edges)
         return new_graph
