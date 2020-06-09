@@ -4,7 +4,7 @@ from littleballoffur import RandomNodeSampler, DegreeBasedSampler, PageRankBased
 
 def test_random_node_sampler():
     """
-    Testing the size.
+    Testing the size of the sample.
     """
     sampler = RandomNodeSampler()
 
@@ -16,7 +16,7 @@ def test_random_node_sampler():
 
 def test_degree_based_sampler():
     """
-    Testing the size.
+    Testing the size of the sample.
     """
     sampler = DegreeBasedSampler()
 
@@ -29,7 +29,7 @@ def test_degree_based_sampler():
 
 def test_pagerank_based_sampler():
     """
-    Testing the size.
+    Testing the size of the sample.
     """
     sampler = PageRankBasedSampler()
 
