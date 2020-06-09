@@ -1,5 +1,5 @@
 
- ![Version](https://badge.fury.io/py/littleballoffur.svg?style=plastic) ![License](https://img.shields.io/github/license/benedekrozemberczki/littleballoffur.svg?color=blue&style=plastic) [![PyPI download month](https://img.shields.io/pypi/dm/littleballoffur.svg?color=blue&style=plastic)](https://pypi.python.org/pypi/littleballoffur/) [![codebeat badge](https://codebeat.co/badges/f80d2ede-4cda-4e2a-af77-84c984c2283f)](https://codebeat.co/projects/github-com-benedekrozemberczki-littleballoffur-master)
+ ![Version](https://badge.fury.io/py/littleballoffur.svg?style=plastic) ![License](https://img.shields.io/github/license/benedekrozemberczki/littleballoffur.svg?color=blue&style=plastic) [![PyPI download month](https://img.shields.io/pypi/dm/littleballoffur.svg?color=blue&style=plastic)](https://pypi.python.org/pypi/littleballoffur/)  [![Arxiv](https://img.shields.io/badge/ArXiv-2006.04311-orange.svg?color=blue&style=plastic)](https://arxiv.org/abs/2003.04819) [![codebeat badge](https://codebeat.co/badges/f80d2ede-4cda-4e2a-af77-84c984c2283f)](https://codebeat.co/projects/github-com-benedekrozemberczki-littleballoffur-master)
 
 <p align="center">
   <img width="90%" src="https://github.com/benedekrozemberczki/littleballoffur/blob/master/littleballoffurlogo.jpg?sanitize=true" />
