@@ -2,7 +2,7 @@ import networkx as nx
 
 from littleballoffur import RandomWalkSampler, SnowBallSampler, ForestFireSampler
 
-def node_sampler_test(sampler):
+def exploration_sampler_test(sampler):
     """
     Testing the size.
     """
@@ -12,6 +12,6 @@ def node_sampler_test(sampler):
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
 
-node_sampler_test(RandomWalkSampler())
+#exploration_sampler_test(RandomWalkSampler())
 
-node_sampler_test(SnowBallSampler())
+#exploration_sampler_test(SnowBallSampler())
