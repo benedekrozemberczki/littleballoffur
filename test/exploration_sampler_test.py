@@ -21,3 +21,31 @@ def test_loop_erased_random_walk_sampler():
     assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+
+def test_breadth_first_search_sampler():
+    """
+    Testing the edge retention rate.
+    """
+    sampler = BreadthFirstSearchSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+
+def test_depth_first_search_sampler():
+    """
+    Testing the edge retention rate.
+    """
+    sampler = DepthFirstSearchSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
