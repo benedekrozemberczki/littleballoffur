@@ -1,7 +1,7 @@
 from setuptools import find_packages, setup
 
 
-install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six"]
+install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six", "scipy"]
 
 setup_requires = ['pytest-runner']
 
