@@ -125,7 +125,7 @@ def test_metropolis_hastings_random_walk_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
 
-def test_common_neighbor_aware_random_walk_sampler()
+def test_common_neighbor_aware_random_walk_sampler():
     """
     Testing the number of nodes and the connectivity.
     """
