@@ -4,7 +4,15 @@ os:
   - linux
   - osx
   - windows
+
+env:
+  jobs:
+    - PYTHON_VERSION=3.5
+
 install:
+  - source script/conda.sh
+  - conda create --yes -n test python="${PYTHON_VERSION}"
+  - source activate test
   - python setup.py install
 script:
   - python setup.py test
