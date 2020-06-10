@@ -73,6 +73,7 @@ def test_community_structure_expansion_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
 
+
 def test_circulated_neighbors_random_walk_sampler():
     """
     Testing the number of nodes and the connectivity.
@@ -85,6 +86,7 @@ def test_circulated_neighbors_random_walk_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+
 
 def test_snowball_sampler():
     """
@@ -99,6 +101,7 @@ def test_snowball_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
 
+
 def test_random_walk_sampler():
     """
     Testing the number of nodes and the connectivity.
@@ -111,6 +114,7 @@ def test_random_walk_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+
 
 def test_metropolis_hastings_random_walk_sampler():
     """
@@ -125,6 +129,7 @@ def test_metropolis_hastings_random_walk_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
 
+
 def test_common_neighbor_aware_random_walk_sampler():
     """
     Testing the number of nodes and the connectivity.
@@ -138,7 +143,6 @@ def test_common_neighbor_aware_random_walk_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
 
-#-----------------------------------------------------------------------
 
 def test_non_back_trackin_random_walk_sampler():
     """
@@ -153,6 +157,7 @@ def test_non_back_trackin_random_walk_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
 
+
 def test_random_walk_with_restart_sampler():
     """
     Testing the number of nodes and the connectivity.
@@ -166,6 +171,7 @@ def test_random_walk_with_restart_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
 
+
 def test_forest_fire_sampler():
     """
     Testing the number of nodes and the connectivity.
@@ -178,3 +184,59 @@ def test_forest_fire_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+
+#---------------------------------------#
+# TESTS FOR UNCONNECTED GRAPH SAMPLERS  #
+#---------------------------------------#
+
+
+def test_shortest_path_sampler():
+    """
+    Testing the number of nodes.
+    """
+    sampler = ShortestPathSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+
+
+def test_random_walk_with_jump_sampler():
+    """
+    Testing the number of nodes.
+    """
+    sampler = RandomWalkWithJumpSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+
+
+def test_frontier_sampler():
+    """
+    Testing the number of nodes.
+    """
+    sampler = FrontierSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+
+
+def test_random_node_neighbor_sampler():
+    """
+    Testing the number of nodes.
+    """
+    sampler = RandomNodeNeighborSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes <= new_graph.number_of_nodes()

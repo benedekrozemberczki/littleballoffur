@@ -53,7 +53,7 @@ class ShortestPathSampler(Sampler):
                 path = nx.shortest_path(self._graph, source, target)
                 for node in path:
                     self._nodes.add(node)
-                    if len(self._nodes) > self.number_of_nodes:
+                    if len(self._nodes) >= self.number_of_nodes:
                         break
 
         new_graph = graph.subgraph(self._nodes)
