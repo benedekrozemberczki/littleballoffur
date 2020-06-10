@@ -42,7 +42,7 @@ class ForestFireSampler(Sampler):
             count = min(len(unvisited_neighbors), score)
             neighbors = random.sample(unvisited_neighbors, count)
             for neighbor in neighbors:
-                if len(self._sampled_nodes) > self.number_of_nodes:
+                if len(self._sampled_nodes) >= self.number_of_nodes:
                     break
                 node_queue.extend([neighbor])
 
