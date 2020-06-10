@@ -82,7 +82,7 @@ def test_circulated_neighbors_random_walk_sampler():
     """
     sampler = CirculatedNeighborsRandomWalkSampler()
 
-    graph = nx.watts_strogatz_graph(200, 10, 0)
+    graph = nx.watts_strogatz_graph(200, 2, 0)
 
     new_graph = sampler.sample(graph)
 
