@@ -4,7 +4,9 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class FrontierSampler(Sampler):
-    r"""An implementation of frontier sampling.
+    r"""An implementation of frontier sampling. A fixed number of random walkers 
+    traverses the graph and the walkers which make a step are selected randomly.
+    The procedure might result in a disconnected graph. 
 
     Args:
         number_of_seeds (int): Number of seed nodes. Default is 10.
