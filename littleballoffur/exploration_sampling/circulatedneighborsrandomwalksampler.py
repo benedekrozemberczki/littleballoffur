@@ -6,7 +6,8 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
     r"""An implementation of circulated neighbor random walk sampling. The process
     simulates a random walker. Vertices of a neighbourhood are randomly reshuffled 
     after all of them is sampled from the vicinity of a node. This way the walker
-    can escape closely knit communities. 
+    can escape closely knit communities. `For details about the algorithm see 
+    this paper.<https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
     Args:
         number_of_nodes (int): Number of sampled nodes. Default is 100.
