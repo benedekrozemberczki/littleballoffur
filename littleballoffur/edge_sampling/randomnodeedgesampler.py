@@ -3,7 +3,8 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomNodeEdgeSampler(Sampler):
-    r"""An implementation of random node-edge sampling.
+    r"""An implementation of random node-edge sampling. The algorithm first randomly
+    samples a node. From this node it samples an edge with a neighbor.
 
     Args:
         number_of_edges (int): Number of edges. Default is 100.
