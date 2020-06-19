@@ -5,7 +5,8 @@ from littleballoffur.sampler import Sampler
 
 class DegreeBasedSampler(Sampler):
     r"""An implementation of degree based sampling. Nodes are sampled proportional
-    to the degree centrality of nodes. 
+    to the degree centrality of nodes. `"For details about the algorithm see 
+    this paper." <link_goes_here>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
