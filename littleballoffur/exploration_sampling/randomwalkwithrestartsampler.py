@@ -3,7 +3,10 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomWalkWithRestartSampler(Sampler):
-    r"""An implementation of node sampling by random walks with restart.
+    r"""An implementation of node sampling by random walks with restart. The 
+    process is a discrete random walker on nodes which teleports back to the
+    staring node with a fixed probability. This results in a connected subsample
+    from the original input graph.  `For details about the algorithm see this paper.<https://dl.acm.org/doi/10.1145/2601438>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
