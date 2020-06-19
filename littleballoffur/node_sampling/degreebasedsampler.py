@@ -4,7 +4,8 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class DegreeBasedSampler(Sampler):
-    r"""An implementation of degree based sampling.
+    r"""An implementation of degree based sampling. Nodes are sampled proportional
+    to the degree centrality of nodes. 
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
