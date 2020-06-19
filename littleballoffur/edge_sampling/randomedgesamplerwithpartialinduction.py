@@ -3,7 +3,10 @@ import networkx as nx
 from littleballoffur import Sampler
 
 class RandomEdgeSamplerWithPartialInduction(Sampler):
-    r"""An implementation of random edge sampling with partial edge set induction.
+    r"""An implementation of random edge sampling with partial edge set induction. 
+    The algorithm randomly samples edges in a streaming fashion with a fixed probability.
+    Edges between nodes which are already in the sample are retained with an induction step.
+     `For details about the algorithm see this paper.<http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_
 
     Args:
         p (float): Sampling probability. Default is 0.5.
