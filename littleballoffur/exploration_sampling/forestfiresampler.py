@@ -7,7 +7,7 @@ from littleballoffur.sampler import Sampler
 class ForestFireSampler(Sampler):
     r"""An implementation of forest fire sampling. The procedure is a stochastic
     snowball sampling method where the expansion is proportional to the burning probability. 
-    `For details about the algorithm see this paper.<https://www.sciencedirect.com/science/article/pii/S0378437115000321>`_
+    `For details about the algorithm see this paper.<https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
 
     Args:
