@@ -3,7 +3,8 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomNodeSampler(Sampler):
-    r"""An implementation of random node sampling.
+    r"""An implementation of random node sampling. Nodes are sampled with uniform probability. `For details about the algorithm see 
+    this paper.<https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
