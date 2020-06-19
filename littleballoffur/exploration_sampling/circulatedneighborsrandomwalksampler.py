@@ -3,7 +3,10 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class CirculatedNeighborsRandomWalkSampler(Sampler):
-    r"""An implementation of circulated neighbor random walk sampling.
+    r"""An implementation of circulated neighbor random walk sampling. The process
+    simulates a random walker. Vertices of a neighbourhood are randomly reshuffled 
+    after all of them is sampled from the vicinity of a node. This way the walker
+    can escape closely knit communities. 
 
     Args:
         number_of_nodes (int): Number of sampled nodes. Default is 100.
