@@ -2,7 +2,10 @@ import networkx as nx
 from littleballoffur.edge_sampling import RandomEdgeSampler
 
 class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
-    r"""An implementation of random edge sampling with edge set induction.
+    r"""An implementation of random edge sampling with edge set induction. The 
+    algorithm randomly samples edges in a streaming fashion with a fixed probability.
+    Edges between nodes which are already in the sample are retained with an induction step.
+     `For details about the algorithm see this paper.<https://dl.acm.org/doi/10.1145/2601438>`_
 
     Args:
         number_of_edges (int): Number of edges. Default is 100.
