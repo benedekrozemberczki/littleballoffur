@@ -3,7 +3,8 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomWalkSampler(Sampler):
-    r"""An implementation of node sampling by random walks.
+    r"""An implementation of node sampling by random walks. A simple random walker
+    which created an induced subgraph by walking around. 
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
