@@ -3,7 +3,8 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class HybridNodeEdgeSampler(Sampler):
-    r"""An implementation of hybrid node-edge sampling.
+    r"""An implementation of hybrid node-edge sampling. The algorithm alternates
+    between two sampling methods. (A) Random uniform edge sampling.  
 
     Args:
         number_of_edges (int): Number of edges. Default is 100.
