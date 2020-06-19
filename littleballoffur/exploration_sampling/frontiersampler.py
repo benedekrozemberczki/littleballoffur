@@ -8,7 +8,7 @@ class FrontierSampler(Sampler):
     traverses the graph and the walkers which make a step are selected randomly.
     The procedure might result in a disconnected graph as the walks might never
     connect with each other. `For details about the algorithm see this paper.
-    <https://ieeexplore.ieee.org/document/5462078>`_ 
+    <https://www.cs.purdue.edu/homes/ribeirob/pdf/ribeiro_imc2010.pdf>`_ 
 
     Args:
         number_of_seeds (int): Number of seed nodes. Default is 10.
