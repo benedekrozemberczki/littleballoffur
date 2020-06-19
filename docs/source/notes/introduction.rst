@@ -13,10 +13,13 @@ If you find *Little Ball of Fur* useful in your research, please consider citing
 
 .. code-block:: latex
 
-    >@misc{littleballoffur2020,
-           title={Little Ball of Fur: A Python Library for Graph Subsampling},
-           author={Benedek Rozemberczki and Oliver Kiss},
-           year={2020},
+    >@misc{rozemberczki2020little,
+        title={Little Ball of Fur: A Python Library for Graph Sampling},
+        author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
+        year={2020},
+        eprint={2006.04311},
+        archivePrefix={arXiv},
+        primaryClass={cs.SI}
     }
 
 Overview
