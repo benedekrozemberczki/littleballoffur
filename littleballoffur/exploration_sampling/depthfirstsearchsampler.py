@@ -4,7 +4,9 @@ from queue import LifoQueue
 from littleballoffur.sampler import Sampler
 
 class DepthFirstSearchSampler(Sampler):
-    r"""An implementation of node sampling by depth first search.
+    r"""An implementation of node sampling by depth first search. The starting node
+    is selected randomly and neighbors are added to the last in first out queue 
+    by shuffling them randomly.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
