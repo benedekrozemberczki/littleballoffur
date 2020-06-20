@@ -5,7 +5,7 @@ from littleballoffur.sampler import Sampler
 class RandomNodeNeighborSampler(Sampler):
     r"""An implementation of random node-neighbor sampling. The process uniformly
     samples  a fixed number of nodes first. Later it induces the neighboring nodes
-    as the node set. `"For details about the algorithm see this paper." <https://link.springer.com/chapter/10.1007/978-1-4612-2168-5_12>`_
+    as the node set and the edges between all of the nodes. `"For details about the algorithm see this paper." <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
 
     Args:
