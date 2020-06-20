@@ -5,8 +5,8 @@ from littleballoffur.sampler import Sampler
 
 class PageRankBasedSampler(Sampler):
     r"""An implementation of PageRank based sampling. Nodes are sampled proportional
-    to the PageRank score of nodes. `For details about the algorithm see 
-    this paper.<https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
+    to the PageRank score of nodes. `"For details about the algorithm see 
+    this paper." <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
