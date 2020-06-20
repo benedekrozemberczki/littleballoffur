@@ -3,7 +3,11 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomWalkWithJumpSampler(Sampler):
-    r"""An implementation of node sampling by random walks with jumps.
+    r"""An implementation of node sampling by random walks with jumps.  The 
+    process is a discrete random walker on nodes which teleports back to a random
+    node with a fixed probability. This might result in a  disconnected subsample
+    from the original input graph. `For details about the algorithm see this 
+    paper.<https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
