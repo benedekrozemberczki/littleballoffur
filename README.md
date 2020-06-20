@@ -77,7 +77,7 @@ In detail, the following sampling methods were implemented.
 
 * **[Snowball Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.snowballsampler.SnowBallSampler)** from Goodman: [Snowball Sampling](https://projecteuclid.org/euclid.aoms/1177705148) (The Annals of Mathematical Statistics 1961)
 
-* **[Loop-Erased Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.looperasedrandomwalksampler.LoopErasedRandomWalkSampler)** from Wilson: [Generating Random Spanning Trees More Quickly Than the Cover Time](https://ieeexplore.ieee.org/document/5462078) (STOC 1996)
+* **[Loop-Erased Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.looperasedrandomwalksampler.LoopErasedRandomWalkSampler)** from Wilson: [Generating Random Spanning Trees More Quickly Than the Cover Time](https://link.springer.com/chapter/10.1007/978-1-4612-2168-5_12) (STOC 1996)
 
 * **[Forest Fire Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.forestfiresampler.ForestFireSampler)** from Leskovec *et al.*: [Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2005)
 
