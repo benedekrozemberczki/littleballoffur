@@ -6,7 +6,7 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by Metropolis Hastings random walks. 
     The random walker has a probabilistic acceptance condition for adding new nodes 
     to the sampled node set. This constraint can be parametrized by the rejection
-    constraint exponent. The sampled graph is always connected.  `"For details about the algorithm see this paper." <https://dl.acm.org/doi/10.1145/2491159.2491168>`_
+    constraint exponent. The sampled graph is always connected.  `"For details about the algorithm see this paper." <http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
