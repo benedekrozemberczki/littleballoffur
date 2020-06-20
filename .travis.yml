@@ -1,8 +1,9 @@
-language: shell
+anguage: shell
 
 os:
   - linux
   - osx
+  - windows
 
 env:
   jobs:
