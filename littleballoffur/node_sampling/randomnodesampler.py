@@ -4,7 +4,7 @@ from littleballoffur.sampler import Sampler
 
 class RandomNodeSampler(Sampler):
     r"""An implementation of random node sampling. Nodes are sampled with uniform
-    probability. `For details about the algorithm see this paper.<https://www.pnas.org/content/102/12/4221>`_
+    probability. `"For details about the algorithm see this paper." <https://www.pnas.org/content/102/12/4221>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
