@@ -7,7 +7,7 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by common neighbor aware random walks.
     The random walker is biased to visit neighbors that have a lower number of
     common neighbors. This way the sampling procedure is able to escape tightly
-    knit communities and visit new ones. 
+    knit communities and visit new ones. `"For details about the algorithm see this paper." <https://ieeexplore.ieee.org/document/8731555>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
