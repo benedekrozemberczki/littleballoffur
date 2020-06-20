@@ -4,8 +4,8 @@ from littleballoffur.sampler import Sampler
 
 class RandomEdgeSampler(Sampler):
     r"""An implementation of random edge sampling. Edges are sampled with the same
-    uniform probability randomly. `For details about the algorithm see 
-    this paper.<http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_
+    uniform probability randomly. `"For details about the algorithm see 
+    this paper." <http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_
 
     Args:
         number_of_edges (int): Number of edges. Default is 100.
