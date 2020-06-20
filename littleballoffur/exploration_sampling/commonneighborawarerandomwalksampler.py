@@ -5,6 +5,9 @@ from littleballoffur.sampler import Sampler
 
 class CommonNeighborAwareRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by common neighbor aware random walks.
+    The random walker is biased to visit neighbors that have a lower number of
+    common neighbors. This way the sampling procedure is able to escape tightly
+    knit communities and visit new ones. 
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
