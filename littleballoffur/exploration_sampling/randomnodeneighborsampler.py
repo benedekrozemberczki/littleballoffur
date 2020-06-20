@@ -3,7 +3,10 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class RandomNodeNeighborSampler(Sampler):
-    r"""An implementation of random node-neighbor sampling.
+    r"""An implementation of random node-neighbor sampling. The process uniformly
+    samples  a fixed number of nodes first. Later it induces the neighboring nodes
+    as the node set. `"For details about the algorithm see this paper." <https://link.springer.com/chapter/10.1007/978-1-4612-2168-5_12>`_
+
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
