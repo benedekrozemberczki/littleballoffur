@@ -3,7 +3,11 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class CommunityStructureExpansionSampler(Sampler):
-    r"""An implementation of community structure preserving expansion sampling.
+    r"""An implementation of community structure preserving expansion sampling. 
+    Starting with a random source node the procedure chooses a node which is connected 
+    to the already sampled nodes. This node is the one with the largest community expansion
+    score. The extracted subgraph is always connected. `"For details about the algorithm see this paper." <http://arun.maiya.net/papers/maiya_etal-sampcomm.pdf>`_
+
 
     Args:
         number_of_nodes (int): Number of sampled nodes. Default is 100.
