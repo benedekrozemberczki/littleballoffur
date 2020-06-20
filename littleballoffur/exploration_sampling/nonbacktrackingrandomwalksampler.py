@@ -5,7 +5,7 @@ from littleballoffur.sampler import Sampler
 class NonBackTrackingRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by non back-tracking random walks.
     The process generates a random walk in which the random walker cannot make steps
-    backwards. This way the tottering behaviour of random walkers can be avoided. `"For details about the algorithm see this paper." <https://ieeexplore.ieee.org/document/8731555>`_
+    backwards. This way the tottering behaviour of random walkers can be avoided. `"For details about the algorithm see this paper." <https://dl.acm.org/doi/10.1145/2491159.2491168>`_
 
 
     Args:
