@@ -4,7 +4,10 @@ from queue import Queue
 from littleballoffur.sampler import Sampler
 
 class SnowBallSampler(Sampler):
-    r"""An implementation of node sampling by snow ball search.
+    r"""An implementation of node sampling by snow ball search. Starting from a 
+    source node the algorithm places a fixed number of neighbors in a queue of
+    nodes to explore. The expansion goes on until the target number of sampled
+    vertices is reached.   
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
