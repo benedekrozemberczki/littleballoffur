@@ -4,7 +4,8 @@ from queue import Queue
 from littleballoffur.sampler import Sampler
 
 class BreadthFirstSearchSampler(Sampler):
-    r"""An implementation of node sampling by breadth first search.
+    r"""An implementation of node sampling by breadth first search. The starting node
+    is selected randomly and neighbors are added to the queue by shuffling them randomly.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
