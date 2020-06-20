@@ -3,7 +3,10 @@ import networkx as nx
 from littleballoffur.sampler import Sampler
 
 class LoopErasedRandomWalkSampler(Sampler):
-    r"""An implementation of node sampling by loop-erased random walks.
+    r"""An implementation of node sampling by loop-erased random walks. The random 
+    walkers samples a fixed number of nodes. Only edges that connect so far unconnected
+    nodes are added to the edge set (cycles are erased). The resulting graph is always
+    an undirected tree.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
