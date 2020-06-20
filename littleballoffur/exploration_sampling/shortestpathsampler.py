@@ -6,7 +6,7 @@ class ShortestPathSampler(Sampler):
     r"""An implementation of shortest path sampling. The procedure samples pairs 
     of nodes and chooses a random shortest path between them. Vertices and edges
     on this shortest path are added to the induces subgraph that is extracted.
-    `For details about the algorithm see this paper.<https://www.sciencedirect.com/science/article/pii/S0378437115000321>`_
+    `"For details about the algorithm see this paper." <https://www.sciencedirect.com/science/article/pii/S0378437115000321>`_
 
     Args:
         number_of_nodes (int): Number of nodes to sample. Default is 100.

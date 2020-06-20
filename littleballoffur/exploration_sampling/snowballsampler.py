@@ -7,7 +7,7 @@ class SnowBallSampler(Sampler):
     r"""An implementation of node sampling by snow ball search. Starting from a 
     source node the algorithm places a fixed number of neighbors in a queue of
     nodes to explore. The expansion goes on until the target number of sampled
-    vertices is reached. `For details about the algorithm see this paper.
+    vertices is reached. `"For details about the algorithm see this paper."
     <https://projecteuclid.org/euclid.aoms/1177705148>`_  
 
     Args:
