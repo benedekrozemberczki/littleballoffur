@@ -6,7 +6,7 @@ class LoopErasedRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by loop-erased random walks. The random 
     walkers samples a fixed number of nodes. Only edges that connect so far unconnected
     nodes are added to the edge set (cycles are erased). The resulting graph is always
-    an undirected tree. `"For details about the algorithm see this paper." <https://ieeexplore.ieee.org/document/5462078>`_
+    an undirected tree. `"For details about the algorithm see this paper." <https://link.springer.com/chapter/10.1007/978-1-4612-2168-5_12>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
