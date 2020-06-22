@@ -120,6 +120,7 @@ def test_random_walk_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+    assert type(new_graph) == nx.classes.graph.Graph
 
 
 def test_metropolis_hastings_random_walk_sampler():
