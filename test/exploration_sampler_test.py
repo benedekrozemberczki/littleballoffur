@@ -27,6 +27,7 @@ def test_loop_erased_random_walk_sampler():
     assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+    assert type(new_graph) == nx.classes.graph.Graph
 
 
 def test_breadth_first_search_sampler():
