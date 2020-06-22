@@ -76,7 +76,7 @@ def test_community_structure_expansion_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-
+    assert type(new_graph) == nx.classes.graph.Graph
 
 def test_circulated_neighbors_random_walk_sampler():
     """
@@ -90,6 +90,7 @@ def test_circulated_neighbors_random_walk_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+    assert type(new_graph) == nx.classes.graph.Graph
 
 
 def test_snowball_sampler():
