@@ -43,7 +43,7 @@ def test_breadth_first_search_sampler():
     assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-
+    assert type(new_graph) == nx.classes.graph.Graph
 
 def test_depth_first_search_sampler():
     """
