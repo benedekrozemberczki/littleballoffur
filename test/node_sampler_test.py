@@ -15,6 +15,7 @@ def test_random_node_sampler():
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
     assert type(sub_graph) == nx.classes.graph.Graph
 
+
 def test_degree_based_sampler():
     """
     Testing the size of the sample.
@@ -26,6 +27,7 @@ def test_degree_based_sampler():
     sub_graph = sampler.sample(graph)
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
+    assert type(sub_graph) == nx.classes.graph.Graph
 
 
 def test_pagerank_based_sampler():
@@ -39,3 +41,4 @@ def test_pagerank_based_sampler():
     sub_graph = sampler.sample(graph)
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
+    assert type(sub_graph) == nx.classes.graph.Graph
