@@ -55,4 +55,5 @@ def test_induction_samplers():
     partially_induced_graph = partially_induced_sampler.sample(graph)
 
     assert nx.density(partially_induced_graph) <= nx.density(induced_graph)
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(induced_graph) == nx.classes.graph.Graph
+    assert type(partially_induced_graph) == nx.classes.graph.Graph
