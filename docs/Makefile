@@ -1,5 +1,5 @@
 SPHINXBUILD   = sphinx-build
-SPHINXPROJ    = karateclub
+SPHINXPROJ    = littleballoffur
 SOURCEDIR     = source
 BUILDDIR      = build
 
