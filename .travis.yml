@@ -1,4 +1,4 @@
-anguage: shell
+language: shell
 
 os:
   - linux
