@@ -31,8 +31,7 @@ class Sampler(object):
     def _check_directedness(self, graph):
         """Checking the undirected nature of a single graph."""
         directed = nx.is_directed(graph)
-        if directed:
-            raise ValueError("Graph is directed. Please see requirements.")
+        assert directed == False, "Graph is directed."
 
     def _check_indexing(self, graph):
         """Checking the consecutive numeric indexing."""
