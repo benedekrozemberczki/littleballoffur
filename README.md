@@ -155,3 +155,10 @@ $ python examples.py
 ```sh
 $ python setup.py test
 ```
+
+--------------------------------------------------------------------------------
+
+
+**License**
+
+- [GNU General Public License v3.0](https://github.com/benedekrozemberczki/littleballoffur/blob/master/LICENSE)
