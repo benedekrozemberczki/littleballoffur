@@ -21,8 +21,7 @@ class Sampler(object):
 
     def _check_networkx_graph(self, graph):
         """Chechking the input type."""
-        if not isinstance(graph, nx.classes.graph.Graph):
-            raise TypeError("This is not a NetworkX graph. Please see requirements.")
+        assert isinstance(graph, nx.classes.graph.Graph), "This is not a NetworkX graph."
 
     def _check_connectivity(self, graph):
         """Checking the connected nature of a single graph."""
