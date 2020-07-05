@@ -37,8 +37,7 @@ class Sampler(object):
         """Checking the consecutive numeric indexing."""
         numeric_indices = [index for index in range(graph.number_of_nodes())]
         node_indices = sorted([node for node in graph.nodes()])
-        if numeric_indices != node_indices:
-            raise ValueError("The node indexing is wrong. Please see requirements.")
+        assert numeric_indices == node_indices, "The node indexing is wrong."
 
     def _check_graph(self, graph):
         """Check the Little Ball of Fur assumptions about the graph."""
@@ -53,6 +52,6 @@ class Sampler(object):
             raise ValueError("The number of nodes is too large. Please see requirements.")
 
     def _check_number_of_edges(self, graph):
-        """Checking the size of the graph - edges."""
+        """Checking the size of the graph -- edges."""
         if self.number_of_edges > graph.number_of_edges():
             raise ValueError("The number of edges is too large. Please see requirements.")  
