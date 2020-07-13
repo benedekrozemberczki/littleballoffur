@@ -409,3 +409,12 @@ def test_random_node_neighbor_sampler():
 
     assert sampler.number_of_nodes <= new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
+
+    sampler = RandomNodeNeighborSampler(number_of_nodes=25)
+
+    graph = nx.watts_strogatz_graph(100, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes <= new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
