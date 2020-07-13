@@ -340,6 +340,16 @@ def test_shortest_path_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
+    sampler = ShortestPathSampler(number_of_nodes=25)
+
+    graph = nx.watts_strogatz_graph(100, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+
 
 def test_random_walk_with_jump_sampler():
     """
