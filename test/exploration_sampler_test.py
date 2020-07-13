@@ -28,6 +28,17 @@ def test_loop_erased_random_walk_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
 
+    sampler = LoopErasedRandomWalkSampler(number_of_nodes=25)
+
+    graph = nx.watts_strogatz_graph(100, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+
 
 def test_breadth_first_search_sampler():
     """
@@ -44,6 +55,7 @@ def test_breadth_first_search_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
 
+
 def test_depth_first_search_sampler():
     """
     Testing the number of nodes, connectivity and tree structure.
@@ -58,6 +70,7 @@ def test_depth_first_search_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
+
 
 #----------------------------------------#
 # TESTS FOR CONNECTED SUBGRAPH SAMPLERS. #
