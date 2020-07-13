@@ -62,7 +62,7 @@ def test_pagerank_based_sampler():
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
     assert type(sub_graph) == nx.classes.graph.Graph
 
-    sampler = PageRankBasedSampler(number_of_nodes)
+    sampler = PageRankBasedSampler(number_of_nodes=10)
 
     graph = nx.watts_strogatz_graph(100, 10, 0)
 
