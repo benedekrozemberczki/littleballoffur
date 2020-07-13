@@ -113,6 +113,17 @@ def test_community_structure_expansion_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
 
+    sampler = CommunityStructureExpansionSampler(number_of_nodes=25)
+
+    graph = nx.watts_strogatz_graph(100, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+
+
 def test_circulated_neighbors_random_walk_sampler():
     """
     Testing the number of nodes and the connectivity.
