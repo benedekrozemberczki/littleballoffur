@@ -87,3 +87,15 @@ def test_induction_samplers():
     assert nx.density(partially_induced_graph) <= nx.density(induced_graph)
     assert type(induced_graph) == nx.classes.graph.Graph
     assert type(partially_induced_graph) == nx.classes.graph.Graph
+
+    induced_sampler = RandomEdgeSamplerWithInduction()
+    partially_induced_sampler = RandomEdgeSamplerWithPartialInduction()
+
+    graph = nx.watts_strogatz_graph(100, 10, 0)
+
+    induced_graph = induced_sampler.sample(graph)
+    partially_induced_graph = partially_induced_sampler.sample(graph)
+
+    assert nx.density(partially_induced_graph) <= nx.density(induced_graph)
+    assert type(induced_graph) == nx.classes.graph.Graph
+    assert type(partially_induced_graph) == nx.classes.graph.Graph
