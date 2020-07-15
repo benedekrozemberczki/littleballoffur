@@ -2,6 +2,7 @@ from .frontiersampler import FrontierSampler
 from .snowballsampler import SnowBallSampler
 from .randomwalksampler import RandomWalkSampler
 from .forestfiresampler import ForestFireSampler
+from .spikyballsampler import SpikyBallSampler
 from .shortestpathsampler import ShortestPathSampler
 from .breadthfirstsearchsampler import BreadthFirstSearchSampler
 from .depthfirstsearchsampler import DepthFirstSearchSampler

@@ -4,7 +4,7 @@ from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, Br
 
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler, SnowBallSampler
 from littleballoffur.exploration_sampling import RandomWalkSampler, MetropolisHastingsRandomWalkSampler, CommonNeighborAwareRandomWalkSampler
-from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler
+from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler, SpikyBallSampler
 
 from littleballoffur.exploration_sampling import ShortestPathSampler, RandomWalkWithJumpSampler, FrontierSampler, RandomNodeNeighborSampler
 
@@ -321,6 +321,14 @@ def test_forest_fire_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+
+def test_spikyball_sampler():
+    sampler = SpikyBallSampler()
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
 #---------------------------------------#
