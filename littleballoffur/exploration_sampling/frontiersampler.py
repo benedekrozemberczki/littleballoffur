@@ -47,7 +47,7 @@ class FrontierSampler(Sampler):
         self._nodes.add(new_seed)
         self._seeds[index] = new_seed
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes and edges with a frontier sampler.
 
