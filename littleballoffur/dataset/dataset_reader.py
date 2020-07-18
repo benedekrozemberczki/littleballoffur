@@ -34,7 +34,7 @@ class GraphReader(object):
         data = self._pandas_reader(data)
         return data
    
-    def get_graph(self):
+    def get_graph(self) -> nx.classes.graph.Graph:
         r"""Getting the graph.
 
         Return types:
