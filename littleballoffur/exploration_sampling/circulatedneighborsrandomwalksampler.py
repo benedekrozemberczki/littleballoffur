@@ -53,7 +53,7 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         self._current_node = self._circulated_map[self._current_node].pop()
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes iteratively with a circulated neighbor random walk sampler.
 
