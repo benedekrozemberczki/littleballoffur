@@ -27,7 +27,7 @@ class DegreeBasedSampler(Sampler):
         degrees = [degree/degree_sum for degree in degrees]
         self._sampled_nodes = np.random.choice(nodes, size=self.number_of_nodes, replace=False, p=degrees)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes randomly.
 
