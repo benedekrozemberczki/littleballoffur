@@ -13,7 +13,7 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         number_of_nodes (int): Number of sampled nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes=100, seed=42):
+    def __init__(self, number_of_nodes: int=100, seed: int=42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
