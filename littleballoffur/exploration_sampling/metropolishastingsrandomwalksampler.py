@@ -13,7 +13,7 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
         seed (int): Random seed. Default is 42.
         alpha (float): Rejection constraint exponent. Default is 1.0.
     """
-    def __init__(self, number_of_nodes=100, seed=42, alpha=1.0):
+    def __init__(self, number_of_nodes: int=100, seed: int=42, alpha: float=1.0):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self.alpha = alpha
@@ -39,7 +39,7 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
             self._current_node = new_node
             self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph):
         """
         Sampling nodes with a Metropolis Hastings single random walk.
 
