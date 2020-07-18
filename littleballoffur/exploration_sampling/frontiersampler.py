@@ -14,7 +14,7 @@ class FrontierSampler(Sampler):
         number_of_nodes (int): Number of nodes to sample. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_seeds=10, number_of_nodes=100, seed=42):
+    def __init__(self, number_of_seeds: int=10, number_of_nodes: int=100, seed: int=42):
         self.number_of_seeds = number_of_seeds
         self.number_of_nodes = number_of_nodes
         self.seed = seed
@@ -47,7 +47,7 @@ class FrontierSampler(Sampler):
         self._nodes.add(new_seed)
         self._seeds[index] = new_seed
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph):
         """
         Sampling nodes and edges with a frontier sampler.
 
