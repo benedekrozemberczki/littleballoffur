@@ -40,7 +40,7 @@ class RandomWalkWithRestartSampler(Sampler):
             self._current_node = random.choice([neighbor for neighbor in neighbors])
             self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes with a single random walk that restarts.
 
