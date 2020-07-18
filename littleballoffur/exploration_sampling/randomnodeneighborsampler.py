@@ -26,7 +26,7 @@ class RandomNodeNeighborSampler(Sampler):
         neighbors = [neighbor for node in self._sampled_nodes for neighbor in self._graph.neighbors(node)]
         self._sampled_nodes = set(self._sampled_nodes + neighbors)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes randomly.
 
