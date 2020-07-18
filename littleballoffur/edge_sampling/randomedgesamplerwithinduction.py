@@ -24,7 +24,7 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         new_graph = self._graph.subgraph(nodes)
         return new_graph
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph):
         """
         Sampling edges randomly with induction.
 
