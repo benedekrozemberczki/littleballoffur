@@ -11,7 +11,7 @@ class RandomEdgeSampler(Sampler):
         number_of_edges (int): Number of edges. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_edges=100, seed=42):
+    def __init__(self, number_of_edges: int=100, seed: int=42):
         self.number_of_edges = number_of_edges
         self.seed = seed
         self._set_seed()
@@ -23,7 +23,7 @@ class RandomEdgeSampler(Sampler):
         edges = [edge for edge in self._graph.edges()]
         self._sampled_edges = random.sample(edges, self.number_of_edges)
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph):
         """
         Sampling edges randomly.
 
