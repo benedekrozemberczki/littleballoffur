@@ -42,7 +42,7 @@ class SnowBallSampler(Sampler):
         return neighbors
 
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling a graph with randomized snow ball sampling.
 
