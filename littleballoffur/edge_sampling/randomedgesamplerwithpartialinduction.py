@@ -53,7 +53,7 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
                     self._insert_edge(edge)
         self._edges = [edge for edge in self._edges]
 
-    def sample(self, graph):
+    def sample(self, graph) -> nx.classes.graph.Graph:
         """
         Sampling edges randomly with partial induction.
 
