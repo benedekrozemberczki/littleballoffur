@@ -37,7 +37,7 @@ class ShortestPathSampler(Sampler):
         target = self._sample_a_node()
         return source, target
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling with a shortest path sampler.
 
