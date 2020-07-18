@@ -39,7 +39,7 @@ class Sampler(object):
         node_indices = sorted([node for node in graph.nodes()])
         assert numeric_indices == node_indices, "The node indexing is wrong."
 
-    def _check_graph(self, graph):
+    def _check_graph(self, graph: nx.classes.graph.Graph):
         """Check the Little Ball of Fur assumptions about the graph."""
         self._check_networkx_graph(graph)
         self._check_connectivity(graph)
