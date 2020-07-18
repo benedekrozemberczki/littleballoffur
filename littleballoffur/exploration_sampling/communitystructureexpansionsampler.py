@@ -44,7 +44,7 @@ class CommunityStructureExpansionSampler(Sampler):
                 new_node = node
         self._sampled_nodes.add(new_node)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes iteratively with a community structure expansion sampler.
 
