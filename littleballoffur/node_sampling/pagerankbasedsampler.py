@@ -27,7 +27,7 @@ class PageRankBasedSampler(Sampler):
         probabilities = [page_rank[node]/page_rank_sum for node in nodes]
         self._sampled_nodes = np.random.choice(nodes, size=self.number_of_nodes, replace=False, p=probabilities)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes randomly.
 
