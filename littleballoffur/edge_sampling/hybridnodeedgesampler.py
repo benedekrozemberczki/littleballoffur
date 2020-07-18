@@ -35,7 +35,7 @@ class HybridNodeEdgeSampler(Sampler):
                 edge = random.choice(edges)
             self._sampled_edges.add(edge)
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph):
         """
         Sampling edges randomly from randomly sampled nodes or sampling random edges.
 
