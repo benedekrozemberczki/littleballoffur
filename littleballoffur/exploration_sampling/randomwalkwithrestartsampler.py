@@ -14,7 +14,7 @@ class RandomWalkWithRestartSampler(Sampler):
         seed (int): Random seed. Default is 42.
         p (float): Restart probability. Default is 0.1.
     """
-    def __init__(self, number_of_nodes=100, seed=42, p=0.1):
+    def __init__(self, number_of_nodes: int=100, seed: int=42, p: float=0.1):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self.p = p
@@ -40,7 +40,7 @@ class RandomWalkWithRestartSampler(Sampler):
             self._current_node = random.choice([neighbor for neighbor in neighbors])
             self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph):
         """
         Sampling nodes with a single random walk that restarts.
 
