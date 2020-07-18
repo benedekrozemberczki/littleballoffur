@@ -15,7 +15,7 @@ class ForestFireSampler(Sampler):
         p (float): Burning probability. Default is 0.4.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes=100, p=0.4, seed=42):
+    def __init__(self, number_of_nodes: int=100, p: float=0.4, seed: int=42):
         self.number_of_nodes = number_of_nodes
         self.p = p
         self.seed = seed
