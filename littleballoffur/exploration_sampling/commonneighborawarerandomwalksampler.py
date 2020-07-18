@@ -54,7 +54,7 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
                                                        p=self._sampler[self._current_node]["scores"])[0]
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes with a single common neighbor aware random walk.
 
