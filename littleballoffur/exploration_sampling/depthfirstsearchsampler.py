@@ -33,7 +33,7 @@ class DepthFirstSearchSampler(Sampler):
         """
         self._edges = [[self._path[i],self._path[i+1]] for i in range(len(self._path)-1)]
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling a graph with randomized depth first search.
 
