@@ -28,7 +28,7 @@ class BreadthFirstSearchSampler(Sampler):
         self._edges = set()  
 
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling a graph with randomized breadth first search.
 
