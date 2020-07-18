@@ -22,7 +22,7 @@ class RandomNodeSampler(Sampler):
         nodes = [node for node in range(self._graph.number_of_nodes())]
         self._sampled_nodes = random.sample(nodes, self.number_of_nodes)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes randomly.
 
