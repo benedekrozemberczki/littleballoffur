@@ -11,7 +11,7 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         p (float): Sampling probability. Default is 0.5.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, p=0.5, seed=42):
+    def __init__(self, p: float=0.5, seed: int=42):
         self.p = p
         self.seed = seed
         self._set_seed()
