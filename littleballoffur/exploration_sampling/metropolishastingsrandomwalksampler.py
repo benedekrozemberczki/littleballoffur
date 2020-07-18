@@ -39,7 +39,7 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
             self._current_node = new_node
             self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: nx.classes.graph.Graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes with a Metropolis Hastings single random walk.
 
