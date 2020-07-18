@@ -12,7 +12,7 @@ class HybridNodeEdgeSampler(Sampler):
         seed (int): Random seed. Default is 42.
         p (float): Hybridization probability. Default is 0.8.
     """
-    def __init__(self, number_of_edges: int=100, seed=42, p=0.8):
+    def __init__(self, number_of_edges: int=100, seed: int=42, p: int=0.8):
         self.number_of_edges = number_of_edges
         self.seed = seed
         self.p = p
