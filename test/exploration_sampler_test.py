@@ -324,7 +324,15 @@ def test_forest_fire_sampler():
     assert type(new_graph) == nx.classes.graph.Graph
 
 def test_spikyball_sampler():
-    sampler = SpikyBallSampler()
+    sampler = SpikyBallSampler(mode='spikyball')
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+def test_fireball_sampler():
+    sampler = SpikyBallSampler(mode='fireball')
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
     new_graph = sampler.sample(graph)
