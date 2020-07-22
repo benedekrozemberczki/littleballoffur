@@ -1,7 +1,7 @@
 import networkx as nx
-import networkit as nk
+import networkit
 
-NKGraph = networkit._NetworKit.Graph
+NKGraph = type(networkit.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
 

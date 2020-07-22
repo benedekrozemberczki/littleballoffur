@@ -6,7 +6,7 @@ def test_networkit_backend():
 
     backend = NetworKitBackEnd()
 
-    graph = nk.generators.WattsStrogatzGenerator(1000, 10, 0.5)
+    graph = nk.generators.WattsStrogatzGenerator(1000, 10, 0.5).generate()
 
     assert 1000 == backend.get_number_of_nodes(graph)
 
