@@ -20,7 +20,7 @@ class NetworKitBackEnd(object):
 
     def get_number_of_edges(self, graph: NKGraph) -> int:
         """
-        Given a graph return the number of nodes.
+        Given a graph return the number of edges.
         """
         return graph.numberOfEdges()
 
@@ -32,8 +32,14 @@ class NetworkXBackEnd(object):
     def __init__(self):
         self.x = 1
 
-    def get_number_of_edges(self, graph: NXGraph) -> int:
+    def get_number_of_nodes(self, graph: NXGraph) -> int:
         """
         Given a graph return the number of nodes.
+        """
+        return graph.number_of_nodes()
+
+    def get_number_of_edges(self, graph: NXGraph) -> int:
+        """
+        Given a graph return the number of edges.
         """
         return graph.number_of_edges()
