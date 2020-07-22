@@ -9,8 +9,11 @@ class NetworKitBackEnd(object):
     def __init__(self):
         self.x = 1
 
-    def get_x(self):
-        return self.x
+    def get_number_of_nodes(self, graph: nx.instances.):
+        """
+        Given a graph return the number of nodes.
+        """
+        return graph.numberOfNodes()
 
 class NetworkXBackEnd(object):
     """
@@ -19,5 +22,8 @@ class NetworkXBackEnd(object):
     def __init__(self):
         self.x = 1
 
-    def get_x(self):
-        return self.x
+    def get_number_of_nodes(self, graph: nx.classes.graph.Graph) -> int:
+        """
+        Given a graph return the number of nodes.
+        """
+        return graph.number_of_nodes()
