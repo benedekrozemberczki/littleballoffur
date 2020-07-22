@@ -331,6 +331,12 @@ def test_spikyball_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
+    graph = nx.barabasi_albert_graph(50000, 5)
+    sampler = SpikyBallSampler(mode='spikyball', number_of_nodes=graph.number_of_nodes(),
+                               initial_nodes_ratio=1e-5, sampling_probability=0.1, max_hops=4)
+    new_graph = sampler.sample(graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+
 def test_fireball_sampler():
     sampler = SpikyBallSampler(mode='fireball')
     graph = nx.watts_strogatz_graph(200, 10, 0)

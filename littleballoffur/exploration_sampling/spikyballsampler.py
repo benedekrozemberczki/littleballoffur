@@ -22,7 +22,7 @@ class SpikyBallSampler(Sampler):
         self._sampled_nodes = set()
         self._set_of_nodes = set(range(self._graph.number_of_nodes()))
         num_initial_nodes = max(int(self._graph.number_of_nodes()*self.initial_nodes_ratio), 1)
-        self._seed_nodes = set(random.choices(list(self._set_of_nodes), k=num_initial_nodes))
+        self._seed_nodes = set(np.random.choice(list(self._set_of_nodes), num_initial_nodes, replace=False))
 
     def _get_new_edges(self, nodes):
         # build edge list
@@ -50,13 +50,13 @@ class SpikyBallSampler(Sampler):
 
     def _process_hops(self):
         hop_cnt = 0
-        layer_nodes = self._seed_nodes
+        layer_nodes = self._seed_nodes.copy()
 
         while hop_cnt < self.max_hops and len(self._sampled_nodes) < self.number_of_nodes:
             edges_data = self._get_new_edges(layer_nodes)
             p_norm = self._get_probability_density(edges_data)
             new_nodes = list(itertools.chain.from_iterable([edges_data[k]['neighbors'] for k in edges_data.keys()]))
-            layer_nodes = set(np.random.choice(new_nodes, int(self.sampling_probability*len(new_nodes)), p=p_norm,
+            layer_nodes = set(np.random.choice(new_nodes, max(int(self.sampling_probability*len(new_nodes)), 1), p=p_norm,
                                                replace=False))
             remaining = min(self.number_of_nodes - len(self._sampled_nodes), len(layer_nodes))
             layer_nodes = list(layer_nodes)[:remaining]
