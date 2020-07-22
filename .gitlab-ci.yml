@@ -16,6 +16,8 @@ Run tests and coverage:
 
   before_script:
     - conda create --yes -n test python="${PYTHON_VERSION}"
+    - conda init bash
+    - source ~/.bashrc
     - conda activate test
     - pip install scipy
     - pip install codecov
