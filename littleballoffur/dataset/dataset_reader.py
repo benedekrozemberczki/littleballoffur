@@ -11,7 +11,7 @@ class GraphReader(object):
     Args:
         dataset (str): Dataset of interest. One of facebook/wikipedia/github/twitch/deezer/lastfm. Default is 'wikipedia'.
     """
-    def __init__(self, dataset="wikipedia"):
+    def __init__(self, dataset: str="wikipedia"):
         self.dataset = dataset + "_edges.csv"
         self.base_url = "https://github.com/benedekrozemberczki/littleballoffur/raw/master/dataset/"
 
@@ -34,7 +34,7 @@ class GraphReader(object):
         data = self._pandas_reader(data)
         return data
    
-    def get_graph(self):
+    def get_graph(self) -> nx.classes.graph.Graph:
         r"""Getting the graph.
 
         Return types:

@@ -5,14 +5,15 @@ from littleballoffur.sampler import Sampler
 class HybridNodeEdgeSampler(Sampler):
     r"""An implementation of hybrid node-edge sampling. The algorithm alternates
     between two sampling methods. (A) Random uniform edge sampling. (B) The algorithm
-    first randomly samples a node. From this node it samples an edge with a neighbor. `"For details about the algorithm see this paper." <http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_
+    first randomly samples a node. From this node it samples an edge with a neighbor.
+    `"For details about the algorithm see this paper." <http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_
 
     Args:
         number_of_edges (int): Number of edges. Default is 100.
         seed (int): Random seed. Default is 42.
         p (float): Hybridization probability. Default is 0.8.
     """
-    def __init__(self, number_of_edges=100, seed=42, p=0.8):
+    def __init__(self, number_of_edges: int=100, seed: int=42, p: float=0.8):
         self.number_of_edges = number_of_edges
         self.seed = seed
         self.p = p
@@ -35,7 +36,7 @@ class HybridNodeEdgeSampler(Sampler):
                 edge = random.choice(edges)
             self._sampled_edges.add(edge)
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling edges randomly from randomly sampled nodes or sampling random edges.
 

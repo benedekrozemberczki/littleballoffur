@@ -10,13 +10,13 @@ tests_require = ['pytest', 'pytest-cov', 'mock']
 setup(
   name = "littleballoffur",
   packages = find_packages(),
-  version = "1.0.2",
+  version = "1.0.4",
   license = "MIT",
   description = "A general purpose library for subsampling large graphs.",
   author = "Benedek Rozemberczki",
   author_email = "benedek.rozemberczki@gmail.com",
   url = "https://github.com/benedekrozemberczki/littleballoffur",
-  download_url = "https://github.com/benedekrozemberczki/littleballoffur/archive/v_10001.tar.gz",
+  download_url = "https://github.com/benedekrozemberczki/littleballoffur/archive/v_10003.tar.gz",
   keywords = ["community", "detection", "networkx", "graph", "clustering", 
               "graph-sampling", "sampling", "random-walk", "forest-fire",
               "embedding", "network", "deepwalk", "graph2vec", "node2vec",
@@ -29,6 +29,6 @@ setup(
     "Intended Audience :: Developers",
     "Topic :: Software Development :: Build Tools",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
   ],
 )

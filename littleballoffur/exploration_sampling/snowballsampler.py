@@ -15,7 +15,7 @@ class SnowBallSampler(Sampler):
         k (int): Bound on degree. Default is 50.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes=100, k=50, seed=42):
+    def __init__(self, number_of_nodes: int=100, k: int=50, seed: int=42):
         self.number_of_nodes = number_of_nodes
         self.k = k
         self.seed = seed
@@ -42,7 +42,7 @@ class SnowBallSampler(Sampler):
         return neighbors
 
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling a graph with randomized snow ball sampling.
 

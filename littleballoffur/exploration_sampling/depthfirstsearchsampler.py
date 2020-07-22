@@ -12,7 +12,7 @@ class DepthFirstSearchSampler(Sampler):
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes=100, seed=42):
+    def __init__(self, number_of_nodes: int=100, seed: int=42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
@@ -33,7 +33,7 @@ class DepthFirstSearchSampler(Sampler):
         """
         self._edges = [[self._path[i],self._path[i+1]] for i in range(len(self._path)-1)]
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling a graph with randomized depth first search.
 

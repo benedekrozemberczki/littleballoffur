@@ -12,7 +12,7 @@ class RandomNodeNeighborSampler(Sampler):
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes=100, seed=42):
+    def __init__(self, number_of_nodes: int=100, seed: int=42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
@@ -26,7 +26,7 @@ class RandomNodeNeighborSampler(Sampler):
         neighbors = [neighbor for node in self._sampled_nodes for neighbor in self._graph.neighbors(node)]
         self._sampled_nodes = set(self._sampled_nodes + neighbors)
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
         Sampling nodes randomly.
 

@@ -11,7 +11,7 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         p (float): Sampling probability. Default is 0.5.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, p=0.5, seed=42):
+    def __init__(self, p: float=0.5, seed: int=42):
         self.p = p
         self.seed = seed
         self._set_seed()
@@ -53,7 +53,7 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
                     self._insert_edge(edge)
         self._edges = [edge for edge in self._edges]
 
-    def sample(self, graph):
+    def sample(self, graph) -> nx.classes.graph.Graph:
         """
         Sampling edges randomly with partial induction.
 
