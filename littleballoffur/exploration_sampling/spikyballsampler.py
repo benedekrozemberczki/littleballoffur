@@ -5,8 +5,8 @@ import numpy as np
 import itertools
 
 class SpikyBallSampler(Sampler):
-    def __init__(self, number_of_nodes=100, sampling_probability=0.2, initial_nodes_ratio=0.1,
-                 seed=42, max_hops=100000, mode='fireball'):
+    def __init__(self, number_of_nodes: int=100, sampling_probability: float=0.2, initial_nodes_ratio: float=0.1,
+                 seed: int=42, max_hops: int=100000, mode: str='fireball'):
         self.number_of_nodes = number_of_nodes
         self.sampling_probability = sampling_probability
         self.initial_nodes_ratio = initial_nodes_ratio
@@ -63,7 +63,7 @@ class SpikyBallSampler(Sampler):
             self._sampled_nodes.update(layer_nodes)
             hop_cnt += 1
 
-    def sample(self, graph):
+    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         self._check_graph(graph)
         self._check_number_of_nodes(graph)
         weighted = nx.is_weighted(graph)
