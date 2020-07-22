@@ -6,6 +6,6 @@ def test_networkit_backend():
     assert x == 1
 
 def test_networkx_backend():
-    backend = NetworXBackEnd()
+    backend = NetworkXBackEnd()
     x = backend.get_x()
     assert x == 1
