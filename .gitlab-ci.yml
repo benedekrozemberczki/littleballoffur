@@ -1,4 +1,4 @@
-image: python:3.7
+image: continuumio/miniconda3:4.8.2
 
 stages:
   - test
@@ -8,17 +8,15 @@ Run tests and coverage:
   variables:
     PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
     TRAVIS_OS_NAME: "linux"
-    PYTHON_VERSION: "3.7"
+    PYTHON_VERSION: "3.6"
 
   cache:
     paths:
       - .cache/pip
-      - venv/
 
   before_script:
-    - source script/conda.sh
     - conda create --yes -n test python="${PYTHON_VERSION}"
-    - source activate test
+    - conda activate test
     - pip install scipy
     - pip install codecov
     - python setup.py install
