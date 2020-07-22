@@ -9,9 +9,15 @@ class NetworKitBackEnd(object):
     def __init__(self):
         self.x = 1
 
+    def get_x(self):
+        return self.x
+
 class NetworkXBackEnd(object):
     """
     Binding the NetworkX backend to serve class methods.
     """
     def __init__(self):
         self.x = 1
+
+    def get_x(self):
+        return self.x
