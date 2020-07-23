@@ -10,7 +10,7 @@ def test_networkit_backend():
 
     assert 1000 == backend.get_number_of_nodes(graph)
     assert 10000 == backend.get_number_of_edges(graph)
-    assert 10 == backend.get_degree(graph, 0)
+    assert 20 == backend.get_degree(graph, 0)
 
 
 def test_networkx_backend():
