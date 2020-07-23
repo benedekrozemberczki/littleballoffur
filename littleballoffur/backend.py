@@ -7,7 +7,7 @@ NXGraph = nx.classes.graph.Graph
 
 class NetworKitBackEnd(object):
     """
-    Binding the NetworKit backend to serve class methods.
+    Binding the NetworKit backend to serve graph operations.
     """
     def __init__(self):
         pass
@@ -33,7 +33,7 @@ class NetworKitBackEnd(object):
 
 class NetworkXBackEnd(object):
     """
-    Binding the NetworkX backend to serve class methods.
+    Binding the NetworkX backend to serve graph operations.
     """
     def __init__(self):
         pass
