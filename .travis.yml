@@ -2,7 +2,6 @@ language: shell
 
 os:
   - linux
-  - osx
 
 env:
   jobs:
