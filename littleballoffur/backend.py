@@ -24,6 +24,12 @@ class NetworKitBackEnd(object):
         """
         return graph.numberOfEdges()
 
+   def get_degree(self, graph: NKGraph, node: int) -> int:
+       """
+       Given a node return the degree.
+       """
+       return graph.degree(node)
+
 
 class NetworkXBackEnd(object):
     """
