@@ -1,18 +1,21 @@
-import random
 from littleballoffur.sampler import Sampler
 import networkx as nx
 import numpy as np
 import itertools
+from collections import deque
 
 class SpikyBallSampler(Sampler):
     def __init__(self, number_of_nodes: int=100, sampling_probability: float=0.2, initial_nodes_ratio: float=0.1,
-                 seed: int=42, max_hops: int=100000, mode: str='fireball'):
+                 seed: int=42, max_hops: int=100000, mode: str='fireball', max_visited_nodes_backlog: int=100,
+                 restart_hop_size: int=10):
         self.number_of_nodes = number_of_nodes
         self.sampling_probability = sampling_probability
         self.initial_nodes_ratio = initial_nodes_ratio
         self.max_hops = max_hops
         self.seed = seed
         self.mode = mode
+        self.max_visited_nodes_backlog = max_visited_nodes_backlog
+        self.restart_hop_size = restart_hop_size
         self._set_seed()
 
     def _create_node_sets(self):
@@ -23,6 +26,9 @@ class SpikyBallSampler(Sampler):
         self._set_of_nodes = set(range(self._graph.number_of_nodes()))
         num_initial_nodes = max(int(self._graph.number_of_nodes()*self.initial_nodes_ratio), 1)
         self._seed_nodes = set(np.random.choice(list(self._set_of_nodes), num_initial_nodes, replace=False))
+        # keep the visited but not sampled nodes in case we get "cornered" and find nothing new to sample
+        # this can happen when sampling_probability is low
+        self._visited_nodes = deque(maxlen=self.max_visited_nodes_backlog)
 
     def _get_new_edges(self, nodes):
         # build edge list
@@ -56,8 +62,15 @@ class SpikyBallSampler(Sampler):
             edges_data = self._get_new_edges(layer_nodes)
             p_norm = self._get_probability_density(edges_data)
             new_nodes = list(itertools.chain.from_iterable([edges_data[k]['neighbors'] for k in edges_data.keys()]))
-            layer_nodes = set(np.random.choice(new_nodes, max(int(self.sampling_probability*len(new_nodes)), 1), p=p_norm,
+            if len(new_nodes) == 0:
+                # fallback mechanism: we are "cornered", let's try to use the previously visited nodes
+                # and move on from there
+                layer_nodes = [self._visited_nodes.popleft() for k in range(self.restart_hop_size)]
+                continue  # restart hop
+            layer_nodes = set(np.random.choice(new_nodes, max(round(self.sampling_probability*len(new_nodes)), 1), p=p_norm,
                                                replace=False))
+            # keep track of visited but non-sampled nodes, in case we end up in a dead-end
+            self._visited_nodes.extendleft(set(new_nodes).difference(layer_nodes))
             remaining = min(self.number_of_nodes - len(self._sampled_nodes), len(layer_nodes))
             layer_nodes = list(layer_nodes)[:remaining]
             self._sampled_nodes.update(layer_nodes)

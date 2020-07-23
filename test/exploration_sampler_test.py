@@ -7,7 +7,7 @@ from littleballoffur.exploration_sampling import RandomWalkSampler, MetropolisHa
 from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler, SpikyBallSampler
 
 from littleballoffur.exploration_sampling import ShortestPathSampler, RandomWalkWithJumpSampler, FrontierSampler, RandomNodeNeighborSampler
-
+from littleballoffur.dataset import GraphReader
 #-----------------------------------#
 # TESTS FOR SPANNING TREE SAMPLERS. #
 #-----------------------------------#
@@ -331,11 +331,15 @@ def test_spikyball_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
-    graph = nx.barabasi_albert_graph(50000, 5)
-    sampler = SpikyBallSampler(mode='spikyball', number_of_nodes=graph.number_of_nodes(),
-                               initial_nodes_ratio=1e-5, sampling_probability=0.1, max_hops=4)
+def test_spikyball_sampler_fb():
+    graph = GraphReader("facebook").get_graph()
+    num_nodes = int(0.4*graph.number_of_nodes())
+    sampler = SpikyBallSampler(mode='spikyball', number_of_nodes=num_nodes,
+                               initial_nodes_ratio=1e-3, sampling_probability=0.1)
+
     new_graph = sampler.sample(graph)
     assert type(new_graph) == nx.classes.graph.Graph
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
 
 def test_fireball_sampler():
     sampler = SpikyBallSampler(mode='fireball')
@@ -344,6 +348,16 @@ def test_fireball_sampler():
     new_graph = sampler.sample(graph)
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
+
+def test_fireball_sampler_fb():
+    graph = GraphReader("facebook").get_graph()
+    num_nodes = int(0.4*graph.number_of_nodes())
+    sampler = SpikyBallSampler(mode='fireball', number_of_nodes=num_nodes,
+                               initial_nodes_ratio=1e-3, sampling_probability=0.1)
+
+    new_graph = sampler.sample(graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
 
 #---------------------------------------#
 # TESTS FOR UNCONNECTED GRAPH SAMPLERS  #
