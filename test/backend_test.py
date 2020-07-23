@@ -2,6 +2,7 @@ import networkx as nx
 import networkit as nk
 from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
 
+
 def test_networkit_backend():
 
     backend = NetworKitBackEnd()

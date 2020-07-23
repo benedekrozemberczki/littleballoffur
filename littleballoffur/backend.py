@@ -10,7 +10,7 @@ class NetworKitBackEnd(object):
     Binding the NetworKit backend to serve class methods.
     """
     def __init__(self):
-        self.x = 1
+        pass
 
     def get_number_of_nodes(self, graph: NKGraph) -> int:
         """
@@ -36,7 +36,7 @@ class NetworkXBackEnd(object):
     Binding the NetworkX backend to serve class methods.
     """
     def __init__(self):
-        self.x = 1
+        pass
 
     def get_number_of_nodes(self, graph: NXGraph) -> int:
         """
