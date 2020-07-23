@@ -50,7 +50,7 @@ class NetworkXBackEnd(object):
         """
         return graph.number_of_edges()
 
-    def get_degree(self, graph: NKGraph, node: int) -> int:
+    def get_degree(self, graph: NXGraph, node: int) -> int:
         """
         Given a node return the degree.
         """
