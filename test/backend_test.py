@@ -73,4 +73,7 @@ def test_networkx_backend():
     assert backend.get_shortest_path(graph, 3, 5) == [3, 2, 5]
     assert backend.get_shortest_path(graph, 5, 3) == [5, 2, 3]
 
+    print(backend.get_pagerank())
+
+
 

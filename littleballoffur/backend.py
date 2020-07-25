@@ -91,9 +91,17 @@ class NetworkXBackEnd(object):
         neighbors = self.get_neighbors(graph, node)
         return random.choice(neighbors)
 
-    def get_shortest_path(self, graph: NKGraph, source: int, target: int) -> List[int]:
+    def get_shortest_path(self, graph: NXGraph, source: int, target: int) -> List[int]:
         """
         Given a graph, a source and target node pair get the shortes path
         """
         return nx.shortest_path(graph, source, target)
+
+    def get_pagerank(self, graph: NXGraph, alpha: float) -> np.array:
+        """
+        Given a graph return the PageRank vector.
+        """
+        pagerank = nx.pagerank(graph, alpha=alpha)
+        pagerank = np.array([page_rank[node] for node in graph.nodes()])
+        return pagerank
 
