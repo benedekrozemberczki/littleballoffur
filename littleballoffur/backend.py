@@ -45,6 +45,12 @@ class NetworKitBackEnd(object):
         """
         return graph.randomNeighbor(node)
 
+   def get_shortest_path(self, graph: NKGraph, source: int, target: int) -> List[int]:
+       """
+       Given a graph, a source and target node get the shortes path
+       """
+       return nk.distance.ReverseBFS(graph, source, True, False, target).run().getPath(target)
+
 
 class NetworkXBackEnd(object):
     """
