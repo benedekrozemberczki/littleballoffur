@@ -63,3 +63,9 @@ class NetworkXBackEnd(object):
         Given a node return the degree.
         """
         return graph.degree[node]
+
+    def get_neighbors(self, graph: NXGraph, node: int) -> List[int]:
+        """
+        Given a graph and node return the neighbors
+        """
+        return [node for node in graph.neighbors(node)]
