@@ -14,11 +14,11 @@ def test_networkit_backend():
     assert 20 == backend.get_degree(graph, 0)
 
     graph = nk.graph.Graph()
-    graph.addEdge([0, 1])
-    graph.addEdge([1, 2])
-    graph.addEdge([2, 3])
-    graph.addEdge([2, 4])
-    graph.addEdge([2, 5])
+    graph.addEdge(0, 1, addMissing=True)
+    graph.addEdge(1, 2, addMissing=True)
+    graph.addEdge(2, 3, addMissing=True)
+    graph.addEdge(2, 4, addMissing=True)
+    graph.addEdge(2, 5, addMissing=True)
 
     assert [0, 2] == sorted(backend.get_neighbors(graph, 1))
     assert [1] == sorted(backend.get_neighbors(graph, 0))
