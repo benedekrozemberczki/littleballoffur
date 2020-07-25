@@ -34,7 +34,11 @@ def test_networkit_backend():
     assert random_neighbor in [0, 2]
     assert random_neighbor not in [3, 4, 5]
 
-    assert backend.get_shortest_path(graph, 0, 5) == [0, 1, 2 , 5]
+    assert backend.get_shortest_path(graph, 0, 5) == [0, 1, 2, 5]
+    assert backend.get_shortest_path(graph, 5, 0) == [5, 2, 1, 0]
+
+    assert backend.get_shortest_path(graph, 3, 5) == [3, 2, 5]
+    assert backend.get_shortest_path(graph, 5, 3) == [5, 2, 3]
 
 
 def test_networkx_backend():
