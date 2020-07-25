@@ -1,5 +1,7 @@
-import networkx as nx
 import networkit
+import networkx as nx
+from typing import List
+
 
 NKGraph = type(networkit.graph.Graph())
 NXGraph = nx.classes.graph.Graph
@@ -26,9 +28,15 @@ class NetworKitBackEnd(object):
 
     def get_degree(self, graph: NKGraph, node: int) -> int:
         """
-        Given a node return the degree.
+        Given a graph and node return the degree.
         """
         return graph.degree(node)
+
+    def get_neighbors(self, graph: NKGraph, node: int) -> List[int]:
+        """
+        Given a graph and node return the neighbors
+        """
+        return graph.neighbors(node)
 
 
 class NetworkXBackEnd(object):
