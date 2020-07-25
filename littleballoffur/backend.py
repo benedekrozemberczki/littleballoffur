@@ -1,6 +1,7 @@
 import random
-import networkit as nk
+import numpy as np
 import networkx as nx
+import networkit as nk
 from typing import List
 
 
