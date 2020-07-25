@@ -60,7 +60,7 @@ class NetworkXBackEnd(object):
 
     def get_degree(self, graph: NXGraph, node: int) -> int:
         """
-        Given a node return the degree.
+        Given a graph and node return the degree.
         """
         return graph.degree[node]
 
