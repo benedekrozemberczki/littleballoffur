@@ -1,10 +1,10 @@
 import random
-import networkit
+import networkit as nk
 import networkx as nx
 from typing import List
 
 
-NKGraph = type(networkit.graph.Graph())
+NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
 
@@ -45,11 +45,11 @@ class NetworKitBackEnd(object):
         """
         return graph.randomNeighbor(node)
 
-   def get_shortest_path(self, graph: NKGraph, source: int, target: int) -> List[int]:
-       """
-       Given a graph, a source and target node get the shortes path
-       """
-       return nk.distance.ReverseBFS(graph, source, True, False, target).run().getPath(target)
+    def get_shortest_path(self, graph: NKGraph, source: int, target: int) -> List[int]:
+        """
+        Given a graph, a source and target node get the shortes path
+        """
+        return nk.distance.ReverseBFS(graph, source, True, False, target).run().getPath(target)
 
 
 class NetworkXBackEnd(object):
