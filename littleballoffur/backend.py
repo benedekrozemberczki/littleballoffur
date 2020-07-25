@@ -102,7 +102,8 @@ class NetworkXBackEnd(object):
         """
         Given a graph return the PageRank vector.
         """
-        pagerank = nx.pagerank(graph, alpha=alpha)
+        pagerank = nx.pagerank_scipy(graph, alpha=alpha)
         pagerank = np.array([page_rank[node] for node in graph.nodes()])
+        pagerank = pagerank / pagerank.sum()
         return pagerank
 
