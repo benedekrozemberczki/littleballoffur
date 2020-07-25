@@ -74,7 +74,8 @@ def test_networkx_backend():
     assert backend.get_shortest_path(graph, 5, 3) == [5, 2, 3]
 
     graph = nx.watts_strogatz_graph(1000, 10, 0.0)
-    print(backend.get_pagerank(graph, 0.9))
+    pagerank_vector = backend.get_pagerank(graph, 0.9)
 
+    assert pagerank_vector.shape == (1000,)
 
 
