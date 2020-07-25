@@ -35,9 +35,15 @@ class NetworKitBackEnd(object):
 
     def get_neighbors(self, graph: NKGraph, node: int) -> List[int]:
         """
-        Given a graph and node return the neighbors
+        Given a graph and node return the neighbors.
         """
         return graph.neighbors(node)
+
+    def get_random_neighbor(self, graph: NKGraph, node: int) -> int:
+        """
+        Given a graph and node returns a random neighbor.
+        """
+        return graph.randomNeighbor(node)
 
 
 class NetworkXBackEnd(object):
@@ -67,6 +73,6 @@ class NetworkXBackEnd(object):
 
     def get_neighbors(self, graph: NXGraph, node: int) -> List[int]:
         """
-        Given a graph and node return the neighbors
+        Given a graph and node return the neighbors.
         """
         return [node for node in graph.neighbors(node)]
