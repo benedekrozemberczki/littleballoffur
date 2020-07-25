@@ -24,3 +24,9 @@ def test_networkx_backend():
     assert 5000 == backend.get_number_of_edges(graph)
     assert 10 == backend.get_degree(graph, 0)
 
+    graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
+
+    assert [0, 2] == sorted(backend.get_neighbors(graph, 1))
+    assert [1] == sorted(backend.get_neighbors(graph, 0))
+    assert [3, 4, 5] == sorted(backend.get_neighbors(graph, 2))
+
