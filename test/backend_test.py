@@ -29,6 +29,14 @@ def test_networkit_backend():
     assert random_neighbor in [1, 3, 4, 5]
     assert random_neighbor not in [0]
 
+    random_neighbor = backend.get_random_neighbor(graph, 1)
+
+    assert random_neighbor in [0, 2]
+    assert random_neighbor not in [3, 4, 5]
+
+
+
+
 def test_networkx_backend():
 
     backend = NetworkXBackEnd()
@@ -49,5 +57,12 @@ def test_networkx_backend():
 
     assert random_neighbor in [1, 3, 4, 5]
     assert random_neighbor not in [0]
+
+    random_neighbor = backend.get_random_neighbor(graph, 1)
+
+    assert random_neighbor in [0, 2]
+    assert random_neighbor not in [3, 4, 5]
+
+
 
 
