@@ -13,6 +13,15 @@ def test_networkit_backend():
     assert 10000 == backend.get_number_of_edges(graph)
     assert 20 == backend.get_degree(graph, 0)
 
+    graph = nk.graph.Graph()
+    graph.addEdge([0, 1])
+    graph.addEdge([1, 2])
+    graph.addEdge([2, 3])
+    graph.addEdge([2, 4])
+    graph.addEdge([2, 5])
+
+
+
 
 def test_networkx_backend():
 
