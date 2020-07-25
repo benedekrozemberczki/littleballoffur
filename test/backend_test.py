@@ -3,7 +3,7 @@ import networkit as nk
 from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
 
 
-def test_networkit_backend():
+def test_networkit_backend_basics():
 
     backend = NetworKitBackEnd()
 
@@ -12,6 +12,10 @@ def test_networkit_backend():
     assert 1000 == backend.get_number_of_nodes(graph)
     assert 10000 == backend.get_number_of_edges(graph)
     assert 20 == backend.get_degree(graph, 0)
+
+def test_networkit_backend_advanced():
+
+    backend = NetworkXBackEnd()
 
     graph = nk.graph.Graph()
     graph.addEdge(0, 1, addMissing=True)
@@ -41,7 +45,7 @@ def test_networkit_backend():
     assert backend.get_shortest_path(graph, 5, 3) == [5, 2, 3]
 
 
-def test_networkx_backend():
+def test_networkx_backend_basics():
 
     backend = NetworkXBackEnd()
 
@@ -50,6 +54,10 @@ def test_networkx_backend():
     assert 1000 == backend.get_number_of_nodes(graph)
     assert 5000 == backend.get_number_of_edges(graph)
     assert 10 == backend.get_degree(graph, 0)
+
+def test_networkx_backend_advanced():
+
+    backend = NetworkXBackEnd()
 
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
