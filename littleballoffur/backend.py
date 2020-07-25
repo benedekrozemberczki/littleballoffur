@@ -76,3 +76,11 @@ class NetworkXBackEnd(object):
         Given a graph and node return the neighbors.
         """
         return [node for node in graph.neighbors(node)]
+
+
+    def get_random_neighbor(self, graph: NXGraph, node: int) -> int:
+        """
+        Given a graph and node returns a random neighbor.
+        """
+        neighbors = self.get_neighbors(graph, node)
+        return random.choice(neighbors)
