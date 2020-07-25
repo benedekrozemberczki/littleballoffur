@@ -20,7 +20,9 @@ def test_networkit_backend():
     graph.addEdge([2, 4])
     graph.addEdge([2, 5])
 
-
+    assert [0, 2] == sorted(backend.get_neighbors(graph, 1))
+    assert [1] == sorted(backend.get_neighbors(graph, 0))
+    assert [1, 3, 4, 5] == sorted(backend.get_neighbors(graph, 2))
 
 
 def test_networkx_backend():
