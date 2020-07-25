@@ -24,6 +24,10 @@ def test_networkit_backend():
     assert [1] == sorted(backend.get_neighbors(graph, 0))
     assert [1, 3, 4, 5] == sorted(backend.get_neighbors(graph, 2))
 
+    random_neighbor = backend.get_random_neighbor(graph, 2)
+
+    assert random_neighbor in [1, 3, 4, 5]
+    assert random_neighbor not in [0]
 
 def test_networkx_backend():
 
@@ -40,4 +44,10 @@ def test_networkx_backend():
     assert [0, 2] == sorted(backend.get_neighbors(graph, 1))
     assert [1] == sorted(backend.get_neighbors(graph, 0))
     assert [1, 3, 4, 5] == sorted(backend.get_neighbors(graph, 2))
+
+    random_neighbor = backend.get_random_neighbor(graph, 2)
+
+    assert random_neighbor in [1, 3, 4, 5]
+    assert random_neighbor not in [0]
+
 
