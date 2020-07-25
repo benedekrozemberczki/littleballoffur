@@ -15,7 +15,7 @@ def test_networkit_backend_basics():
 
 def test_networkit_backend_advanced():
 
-    backend = NetworkXBackEnd()
+    backend = NetworkKitBackEnd()
 
     graph = nk.graph.Graph()
     graph.addEdge(0, 1, addMissing=True)
