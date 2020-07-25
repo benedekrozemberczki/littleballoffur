@@ -34,6 +34,8 @@ def test_networkit_backend():
     assert random_neighbor in [0, 2]
     assert random_neighbor not in [3, 4, 5]
 
+    print(nk.distance.ReverseBFS(G=graph, source=0, target=5))
+
 
 def test_networkx_backend():
 
