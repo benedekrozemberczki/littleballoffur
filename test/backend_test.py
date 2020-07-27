@@ -98,6 +98,10 @@ def test_networkx_backend_shortest_path():
     assert backend.get_shortest_path(graph, 3, 5) == [3, 2, 5]
     assert backend.get_shortest_path(graph, 5, 3) == [5, 2, 3]
 
+def test_networkx_backend_pagerank():
+
+    backend = NetworkXBackEnd()
+
     graph = nx.watts_strogatz_graph(1000, 10, 0.0)
     pagerank_vector = backend.get_pagerank(graph, 0.9)
 
