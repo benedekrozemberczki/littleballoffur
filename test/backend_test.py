@@ -13,7 +13,7 @@ def test_networkit_backend_basics():
     assert 10000 == backend.get_number_of_edges(graph)
     assert 20 == backend.get_degree(graph, 0)
 
-def test_networkit_backend_advanced():
+def test_networkit_backend_neighbors():
 
     backend = NetworKitBackEnd()
 
@@ -37,6 +37,17 @@ def test_networkit_backend_advanced():
 
     assert random_neighbor in [0, 2]
     assert random_neighbor not in [3, 4, 5]
+
+def test_networkit_backend_shortest_path():
+
+    backend = NetworKitBackEnd()
+
+    graph = nk.graph.Graph()
+    graph.addEdge(0, 1, addMissing=True)
+    graph.addEdge(1, 2, addMissing=True)
+    graph.addEdge(2, 3, addMissing=True)
+    graph.addEdge(2, 4, addMissing=True)
+    graph.addEdge(2, 5, addMissing=True)
 
     assert backend.get_shortest_path(graph, 0, 5) == [0, 1, 2, 5]
     assert backend.get_shortest_path(graph, 5, 0) == [5, 2, 1, 0]
