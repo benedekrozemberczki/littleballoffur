@@ -52,6 +52,18 @@ class NetworKitBackEnd(object):
         """
         return nk.distance.ReverseBFS(graph, source, True, False, target).run().getPath(target)
 
+    def get_pagerank(self, graph: NKGraph, alpha: float) -> np.array:
+        """
+        Given a graph return the PageRank vector.
+        """
+        pagerank = nk.centrality.PageRank(NKGraph, alpha)
+        pagerank.run()
+        pagerank = nx.pagerank_scipy(graph, alpha=alpha)
+        pagerank = np.array(pagerank.scores())
+        pagerank = pagerank / pagerank.sum()
+        return pagerank
+
+
 
 class NetworkXBackEnd(object):
     """
