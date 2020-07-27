@@ -13,6 +13,7 @@ def test_networkit_backend_basics():
     assert 10000 == backend.get_number_of_edges(graph)
     assert 20 == backend.get_degree(graph, 0)
 
+
 def test_networkit_backend_neighbors():
 
     backend = NetworKitBackEnd()
@@ -38,6 +39,7 @@ def test_networkit_backend_neighbors():
     assert random_neighbor in [0, 2]
     assert random_neighbor not in [3, 4, 5]
 
+
 def test_networkit_backend_shortest_path():
 
     backend = NetworKitBackEnd()
@@ -56,6 +58,17 @@ def test_networkit_backend_shortest_path():
     assert backend.get_shortest_path(graph, 5, 3) == [5, 2, 3]
 
 
+def test_networkit_backend_basics():
+
+    backend = NetworKitBackEnd()
+
+    graph = nk.generators.WattsStrogatzGenerator(1000, 10, 0.0).generate()
+
+    pagerank_vector = backend.get_pagerank(graph, 0.9)
+
+    assert pagerank_vector.shape == (1000,)
+
+
 def test_networkx_backend_basics():
 
     backend = NetworkXBackEnd()
@@ -65,6 +78,7 @@ def test_networkx_backend_basics():
     assert 1000 == backend.get_number_of_nodes(graph)
     assert 5000 == backend.get_number_of_edges(graph)
     assert 10 == backend.get_degree(graph, 0)
+
 
 def test_networkx_backend_neighbors():
 
@@ -86,6 +100,7 @@ def test_networkx_backend_neighbors():
     assert random_neighbor in [0, 2]
     assert random_neighbor not in [3, 4, 5]
 
+
 def test_networkx_backend_shortest_path():
 
     backend = NetworkXBackEnd()
@@ -98,6 +113,7 @@ def test_networkx_backend_shortest_path():
     assert backend.get_shortest_path(graph, 3, 5) == [3, 2, 5]
     assert backend.get_shortest_path(graph, 5, 3) == [5, 2, 3]
 
+
 def test_networkx_backend_pagerank():
 
     backend = NetworkXBackEnd()
@@ -106,5 +122,3 @@ def test_networkx_backend_pagerank():
     pagerank_vector = backend.get_pagerank(graph, 0.9)
 
     assert pagerank_vector.shape == (1000,)
-
-

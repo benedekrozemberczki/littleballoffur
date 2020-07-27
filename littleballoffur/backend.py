@@ -56,7 +56,7 @@ class NetworKitBackEnd(object):
         """
         Given a graph return the PageRank vector.
         """
-        pagerank = nk.centrality.PageRank(NKGraph, alpha)
+        pagerank = nk.centrality.PageRank(graph, alpha)
         pagerank.run()
         pagerank = np.array(pagerank.scores())
         pagerank = pagerank / pagerank.sum()
