@@ -86,6 +86,12 @@ def test_networkx_backend_neighbors():
     assert random_neighbor in [0, 2]
     assert random_neighbor not in [3, 4, 5]
 
+def test_networkx_backend_shortest_path():
+
+    backend = NetworkXBackEnd()
+
+    graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
+
     assert backend.get_shortest_path(graph, 0, 5) == [0, 1, 2, 5]
     assert backend.get_shortest_path(graph, 5, 0) == [5, 2, 1, 0]
 
