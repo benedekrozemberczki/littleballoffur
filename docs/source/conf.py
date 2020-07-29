@@ -22,6 +22,7 @@ autodoc_default_options = {
 }
 
 
+
 autodoc_mock_imports = ['networkit']
 
 source_suffix = '.rst'
