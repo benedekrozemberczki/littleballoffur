@@ -9,6 +9,6 @@ python:
    install:
       - requirements: docs/requirements_1.txt
       - method: setuptools
-        path: .
+        path: ./littleballoffur/
 
 formats: []
