@@ -2,13 +2,6 @@ import datetime
 import sphinx_rtd_theme
 import doctest
 import littleballoffur
-import os
-
-on_rtd = os.environ.get('READTHEDOCS') == 'True'
-if on_rtd:
-    html_theme = 'default'
-else:
-    html_theme = 'nature'
 
 extensions = [
     'sphinx.ext.autodoc',
@@ -27,6 +20,7 @@ author = 'Benedek Rozemberczki'
 project = 'Little Ball of Fur'
 copyright = '{}, {}'.format(datetime.datetime.now().year, author)
 
+html_theme = 'sphinx_rtd_theme'
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 doctest_default_flags = doctest.NORMALIZE_WHITESPACE
