@@ -13,6 +13,9 @@ extensions = [
     'sphinx.ext.githubpages',
 ]
 
+
+autodoc_mock_imports = ['networkit']
+
 source_suffix = '.rst'
 master_doc = 'index'
 
