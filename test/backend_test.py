@@ -69,7 +69,7 @@ def test_networkit_backend_basics():
     assert pagerank_vector.shape == (1000,)
 
 
-def test_networkx_backend_basics():
+def test_networkx_backend_pagerank():
 
     backend = NetworkXBackEnd()
 
