@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six", "scipy", "networkit"]
 
-setup_requires = ['pytest-runner']
+setup_requires = ["cython","numpy",'pytest-runner']
 
 tests_require = ['pytest', 'pytest-cov', 'mock']
 
