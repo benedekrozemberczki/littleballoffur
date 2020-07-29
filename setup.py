@@ -1,7 +1,7 @@
 import os
 from setuptools import find_packages, setup
 
-on_rtd = os.environ.get('READTHEDOCS') == 'True'
+on_rtd = os.environ.get("READTHEDOCS") == "True"
 
 install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six", "scipy"]
 
