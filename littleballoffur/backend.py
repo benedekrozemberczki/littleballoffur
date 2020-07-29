@@ -16,11 +16,13 @@ class NetworKitBackEnd(object):
     def __init__(self):
         pass
 
+
     def get_number_of_nodes(self, graph: NKGraph) -> int:
         """
         Given a graph return the number of nodes.
         """
         return graph.numberOfNodes()
+
 
     def get_number_of_edges(self, graph: NKGraph) -> int:
         """
@@ -28,11 +30,13 @@ class NetworKitBackEnd(object):
         """
         return graph.numberOfEdges()
 
+
     def get_degree(self, graph: NKGraph, node: int) -> int:
         """
         Given a graph and node return the degree.
         """
         return graph.degree(node)
+
 
     def get_neighbors(self, graph: NKGraph, node: int) -> List[int]:
         """
@@ -40,17 +44,20 @@ class NetworKitBackEnd(object):
         """
         return graph.neighbors(node)
 
+
     def get_random_neighbor(self, graph: NKGraph, node: int) -> int:
         """
         Given a graph and node returns a random neighbor.
         """
         return graph.randomNeighbor(node)
 
+
     def get_shortest_path(self, graph: NKGraph, source: int, target: int) -> List[int]:
         """
         Given a graph, a source and target node pair get the shortes path
         """
         return nk.distance.ReverseBFS(graph, source, True, False, target).run().getPath(target)
+
 
     def get_pagerank(self, graph: NKGraph, alpha: float) -> np.array:
         """
@@ -63,7 +70,6 @@ class NetworKitBackEnd(object):
         return pagerank
 
 
-
 class NetworkXBackEnd(object):
     """
     Binding the NetworkX backend to serve graph operations.
@@ -71,11 +77,13 @@ class NetworkXBackEnd(object):
     def __init__(self):
         pass
 
+
     def get_number_of_nodes(self, graph: NXGraph) -> int:
         """
         Given a graph return the number of nodes.
         """
         return graph.number_of_nodes()
+
 
     def get_number_of_edges(self, graph: NXGraph) -> int:
         """
@@ -83,11 +91,13 @@ class NetworkXBackEnd(object):
         """
         return graph.number_of_edges()
 
+
     def get_degree(self, graph: NXGraph, node: int) -> int:
         """
         Given a graph and node return the degree.
         """
         return graph.degree[node]
+
 
     def get_neighbors(self, graph: NXGraph, node: int) -> List[int]:
         """
@@ -103,11 +113,13 @@ class NetworkXBackEnd(object):
         neighbors = self.get_neighbors(graph, node)
         return random.choice(neighbors)
 
+
     def get_shortest_path(self, graph: NXGraph, source: int, target: int) -> List[int]:
         """
         Given a graph, a source and target node pair get the shortes path
         """
         return nx.shortest_path(graph, source, target)
+
 
     def get_pagerank(self, graph: NXGraph, alpha: float) -> np.array:
         """
@@ -117,4 +129,3 @@ class NetworkXBackEnd(object):
         pagerank = np.array([pagerank[node] for node in graph.nodes()])
         pagerank = pagerank / pagerank.sum()
         return pagerank
-
