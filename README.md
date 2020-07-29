@@ -21,11 +21,11 @@ If you find **Little Ball of Fur** and the new datasets useful in your research,
 
 ```bibtex
 @inproceedings{littleballoffur,
-       title={{Little Ball of Fur: A Python Library for Graph Sampling}},
-       author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
-       year={2020},
-       booktitle={Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM '20)},
-       organization={ACM},
+               title={{Little Ball of Fur: A Python Library for Graph Sampling}},
+               author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
+               year={2020},
+               booktitle={Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM '20)},
+               organization={ACM},
 }
 ```
 --------------------------------------------------------------------------------
