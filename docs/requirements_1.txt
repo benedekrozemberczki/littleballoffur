@@ -9,3 +9,5 @@ pygsp
 gensim
 pandas
 six
+nbsphinx
+nbsphinx_link
