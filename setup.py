@@ -9,7 +9,6 @@ tests_require = ['pytest', 'pytest-cov', 'mock']
 
 setup(
   name = "littleballoffur",
-  packages = find_packages(),
   version = "1.0.3",
   license = "MIT",
   description = "A general purpose library for subsampling large graphs.",
