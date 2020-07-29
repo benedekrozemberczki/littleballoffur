@@ -23,7 +23,7 @@ setup(
   install_requires = install_requires,
   setup_requires = setup_requires,
   tests_require = tests_require,
-  packages=setuptools.find_packages(),
+  packages=find_packages(),
   classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
