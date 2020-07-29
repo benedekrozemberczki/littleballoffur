@@ -1,12 +1,7 @@
-import os
 from setuptools import find_packages, setup
 
-on_rtd = os.environ.get('READTHEDOCS') == 'True'
 
-if on_rtd:
-    install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six", "scipy"]
-else:
-    install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six", "scipy", "networkit"]
+install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six", "scipy", "networkit"]
 
 setup_requires = ['pytest-runner']
 
@@ -29,6 +24,7 @@ setup(
   install_requires = install_requires,
   setup_requires = setup_requires,
   tests_require = tests_require,
+  packages=setuptools.find_packages(),
   classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
