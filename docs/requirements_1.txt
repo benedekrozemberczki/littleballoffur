@@ -1,6 +1,6 @@
 tqdm
 numpy
-sphinx
+sphinx>=3
 sphinx_rtd_theme
 python-louvain
 sklearn
