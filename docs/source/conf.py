@@ -15,6 +15,12 @@ extensions = [
 ]
 
 
+autodoc_default_options = {
+    'member-order': 'bysource',
+    'special-members': '__init__',
+    'undoc-members': True,
+}
+
 autodoc_mock_imports = ['networkit']
 
 source_suffix = '.rst'
