@@ -153,6 +153,7 @@ class NetworkXBackEnd(object):
         """
         return graph.degree[node]
 
+
     def get_subgraph(self, graph: NXGraph, nodes: List[int]) -> NXGraph:
         """
         Given a graph and set of inducing nodes return a subgraph.
