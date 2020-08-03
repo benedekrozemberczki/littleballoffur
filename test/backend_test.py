@@ -6,17 +6,16 @@ from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
 def test_networkit_backend_basics():
 
     backend = NetworKitBackEnd()
-
     graph = nk.generators.WattsStrogatzGenerator(1000, 10, 0.0).generate()
 
     assert 1000 == backend.get_number_of_nodes(graph)
     assert 10000 == backend.get_number_of_edges(graph)
     assert 20 == backend.get_degree(graph, 0)
 
+
 def test_networkit_backend_get_basics():
 
     backend = NetworKitBackEnd()
-
     graph = nk.graph.Graph()
 
     graph.addEdge(0, 1, addMissing=True)
@@ -41,10 +40,10 @@ def test_networkit_backend_get_basics():
     assert (4, 2) in edges
     assert (5, 2) in edges
 
+
 def test_networkit_backend_get_iterator():
 
     backend = NetworKitBackEnd()
-
     graph = nk.graph.Graph()
 
     graph.addEdge(0, 1, addMissing=True)
@@ -58,13 +57,10 @@ def test_networkit_backend_get_iterator():
     for edge in backend.get_edge_iterator(graph):
         assert edge in [(0, 1), (1, 2), (2, 3), (2, 4), (2, 5)]
 
-    
-
 
 def test_networkit_backend_neighbors():
 
     backend = NetworKitBackEnd()
-
     graph = nk.graph.Graph()
 
     graph.addEdge(0, 1, addMissing=True)
@@ -109,7 +105,6 @@ def test_networkit_backend_shortest_path():
 def test_networkit_backend_pagerank():
 
     backend = NetworKitBackEnd()
-
     graph = nk.generators.WattsStrogatzGenerator(1000, 10, 0.0).generate()
 
     pagerank_vector = backend.get_pagerank(graph, 0.9)
@@ -120,7 +115,6 @@ def test_networkit_backend_pagerank():
 def test_networkx_backend_basics():
 
     backend = NetworkXBackEnd()
-
     graph = nx.watts_strogatz_graph(1000, 10, 0.0)
 
     assert 1000 == backend.get_number_of_nodes(graph)
@@ -130,7 +124,6 @@ def test_networkx_backend_basics():
 def test_networkx_backend_get_basics():
 
     backend = NetworkXBackEnd()
-
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
     nodes = backend.get_nodes(graph)
@@ -149,10 +142,10 @@ def test_networkx_backend_get_basics():
     assert (2, 4) in edges
     assert (2, 5) in edges
 
+
 def test_networkx_backend_iterator_basics():
 
     backend = NetworkXBackEnd()
-
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
     for node in backend.get_node_iterator(graph):
@@ -165,7 +158,6 @@ def test_networkx_backend_iterator_basics():
 def test_networkx_backend_neighbors():
 
     backend = NetworkXBackEnd()
-
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
     assert [0, 2] == sorted(backend.get_neighbors(graph, 1))
@@ -186,7 +178,6 @@ def test_networkx_backend_neighbors():
 def test_networkx_backend_shortest_path():
 
     backend = NetworkXBackEnd()
-
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
     assert backend.get_shortest_path(graph, 0, 5) == [0, 1, 2, 5]
@@ -199,8 +190,8 @@ def test_networkx_backend_shortest_path():
 def test_networkx_backend_pagerank():
 
     backend = NetworkXBackEnd()
-
     graph = nx.watts_strogatz_graph(1000, 10, 0.0)
+
     pagerank_vector = backend.get_pagerank(graph, 0.9)
 
     assert pagerank_vector.shape == (1000,)
