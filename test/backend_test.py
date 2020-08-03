@@ -87,12 +87,15 @@ def test_networkx_backend_get_basics():
 
     nodes = backend.get_nodes(graph)
     edges = backend.get_edges(graph)
+
     assert 0 in nodes
     assert 1 in nodes
     assert 2 in nodes
     assert 3 in nodes
     assert 4 in nodes
     assert 5 in nodes
+
+    print(edges)
 
 
 def test_networkx_backend_neighbors():
