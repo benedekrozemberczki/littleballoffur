@@ -73,6 +73,7 @@ def test_networkit_backend_induction():
 
     for node in backend.get_node_iterator(subgraph):
         assert node in [2, 3, 4]
+
     for edge in backend.get_edge_iterator(subgraph):
         assert edge in [(2, 3), (2, 4)]
 
@@ -172,6 +173,19 @@ def test_networkx_backend_iterator_basics():
 
     for edge in backend.get_edge_iterator(graph):
         assert edge in [(0, 1), (1, 2), (2, 3), (2, 4), (2, 5)]
+
+def test_networkx_backend_induction():
+
+    backend = NetworkXBackEnd()
+    graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
+
+    subgraph = backend.get_subgraph(graph, [2, 3, 4])
+
+    for node in backend.get_node_iterator(subgraph):
+        assert node in [2, 3, 4]
+
+    for edge in backend.get_edge_iterator(subgraph):
+        assert edge in [(2, 3), (2, 4)]
 
 
 def test_networkx_backend_neighbors():
