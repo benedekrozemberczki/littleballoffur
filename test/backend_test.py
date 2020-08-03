@@ -253,7 +253,7 @@ def test_networkx_backend_pagerank():
 
 def test_networkx_backend_graph_from_edgelist():
 
-    backend = NetworKXBackEnd()
+    backend = NetworkXBackEnd()
     graph = backend.graph_from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
     nodes = backend.get_nodes(graph)
