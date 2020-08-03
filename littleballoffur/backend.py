@@ -30,6 +30,12 @@ class NetworKitBackEnd(object):
         """
         return graph.numberOfEdges()
 
+    def get_nodes(self, graph: NKGraph) -> int:
+        """
+        Given a graph return the nodes.
+        """
+        return graph.nodes()
+
 
     def get_degree(self, graph: NKGraph, node: int) -> int:
         """
