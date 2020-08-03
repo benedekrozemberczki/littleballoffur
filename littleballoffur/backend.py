@@ -16,7 +16,6 @@ class NetworKitBackEnd(object):
     def __init__(self):
         pass
 
-
     def get_number_of_nodes(self, graph: NKGraph) -> int:
         """
         Given a graph return the number of nodes.
@@ -30,15 +29,31 @@ class NetworKitBackEnd(object):
         """
         return graph.numberOfEdges()
 
+
     def get_nodes(self, graph: NKGraph) -> List:
         """
         Given a graph return the nodes.
         """
         return graph.nodes()
 
+
     def get_edges(self, graph: NKGraph) -> List[Tuple]:
         """
         Given a graph return the edges.
+        """
+        return graph.edges()
+
+
+    def get_node_iterator(self, graph: NKGraph):
+        """
+        Given a graph return the node iterator.
+        """
+        return graph.nodes()
+
+
+    def get_edge_iterator(self, graph: NKGraph):
+        """
+        Given a graph return the edge iterator.
         """
         return graph.edges()
 
@@ -103,17 +118,33 @@ class NetworkXBackEnd(object):
         """
         return graph.number_of_edges()
 
+
     def get_nodes(self, graph: NXGraph) -> List:
         """
         Given a graph return the nodes.
         """
         return [node for node in graph.nodes()]
 
+
     def get_edges(self, graph: NXGraph) -> List[Tuple]:
         """
         Given a graph return the edges.
         """
         return [edge for edge in graph.edges()]
+
+
+    def get_node_iterator(self, graph: NKGraph):
+        """
+        Given a graph return the node iterator.
+        """
+        return graph.nodes()
+
+
+    def get_edge_iterator(self, graph: NKGraph):
+        """
+        Given a graph return the edge iterator.
+        """
+        return graph.edges()
 
 
     def get_degree(self, graph: NXGraph, node: int) -> int:
