@@ -28,10 +28,12 @@ def test_networkit_backend_get_basics():
     nodes = backend.get_nodes(graph)
     edges = backend.get_edges(graph)
 
-    print(nodes)
-
-    print(edges)
-
+    assert 0 in nodes
+    assert 1 in nodes
+    assert 2 in nodes
+    assert 3 in nodes
+    assert 4 in nodes
+    assert 5 in nodes
     
 
 
