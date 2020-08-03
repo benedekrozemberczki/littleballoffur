@@ -2,7 +2,7 @@ import random
 import numpy as np
 import networkx as nx
 import networkit as nk
-from typing import List
+from typing import List, Tuple
 
 
 NKGraph = type(nk.graph.Graph())
@@ -30,13 +30,13 @@ class NetworKitBackEnd(object):
         """
         return graph.numberOfEdges()
 
-    def get_nodes(self, graph: NKGraph) -> int:
+    def get_nodes(self, graph: NKGraph) -> List:
         """
         Given a graph return the nodes.
         """
         return graph.nodes()
 
-    def get_edges(self, graph: NKGraph) -> int:
+    def get_edges(self, graph: NKGraph) -> List[Tuple]:
         """
         Given a graph return the edges.
         """
@@ -103,13 +103,13 @@ class NetworkXBackEnd(object):
         """
         return graph.number_of_edges()
 
-    def get_nodes(self, graph: NXGraph) -> int:
+    def get_nodes(self, graph: NXGraph) -> List:
         """
         Given a graph return the nodes.
         """
         return [node for node in graph.nodes()]
 
-    def get_edges(self, graph: NXGraph) -> int:
+    def get_edges(self, graph: NXGraph) -> List[Tuple]:
         """
         Given a graph return the edges.
         """
