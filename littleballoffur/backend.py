@@ -153,6 +153,12 @@ class NetworkXBackEnd(object):
         """
         return graph.degree[node]
 
+    def get_subgraph(self, graph: NXGraph, nodes: List[int]) -> NXGraph:
+        """
+        Given a graph and set of inducing nodes return a subgraph.
+        """
+        return graph.sub_graph(nodes)
+
 
     def get_neighbors(self, graph: NXGraph, node: int) -> List[int]:
         """
