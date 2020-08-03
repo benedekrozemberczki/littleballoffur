@@ -165,7 +165,7 @@ class NetworkXBackEnd(object):
         """
         Given a graph and set of inducing nodes return a subgraph.
         """
-        return graph.sub_graph(nodes)
+        return graph.subgraph(nodes)
 
 
     def get_neighbors(self, graph: NXGraph, node: int) -> List[int]:
