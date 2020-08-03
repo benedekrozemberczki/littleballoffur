@@ -133,14 +133,14 @@ class NetworkXBackEnd(object):
         return [edge for edge in graph.edges()]
 
 
-    def get_node_iterator(self, graph: NKGraph):
+    def get_node_iterator(self, graph: NXGraph):
         """
         Given a graph return the node iterator.
         """
         return graph.nodes()
 
 
-    def get_edge_iterator(self, graph: NKGraph):
+    def get_edge_iterator(self, graph: NXGraph):
         """
         Given a graph return the edge iterator.
         """
