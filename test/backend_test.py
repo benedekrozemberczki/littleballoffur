@@ -34,6 +34,12 @@ def test_networkit_backend_get_basics():
     assert 3 in nodes
     assert 4 in nodes
     assert 5 in nodes
+
+    assert (1, 0) in edges
+    assert (2, 1) in edges
+    assert (3, 2) in edges
+    assert (4, 2) in edges
+    assert (5, 2) in edges
     
 
 
