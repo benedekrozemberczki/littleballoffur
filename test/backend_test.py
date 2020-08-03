@@ -55,9 +55,8 @@ def test_networkit_backend_get_iterator():
 
     for node in backend.get_node_iterator(graph):
         assert node in [0, 1, 2, 3, 4, 5]
-
-    #for edge in backend.get_edge_iterator(graph):
-    #    assert edge in [(0, 1), (1, 2), (2, 3), (2, 4), (2, 5)]
+    for edge in backend.get_edge_iterator(graph):
+        assert edge in [(0, 1), (1, 2), (2, 3), (2, 4), (2, 5)]
 
     
 

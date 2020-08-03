@@ -48,14 +48,14 @@ class NetworKitBackEnd(object):
         """
         Given a graph return the node iterator.
         """
-        return graph.forNodes()
+        return graph.iterNodes()
 
 
     def get_edge_iterator(self, graph: NKGraph):
         """
         Given a graph return the edge iterator.
         """
-        return graph.forEdges()
+        return graph.iterEdges()
 
 
     def get_degree(self, graph: NKGraph, node: int) -> int:
