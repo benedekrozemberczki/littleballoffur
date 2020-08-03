@@ -69,11 +69,11 @@ def test_networkit_backend_induction():
     graph.addEdge(2, 4, addMissing=True)
     graph.addEdge(2, 5, addMissing=True)
 
-    subgraph = backend.get_subraph(graph, [2, 3, 4])
+    subgraph = backend.get_subgraph(graph, [2, 3, 4])
 
-    for node in backend.get_node_iterator(graph):
+    for node in backend.get_node_iterator(subgraph):
         assert node in [2, 3, 4]
-    for edge in backend.get_edge_iterator(graph):
+    for edge in backend.get_edge_iterator(subgraph):
         assert edge in [(2, 3), (2, 4)]
 
 
