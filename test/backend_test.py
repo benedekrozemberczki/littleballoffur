@@ -40,6 +40,27 @@ def test_networkit_backend_get_basics():
     assert (4, 2) in edges
     assert (5, 2) in edges
 
+def test_networkit_backend_graph_from_edgelist():
+
+    backend = NetworKitBackEnd()
+    graph = backend.graph_from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
+
+    nodes = backend.get_nodes(graph)
+    edges = backend.get_edges(graph)
+
+    assert 0 in nodes
+    assert 1 in nodes
+    assert 2 in nodes
+    assert 3 in nodes
+    assert 4 in nodes
+    assert 5 in nodes
+
+    assert (1, 0) in edges
+    assert (2, 1) in edges
+    assert (3, 2) in edges
+    assert (4, 2) in edges
+    assert (5, 2) in edges
+
 
 def test_networkit_backend_get_iterator():
 
