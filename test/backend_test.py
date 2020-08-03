@@ -95,7 +95,11 @@ def test_networkx_backend_get_basics():
     assert 4 in nodes
     assert 5 in nodes
 
-    print(edges)
+    assert (0, 1) in edges
+    assert (1, 2) in edges
+    assert (2, 3) in edges
+    assert (2, 4) in edges
+    assert (2, 5) in edges
 
 
 def test_networkx_backend_neighbors():
