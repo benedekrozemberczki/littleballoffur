@@ -79,6 +79,16 @@ def test_networkx_backend_basics():
     assert 5000 == backend.get_number_of_edges(graph)
     assert 10 == backend.get_degree(graph, 0)
 
+def test_networkx_backend_get_basics():
+
+    backend = NetworkXBackEnd()
+
+    graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
+
+    nodes = backend.get_nodes(graph)
+    edges = backend.get_edges(graph)
+    print(nodes, edges)
+
 
 def test_networkx_backend_neighbors():
 
