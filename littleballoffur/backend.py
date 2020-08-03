@@ -65,6 +65,13 @@ class NetworKitBackEnd(object):
         return graph.degree(node)
 
 
+    def get_subgraph(self, graph: NKGraph, nodes: List[int]) -> NKGraph:
+        """
+        Given a graph and set of inducing nodes return a subgraph.
+        """
+        return graph.subgraphFromNodes(nodes)
+
+
     def get_neighbors(self, graph: NKGraph, node: int) -> List[int]:
         """
         Given a graph and node return the neighbors.
