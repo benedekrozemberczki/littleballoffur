@@ -13,12 +13,27 @@ def test_networkit_backend_basics():
     assert 10000 == backend.get_number_of_edges(graph)
     assert 20 == backend.get_degree(graph, 0)
 
+def test_networkit_backend_neighbors():
+
+    backend = NetworKitBackEnd()
+
+    graph = nk.graph.Graph()
+
+    graph.addEdge(0, 1, addMissing=True)
+    graph.addEdge(1, 2, addMissing=True)
+    graph.addEdge(2, 3, addMissing=True)
+    graph.addEdge(2, 4, addMissing=True)
+    graph.addEdge(2, 5, addMissing=True)
+
+    
+
 
 def test_networkit_backend_neighbors():
 
     backend = NetworKitBackEnd()
 
     graph = nk.graph.Graph()
+
     graph.addEdge(0, 1, addMissing=True)
     graph.addEdge(1, 2, addMissing=True)
     graph.addEdge(2, 3, addMissing=True)
