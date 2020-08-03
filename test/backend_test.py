@@ -40,6 +40,25 @@ def test_networkit_backend_get_basics():
     assert (3, 2) in edges
     assert (4, 2) in edges
     assert (5, 2) in edges
+
+def test_networkit_backend_get_iterator():
+
+    backend = NetworKitBackEnd()
+
+    graph = nk.graph.Graph()
+
+    graph.addEdge(0, 1, addMissing=True)
+    graph.addEdge(1, 2, addMissing=True)
+    graph.addEdge(2, 3, addMissing=True)
+    graph.addEdge(2, 4, addMissing=True)
+    graph.addEdge(2, 5, addMissing=True)
+
+    for node in backend.get_node_iterator(graph):
+        assert node in [0, 1, 2, 3, 4, 5]
+
+    #for edge in backend.get_edge_iterator(graph):
+    #    assert edge in [(0, 1), (1, 2), (2, 3), (2, 4), (2, 5)]
+
     
 
 
