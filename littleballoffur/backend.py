@@ -104,6 +104,16 @@ class NetworKitBackEnd(object):
         return pagerank
 
 
+    def graph_from_edgelist(self, edges: List) -> NKGraph:
+        """
+        Given an edge list generate a graph.
+        """
+        graph = nk.graph.Graph()
+        for edge in edges:
+            graph.addEdge(edge[0], edge[1], addMissing=True)
+        return graph
+
+
 class NetworkXBackEnd(object):
     """
     Binding the NetworkX backend to serve graph operations.
