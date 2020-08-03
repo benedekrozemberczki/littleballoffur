@@ -58,7 +58,7 @@ def test_networkit_backend_shortest_path():
     assert backend.get_shortest_path(graph, 5, 3) == [5, 2, 3]
 
 
-def test_networkit_backend_basics():
+def test_networkit_backend_pagerank():
 
     backend = NetworKitBackEnd()
 
@@ -69,7 +69,7 @@ def test_networkit_backend_basics():
     assert pagerank_vector.shape == (1000,)
 
 
-def test_networkx_backend_pagerank():
+def test_networkx_backend_basics():
 
     backend = NetworkXBackEnd()
 
