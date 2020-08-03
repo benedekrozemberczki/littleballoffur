@@ -198,3 +198,10 @@ class NetworkXBackEnd(object):
         pagerank = np.array([pagerank[node] for node in graph.nodes()])
         pagerank = pagerank / pagerank.sum()
         return pagerank
+
+    def graph_from_edgelist(self, edges: List) -> NXGraph:
+        """
+        Given an edge list generate a graph.
+        """
+        graph = nx.from_edgelist(edges)
+        return graph
