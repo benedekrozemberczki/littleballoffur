@@ -138,10 +138,10 @@ def test_networkx_backend_iterator_basics():
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
     for node in backend.get_node_iterator(graph):
-        print(node)
+        assert node in [0, 1, 2, 3, 4, 5]
 
     for edge in backend.get_edge_iterator(graph):
-        print(edge)
+        assert edge in [(0, 1), (1, 2), (2, 3), (2, 4), (2, 5)]
 
 
 def test_networkx_backend_neighbors():
