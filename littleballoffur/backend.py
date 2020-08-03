@@ -103,6 +103,18 @@ class NetworkXBackEnd(object):
         """
         return graph.number_of_edges()
 
+    def get_nodes(self, graph: NXGraph) -> int:
+        """
+        Given a graph return the nodes.
+        """
+        return graph.nodes()
+
+    def get_edges(self, graph: NXGraph) -> int:
+        """
+        Given a graph return the edges.
+        """
+        return graph.edges()
+
 
     def get_degree(self, graph: NXGraph, node: int) -> int:
         """
