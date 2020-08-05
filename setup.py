@@ -53,11 +53,9 @@ setup(
   setup_requires = setup_requires,
   tests_require = tests_require,
   packages = find_packages(),
-  classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "Topic :: Software Development :: Build Tools",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.7",
-  ],
+  classifiers = ["Development Status :: 3 - Alpha",
+                 "Intended Audience :: Developers",
+                 "Topic :: Software Development :: Build Tools",
+                 "License :: OSI Approved :: MIT License",
+                 "Programming Language :: Python :: 3.7"],
 )
