@@ -12,10 +12,26 @@ setup_requires = ["cython", "numpy", "pytest-runner"]
 
 tests_require = ["pytest", "pytest-cov", "mock"]
 
-keywords = ["community", "detection", "networkx", "graph", "clustering", 
-              "graph-sampling", "sampling", "random-walk", "forest-fire",
-              "embedding", "network", "deepwalk", "graph2vec", "node2vec",
-              "deep", "learning", "louvain", "machine-learning", "deep-learning", "deeplearning"]
+keywords = ["community",
+            "detection",
+            "networkx",
+            "graph",
+            "clustering", 
+            "graph-sampling",
+            "sampling",
+            "random-walk",
+            "forest-fire",
+            "embedding",
+            "network",
+            "deepwalk",
+            "graph2vec",
+            "node2vec",
+            "deep",
+            "learning",
+            "louvain",
+            "machine-learning",
+            "deep-learning",
+            "deeplearning"]
 
 setup(
   name = "littleballoffur",
