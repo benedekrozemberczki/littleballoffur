@@ -12,6 +12,11 @@ setup_requires = ["cython", "numpy", "pytest-runner"]
 
 tests_require = ["pytest", "pytest-cov", "mock"]
 
+keywords = ["community", "detection", "networkx", "graph", "clustering", 
+              "graph-sampling", "sampling", "random-walk", "forest-fire",
+              "embedding", "network", "deepwalk", "graph2vec", "node2vec",
+              "deep", "learning", "louvain", "machine-learning", "deep-learning", "deeplearning"]
+
 setup(
   name = "littleballoffur",
   version = "1.0.3",
@@ -21,14 +26,11 @@ setup(
   author_email = "benedek.rozemberczki@gmail.com",
   url = "https://github.com/benedekrozemberczki/littleballoffur",
   download_url = "https://github.com/benedekrozemberczki/littleballoffur/archive/v_10003.tar.gz",
-  keywords = ["community", "detection", "networkx", "graph", "clustering", 
-              "graph-sampling", "sampling", "random-walk", "forest-fire",
-              "embedding", "network", "deepwalk", "graph2vec", "node2vec",
-              "deep", "learning", "louvain", "machine-learning", "deep-learning", "deeplearning"],
+  keywords = keywords,
   install_requires = install_requires,
   setup_requires = setup_requires,
   tests_require = tests_require,
-  packages=find_packages(),
+  packages = find_packages(),
   classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
