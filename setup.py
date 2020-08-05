@@ -3,7 +3,13 @@ from setuptools import find_packages, setup
 
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
-install_requires = [ "networkx", "tqdm", "python-louvain", "pandas", "numpy", "six", "scipy"]
+install_requires = ["networkx",
+                    "tqdm",
+                    "python-louvain",
+                    "pandas",
+                    "numpy",
+                    "six",
+                    "scipy"]
 
 if not on_rtd:
     install_requires.append("networkit")
