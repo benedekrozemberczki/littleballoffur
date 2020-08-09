@@ -30,10 +30,10 @@ class Sampler(object):
     def _deploy_backend(self, graph: Union[NKGraph, NXGraph]):
         """Chechking the input type."""
         if isinstance(graph, NKGraph):
-            self.backend = NKGraph
+            self.backend = NetworKitBackEnd()
             self.backend.check_graph(graph)
         elif isinstance(graph, NXGraph):
-            self.backend = NXGraph
+            self.backend = NetworkXBackEnd()
             self.backend.check_graph(graph)
         else:
             raise ValueError("Not a NetworKit or NetworkX graph.")
@@ -67,10 +67,10 @@ class Sampler(object):
 
     def _check_number_of_nodes(self, graph):
         """Checking the size of the graph - nodes."""
-        if self.number_of_nodes > graph.number_of_nodes():
+        if self.number_of_nodes > self.backend.get_number_of_nodes(graph):
             raise ValueError("The number of nodes is too large. Please see requirements.")
 
     def _check_number_of_edges(self, graph):
         """Checking the size of the graph -- edges."""
-        if self.number_of_edges > graph.number_of_edges():
+        if self.number_of_edges > self.backend.get_number_of_edges(graph):
             raise ValueError("The number of edges is too large. Please see requirements.")  

@@ -32,7 +32,7 @@ class RandomNodeSampler(Sampler):
         Return types:
             * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
         self._graph = graph
         self._create_initial_node_set()
