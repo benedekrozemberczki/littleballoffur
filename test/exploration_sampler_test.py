@@ -147,6 +147,28 @@ def test_depth_first_search_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
 
+    sampler = DepthFirstSearchSampler()
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    sampler = DepthFirstSearchSampler(number_of_nodes=25)
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
 
 
 #----------------------------------------#
