@@ -26,21 +26,21 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
         self.alpha = alpha
         self._set_seed()
 
-    def _create_initial_node_set(self):
+    def _create_initial_node_set(self, graph):
         """
         Choosing an initial node.
         """
-        self._current_node = random.choice(range(self._graph.number_of_nodes()))
+        self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
         self._sampled_nodes = set([self._current_node])
 
-    def _do_a_step(self):
+    def _do_a_step(self, graph):
         """
         Doing a single random walk step.
         """
         score = random.uniform(0, 1)
         neighbors = self._graph.neighbors(self._current_node)
-        new_node = random.choice([neighbor for neighbor in neighbors])
-        ratio = float(self._graph.degree(self._current_node))/float(self._graph.degree(new_node))
+        new_node = self.backend.get_random_neighbor(graph, self._current_node)
+        ratio = float(self.backend.get_degree(graph, self._current_node))/float(self._graph.degree(new_node))
         ratio = ratio ** self.alpha
         if score < ratio:
             self._current_node = new_node
