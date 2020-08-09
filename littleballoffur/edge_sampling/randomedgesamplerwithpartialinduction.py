@@ -1,6 +1,12 @@
 import random
 import networkx as nx
+import networkit as nk
 from littleballoffur import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class RandomEdgeSamplerWithPartialInduction(Sampler):
     r"""An implementation of random edge sampling with partial edge set induction. 
