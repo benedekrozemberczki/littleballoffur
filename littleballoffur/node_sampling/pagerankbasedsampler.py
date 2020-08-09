@@ -17,20 +17,22 @@ class PageRankBasedSampler(Sampler):
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, seed: int=42):
+    def __init__(self, number_of_nodes: int=100, seed: int=42, alpha: float=0.85):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
+        self.alpha = alpha
         self._set_seed()
 
-    def _create_initial_node_set(self) -> List[int]:
+    def _create_initial_node_set(self, graph) -> List[int]:
         """
         Choosing initial nodes.
         """
-        nodes = [node for node in range(self._graph.number_of_nodes())]
-        page_rank = nx.pagerank_scipy(self._graph)
+        nodes = [node for node in range(self.backend.get_number_of_nodes(graph))]
+        page_rank = self.backend.get_pagerank(graph, self.alpha)
         page_rank_sum = sum(page_rank.values())
         probabilities = [page_rank[node]/page_rank_sum for node in nodes]
-        self._sampled_nodes = np.random.choice(nodes, size=self.number_of_nodes, replace=False, p=probabilities)
+        sampled_nodes = np.random.choice(nodes, size=self.number_of_nodes, replace=False, p=probabilities)
+        return sampled_nodes
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
