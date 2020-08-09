@@ -43,7 +43,7 @@ class CommunityStructureExpansionSampler(Sampler):
         """
         largest_expansion = 0
         for node in self._targets:
-            expansion = len(set(self._graph.neighbors(node)).difference(self._sampled_nodes))
+            expansion = len(set(self.backend.get_neighbors(graph, node)).difference(self._sampled_nodes))
             if expansion >= largest_expansion:
                 new_node = node
         self._sampled_nodes.add(new_node)
@@ -62,7 +62,7 @@ class CommunityStructureExpansionSampler(Sampler):
         self._check_number_of_nodes(graph)
         self._create_node_set(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._make_target_set()
+            self._make_target_set(graph)
             self._choose_new_node()
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
