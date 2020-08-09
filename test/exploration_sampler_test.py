@@ -203,6 +203,26 @@ def test_random_walk_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
+    sampler = RandomWalkSampler()
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NKGraph
+
+    sampler = RandomWalkSampler(number_of_nodes=25)
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NKGraph
+
 
 def test_metropolis_hastings_random_walk_sampler():
     """
