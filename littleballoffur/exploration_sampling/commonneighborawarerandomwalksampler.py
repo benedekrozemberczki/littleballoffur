@@ -1,7 +1,14 @@
 import random
 import numpy as np
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class CommonNeighborAwareRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by common neighbor aware random walks.
@@ -18,26 +25,26 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_node_set(self):
+    def _create_initial_node_set(self, graph):
         """
         Choosing an initial node.
         """
-        self._current_node = random.choice(range(self._graph.number_of_nodes()))
+        self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
         self._sampled_nodes = set([self._current_node])
 
-    def _create_sampler(self):
+    def _create_sampler(self, graph):
         """
         Assigning edge weights.
         """
         self._sampler = {}
-        for node in self._graph.nodes():
-            neighbors = [neighbor for neighbor in self._graph.neighbors(node)]
+        for node in self.backend.get_node_iterator(graph):
+            neighbors = self.backend.get_neighbors(graph, node)
             neighbors = set(neighbors)
             scores = []
             for neighbor in neighbors:
-                fringe = set([neb for neb in self._graph.neighbors(neighbor)])
+                fringe = set(self.backend.get_neighbors(graph, neighbors))
                 overlap = len(neighbors.intersection(fringe))
-                scores.append(1.0-(overlap)/min(self._graph.degree(node), self._graph.degree(neighbor)))
+                scores.append(1.0-(overlap)/min(self.backend.get_degree(graph, node), self.backend.get_degree(graph, neighbor)))
             scores = np.array(scores)
             self._sampler[node] = {}
             self._sampler[node]["neighbors"] = list(neighbors)
@@ -54,7 +61,7 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
                                                        p=self._sampler[self._current_node]["scores"])[0]
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single common neighbor aware random walk.
 
