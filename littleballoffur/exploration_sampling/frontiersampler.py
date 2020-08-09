@@ -20,28 +20,28 @@ class FrontierSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _reweight(self):
+    def _reweight(self, graph):
         """
         Create new seed weights.
         """
-        self._seed_weights = [self._graph.degree(seed) for seed in self._seeds]
+        self._seed_weights = [self.backend.get_degree(graph, seed) for seed in self._seeds]
         weight_sum = np.sum(self._seed_weights)
         self._seed_weights = [float(weight)/weight_sum for weight in self._seed_weights]
 
-    def _create_initial_seed_set(self):
+    def _create_initial_seed_set(self, graph):
         """
         Choosing initial nodes.
         """
-        nodes = [node for node in range(self._graph.number_of_nodes())]
+        nodes = self.backend.get_nodes(graph)
         self._seeds = random.sample(nodes, self.number_of_seeds)
 
-    def _do_update(self):
+    def _do_update(self, graph):
         """
         Choose new seed node.
         """
         sample = np.random.choice(self._seeds, 1, replace=False, p=self._seed_weights)[0]
         index = self._seeds.index(sample)
-        new_seed = random.choice([neb for neb in self._graph.neighbors(sample)])
+        new_seed = random.choice(self.backend.get_neighbors(graph, sample))
         self._edges.add((sample, new_seed))
         self._nodes.add(sample)
         self._nodes.add(new_seed)
@@ -59,11 +59,12 @@ class FrontierSampler(Sampler):
         """
         self._nodes = set()
         self._edges = set()
-        self._check_graph(graph)
-        self._graph = graph
-        self._create_initial_seed_set()
+        self._deploy_backend(graph)
+        self._check_number_of_nodes(graph)
+        self._create_initial_seed_set(graph)
         while len(self._nodes) < self.number_of_nodes:
-            self._reweight()
-            self._do_update()
-        new_graph = nx.from_edgelist(self._edges)
+            self._reweight(graph)
+            self._do_update(graph)
+        new_graph = self.backend.graph_from_edgelist(self._edges)
+        new_graph = self.backend.get_subgraph(new_graph, self._nodes)
         return new_graph
