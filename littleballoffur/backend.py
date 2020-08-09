@@ -220,23 +220,23 @@ class NetworkXBackEnd(object):
         """Chechking the input type."""
         assert isinstance(graph, NXGraph), "This is not a NetworkX graph."
 
-    def _check_connectivity(self, graph):
+    def _check_connectivity(self, graph: NXGraph):
         """Checking the connected nature of a single graph."""
         connected = nx.is_connected(graph)
         assert connected, "Graph is not connected."
 
-    def _check_directedness(self, graph):
+    def _check_directedness(self, graph: NXGraph):
         """Checking the undirected nature of a single graph."""
         directed = nx.is_directed(graph)
         assert directed == False, "Graph is directed."
 
-    def _check_indexing(self, graph):
+    def _check_indexing(self, graph: NXGraph):
         """Checking the consecutive numeric indexing."""
         numeric_indices = [index for index in range(graph.number_of_nodes())]
         node_indices = sorted([node for node in graph.nodes()])
         assert numeric_indices == node_indices, "The node indexing is wrong."
 
-    def check_graph(self, graph: nx.classes.graph.Graph):
+    def check_graph(self, graph: NXGraph):
         """Check the Little Ball of Fur assumptions about the graph."""
         self._check_networkx_graph(graph)
         self._check_connectivity(graph)
