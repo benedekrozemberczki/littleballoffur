@@ -29,8 +29,8 @@ class PageRankBasedSampler(Sampler):
         """
         nodes = [node for node in range(self.backend.get_number_of_nodes(graph))]
         page_rank = self.backend.get_pagerank(graph, self.alpha)
-        page_rank_sum = sum(page_rank.values())
-        probabilities = [page_rank[node]/page_rank_sum for node in nodes]
+        page_rank_sum = np.sum(page_rank)
+        probabilities = page_rank/page_rank_sum
         sampled_nodes = np.random.choice(nodes, size=self.number_of_nodes, replace=False, p=probabilities)
         return sampled_nodes
 
