@@ -38,7 +38,7 @@ class SnowBallSampler(Sampler):
         self._nodes = set([start_node])
 
 
-    def _get_neighbors(self, source):
+    def _get_neighbors(self, graph, source):
         """
         Get the neighbors of a node (if a node has more than k neighbors we choose randomly).
         """
@@ -63,7 +63,7 @@ class SnowBallSampler(Sampler):
         self._create_seed_set(graph)
         while len(self._nodes) < self.number_of_nodes:
             source = self._queue.get()
-            neighbors = self._get_neighbors(source)
+            neighbors = self._get_neighbors(graph, source)
             for neighbor in neighbors:
                 if neighbor not in self._nodes:
                     self._nodes.add(neighbor)
