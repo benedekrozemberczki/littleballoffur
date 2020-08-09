@@ -32,7 +32,7 @@ class RandomWalkWithJumpSampler(Sampler):
         self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
         self._sampled_nodes = set([self._current_node])
 
-    def _do_a_step(self):
+    def _do_a_step(self, graph):
         """
         Doing a single random walk step.
         """
