@@ -34,7 +34,7 @@ class RandomNodeEdgeSampler(Sampler):
             self._sampled_edges.add(edge)
 
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling edges randomly from randomly sampled nodes.
 
