@@ -62,4 +62,5 @@ class LoopErasedRandomWalkSampler(Sampler):
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step(graph)
         new_graph = self.backend.graph_from_edgelist(self._sampled_edges)
+        new_graph = self.backend.get_subgraph(new_graph, self._sampled_nodes)
         return new_graph
