@@ -28,14 +28,13 @@ class RandomEdgeSampler(Sampler):
         Sampling edges randomly.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled edges.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_edges(graph)
-        self._graph = graph
-        self._create_initial_edge_set()
-        new_graph = nx.from_edgelist(self._sampled_edges)
+        self._create_initial_edge_set(graph)
+        new_graph = self.backend.graph_from_edgelist(self._sampled_edges)
         return new_graph
