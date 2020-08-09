@@ -119,17 +119,17 @@ class NetworKitBackEnd(object):
 
     def _check_connectivity(self, graph: NKGraph):
         """Checking the connected nature of a single graph."""
-        connected = nx.is_connected(graph)
-        assert connected, "Graph is not connected."
+        connected = nk.components.ConnectedComponents(graph).run().numberOfComponents()
+        assert connected == 1, "Graph is not connected."
 
     def _check_directedness(self, graph: NXGraph):
         """Checking the undirected nature of a single graph."""
-        directed = nx.is_directed(graph)
+        directed = nk.isDirected(graph)
         assert directed == False, "Graph is directed."
 
     def _check_indexing(self, graph: NXGraph):
         """Checking the consecutive numeric indexing."""
-        numeric_indices = [index for index in range(graph.number_of_nodes())]
+        numeric_indices = [index for index in range(graph.numberOfNodes())]
         node_indices = sorted([node for node in graph.nodes()])
         assert numeric_indices == node_indices, "The node indexing is wrong."
 
