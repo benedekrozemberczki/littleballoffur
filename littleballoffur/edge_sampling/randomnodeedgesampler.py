@@ -21,14 +21,14 @@ class RandomNodeEdgeSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_edge_set(self):
+    def _create_initial_edge_set(self, graph: Union[NXGraph, NKGraph]):
         """
         Choosing initial edges.
         """
         self._sampled_edges = set()
         while len(self._sampled_edges) < self.number_of_edges:
-            source_node = random.choice(range(self._graph.number_of_nodes()))
-            target_node = random.choice([node for node in self._graph.neighbors(source_node)])
+            source_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            target_node = random.choice(self.backend.get_neighbors(graph, source_node))
             edge = sorted([source_node, target_node])
             edge = tuple(edge)
             self._sampled_edges.add(edge)
