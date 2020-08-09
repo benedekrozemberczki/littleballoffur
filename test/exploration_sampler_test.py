@@ -274,7 +274,7 @@ def test_common_neighbor_aware_random_walk_sampler():
     assert type(new_graph) == nx.classes.graph.Graph
 
 
-def test_non_back_trackin_random_walk_sampler():
+def test_non_back_tracking_random_walk_sampler():
     """
     Testing the number of nodes and the connectivity.
     """
@@ -322,6 +322,27 @@ def test_random_walk_with_restart_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
+
+
+    sampler = RandomWalkWithRestartSampler()
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    sampler = RandomWalkWithRestartSampler(number_of_nodes=25)
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
 
 
 def test_forest_fire_sampler():
