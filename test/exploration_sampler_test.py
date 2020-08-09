@@ -31,7 +31,7 @@ def test_loop_erased_random_walk_sampler():
     assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(new_graph) == NXGraph
 
     sampler = LoopErasedRandomWalkSampler(number_of_nodes=25)
 
@@ -42,7 +42,29 @@ def test_loop_erased_random_walk_sampler():
     assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(new_graph) == NXGraph
+
+    sampler = LoopErasedRandomWalkSampler()
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    new_graph = sampler.sample(graph)
+
+    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    sampler = LoopErasedRandomWalkSampler(number_of_nodes=25)
+
+    graph = nk.generators.WattsStrogatzGenerator(100, 10, 0.0).generate()
+
+    new_graph = sampler.sample(graph)
+
+    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
 
 
 def test_breadth_first_search_sampler():
