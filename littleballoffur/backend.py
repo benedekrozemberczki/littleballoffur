@@ -117,7 +117,7 @@ class NetworKitBackEnd(object):
         """Chechking the input type."""
         assert isinstance(graph, NKGraph), "This is not a NetworKit graph."
 
-    def _check_connectivity(self, graph: NXGraph):
+    def _check_connectivity(self, graph: NKGraph):
         """Checking the connected nature of a single graph."""
         connected = nx.is_connected(graph)
         assert connected, "Graph is not connected."
