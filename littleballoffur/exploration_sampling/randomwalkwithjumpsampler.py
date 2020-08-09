@@ -25,7 +25,7 @@ class RandomWalkWithJumpSampler(Sampler):
         self.p = p
         self._set_seed()
 
-    def _create_initial_node_set(self):
+    def _create_initial_node_set(self, graph):
         """
         Choosing an initial node.
         """
