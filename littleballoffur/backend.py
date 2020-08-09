@@ -113,19 +113,23 @@ class NetworKitBackEnd(object):
             graph.addEdge(edge[0], edge[1], addMissing=True)
         return graph
 
+
     def _check_networkit_graph(self, graph: NKGraph):
         """Chechking the input type."""
         assert isinstance(graph, NKGraph), "This is not a NetworKit graph."
+
 
     def _check_connectivity(self, graph: NKGraph):
         """Checking the connected nature of a single graph."""
         connected = nk.components.ConnectedComponents(graph).run().numberOfComponents()
         assert connected == 1, "Graph is not connected."
 
+
     def _check_directedness(self, graph: NXGraph):
         """Checking the undirected nature of a single graph."""
         directed = nk.isDirected(graph)
         assert directed == False, "Graph is directed."
+
 
     def _check_indexing(self, graph: NKGraph):
         """Checking the consecutive numeric indexing."""
@@ -133,9 +137,10 @@ class NetworKitBackEnd(object):
         node_indices = sorted([node for node in graph.nodes()])
         assert numeric_indices == node_indices, "The node indexing is wrong."
 
+
     def check_graph(self, graph: NKGraph):
         """Check the Little Ball of Fur assumptions about the graph."""
-        self._check_networkx_graph(graph)
+        self._check_networkit_graph(graph)
         self._check_connectivity(graph)
         self._check_directedness(graph)
         self._check_indexing(graph)
@@ -236,6 +241,7 @@ class NetworkXBackEnd(object):
         pagerank = pagerank / pagerank.sum()
         return pagerank
 
+
     def graph_from_edgelist(self, edges: List) -> NXGraph:
         """
         Given an edge list generate a graph.
@@ -243,25 +249,30 @@ class NetworkXBackEnd(object):
         graph = nx.from_edgelist(edges)
         return graph
 
+
     def _check_networkx_graph(self, graph: NXGraph):
         """Chechking the input type."""
         assert isinstance(graph, NXGraph), "This is not a NetworkX graph."
+
 
     def _check_connectivity(self, graph: NXGraph):
         """Checking the connected nature of a single graph."""
         connected = nx.is_connected(graph)
         assert connected, "Graph is not connected."
 
+
     def _check_directedness(self, graph: NXGraph):
         """Checking the undirected nature of a single graph."""
         directed = nx.is_directed(graph)
         assert directed == False, "Graph is directed."
+
 
     def _check_indexing(self, graph: NXGraph):
         """Checking the consecutive numeric indexing."""
         numeric_indices = [index for index in range(graph.number_of_nodes())]
         node_indices = sorted([node for node in graph.nodes()])
         assert numeric_indices == node_indices, "The node indexing is wrong."
+
 
     def check_graph(self, graph: NXGraph):
         """Check the Little Ball of Fur assumptions about the graph."""
