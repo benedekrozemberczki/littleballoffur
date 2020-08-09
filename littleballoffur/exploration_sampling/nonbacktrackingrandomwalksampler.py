@@ -1,6 +1,13 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class NonBackTrackingRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by non back-tracking random walks.
@@ -17,11 +24,11 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_node_set(self):
+    def _create_initial_node_set(self, graph):
         """
         Choosing an initial node.
         """
-        self._current_node = random.choice(range(self._graph.number_of_nodes()))
+        self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
         self._sampled_nodes = set([self._current_node])
         self._previous_node = -1
 
@@ -29,16 +36,16 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         """
         Doing a single non back-tracking random walk step.
         """
-        neighbors = [neighbor for neighbor in self._graph.neighbors(self._current_node)]
+        neighbors = self.backend.get_neighbors(graph, self._current_node)
         self._target_node = random.choice(neighbors)
-        if self._graph.degree(self._current_node) > 1:
+        if self.backend.get_degree(graph, self._current_node) > 1:
             while self._target_node == self._previous_node:
                 self._target_node = random.choice(neighbors)
         self._previous_node = self._current_node
         self._current_node = self._target_node
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> graph: Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single non back-tracking random walk.
 
@@ -50,9 +57,8 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         """
         self._check_graph(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_initial_node_set()
+        self._create_initial_node_set(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
