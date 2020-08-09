@@ -26,9 +26,9 @@ class RandomNodeNeighborSampler(Sampler):
         """
         Choosing initial nodes.
         """
-        nodes = [node for node in range(self._graph.number_of_nodes())]
+        nodes = self.backend.get_nodes()
         self._sampled_nodes = random.sample(nodes, self.number_of_nodes)
-        neighbors = [neighbor for node in self._sampled_nodes for neighbor in self._graph.neighbors(node)]
+        neighbors = [neighbor for node in self._sampled_nodes for neighbor in self.backend.get_neighbors(graph, node)]
         self._sampled_nodes = set(self._sampled_nodes + neighbors)
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
@@ -44,5 +44,5 @@ class RandomNodeNeighborSampler(Sampler):
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
         self._create_initial_node_set(graph)
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
