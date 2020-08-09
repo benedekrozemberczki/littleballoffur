@@ -2,7 +2,7 @@ import random
 import numpy as np
 import networkx as nx
 from typing import List, Tuple
-from backend import NetworKitBackEnd, NetworkXBackEnd
+from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
 
 
 NKGraph = type(nk.graph.Graph())
