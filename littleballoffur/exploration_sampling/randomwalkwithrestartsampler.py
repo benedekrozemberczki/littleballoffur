@@ -45,16 +45,15 @@ class RandomWalkWithRestartSampler(Sampler):
         Sampling nodes with a single random walk that restarts.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_initial_node_set()
+        self._create_initial_node_set(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._do_a_step()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+            self._do_a_step(graph)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
