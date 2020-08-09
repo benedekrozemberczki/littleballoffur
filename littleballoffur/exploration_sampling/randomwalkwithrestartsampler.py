@@ -20,15 +20,15 @@ class RandomWalkWithRestartSampler(Sampler):
         self.p = p
         self._set_seed()
 
-    def _create_initial_node_set(self):
+    def _create_initial_node_set(self, graph):
         """
         Choosing an initial node.
         """
-        self._current_node = random.choice(range(self._graph.number_of_nodes()))
+        self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
         self._initial_node = self._current_node
         self._sampled_nodes = set([self._current_node])
 
-    def _do_a_step(self):
+    def _do_a_step(self, graph):
         """
         Doing a single random walk step.
         """
@@ -36,8 +36,8 @@ class RandomWalkWithRestartSampler(Sampler):
         if score < self.p:
             self._current_node = self._initial_node
         else:
-            neighbors = self._graph.neighbors(self._current_node)
-            self._current_node = random.choice([neighbor for neighbor in neighbors])
+            neighbors = self.backend.get_neighbors(graph, self._current_node)
+            self._current_node = random.choice(neighbors)
             self._sampled_nodes.add(self._current_node)
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
