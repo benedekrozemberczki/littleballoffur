@@ -678,7 +678,7 @@ def test_random_node_neighbor_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes <= new_graph.numberOfNodes()
     assert type(new_graph) == NKGraph
 
     sampler = RandomNodeNeighborSampler(number_of_nodes=25)
@@ -687,5 +687,5 @@ def test_random_node_neighbor_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes <= new_graph.numberOfNodes()
     assert type(new_graph) == NKGraph
