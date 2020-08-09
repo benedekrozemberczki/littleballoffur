@@ -1,6 +1,11 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union, List
 from littleballoffur.sampler import Sampler
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 class RandomEdgeSampler(Sampler):
     r"""An implementation of random edge sampling. Edges are sampled with the same
@@ -16,11 +21,11 @@ class RandomEdgeSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_edge_set(self):
+    def _create_initial_edge_set(self, graph):
         """
         Choosing initial edges.
         """
-        edges = [edge for edge in self._graph.edges()]
+        edges = self.backend.get_edges(graph)
         self._sampled_edges = random.sample(edges, self.number_of_edges)
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
