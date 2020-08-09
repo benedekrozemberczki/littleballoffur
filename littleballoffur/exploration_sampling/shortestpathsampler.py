@@ -8,6 +8,7 @@ from littleballoffur.sampler import Sampler
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
+
 class ShortestPathSampler(Sampler):
     r"""An implementation of shortest path sampling. The procedure samples pairs 
     of nodes and chooses a random shortest path between them. Vertices and edges
