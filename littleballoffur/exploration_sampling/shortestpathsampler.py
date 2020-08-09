@@ -1,6 +1,12 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 class ShortestPathSampler(Sampler):
     r"""An implementation of shortest path sampling. The procedure samples pairs 
@@ -23,35 +29,34 @@ class ShortestPathSampler(Sampler):
         """
         self._nodes = set()
 
-    def _sample_a_node(self):
+    def _sample_a_node(self, graph):
         """
         Sampling a random node.
         """
-        return random.choice(range(self._graph.number_of_nodes()))
+        return random.choice(range(self.backend.get_number_of_nodes(graph)))
 
     def _sample_a_pair(self):
         """
         Sampling a pair of nodes for a shortest path.
         """
-        source = self._sample_a_node()
-        target = self._sample_a_node()
+        source = self._sample_a_node(graph)
+        target = self._sample_a_node(graph)
         return source, target
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling with a shortest path sampler.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
-        self._graph = graph
-        self._set_seed_set()
+        self._deploy_backend(graph)
+        self._set_seed_set(graph)
         while len(self._nodes) < self.number_of_nodes:
-            source, target = self._sample_a_pair()
+            source, target = self._sample_a_pair(graph)
             if source != target:
                 path = nx.shortest_path(self._graph, source, target)
                 for node in path:
@@ -59,5 +64,5 @@ class ShortestPathSampler(Sampler):
                     if len(self._nodes) >= self.number_of_nodes:
                         break
 
-        new_graph = graph.subgraph(self._nodes)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
