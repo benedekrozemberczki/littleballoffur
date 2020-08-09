@@ -35,7 +35,7 @@ class ShortestPathSampler(Sampler):
         """
         return random.choice(range(self.backend.get_number_of_nodes(graph)))
 
-    def _sample_a_pair(self):
+    def _sample_a_pair(self, graph):
         """
         Sampling a pair of nodes for a shortest path.
         """
@@ -54,15 +54,15 @@ class ShortestPathSampler(Sampler):
             * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._deploy_backend(graph)
-        self._set_seed_set(graph)
+        self._set_seed_set()
         while len(self._nodes) < self.number_of_nodes:
             source, target = self._sample_a_pair(graph)
             if source != target:
-                path = nx.shortest_path(self._graph, source, target)
+                path = self.backend.get_shortest_path(graph, source, target)
                 for node in path:
                     self._nodes.add(node)
                     if len(self._nodes) >= self.number_of_nodes:
                         break
 
-        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
+        new_graph = self.backend.get_subgraph(graph, self._nodes)
         return new_graph
