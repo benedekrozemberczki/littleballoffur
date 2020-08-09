@@ -59,7 +59,7 @@ class BreadthFirstSearchSampler(Sampler):
                     self._queue.put(neighbor)
                     if len(self._nodes) >= self.number_of_nodes:
                         break
-        new_graph = self.backend.get_subgraph(graph, self._nodes)
+        new_graph = self.backend.graph_from_edgelist(self._edges)
         return new_graph
 
 
