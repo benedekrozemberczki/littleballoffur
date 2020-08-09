@@ -38,7 +38,6 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
         Doing a single random walk step.
         """
         score = random.uniform(0, 1)
-        neighbors = self._graph.neighbors(self._current_node)
         new_node = self.backend.get_random_neighbor(graph, self._current_node)
         ratio = float(self.backend.get_degree(graph, self._current_node))/float(self.backend.get_degree(graph, new_node))
         ratio = ratio ** self.alpha
