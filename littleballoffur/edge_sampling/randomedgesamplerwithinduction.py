@@ -1,5 +1,12 @@
 import networkx as nx
+import networkit as nk
+from typing import Union, List
 from littleballoffur.edge_sampling import RandomEdgeSampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
     r"""An implementation of random edge sampling with edge set induction. The 
@@ -16,12 +23,12 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         self.seed = seed
         self._set_seed()
 
-    def _induce_graph(self):
+    def _induce_graph(self, graph):
         """
         Inducing all of the edges given the sampled edges
         """
         nodes = set([node for edge in self._sampled_edges for node in edge])
-        new_graph = self._graph.subgraph(nodes)
+        new_graph = self.backend.get_subgraph(graph, nodes)
         return new_graph
 
     def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
@@ -34,9 +41,8 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         Return types:
             * **new_graph** *(NetworkX graph)* - The graph of sampled edges.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_edges(graph)
-        self._graph = graph
-        self._create_initial_edge_set()
+        self._create_initial_edge_set(graph)
         new_graph = self._induce_graph()
         return new_graph
