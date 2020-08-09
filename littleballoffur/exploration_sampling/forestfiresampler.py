@@ -32,9 +32,9 @@ class ForestFireSampler(Sampler):
         Create a starting set of nodes.
         """
         self._sampled_nodes = set()
-        self._set_of_nodes = set(range(self._graph.number_of_nodes()))
+        self._set_of_nodes = set(range(self.backend.get_number_of_nodes(graph)))
 
-    def _start_a_fire(self):
+    def _start_a_fire(self, graph):
         """
         Starting a forest fire from a single node.
         """
@@ -45,7 +45,7 @@ class ForestFireSampler(Sampler):
         while len(self._sampled_nodes) < self.number_of_nodes:
             top_node = node_queue.popleft()
             self._sampled_nodes.add(top_node)
-            neighbors = {neb for neb in self._graph.neighbors(top_node)}
+            neighbors = set(self.backend.get_neighbors(graph, top_node))
             unvisited_neighbors = neighbors.difference(self._sampled_nodes)
             score = np.random.geometric(self.p)
             count = min(len(unvisited_neighbors), score)
@@ -54,6 +54,7 @@ class ForestFireSampler(Sampler):
                 if len(self._sampled_nodes) >= self.number_of_nodes:
                     break
                 node_queue.extend([neighbor])
+
 
     def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
@@ -69,6 +70,6 @@ class ForestFireSampler(Sampler):
         self._check_number_of_nodes(graph)
         self._create_node_sets(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._start_a_fire()
+            self._start_a_fire(graph)
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
