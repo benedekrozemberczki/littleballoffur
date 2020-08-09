@@ -2,8 +2,9 @@ import random
 import numpy as np
 import networkx as nx
 import networkit as nk
-from typing import List, Tuple
-from littleballoffur.backend import NetworKitBackEnd, NetworkXBackEnd
+from typing import Union
+from littleballoffur.backend import NetworKitBackEnd
+from littleballoffur.backend import NetworkXBackEnd
 
 
 NKGraph = type(nk.graph.Graph())
