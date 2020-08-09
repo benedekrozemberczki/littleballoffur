@@ -32,7 +32,7 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         self._sampled_nodes = set([self._current_node])
         self._previous_node = -1
 
-    def _do_a_step(self):
+    def _do_a_step(self, graph):
         """
         Doing a single non back-tracking random walk step.
         """
@@ -55,10 +55,10 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         Return types:
             * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
         self._create_initial_node_set(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._do_a_step()
+            self._do_a_step(graph)
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
