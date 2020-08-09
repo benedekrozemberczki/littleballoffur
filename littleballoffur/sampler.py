@@ -26,7 +26,7 @@ class Sampler(object):
         random.seed(self.seed)
         np.random.seed(self.seed)
 
-    def _deploy_backend(self, graph):
+    def _deploy_backend(self, graph: Union[NKGraph, NXGraph]):
         """Chechking the input type."""
         if isinstance(graph, NKGraph):
             self.backend = NKGraph
