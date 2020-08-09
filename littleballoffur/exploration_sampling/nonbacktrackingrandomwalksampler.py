@@ -45,7 +45,7 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         self._current_node = self._target_node
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: Union[NXGraph, NKGraph]) -> graph: Union[NXGraph, NKGraph]:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single non back-tracking random walk.
 
