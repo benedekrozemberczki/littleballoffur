@@ -44,5 +44,5 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         self._deploy_backend(graph)
         self._check_number_of_edges(graph)
         self._create_initial_edge_set(graph)
-        new_graph = self._induce_graph()
+        new_graph = self._induce_graph(graph)
         return new_graph

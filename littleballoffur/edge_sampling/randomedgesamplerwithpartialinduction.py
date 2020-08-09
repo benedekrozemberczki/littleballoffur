@@ -1,6 +1,7 @@
 import random
 import networkx as nx
 import networkit as nk
+from typing import Union
 from littleballoffur import Sampler
 
 
@@ -45,7 +46,7 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         self._nodes.add(edge[0])
         self._nodes.add(edge[1])
 
-    def _sample_edges(self, graph):
+    def _sample_edges(self):
         """
         Creating a subsampled edge list.
         """
@@ -70,8 +71,7 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
             * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._deploy_backend(graph)
-        self._check_number_of_edges(graph)
-        self._create_initial_edge_set(graph)
+        self._create_initial_set(graph)
         self._sample_edges()
-        new_graph = self.backend.graph_from_edgelist(self._sampled_edges)
+        new_graph = self.backend.graph_from_edgelist(self._edges)
         return new_graph
