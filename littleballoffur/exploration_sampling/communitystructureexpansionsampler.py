@@ -1,6 +1,10 @@
 import random
+import numpy as np
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
+
 
 class CommunityStructureExpansionSampler(Sampler):
     r"""An implementation of community structure preserving expansion sampling. 
@@ -49,10 +53,10 @@ class CommunityStructureExpansionSampler(Sampler):
         Sampling nodes iteratively with a community structure expansion sampler.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._check_graph(graph)
         self._check_number_of_nodes(graph)
