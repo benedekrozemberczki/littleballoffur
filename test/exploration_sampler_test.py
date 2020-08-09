@@ -1,4 +1,5 @@
 import networkx as nx
+import networkit as nk
 
 from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler, DepthFirstSearchSampler
 
@@ -7,6 +8,10 @@ from littleballoffur.exploration_sampling import RandomWalkSampler, MetropolisHa
 from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler
 
 from littleballoffur.exploration_sampling import ShortestPathSampler, RandomWalkWithJumpSampler, FrontierSampler, RandomNodeNeighborSampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 #-----------------------------------#
 # TESTS FOR SPANNING TREE SAMPLERS. #
@@ -186,7 +191,7 @@ def test_random_walk_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(new_graph) == NXGraph
 
     sampler = RandomWalkSampler(number_of_nodes=25)
 
@@ -196,7 +201,7 @@ def test_random_walk_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(new_graph) == NXGraph
 
 
 def test_metropolis_hastings_random_walk_sampler():

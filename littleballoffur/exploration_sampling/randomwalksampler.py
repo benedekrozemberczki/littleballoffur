@@ -38,7 +38,7 @@ class RandomWalkSampler(Sampler):
         self._current_node = random.choice(neighbors)
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]::
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single random walk.
 
@@ -53,5 +53,5 @@ class RandomWalkSampler(Sampler):
         self._create_initial_node_set(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step(graph)
-        new_graph = self.backend.get_subgraph(self._sampled_nodes)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
