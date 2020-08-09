@@ -5,6 +5,9 @@ import networkit as nk
 from typing import Union, List
 from littleballoffur.sampler import Sampler
 
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 class DegreeBasedSampler(Sampler):
     r"""An implementation of degree based sampling. Nodes are sampled proportional
     to the degree centrality of nodes. `"For details about the algorithm see 
@@ -23,7 +26,7 @@ class DegreeBasedSampler(Sampler):
         """
         Choosing initial nodes.
         """
-        nodes = [node for node in range(self.backend.get_nodes(graph))]
+        nodes = [node for node in range(self.backend.get_number_of_nodes(graph))]
         degrees = [float(self.backend.get_degree(graph, node)) for node in nodes]
         degree_sum = sum(degrees)
         degrees = [degree/degree_sum for degree in degrees]
