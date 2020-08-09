@@ -26,7 +26,7 @@ class RandomNodeNeighborSampler(Sampler):
         """
         Choosing initial nodes.
         """
-        nodes = self.backend.get_nodes()
+        nodes = self.backend.get_nodes(graph)
         self._sampled_nodes = random.sample(nodes, self.number_of_nodes)
         neighbors = [neighbor for node in self._sampled_nodes for neighbor in self.backend.get_neighbors(graph, node)]
         self._sampled_nodes = set(self._sampled_nodes + neighbors)
