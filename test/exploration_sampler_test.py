@@ -180,6 +180,26 @@ def test_circulated_neighbors_random_walk_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
+    sampler = CirculatedNeighborsRandomWalkSampler()
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    sampler = CirculatedNeighborsRandomWalkSampler(number_of_nodes=25)
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(100, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
 
 def test_snowball_sampler():
     """
