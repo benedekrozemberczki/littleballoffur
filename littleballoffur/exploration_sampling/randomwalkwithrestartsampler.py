@@ -1,6 +1,12 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 class RandomWalkWithRestartSampler(Sampler):
     r"""An implementation of node sampling by random walks with restart. The 
