@@ -23,7 +23,7 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         self.seed = seed
         self._set_seed()
 
-    def _induce_graph(self, graph):
+    def _induce_graph(self, graph) -> Union[NXGraph, NKGraph]:
         """
         Inducing all of the edges given the sampled edges
         """
@@ -31,7 +31,7 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         new_graph = self.backend.get_subgraph(graph, nodes)
         return new_graph
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling edges randomly with induction.
 

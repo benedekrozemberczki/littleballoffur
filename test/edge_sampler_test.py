@@ -127,8 +127,8 @@ def test_induction_samplers():
     partially_induced_graph = partially_induced_sampler.sample(graph)
 
     assert nx.density(partially_induced_graph) <= nx.density(induced_graph)
-    assert type(induced_graph) == nx.classes.graph.Graph
-    assert type(partially_induced_graph) == nx.classes.graph.Graph
+    assert type(induced_graph) == NXGraph
+    assert type(partially_induced_graph) == NXGraph
 
     induced_sampler = RandomEdgeSamplerWithInduction()
     partially_induced_sampler = RandomEdgeSamplerWithPartialInduction()
@@ -139,5 +139,27 @@ def test_induction_samplers():
     partially_induced_graph = partially_induced_sampler.sample(graph)
 
     assert nx.density(partially_induced_graph) <= nx.density(induced_graph)
-    assert type(induced_graph) == nx.classes.graph.Graph
-    assert type(partially_induced_graph) == nx.classes.graph.Graph
+    assert type(induced_graph) == NXGraph
+    assert type(partially_induced_graph) == NXGraph
+
+    induced_sampler = RandomEdgeSamplerWithInduction()
+    partially_induced_sampler = RandomEdgeSamplerWithPartialInduction()
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    induced_graph = induced_sampler.sample(graph)
+    partially_induced_graph = partially_induced_sampler.sample(graph)
+
+    assert type(induced_graph) == NKGraph
+    assert type(partially_induced_graph) == NKGraph
+
+    induced_sampler = RandomEdgeSamplerWithInduction()
+    partially_induced_sampler = RandomEdgeSamplerWithPartialInduction()
+
+    graph = nk.generators.WattsStrogatzGenerator(100, 10, 0.0).generate()
+
+    induced_graph = induced_sampler.sample(graph)
+    partially_induced_graph = partially_induced_sampler.sample(graph)
+
+    assert type(induced_graph) == NKGraph
+    assert type(partially_induced_graph) == NKGraph
