@@ -2,7 +2,7 @@ import random
 import numpy as np
 import networkx as nx
 import networkit as nk
-from typing import Union
+from typing import Union, List
 from littleballoffur.sampler import Sampler
 
 class DegreeBasedSampler(Sampler):

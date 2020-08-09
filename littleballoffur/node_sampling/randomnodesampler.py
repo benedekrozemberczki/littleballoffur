@@ -1,7 +1,7 @@
 import random
 import networkx as nx
 import networkit as nk
-from typing import Union
+from typing import Union, List
 from littleballoffur.sampler import Sampler
 
 
@@ -22,7 +22,7 @@ class RandomNodeSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_node_set(self, graph):
+    def _create_initial_node_set(self, graph) -> List[int]:
         """
         Choosing initial nodes.
         """
