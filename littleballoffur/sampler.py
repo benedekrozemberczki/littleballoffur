@@ -1,7 +1,7 @@
 import random
 import numpy as np
 import networkx as nx
-
+from backend NetworKitBackEnd, NetworkXBackEnd
 
 class Sampler(object):
     """Sampler base class with constructor and public methods."""
