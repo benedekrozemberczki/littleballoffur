@@ -540,6 +540,27 @@ def test_forest_fire_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
+    sampler = ForestFireSampler()
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    sampler = ForestFireSampler(number_of_nodes=25)
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(100, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+
 #---------------------------------------#
 # TESTS FOR UNCONNECTED GRAPH SAMPLERS  #
 #---------------------------------------#
