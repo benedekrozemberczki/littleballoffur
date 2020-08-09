@@ -61,7 +61,7 @@ def test_random_nonde_edge_sampler():
     new_graph = sampler.sample(graph)
 
     assert sampler.number_of_edges == new_graph.number_of_edges()
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(new_graph) == NXGraph
 
     sampler = RandomNodeEdgeSampler(number_of_edges=25)
 
@@ -70,7 +70,7 @@ def test_random_nonde_edge_sampler():
     new_graph = sampler.sample(graph)
 
     assert sampler.number_of_edges == new_graph.number_of_edges()
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(new_graph) == NXGraph
 
 
 def test_hybrid_node_edge_sampler():
