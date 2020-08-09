@@ -26,6 +26,7 @@ class HybridNodeEdgeSampler(Sampler):
         self.p = p
         self._set_seed()
 
+
     def _create_initial_edge_set(self):
         """
         Choosing initial edges.
@@ -43,15 +44,16 @@ class HybridNodeEdgeSampler(Sampler):
                 edge = random.choice(edges)
             self._sampled_edges.add(edge)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling edges randomly from randomly sampled nodes or sampling random edges.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled edges.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._check_graph(graph)
         self._check_number_of_edges(graph)
