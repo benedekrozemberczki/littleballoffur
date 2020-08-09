@@ -1,7 +1,12 @@
 import random
 import numpy as np
 import networkx as nx
+import networkit as nk
+from typing import Union, List
 from littleballoffur.sampler import Sampler
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 class PageRankBasedSampler(Sampler):
     r"""An implementation of PageRank based sampling. Nodes are sampled proportional
@@ -29,7 +34,7 @@ class PageRankBasedSampler(Sampler):
 
     def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
         """
-        Sampling nodes randomly.
+        Sampling nodes randomly proportional to the pagerank.
 
         Arg types:
             * **graph** *(NetworkX graph)* - The graph to be sampled from.
