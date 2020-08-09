@@ -1,6 +1,8 @@
 import random
 import numpy as np
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
 
 class DegreeBasedSampler(Sampler):
@@ -17,7 +19,7 @@ class DegreeBasedSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_node_set(self, graph):
+    def _create_initial_node_set(self, graph: Union[NXGraph, NKGraph]) -> List[int]:
         """
         Choosing initial nodes.
         """
