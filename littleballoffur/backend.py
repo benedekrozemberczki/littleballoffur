@@ -127,13 +127,13 @@ class NetworKitBackEnd(object):
         directed = nk.isDirected(graph)
         assert directed == False, "Graph is directed."
 
-    def _check_indexing(self, graph: NXGraph):
+    def _check_indexing(self, graph: NKGraph):
         """Checking the consecutive numeric indexing."""
         numeric_indices = [index for index in range(graph.numberOfNodes())]
         node_indices = sorted([node for node in graph.nodes()])
         assert numeric_indices == node_indices, "The node indexing is wrong."
 
-    def check_graph(self, graph: NXGraph):
+    def check_graph(self, graph: NKGraph):
         """Check the Little Ball of Fur assumptions about the graph."""
         self._check_networkx_graph(graph)
         self._check_connectivity(graph)
