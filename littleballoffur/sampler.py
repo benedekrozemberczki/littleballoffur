@@ -4,7 +4,7 @@ import networkx as nx
 from backend NetworKitBackEnd, NetworkXBackEnd
 
 class Sampler(object):
-    """Sampler base class with constructor and public methods."""
+    """Sampler base class with constructor and private methods."""
 
     def __init__(self):
         """Creatinng a sampler."""
