@@ -23,7 +23,7 @@ class RandomEdgeSampler(Sampler):
         edges = [edge for edge in self._graph.edges()]
         self._sampled_edges = random.sample(edges, self.number_of_edges)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling edges randomly.
 
