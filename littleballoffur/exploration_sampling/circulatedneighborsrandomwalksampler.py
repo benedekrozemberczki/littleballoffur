@@ -18,25 +18,25 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_node_set(self):
+    def _create_node_set(self, graph):
         """
         Choosing a seed node.
         """
         self._sampled_nodes = set()
-        self._current_node = random.choice(range(self._graph.number_of_nodes()))
+        self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
         self._sampled_nodes.add(self._current_node)
 
-    def _do_shuffling(self, node):
+    def _do_shuffling(self, graph, node):
         """
         Shuffling the neighbors of a node in the circulated map.
 
         Arg types:
             * **node** *(int)* - The node considered.
         """
-        self._circulated_map[node] = [neighbor for neighbor in self._graph.neighbors(node)]
+        self._circulated_map[node] = self.backend.get_neighbors(graph, node)
         random.shuffle(self._circulated_map[node])
 
-    def _create_circulated_map(self):
+    def _create_circulated_map(self, graph):
         """
         Creating an initial random shuffle node-neighbor map.
         """
@@ -44,31 +44,30 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         for node in self._graph.nodes():
             self._do_shuffling(node)
 
-    def _make_a_step(self):
+    def _make_a_step(self, graph):
         """
         Doing a single step of the circulated neighbor random walk.
         """
         if len(self._circulated_map[self._current_node]) == 0:
-            self._do_shuffling(self._current_node)
+            self._do_shuffling(graph, self._current_node)
         self._current_node = self._circulated_map[self._current_node].pop()
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes iteratively with a circulated neighbor random walk sampler.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_node_set()
-        self._create_circulated_map()
+        self._create_node_set(graph)
+        self._create_circulated_map(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._make_a_step()
-        new_graph = graph.subgraph(self._sampled_nodes)
+            self._make_a_step(graph)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
