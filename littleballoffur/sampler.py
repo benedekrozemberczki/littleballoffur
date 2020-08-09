@@ -1,7 +1,13 @@
 import random
 import numpy as np
 import networkx as nx
+from typing import List, Tuple
 from backend import NetworKitBackEnd, NetworkXBackEnd
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class Sampler(object):
     """Sampler base class with constructor and private methods."""
@@ -18,6 +24,15 @@ class Sampler(object):
         """Creating the initial random seed."""
         random.seed(self.seed)
         np.random.seed(self.seed)
+
+    def _deploy_backend(self, graph):
+        """Chechking the input type."""
+        if isinstance(graph, NKGraph):
+            self.backend = NKGraph
+        elif isinstance(graph, NXGraph):
+            self.backend = NXGraph
+        else:
+            raise ValueError("Not a NetworKit or NetworkX graph.")
 
     def _check_networkx_graph(self, graph):
         """Chechking the input type."""
