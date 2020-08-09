@@ -48,7 +48,7 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         Creating an initial random shuffle node-neighbor map.
         """
         self._circulated_map = {}
-        for node in self._graph.nodes():
+        for node in self.backend.get_node_iterator(graph):
             self._do_shuffling(node)
 
     def _make_a_step(self, graph):
