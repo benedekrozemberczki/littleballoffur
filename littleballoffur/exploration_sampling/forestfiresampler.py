@@ -56,7 +56,7 @@ class ForestFireSampler(Sampler):
                 node_queue.extend([neighbor])
 
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes iteratively with a forest fire sampler.
 
