@@ -32,15 +32,15 @@ class PageRankBasedSampler(Sampler):
         probabilities = [page_rank[node]/page_rank_sum for node in nodes]
         self._sampled_nodes = np.random.choice(nodes, size=self.number_of_nodes, replace=False, p=probabilities)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes randomly proportional to the pagerank.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._check_graph(graph)
         self._check_number_of_nodes(graph)
