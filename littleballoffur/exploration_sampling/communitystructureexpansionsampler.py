@@ -38,7 +38,7 @@ class CommunityStructureExpansionSampler(Sampler):
         self._targets = list(set(self._targets).difference(self._sampled_nodes))
         random.shuffle(self._targets)
 
-    def _choose_new_node(self):
+    def _choose_new_node(self, graph):
         """
         Choosing the node with the largest expansion.
         The randomization of the list breaks ties randomly.
@@ -65,6 +65,6 @@ class CommunityStructureExpansionSampler(Sampler):
         self._create_node_set(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._make_target_set(graph)
-            self._choose_new_node()
+            self._choose_new_node(graph)
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
