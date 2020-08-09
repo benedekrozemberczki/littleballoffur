@@ -1,6 +1,13 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class MetropolisHastingsRandomWalkSampler(Sampler):
     r"""An implementation of node sampling by Metropolis Hastings random walks. 
@@ -44,16 +51,15 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
         Sampling nodes with a Metropolis Hastings single random walk.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled edges.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_initial_node_set()
+        self._create_initial_node_set(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._do_a_step()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+            self._do_a_step(graph)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph

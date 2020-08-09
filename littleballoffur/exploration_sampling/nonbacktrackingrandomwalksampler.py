@@ -50,10 +50,10 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         Sampling nodes with a single non back-tracking random walk.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled edges.
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
