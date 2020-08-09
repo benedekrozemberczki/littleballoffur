@@ -40,13 +40,13 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
         score = random.uniform(0, 1)
         neighbors = self._graph.neighbors(self._current_node)
         new_node = self.backend.get_random_neighbor(graph, self._current_node)
-        ratio = float(self.backend.get_degree(graph, self._current_node))/float(self._graph.degree(new_node))
+        ratio = float(self.backend.get_degree(graph, self._current_node))/float(self.backend.get_degree(graph, new_node))
         ratio = ratio ** self.alpha
         if score < ratio:
             self._current_node = new_node
             self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a Metropolis Hastings single random walk.
 
