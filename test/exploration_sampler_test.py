@@ -210,7 +210,7 @@ def test_random_walk_sampler():
     new_graph = sampler.sample(graph)
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
-    assert nx.is_connected(new_graph)
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
     sampler = RandomWalkSampler(number_of_nodes=25)
@@ -220,7 +220,7 @@ def test_random_walk_sampler():
     new_graph = sampler.sample(graph)
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
-    assert nx.is_connected(new_graph)
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
 
