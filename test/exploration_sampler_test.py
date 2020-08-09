@@ -528,7 +528,7 @@ def test_forest_fire_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(new_graph) == NXGraph
 
     sampler = ForestFireSampler(number_of_nodes=25)
 
@@ -538,7 +538,7 @@ def test_forest_fire_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-    assert type(new_graph) == nx.classes.graph.Graph
+    assert type(new_graph) == NXGraph
 
 #---------------------------------------#
 # TESTS FOR UNCONNECTED GRAPH SAMPLERS  #
