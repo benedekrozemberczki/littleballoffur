@@ -127,7 +127,7 @@ class NetworKitBackEnd(object):
 
     def _check_directedness(self, graph: NXGraph):
         """Checking the undirected nature of a single graph."""
-        directed = nk.isDirected(graph)
+        directed = graph.isDirected()
         assert directed == False, "Graph is directed."
 
 

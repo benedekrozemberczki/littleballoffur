@@ -2,6 +2,10 @@ import networkx as nx
 import networkit as nk
 from littleballoffur import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
 
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
+
 def test_random_node_sampler():
     """
     Testing the size of the sample.
@@ -13,7 +17,7 @@ def test_random_node_sampler():
     sub_graph = sampler.sample(graph)
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
-    assert type(sub_graph) == nx.classes.graph.Graph
+    assert type(sub_graph) == NXGraph
 
     sampler = RandomNodeSampler(number_of_nodes=10)
 
@@ -22,7 +26,7 @@ def test_random_node_sampler():
     sub_graph = sampler.sample(graph)
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
-    assert type(sub_graph) == nx.classes.graph.Graph
+    assert type(sub_graph) == NXGraph
 
     sampler = RandomNodeSampler()
 
@@ -30,8 +34,8 @@ def test_random_node_sampler():
 
     sub_graph = sampler.sample(graph)
 
-    assert sub_graph.number_of_nodes() == sampler.number_of_nodes
-    assert type(sub_graph) == nx.classes.graph.Graph
+    assert sub_graph.numberOfNodes() == sampler.number_of_nodes
+    assert type(sub_graph) == NKGraph
 
     sampler = RandomNodeSampler(number_of_nodes=10)
 
@@ -39,8 +43,8 @@ def test_random_node_sampler():
 
     sub_graph = sampler.sample(graph)
 
-    assert sub_graph.number_of_nodes() == sampler.number_of_nodes
-    assert type(sub_graph) == nx.classes.graph.Graph
+    assert sub_graph.numberOfNodes() == sampler.number_of_nodes
+    assert type(sub_graph) == NKGraph
 
 
 
