@@ -91,3 +91,22 @@ def test_pagerank_based_sampler():
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
     assert type(sub_graph) == nx.classes.graph.Graph
+
+
+    sampler = DegreeBasedSampler()
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    sub_graph = sampler.sample(graph)
+
+    assert sub_graph.numberOfNodes() == sampler.number_of_nodes
+    assert type(sub_graph) == NKGraph
+
+    sampler = DegreeBasedSampler(number_of_nodes=10)
+
+    graph = nk.generators.WattsStrogatzGenerator(100, 10, 0.0).generate()
+
+    sub_graph = sampler.sample(graph)
+
+    assert sub_graph.numberOfNodes() == sampler.number_of_nodes
+    assert type(sub_graph) == NKGraph
