@@ -38,10 +38,10 @@ class LoopErasedRandomWalkSampler(Sampler):
         """
         Doing a single random walk step.
         """
-        neighbors = self.backend.get_neighbors(graph, self._current_node)
-        new_node = random.choice([neighbor for neighbor in neighbors])
-        if new_node not in self._sampled_nodes:
-            self._sampled_edges.add((self._current_node, new_node))
+        new_node = self.backend.get_random_neighbor(graph, self._current_node)
+        if new_node not in self._sampled_nodes and self._current_node in self._sampled_nodes:
+            edge = sorted([self._current_node, new_node])
+            self._sampled_edges.add((edge[0], edge[1]))
             self._sampled_nodes.add(new_node)
         self._current_node = new_node
 

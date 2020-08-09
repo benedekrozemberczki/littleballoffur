@@ -83,7 +83,7 @@ class NetworKitBackEnd(object):
         """
         Given a graph and node returns a random neighbor.
         """
-        return graph.randomNeighbor(node)
+        return graph.randomneighbor(node)
 
 
     def get_shortest_path(self, graph: NKGraph, source: int, target: int) -> List[int]:
@@ -108,10 +108,10 @@ class NetworKitBackEnd(object):
         """
         Given an edge list generate a graph.
         """
-        graph = nk.graph.Graph()
+        new_graph = nk.graph.Graph(directed=False)
         for edge in edges:
-            graph.addEdge(edge[0], edge[1], addMissing=True)
-        return graph
+            new_graph.addEdge(edge[0], edge[1], addMissing=True)
+        return new_graph
 
 
     def _check_networkit_graph(self, graph: NKGraph):

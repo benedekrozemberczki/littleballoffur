@@ -18,7 +18,7 @@ NXGraph = nx.classes.graph.Graph
 #-----------------------------------#
 
 
-def test_loop_erased_random_walk_sampler():
+def test_loop_erased_random_walk_sampler_1():
     """
     Testing the number of nodes, connectivity and tree structure.
     """
@@ -33,6 +33,8 @@ def test_loop_erased_random_walk_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
+def test_loop_erased_random_walk_sampler_2():
+
     sampler = LoopErasedRandomWalkSampler(number_of_nodes=25)
 
     graph = nx.watts_strogatz_graph(100, 10, 0)
@@ -44,9 +46,11 @@ def test_loop_erased_random_walk_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
+def test_loop_erased_random_walk_sampler_3():
+
     sampler = LoopErasedRandomWalkSampler()
 
-    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
 
     new_graph = sampler.sample(graph)
 
@@ -55,9 +59,11 @@ def test_loop_erased_random_walk_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
+def test_loop_erased_random_walk_sampler_4():
+
     sampler = LoopErasedRandomWalkSampler(number_of_nodes=25)
 
-    graph = nk.generators.WattsStrogatzGenerator(100, 10, 0.0).generate()
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
 
     new_graph = sampler.sample(graph)
 
@@ -227,7 +233,7 @@ def test_random_walk_sampler():
 
     sampler = RandomWalkSampler()
 
-    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
 
     new_graph = sampler.sample(graph)
 
@@ -237,7 +243,7 @@ def test_random_walk_sampler():
 
     sampler = RandomWalkSampler(number_of_nodes=25)
 
-    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(100, 10, 0))
 
     new_graph = sampler.sample(graph)
 
@@ -348,7 +354,7 @@ def test_random_walk_with_restart_sampler():
 
     sampler = RandomWalkWithRestartSampler()
 
-    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
 
     new_graph = sampler.sample(graph)
 
@@ -356,9 +362,9 @@ def test_random_walk_with_restart_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
-    sampler = RandomWalkWithRestartSampler(number_of_nodes=25)
+    sampler = RandomWalkWithRestartSampler(number_of_nodes=50)
 
-    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
 
     new_graph = sampler.sample(graph)
 

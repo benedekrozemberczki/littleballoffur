@@ -34,8 +34,7 @@ class RandomWalkSampler(Sampler):
         """
         Doing a single random walk step.
         """
-        neighbors = self.backend.get_neighbors(graph, self._current_node)
-        self._current_node = random.choice(neighbors)
+        self._current_node = self.backend.get_random_neighbor(graph, self._current_node)
         self._sampled_nodes.add(self._current_node)
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
