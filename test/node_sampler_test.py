@@ -1,5 +1,5 @@
 import networkx as nx
-
+import networkit as nk
 from littleballoffur import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
 
 def test_random_node_sampler():
@@ -23,6 +23,26 @@ def test_random_node_sampler():
 
     assert sub_graph.number_of_nodes() == sampler.number_of_nodes
     assert type(sub_graph) == nx.classes.graph.Graph
+
+    sampler = RandomNodeSampler()
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    sub_graph = sampler.sample(graph)
+
+    assert sub_graph.number_of_nodes() == sampler.number_of_nodes
+    assert type(sub_graph) == nx.classes.graph.Graph
+
+    sampler = RandomNodeSampler(number_of_nodes=10)
+
+    graph = nk.generators.WattsStrogatzGenerator(100, 10, 0.0).generate()
+
+    sub_graph = sampler.sample(graph)
+
+    assert sub_graph.number_of_nodes() == sampler.number_of_nodes
+    assert type(sub_graph) == nx.classes.graph.Graph
+
+
 
 
 def test_degree_based_sampler():
