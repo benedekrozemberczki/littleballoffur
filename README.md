@@ -7,7 +7,7 @@
 
 --------------------------------------------------------------------------------
 
-**Little Ball of Fur** is a graph sampling extension library for [NetworkX](https://networkx.github.io/).
+**Little Ball of Fur** is a graph sampling extension library for Python.
 
 Please look at the **[Documentation](https://little-ball-of-fur.readthedocs.io/)**, relevant **[Paper](https://arxiv.org/abs/2006.04311)**, **[Promo video](https://youtu.be/5OpjBqlPWME)** and **[External Resources](https://little-ball-of-fur.readthedocs.io/en/latest/notes/resources.html)**.
 
@@ -17,7 +17,7 @@ Please look at the **[Documentation](https://little-ball-of-fur.readthedocs.io/)
 
 **Citing**
 
-If you find **Little Ball of Fur** and the new datasets useful in your research, please consider citing the following paper:
+If you find **Little Ball of Fur** useful in your research, please consider citing the following paper:
 
 ```bibtex
 @inproceedings{littleballoffur,
