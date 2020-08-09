@@ -48,15 +48,15 @@ class SnowBallSampler(Sampler):
         return neighbors
 
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling a graph with randomized snow ball sampling.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
