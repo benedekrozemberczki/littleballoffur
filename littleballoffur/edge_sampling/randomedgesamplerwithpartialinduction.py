@@ -73,5 +73,5 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         self._deploy_backend(graph)
         self._create_initial_set(graph)
         self._sample_edges()
-        new_graph = self.backend.get_subgraph(self._edges)
+        new_graph = self.backend.graph_from_edgelist(self._edges)
         return new_graph
