@@ -42,7 +42,7 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
             neighbors = set(neighbors)
             scores = []
             for neighbor in neighbors:
-                fringe = set(self.backend.get_neighbors(graph, neighbors))
+                fringe = set(self.backend.get_neighbors(graph, neighbor))
                 overlap = len(neighbors.intersection(fringe))
                 scores.append(1.0-(overlap)/min(self.backend.get_degree(graph, node), self.backend.get_degree(graph, neighbor)))
             scores = np.array(scores)
