@@ -17,7 +17,7 @@ class DegreeBasedSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_node_set(self):
+    def _create_initial_node_set(self, graph):
         """
         Choosing initial nodes.
         """
@@ -26,8 +26,9 @@ class DegreeBasedSampler(Sampler):
         degree_sum = sum(degrees)
         degrees = [degree/degree_sum for degree in degrees]
         self._sampled_nodes = np.random.choice(nodes, size=self.number_of_nodes, replace=False, p=degrees)
+        return sampled_nodes
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes randomly.
 
