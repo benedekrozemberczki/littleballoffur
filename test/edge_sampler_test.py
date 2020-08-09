@@ -31,6 +31,25 @@ def test_random_edge_sampler():
     assert type(new_graph) == NXGraph
 
 
+    sampler = RandomEdgeSampler()
+
+    graph = nk.generators.WattsStrogatzGenerator(200, 10, 0.0).generate()
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_edges == new_graph.numberOfEdges()
+    assert type(new_graph) == NKGraph
+
+    sampler = RandomEdgeSampler(number_of_edges=25)
+
+    graph = nk.generators.WattsStrogatzGenerator(100, 10, 0.0).generate()
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_edges == new_graph.numberOfEdges()
+    assert type(new_graph) == NKGraph
+
+
 def test_random_nonde_edge_sampler():
     """
     Testing the edge retention rate.
