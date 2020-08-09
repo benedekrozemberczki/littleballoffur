@@ -49,7 +49,7 @@ class CirculatedNeighborsRandomWalkSampler(Sampler):
         """
         self._circulated_map = {}
         for node in self.backend.get_node_iterator(graph):
-            self._do_shuffling(node)
+            self._do_shuffling(graph, node)
 
     def _make_a_step(self, graph):
         """
