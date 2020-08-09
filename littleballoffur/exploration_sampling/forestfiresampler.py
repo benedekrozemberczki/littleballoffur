@@ -27,7 +27,7 @@ class ForestFireSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_node_sets(self):
+    def _create_node_sets(self, graph):
         """
         Create a starting set of nodes.
         """
