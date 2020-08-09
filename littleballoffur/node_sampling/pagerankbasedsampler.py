@@ -22,7 +22,7 @@ class PageRankBasedSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_node_set(self):
+    def _create_initial_node_set(self) -> List[int]:
         """
         Choosing initial nodes.
         """
