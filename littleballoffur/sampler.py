@@ -29,8 +29,10 @@ class Sampler(object):
         """Chechking the input type."""
         if isinstance(graph, NKGraph):
             self.backend = NKGraph
+            self.backend.check_graph(graph)
         elif isinstance(graph, NXGraph):
             self.backend = NXGraph
+            self.backend.check_graph(graph)
         else:
             raise ValueError("Not a NetworKit or NetworkX graph.")
 
