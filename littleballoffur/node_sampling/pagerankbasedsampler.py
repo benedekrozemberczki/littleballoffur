@@ -42,9 +42,8 @@ class PageRankBasedSampler(Sampler):
         Return types:
             * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_initial_node_set()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+        sampled_nodes = self._create_initial_node_set(graph)
+        new_graph = self.backend.get_subgraph(graph, sampled_nodes)
         return new_graph
