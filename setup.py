@@ -24,7 +24,7 @@ keywords = ["community",
             "graph",
             "metropolis hastings",
             "shortest path",
-            "loop erased" 
+            "loop erased",
             "graph sampling",
             "sampling",
             "random walk",
