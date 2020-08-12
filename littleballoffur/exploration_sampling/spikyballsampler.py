@@ -74,7 +74,7 @@ class SpikyBallSampler(Sampler):
         p_norm = p/np.sum(p)
         return p_norm
 
-    def _get_probability_density(self, edges_data, coeff=1):
+    def _get_probability_density(self, edges_data, coeff):
         # Taking the weights into account for the random selection
         if self.mode == 'spikyball':
             source_coeff, edge_coeff, target_coeff = 0, 1, 0
@@ -97,7 +97,7 @@ class SpikyBallSampler(Sampler):
 
         while hop_cnt < self.max_hops and len(self._sampled_nodes) < self.number_of_nodes:
             edges_data = self._get_new_edges(layer_nodes)
-            p_norm = self._get_probability_density(edges_data)
+            p_norm = self._get_probability_density(edges_data, self.distrib_coeff)
             new_nodes = list(map(lambda x: x.target, edges_data['raw']))
             if len(new_nodes) == 0:
                 # fallback mechanism: we are "cornered", let's try to use the previously visited nodes
