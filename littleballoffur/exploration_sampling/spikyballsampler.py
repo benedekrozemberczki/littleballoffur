@@ -43,7 +43,7 @@ class SpikyBallSampler(Sampler):
         self._visited_nodes = deque(maxlen=self.max_visited_nodes_backlog)
 
     def _get_degree(self, edge_list, selector):
-        return {k: sum(map(lambda x: x.weight, g)) for k, g in itertools.groupby(edge_list, selector)}
+        return {k: sum(map(lambda x: x.weight, g)) for k, g in itertools.groupby(sorted(edge_list, key=selector), selector)}
 
     def _get_new_edges(self, nodes):
         # build new edges list
@@ -76,7 +76,7 @@ class SpikyBallSampler(Sampler):
 
     def _get_probability_density(self, edges_data, coeff):
         # Taking the weights into account for the random selection
-        if self.mode == 'spikyball':
+        if self.mode == 'edgeball':
             source_coeff, edge_coeff, target_coeff = 0, 1, 0
         elif self.mode == 'hubball':
             source_coeff, edge_coeff, target_coeff = coeff, 1, 0

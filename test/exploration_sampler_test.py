@@ -323,18 +323,18 @@ def test_forest_fire_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
 
-def test_spikyball_sampler():
-    sampler = SpikyBallSampler(mode='spikyball')
+def test_edgeball_sampler():
+    sampler = SpikyBallSampler(mode='edgeball')
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
     new_graph = sampler.sample(graph)
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
-def test_spikyball_sampler_fb():
+def test_edgeball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
     num_nodes = int(0.4*graph.number_of_nodes())
-    sampler = SpikyBallSampler(mode='spikyball', number_of_nodes=num_nodes,
+    sampler = SpikyBallSampler(mode='edgeball', number_of_nodes=num_nodes,
                                initial_nodes_ratio=1e-3, sampling_probability=0.1)
 
     new_graph = sampler.sample(graph)
