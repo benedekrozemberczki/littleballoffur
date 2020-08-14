@@ -1,6 +1,11 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union, List
 from littleballoffur.sampler import Sampler
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 class RandomEdgeSampler(Sampler):
     r"""An implementation of random edge sampling. Edges are sampled with the same
@@ -16,26 +21,25 @@ class RandomEdgeSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_edge_set(self):
+    def _create_initial_edge_set(self, graph):
         """
         Choosing initial edges.
         """
-        edges = [edge for edge in self._graph.edges()]
+        edges = self.backend.get_edges(graph)
         self._sampled_edges = random.sample(edges, self.number_of_edges)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling edges randomly.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled edges.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_edges(graph)
-        self._graph = graph
-        self._create_initial_edge_set()
-        new_graph = nx.from_edgelist(self._sampled_edges)
+        self._create_initial_edge_set(graph)
+        new_graph = self.backend.graph_from_edgelist(self._sampled_edges)
         return new_graph

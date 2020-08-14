@@ -1,9 +1,14 @@
 from littleballoffur.sampler import Sampler
 import networkx as nx
+import networkit as nk
 import numpy as np
 import itertools
-from collections import deque, defaultdict
+from typing import Union
+from collections import deque
+import copy
 
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 class Edge:
     def __init__(self, source, target, weight=1):
@@ -35,8 +40,9 @@ class SpikyBallSampler(Sampler):
         Create a starting set of nodes.
         """
         self._sampled_nodes = set()
-        self._set_of_nodes = set(range(self._graph.number_of_nodes()))
-        num_initial_nodes = max(int(self._graph.number_of_nodes() * self.initial_nodes_ratio), 1)
+        num_nodes = self.backend.get_number_of_nodes(self._graph)
+        self._set_of_nodes = set(range(num_nodes))
+        num_initial_nodes = max(int(num_nodes * self.initial_nodes_ratio), 1)
         self._seed_nodes = set(np.random.choice(list(self._set_of_nodes), num_initial_nodes, replace=False))
         # keep the visited but not sampled nodes in case we get "cornered" and find nothing new to sample
         # this can happen when sampling_probability is low
@@ -50,9 +56,9 @@ class SpikyBallSampler(Sampler):
         edge_list = []
         for node in nodes:
             # get new edges but remove those pointing to already sampled nodes
-            new_neighbors = set(self._graph.neighbors(node)).difference(self._sampled_nodes)
+            new_neighbors = set(self.backend.get_neighbors(self._graph, node)).difference(self._sampled_nodes)
             for e in new_neighbors:
-                edge_list.append(Edge(node, e, self._graph.get_edge_data(node, e)['weight']))
+                edge_list.append(Edge(node, e, self.backend.get_edge_weight(self._graph, node, e)))
 
         source_degree = self._get_degree(edge_list, lambda x: x.source)
         target_degree = self._get_degree(edge_list, lambda x: x.target)
@@ -115,16 +121,14 @@ class SpikyBallSampler(Sampler):
             self._sampled_nodes.update(layer_nodes)
             hop_cnt += 1
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
-        self._check_graph(graph)
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        weighted = nx.is_weighted(graph)
-        self._graph = graph if weighted else graph.copy()
-        if not weighted:  # set all edges weights to 1
-            nx.set_edge_attributes(self._graph, 1.0, 'weight')
+
+        self._graph = self.backend.to_weighted(graph)
         self._create_node_sets()
         self._sampled_nodes.update(self._seed_nodes)
         self._process_hops()
 
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph

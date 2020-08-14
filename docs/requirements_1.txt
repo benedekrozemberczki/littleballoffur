@@ -1,6 +1,6 @@
 tqdm
 numpy
-sphinx
+sphinx>=3
 sphinx_rtd_theme
 python-louvain
 sklearn
@@ -9,3 +9,5 @@ pygsp
 gensim
 pandas
 six
+nbsphinx
+nbsphinx_link

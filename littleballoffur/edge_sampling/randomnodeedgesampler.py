@@ -1,6 +1,11 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 class RandomNodeEdgeSampler(Sampler):
     r"""An implementation of random node-edge sampling. The algorithm first randomly
@@ -16,32 +21,31 @@ class RandomNodeEdgeSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_edge_set(self):
+    def _create_initial_edge_set(self, graph: Union[NXGraph, NKGraph]):
         """
         Choosing initial edges.
         """
         self._sampled_edges = set()
         while len(self._sampled_edges) < self.number_of_edges:
-            source_node = random.choice(range(self._graph.number_of_nodes()))
-            target_node = random.choice([node for node in self._graph.neighbors(source_node)])
+            source_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            target_node = random.choice(self.backend.get_neighbors(graph, source_node))
             edge = sorted([source_node, target_node])
             edge = tuple(edge)
             self._sampled_edges.add(edge)
 
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling edges randomly from randomly sampled nodes.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled edges.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_edges(graph)
-        self._graph = graph
-        self._create_initial_edge_set()
-        new_graph = nx.from_edgelist(self._sampled_edges)
+        self._create_initial_edge_set(graph)
+        new_graph = self.backend.graph_from_edgelist(self._sampled_edges)
         return new_graph

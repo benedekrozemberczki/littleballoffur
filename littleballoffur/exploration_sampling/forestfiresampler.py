@@ -1,8 +1,15 @@
 import random
 import numpy as np
 import networkx as nx
+import networkit as nk
+from typing import Union
 from collections import deque
 from littleballoffur.sampler import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class ForestFireSampler(Sampler):
     r"""An implementation of forest fire sampling. The procedure is a stochastic
@@ -21,14 +28,14 @@ class ForestFireSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_node_sets(self):
+    def _create_node_sets(self, graph):
         """
         Create a starting set of nodes.
         """
         self._sampled_nodes = set()
-        self._set_of_nodes = set(range(self._graph.number_of_nodes()))
+        self._set_of_nodes = set(range(self.backend.get_number_of_nodes(graph)))
 
-    def _start_a_fire(self):
+    def _start_a_fire(self, graph):
         """
         Starting a forest fire from a single node.
         """
@@ -39,7 +46,7 @@ class ForestFireSampler(Sampler):
         while len(self._sampled_nodes) < self.number_of_nodes:
             top_node = node_queue.popleft()
             self._sampled_nodes.add(top_node)
-            neighbors = {neb for neb in self._graph.neighbors(top_node)}
+            neighbors = set(self.backend.get_neighbors(graph, top_node))
             unvisited_neighbors = neighbors.difference(self._sampled_nodes)
             score = np.random.geometric(self.p)
             count = min(len(unvisited_neighbors), score)
@@ -49,21 +56,21 @@ class ForestFireSampler(Sampler):
                     break
                 node_queue.extend([neighbor])
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes iteratively with a forest fire sampler.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_node_sets()
+        self._create_node_sets(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._start_a_fire()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+            self._start_a_fire(graph)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph

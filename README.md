@@ -1,5 +1,5 @@
 
- ![Version](https://badge.fury.io/py/littleballoffur.svg?style=plastic) ![License](https://img.shields.io/github/license/benedekrozemberczki/littleballoffur.svg?color=blue&style=plastic) [![PyPI download month](https://img.shields.io/pypi/dm/littleballoffur.svg?color=blue&style=plastic)](https://pypi.python.org/pypi/littleballoffur/)  [![Arxiv](https://img.shields.io/badge/ArXiv-2006.04311-orange.svg?color=blue&style=plastic)](https://arxiv.org/abs/2006.04311) [![codebeat badge](https://codebeat.co/badges/f80d2ede-4cda-4e2a-af77-84c984c2283f)](https://codebeat.co/projects/github-com-benedekrozemberczki-littleballoffur-master) [![build badge](https://travis-ci.com/benedekrozemberczki/littleballoffur.svg?branch=master)](https://travis-ci.com/github/benedekrozemberczki/littleballoffur) [![coverage badge](https://codecov.io/gh/benedekrozemberczki/littleballoffur/branch/master/graph/badge.svg)](https://codecov.io/github/benedekrozemberczki/littleballoffur?branch=master)
+ ![Version](https://badge.fury.io/py/littleballoffur.svg?style=plastic) ![License](https://img.shields.io/github/license/benedekrozemberczki/littleballoffur.svg?color=blue&style=plastic) [![Arxiv](https://img.shields.io/badge/ArXiv-2006.04311-orange.svg?color=blue&style=plastic)](https://arxiv.org/abs/2006.04311) [![codebeat badge](https://codebeat.co/badges/f80d2ede-4cda-4e2a-af77-84c984c2283f)](https://codebeat.co/projects/github-com-benedekrozemberczki-littleballoffur-master) [![build badge](https://travis-ci.com/benedekrozemberczki/littleballoffur.svg?branch=master)](https://travis-ci.com/github/benedekrozemberczki/littleballoffur) [![coverage badge](https://codecov.io/gh/benedekrozemberczki/littleballoffur/branch/master/graph/badge.svg)](https://codecov.io/github/benedekrozemberczki/littleballoffur?branch=master)
 
 <p align="center">
   <img width="90%" src="https://github.com/benedekrozemberczki/littleballoffur/blob/master/littleballoffurlogo.jpg?sanitize=true" />
@@ -7,9 +7,9 @@
 
 --------------------------------------------------------------------------------
 
-**Little Ball of Fur** is a graph sampling extension library for [NetworkX](https://networkx.github.io/).
+**Little Ball of Fur** is a graph sampling extension library for Python.
 
-Please look at the **[Documentation](https://little-ball-of-fur.readthedocs.io/)**, relevant **[Paper](https://arxiv.org/abs/2006.04311)**, and **[External Resources](https://little-ball-of-fur.readthedocs.io/en/latest/notes/resources.html)**.
+Please look at the **[Documentation](https://little-ball-of-fur.readthedocs.io/)**, relevant **[Paper](https://arxiv.org/abs/2006.04311)**, **[Promo video](https://youtu.be/5OpjBqlPWME)** and **[External Resources](https://little-ball-of-fur.readthedocs.io/en/latest/notes/resources.html)**.
 
 **Little Ball of Fur** consists of methods that can sample from graph structured data. To put it simply it is a Swiss Army knife for graph sampling tasks. First, it includes a large variety of vertex, edge, and exploration sampling techniques. Second, it provides a unified application public interface which makes the application of sampling algorithms trivial for end-users. Implemented methods cover a wide range of networking ([Networking](https://link.springer.com/conference/networking), [INFOCOM](https://infocom2020.ieee-infocom.org/), [SIGCOMM](http://www.sigcomm.org/)) and data mining ([KDD](https://www.kdd.org/kdd2020/), [TKDD](https://dl.acm.org/journal/tkdd), [ICDE](http://www.wikicfp.com/cfp/program?id=1331&s=ICDE&f=International%20Conference%20on%20Data%20Engineering)) conferences, workshops, and pieces from prominent journals. 
 
@@ -17,16 +17,15 @@ Please look at the **[Documentation](https://little-ball-of-fur.readthedocs.io/)
 
 **Citing**
 
-If you find **Little Ball of Fur** and the new datasets useful in your research, please consider citing the following paper:
+If you find **Little Ball of Fur** useful in your research, please consider citing the following paper:
 
 ```bibtex
->@misc{rozemberczki2020little,
-    title={Little Ball of Fur: A Python Library for Graph Sampling},
-    author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
-    year={2020},
-    eprint={2006.04311},
-    archivePrefix={arXiv},
-    primaryClass={cs.SI}
+@inproceedings{littleballoffur,
+               title={{Little Ball of Fur: A Python Library for Graph Sampling}},
+               author={Benedek Rozemberczki and Oliver Kiss and Rik Sarkar},
+               year={2020},
+               booktitle={Proceedings of the 29th ACM International Conference on Information and Knowledge Management (CIKM '20)},
+               organization={ACM},
 }
 ```
 --------------------------------------------------------------------------------

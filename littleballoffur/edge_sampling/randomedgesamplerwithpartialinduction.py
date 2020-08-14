@@ -1,6 +1,13 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class RandomEdgeSamplerWithPartialInduction(Sampler):
     r"""An implementation of random edge sampling with partial edge set induction. 
@@ -16,13 +23,13 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_set(self):
+    def _create_initial_set(self, graph):
         """
         Creatin an initial edge and node set and a reshuffled edge stream.
         """
         self._nodes = set()
         self._edges = set()
-        self._edge_stream = [edge for edge in self._graph.edges()]
+        self._edge_stream = self.backend.get_edges(graph)
         random.shuffle(self._edge_stream)
 
     def _insert_edge(self, edge):
@@ -53,19 +60,18 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
                     self._insert_edge(edge)
         self._edges = [edge for edge in self._edges]
 
-    def sample(self, graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling edges randomly with partial induction.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled edges.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
-        self._graph = graph
-        self._create_initial_set()
+        self._deploy_backend(graph)
+        self._create_initial_set(graph)
         self._sample_edges()
-        new_graph = nx.from_edgelist(self._edges)
+        new_graph = self.backend.graph_from_edgelist(self._edges)
         return new_graph

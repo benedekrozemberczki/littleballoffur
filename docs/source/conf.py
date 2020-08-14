@@ -1,17 +1,29 @@
 import datetime
 import sphinx_rtd_theme
 import doctest
-import littleballoffur
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath('../../'))
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.doctest',
+    'sphinx.ext.autosummary',
     'sphinx.ext.intersphinx',
-    'sphinx.ext.mathjax',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
 ]
+
+
+autodoc_default_options = {
+    'member-order': 'bysource',
+    'special-members': '__init__',
+    'undoc-members': True,
+}
+
+
+autodoc_mock_imports = ['networkit']
 
 source_suffix = '.rst'
 master_doc = 'index'

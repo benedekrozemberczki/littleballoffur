@@ -1,7 +1,14 @@
 import random
 import networkx as nx
+import networkit as nk
+from typing import Union
 from queue import Queue 
 from littleballoffur.sampler import Sampler
+
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
+
 
 class BreadthFirstSearchSampler(Sampler):
     r"""An implementation of node sampling by breadth first search. The starting node
@@ -17,34 +24,33 @@ class BreadthFirstSearchSampler(Sampler):
         self._set_seed()
 
 
-    def _create_seed_set(self):
+    def _create_seed_set(self, graph):
         """
         Creating seed sets of nodes and edges.
         """
         self._queue = Queue()
-        start_node = random.choice(range(self._graph.number_of_nodes()))
+        start_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
         self._queue.put(start_node)
         self._nodes = set([start_node])
         self._edges = set()  
 
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling a graph with randomized breadth first search.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_seed_set()
+        self._create_seed_set(graph)
         while len(self._nodes) < self.number_of_nodes:
             source = self._queue.get()
-            neighbors = [node for node in self._graph.neighbors(source)]
+            neighbors = self.backend.get_neighbors(graph, source)
             random.shuffle(neighbors)
             for neighbor in neighbors:
                 if neighbor not in self._nodes:
@@ -53,7 +59,8 @@ class BreadthFirstSearchSampler(Sampler):
                     self._queue.put(neighbor)
                     if len(self._nodes) >= self.number_of_nodes:
                         break
-        new_graph = nx.from_edgelist(self._edges)
+        new_graph = self.backend.graph_from_edgelist(self._edges)
+        new_graph = self.backend.get_subgraph(new_graph, self._nodes)
         return new_graph
 
 

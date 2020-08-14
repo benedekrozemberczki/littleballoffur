@@ -1,6 +1,12 @@
 import random
+import numpy as np
 import networkx as nx
+import networkit as nk
+from typing import Union
 from littleballoffur.sampler import Sampler
+
+NKGraph = type(nk.graph.Graph())
+NXGraph = nx.classes.graph.Graph
 
 class CommunityStructureExpansionSampler(Sampler):
     r"""An implementation of community structure preserving expansion sampling. 
@@ -18,48 +24,47 @@ class CommunityStructureExpansionSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_node_set(self):
+    def _create_node_set(self, graph):
         """
         Choosing a seed node.
         """
-        self._sampled_nodes = set([random.choice(range(self._graph.number_of_nodes()))])
+        self._sampled_nodes = set([random.choice(range(self.backend.get_number_of_nodes(graph)))])
 
-    def _make_target_set(self):
+    def _make_target_set(self, graph):
         """
         Creating a new reshuffled frontier list of nodes.
         """
-        self._targets = [neighbor for node in self._sampled_nodes for neighbor in self._graph.neighbors(node)]
+        self._targets = [neighbor for node in self._sampled_nodes for neighbor in self.backend.get_neighbors(graph, node)]
         self._targets = list(set(self._targets).difference(self._sampled_nodes))
         random.shuffle(self._targets)
 
-    def _choose_new_node(self):
+    def _choose_new_node(self, graph):
         """
         Choosing the node with the largest expansion.
         The randomization of the list breaks ties randomly.
         """
         largest_expansion = 0
         for node in self._targets:
-            expansion = len(set(self._graph.neighbors(node)).difference(self._sampled_nodes))
+            expansion = len(set(self.backend.get_neighbors(graph, node)).difference(self._sampled_nodes))
             if expansion >= largest_expansion:
                 new_node = node
         self._sampled_nodes.add(new_node)
 
-    def sample(self, graph: nx.classes.graph.Graph) -> nx.classes.graph.Graph:
+    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes iteratively with a community structure expansion sampler.
 
         Arg types:
-            * **graph** *(NetworkX graph)* - The graph to be sampled from.
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
-        self._check_graph(graph)
+        self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._create_node_set()
+        self._create_node_set(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._make_target_set()
-            self._choose_new_node()
-        new_graph = self._graph.subgraph(self._sampled_nodes)
+            self._make_target_set(graph)
+            self._choose_new_node(graph)
+        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
