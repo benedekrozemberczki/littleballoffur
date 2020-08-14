@@ -15,6 +15,7 @@ Run tests and coverage:
       - .cache/pip
 
   before_script:
+    - apt-get update && apt-get install -y cmake
     - conda create --yes -n test python="${PYTHON_VERSION}"
     - conda init bash
     - source ~/.bashrc
