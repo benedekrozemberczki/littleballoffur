@@ -19,7 +19,7 @@ Run tests and coverage:
     - conda init bash
     - source ~/.bashrc
     - conda activate test
-    - conda install networkit
+    - conda install -y -c conda-forge networkit
     - pip install scipy
     - pip install codecov
     - python setup.py install
