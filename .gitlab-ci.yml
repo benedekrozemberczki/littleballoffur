@@ -15,11 +15,11 @@ Run tests and coverage:
       - .cache/pip
 
   before_script:
-    - apt-get update && apt-get install -y cmake g++
     - conda create --yes -n test python="${PYTHON_VERSION}"
     - conda init bash
     - source ~/.bashrc
     - conda activate test
+    - conda install networkit
     - pip install scipy
     - pip install codecov
     - python setup.py install
