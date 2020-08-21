@@ -31,9 +31,17 @@ class SpikyBallSampler(Sampler):
         self.mode = mode
         self.max_visited_nodes_backlog = max_visited_nodes_backlog
         self.restart_hop_size = restart_hop_size
+        # internal members
+        self._graph = None
+        self._is_weighted_graph = False
         # depending on the mode chosen, power exponent used for computing probability distribution of edges
         self.distrib_coeff = distrib_coeff
         self._set_seed()
+
+    def _get_edge_weight(self, u, v):
+        if self._is_weighted_graph:
+            return self.backend.get_edge_weight(self._graph, u, v)
+        return 1.0
 
     def _create_node_sets(self):
         """
@@ -49,7 +57,8 @@ class SpikyBallSampler(Sampler):
         self._visited_nodes = deque(maxlen=self.max_visited_nodes_backlog)
 
     def _get_degree(self, edge_list, selector):
-        return {k: sum(map(lambda x: x.weight, g)) for k, g in itertools.groupby(sorted(edge_list, key=selector), selector)}
+        return {k: sum(map(lambda x: x.weight, g))
+                for k, g in itertools.groupby(sorted(edge_list, key=selector), selector)}
 
     def _get_new_edges(self, nodes):
         # build new edges list
@@ -58,7 +67,7 @@ class SpikyBallSampler(Sampler):
             # get new edges but remove those pointing to already sampled nodes
             new_neighbors = set(self.backend.get_neighbors(self._graph, node)).difference(self._sampled_nodes)
             for e in new_neighbors:
-                edge_list.append(Edge(node, e, self.backend.get_edge_weight(self._graph, node, e)))
+                edge_list.append(Edge(node, e, self._get_edge_weight(node, e)))
 
         source_degree = self._get_degree(edge_list, lambda x: x.source)
         target_degree = self._get_degree(edge_list, lambda x: x.target)
@@ -125,7 +134,8 @@ class SpikyBallSampler(Sampler):
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
 
-        self._graph = self.backend.to_weighted(graph)
+        self._graph = graph
+        self._is_weighted_graph = self.backend.is_weighted(graph)
         self._create_node_sets()
         self._sampled_nodes.update(self._seed_nodes)
         self._process_hops()
