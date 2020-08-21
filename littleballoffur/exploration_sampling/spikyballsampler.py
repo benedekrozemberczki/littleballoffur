@@ -34,6 +34,13 @@ class SpikyBallSampler(Sampler):
         # internal members
         self._graph = None
         self._is_weighted_graph = False
+        self._mode_computations = { # is source/target degree used in computation ?
+            'edgeball': {'source': False, 'target': False},
+            'hubball': {'source': True, 'target': False},
+            'coreball': {'source': False, 'target': True},
+            'fireball': {'source': True, 'target': False},
+            'firecoreball': {'source': True, 'target': True},
+        }
         # depending on the mode chosen, power exponent used for computing probability distribution of edges
         self.distrib_coeff = distrib_coeff
         self._set_seed()
@@ -69,11 +76,19 @@ class SpikyBallSampler(Sampler):
             for e in new_neighbors:
                 edge_list.append(Edge(node, e, self._get_edge_weight(node, e)))
 
-        source_degree = self._get_degree(edge_list, lambda x: x.source)
-        target_degree = self._get_degree(edge_list, lambda x: x.target)
+        if self._mode_computations[self.mode]['source']:
+            source_degree = self._get_degree(edge_list, lambda x: x.source)
+        else:
+            source_degree = {}
+
+        if self._mode_computations[self.mode]['target']:
+            target_degree = self._get_degree(edge_list, lambda x: x.target)
+        else:
+            target_degree = {}
+
         for e in edge_list:
-            e.source_degree = source_degree[e.source]
-            e.target_degree = target_degree[e.target]
+            e.source_degree = source_degree.get(e.source, 1.0)
+            e.target_degree = target_degree.get(e.target, 1.0)
         edges_data = {
             'raw': edge_list,
             'weight': list(map(lambda x: x.weight, edge_list)),
@@ -83,9 +98,15 @@ class SpikyBallSampler(Sampler):
         return edges_data
 
     def _get_probability_density_generic(self, edges_data, source_coef, weight_coef, target_coef):
-        p = np.array(edges_data['source_degree'])**source_coef
+        if self._mode_computations[self.mode]['source']:
+            p = np.array(edges_data['source_degree'])**source_coef
+        else:
+            p = np.ones(len(edges_data['source_degree']))
+
         p *= np.array(edges_data['weight'])**weight_coef
-        p *= np.array(edges_data['target_degree'])**target_coef
+
+        if self._mode_computations[self.mode]['target']:
+            p *= np.array(edges_data['target_degree'])**target_coef
         p_norm = p/np.sum(p)
         return p_norm
 
