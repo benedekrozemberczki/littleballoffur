@@ -32,7 +32,7 @@ keywords = ["community",
 
 setup(
   name = "littleballoffur",
-  version = "1.0.4",
+  version = "2.0.0",
   license = "MIT",
   description = "A general purpose library for subsampling large graphs.",
   author = "Benedek Rozemberczki",
