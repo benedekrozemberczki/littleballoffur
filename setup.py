@@ -38,7 +38,7 @@ setup(
   author = "Benedek Rozemberczki",
   author_email = "benedek.rozemberczki@gmail.com",
   url = "https://github.com/benedekrozemberczki/littleballoffur",
-  download_url = "https://github.com/benedekrozemberczki/littleballoffur/archive/v_10004.tar.gz",
+  download_url = "https://github.com/benedekrozemberczki/littleballoffur/archive/v_20000.tar.gz",
   keywords = keywords,
   install_requires = install_requires,
   setup_requires = setup_requires,
