@@ -144,7 +144,7 @@ Besides the case studies we provide synthetic examples for each model. These can
 
 ```sh
 $ cd examples
-$ python examples.py
+$ python .//
 ```
 
 --------------------------------------------------------------------------------
