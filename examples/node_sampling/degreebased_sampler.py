@@ -7,5 +7,3 @@ graph = nx.watts_strogatz_graph(1000, 10, 0)
 sampler = DegreeBasedSampler()
 
 new_graph = sampler.sample(graph)
-
-
