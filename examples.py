@@ -4,8 +4,6 @@ import networkx as nx
 
 from littleballoffur.dataset import GraphReader
 
-from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
-
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler
 from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
 from littleballoffur.exploration_sampling import RandomNodeNeighborSampler
@@ -85,14 +83,6 @@ sampler = ForestFireSampler()
 new_graph = sampler.sample(graph)
 
 #-----------------------------
-# Random Node Sampler Example
-#-----------------------------
-
-sampler = RandomNodeSampler()
-
-new_graph = sampler.sample(graph)
-
-#-----------------------------
 # Random Edge Sampler Example
 #-----------------------------
 
@@ -105,22 +95,6 @@ new_graph = sampler.sample(graph)
 #--------------------------------------------
 
 sampler = RandomEdgeSamplerWithInduction()
-
-new_graph = sampler.sample(graph)
-
-#------------------------------
-# Degree Based Sampler Example
-#------------------------------
-
-sampler = DegreeBasedSampler()
-
-new_graph = sampler.sample(graph)
-
-#--------------------------------
-# PageRank Based Sampler Example
-#--------------------------------
-
-sampler = PageRankBasedSampler()
 
 new_graph = sampler.sample(graph)
 
