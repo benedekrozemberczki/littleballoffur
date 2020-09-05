@@ -9,7 +9,7 @@ from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler,
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler
 from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
 from littleballoffur.exploration_sampling import RandomNodeNeighborSampler
-from littleballoffur.exploration_sampling import ShortestPathSampler, CommonNeighborAwareRandomWalkSampler, NonBackTrackingRandomWalkSampler
+from littleballoffur.exploration_sampling import ShortestPathSampler, CommonNeighborAwareRandomWalkSampler
 from littleballoffur.exploration_sampling import FrontierSampler, ForestFireSampler
 
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
@@ -40,14 +40,6 @@ new_graph = sampler.sample(graph)
 #------------------------------
 
 sampler = BreadthFirstSearchSampler(number_of_nodes=graph.number_of_nodes())
-
-new_graph = sampler.sample(graph)
-
-#-------------------------------------------
-# Common Neighbor Aware Random Walk Sampler
-#-------------------------------------------
-
-sampler = NonBackTrackingRandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 
