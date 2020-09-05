@@ -1,4 +1,4 @@
-"""Metropolis Hastings random walk sampler example"""
+"""Non back-tracking random walk sampler example"""
 
 import networkx as nx
 
