@@ -7,7 +7,7 @@ from littleballoffur.dataset import GraphReader
 from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
 
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler
-from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
+from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
 from littleballoffur.exploration_sampling import RandomNodeNeighborSampler, MetropolisHastingsRandomWalkSampler
 from littleballoffur.exploration_sampling import ShortestPathSampler, CommonNeighborAwareRandomWalkSampler, NonBackTrackingRandomWalkSampler
 from littleballoffur.exploration_sampling import FrontierSampler, ForestFireSampler
@@ -40,14 +40,6 @@ new_graph = sampler.sample(graph)
 #------------------------------
 
 sampler = BreadthFirstSearchSampler(number_of_nodes=graph.number_of_nodes())
-
-new_graph = sampler.sample(graph)
-
-#---------------------------------
-# Loop Erased Random Walk Sampler
-#---------------------------------
-
-sampler = LoopErasedRandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 
