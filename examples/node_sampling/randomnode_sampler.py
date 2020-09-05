@@ -1,4 +1,4 @@
 """Random node sampler."""
 
-from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler, PageRankBasedSampler
+from littleballoffur.node_sampling import RandomNodeSampler
 
