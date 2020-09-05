@@ -75,14 +75,6 @@ sampler = ShortestPathSampler()
 
 new_graph = sampler.sample(graph)
 
-#-------------------------------------------
-# Circulated Neighbors Random Walk Sampler
-#-------------------------------------------
-
-sampler = CirculatedNeighborsRandomWalkSampler()
-
-new_graph = sampler.sample(graph)
-
 #-----------------------------------------------
 # Community Structure Expansion Sampler Example
 #-----------------------------------------------
