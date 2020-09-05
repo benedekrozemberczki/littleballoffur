@@ -1,4 +1,4 @@
-"""Random walk with jump sampler example"""
+"""Circulated neighbors random walk sampler example"""
 
 import networkx as nx
 
