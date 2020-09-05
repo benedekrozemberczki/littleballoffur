@@ -143,7 +143,7 @@ As part of the documentation we provide a number of use cases to show how to use
 Besides the case studies we provide synthetic examples for each model. These can be tried out by running the scripts in the examples folder. You can perform random walk sampling by running:
 
 ```sh
-$ 
+$ cd examples
 $ python examples.py
 ```
 
