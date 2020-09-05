@@ -51,13 +51,6 @@ sampler = NonBackTrackingRandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 
-#-------------------------------------------
-# Common Neighbor Aware Random Walk Sampler
-#-------------------------------------------
-
-sampler = CommonNeighborAwareRandomWalkSampler()
-
-new_graph = sampler.sample(graph)
 
 #--------------------------------------------
 # Random Edge Sampler With Partial Induction
