@@ -8,7 +8,7 @@ from littleballoffur.node_sampling import RandomNodeSampler, DegreeBasedSampler,
 
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler
 from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
-from littleballoffur.exploration_sampling import RandomWalkSampler, RandomNodeNeighborSampler, MetropolisHastingsRandomWalkSampler
+from littleballoffur.exploration_sampling import RandomNodeNeighborSampler, MetropolisHastingsRandomWalkSampler
 from littleballoffur.exploration_sampling import ShortestPathSampler, CommonNeighborAwareRandomWalkSampler, NonBackTrackingRandomWalkSampler
 from littleballoffur.exploration_sampling import RandomWalkWithRestartSampler, RandomWalkWithJumpSampler, FrontierSampler, ForestFireSampler
 
@@ -112,14 +112,6 @@ new_graph = sampler.sample(graph)
 #---------------------------
 
 sampler = ForestFireSampler()
-
-new_graph = sampler.sample(graph)
-
-#-----------------------------
-# Random Walk Sampler Example
-#-----------------------------
-
-sampler = RandomWalkSampler()
 
 new_graph = sampler.sample(graph)
 
