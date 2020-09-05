@@ -140,11 +140,11 @@ $ pip install littleballoffur --upgrade
 As part of the documentation we provide a number of use cases to show how to use various sampling techniques. These can accessed [here](https://little-ball-of-fur.readthedocs.io/en/latest/notes/introduction.html) with detailed explanations.
 
 
-Besides the case studies we provide synthetic examples for each model. These can be tried out by running the scripts in the examples folder. You can perform random walk sampling by running:
+Besides the case studies we provide synthetic examples for each model. These can be tried out by running the scripts in the examples folder. You can try out the random walk sampling example by running:
 
 ```sh
 $ cd examples
-$ python .//
+$ python ./exploration_sampling/randomwalk_sampler.py
 ```
 
 --------------------------------------------------------------------------------
