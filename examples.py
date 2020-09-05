@@ -179,14 +179,6 @@ sampler = RandomNodeNeighborSampler()
 
 new_graph = sampler.sample(graph)
 
-#------------------------------------------
-# Random Walk With Restart Sampler Example
-#------------------------------------------
-
-sampler = RandomWalkWithRestartSampler()
-
-new_graph = sampler.sample(graph)
-
 #-------------------------------
 # Random Walk With Jump Example
 #-------------------------------
