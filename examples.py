@@ -66,14 +66,6 @@ sampler = CommunityStructureExpansionSampler()
 
 new_graph = sampler.sample(graph)
 
-#--------------------------
-# Frontier Sampler Example
-#--------------------------
-
-sampler = FrontierSampler()
-
-new_graph = sampler.sample(graph)
-
 #-----------------------------
 # Random Edge Sampler Example
 #-----------------------------
