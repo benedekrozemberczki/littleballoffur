@@ -8,7 +8,7 @@ from littleballoffur.exploration_sampling import CommunityStructureExpansionSamp
 from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
 from littleballoffur.exploration_sampling import RandomNodeNeighborSampler
 from littleballoffur.exploration_sampling import ShortestPathSampler
-from littleballoffur.exploration_sampling import FrontierSampler, ForestFireSampler
+from littleballoffur.exploration_sampling import FrontierSampler
 
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
@@ -71,14 +71,6 @@ new_graph = sampler.sample(graph)
 #--------------------------
 
 sampler = FrontierSampler()
-
-new_graph = sampler.sample(graph)
-
-#---------------------------
-# ForestFire Sampler Example
-#---------------------------
-
-sampler = ForestFireSampler()
 
 new_graph = sampler.sample(graph)
 
