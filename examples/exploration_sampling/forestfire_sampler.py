@@ -2,7 +2,7 @@
 
 import networkx as nx
 
-from littleballoffur.exploration_sampling import ForestFire
+from littleballoffur.exploration_sampling import ForestFireSampler
 
 graph = nx.watts_strogatz_graph(1000, 10, 0)
 
