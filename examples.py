@@ -3,7 +3,7 @@
 import networkx as nx
 
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler
-from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
+from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler
 from littleballoffur.exploration_sampling import RandomNodeNeighborSampler
 from littleballoffur.exploration_sampling import ShortestPathSampler
 
