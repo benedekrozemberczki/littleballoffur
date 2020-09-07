@@ -2,8 +2,6 @@
 
 import networkx as nx
 
-from littleballoffur.dataset import GraphReader
-
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler
 from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler, SnowBallSampler
 from littleballoffur.exploration_sampling import RandomNodeNeighborSampler
@@ -12,9 +10,6 @@ from littleballoffur.exploration_sampling import ShortestPathSampler
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
 
-reader = GraphReader("facebook")
-
-graph = reader.get_graph()
 
 #-------------------
 # Snow Ball Sampler
