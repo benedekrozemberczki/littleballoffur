@@ -4,7 +4,6 @@ import networkx as nx
 
 from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler
 from littleballoffur.exploration_sampling import RandomNodeNeighborSampler
-from littleballoffur.exploration_sampling import ShortestPathSampler
 
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
