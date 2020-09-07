@@ -1,9 +1,9 @@
-"""Degree based sampler example."""
+"""Random node edge sampler example."""
 
-from littleballoffur.node_sampling import DegreeBasedSampler
+from littleballoffur.node_sampling import RandomNodeEdgeSampler
 
 graph = nx.watts_strogatz_graph(1000, 10, 0)
 
-sampler = DegreeBasedSampler()
+sampler = RandomNodeEdgeSampler()
 
 new_graph = sampler.sample(graph)
