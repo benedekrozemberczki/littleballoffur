@@ -10,15 +10,6 @@ from littleballoffur.exploration_sampling import ShortestPathSampler
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
 
-
-#-------------------
-# Snow Ball Sampler
-#-------------------
-
-sampler = SnowBallSampler()
-
-new_graph = sampler.sample(graph)
-
 #----------------------------
 # Depth First Search Sampler
 #----------------------------
