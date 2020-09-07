@@ -34,14 +34,6 @@ sampler = RandomEdgeSamplerWithPartialInduction()
 
 new_graph = sampler.sample(graph)
 
-#------------------------
-# Shortest Path Sampler
-#------------------------
-
-sampler = ShortestPathSampler()
-
-new_graph = sampler.sample(graph)
-
 #-----------------------------
 # Random Edge Sampler Example
 #-----------------------------
