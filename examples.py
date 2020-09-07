@@ -2,25 +2,8 @@
 
 import networkx as nx
 
-from littleballoffur.exploration_sampling import BreadthFirstSearchSampler, DepthFirstSearchSampler
 from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction
 from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler, RandomEdgeSamplerWithInduction
-
-#----------------------------
-# Depth First Search Sampler
-#----------------------------
-
-sampler = DepthFirstSearchSampler(number_of_nodes=graph.number_of_nodes())
-
-new_graph = sampler.sample(graph)
-
-#------------------------------
-# Breadth First Search Sampler
-#------------------------------
-
-sampler = BreadthFirstSearchSampler(number_of_nodes=graph.number_of_nodes())
-
-new_graph = sampler.sample(graph)
 
 
 #--------------------------------------------
