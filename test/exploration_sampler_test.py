@@ -739,6 +739,24 @@ def test_random_walk_with_restart_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
+    new_graph = sampler.sample(graph, 0)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    new_graph = sampler.sample(graph, 54)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    new_graph = sampler.sample(graph, 199)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
     sampler = RandomWalkWithRestartSampler(number_of_nodes=50)
 
     graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
