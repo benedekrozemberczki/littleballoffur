@@ -703,6 +703,21 @@ def test_random_walk_with_jump_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
+    new_graph = sampler.sample(graph, 0)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+    new_graph = sampler.sample(graph, 53)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+    new_graph = sampler.sample(graph, 99)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
     sampler = RandomWalkWithJumpSampler()
 
     graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
