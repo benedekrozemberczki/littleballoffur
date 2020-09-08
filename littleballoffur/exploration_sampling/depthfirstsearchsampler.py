@@ -22,7 +22,7 @@ class DepthFirstSearchSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_seed_set(self, graph):
+    def _create_seed_set(self, graph, start_node):
         """
         Creating a visited node set and a traversal path list.
         """
@@ -38,7 +38,7 @@ class DepthFirstSearchSampler(Sampler):
         """
         self._edges = [[self._path[i],self._path[i+1]] for i in range(len(self._path)-1)]
 
-    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
+    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
         """
         Sampling a graph with randomized depth first search.
 
@@ -50,7 +50,7 @@ class DepthFirstSearchSampler(Sampler):
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._create_seed_set(graph)
+        self._create_seed_set(graph, start_node)
         while len(self._nodes) < self.number_of_nodes:
             source = self._queue.get()
             if source not in self._nodes:
