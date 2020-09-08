@@ -56,6 +56,8 @@ class RandomWalkWithJumpSampler(Sampler):
 
         Arg types:
             * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
+            * **start_node** *(int, optional)* - The start node.
+
 
         Return types:
             * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
