@@ -59,6 +59,27 @@ def test_loop_erased_random_walk_sampler_3():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
+    new_graph = sampler.sample(graph, 0)
+
+    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    new_graph = sampler.sample(graph, 199)
+
+    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    new_graph = sampler.sample(graph, 20)
+
+    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
 def test_loop_erased_random_walk_sampler_4():
 
     sampler = LoopErasedRandomWalkSampler(number_of_nodes=25)
