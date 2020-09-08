@@ -24,11 +24,17 @@ class CommunityStructureExpansionSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_node_set(self, graph):
+    def _create_node_set(self, graph, start_node):
         """
         Choosing a seed node.
         """
-        self._sampled_nodes = set([random.choice(range(self.backend.get_number_of_nodes(graph)))])
+        if start_node is not None:
+            if start_node >= 0 and start_node < self.backend.get_number_of_nodes(graph):
+                self._sampled_nodes = set([start_node])
+            else:
+                raise ValueError("Starting node index is out of range.")
+        else:
+            self._sampled_nodes = set([random.choice(range(self.backend.get_number_of_nodes(graph)))])
 
     def _make_target_set(self, graph):
         """
@@ -50,19 +56,20 @@ class CommunityStructureExpansionSampler(Sampler):
                 new_node = node
         self._sampled_nodes.add(new_node)
 
-    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
+    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes iteratively with a community structure expansion sampler.
 
         Arg types:
             * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
+            * **start_node** *(int, optional)* - The start node.
 
         Return types:
             * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._create_node_set(graph)
+        self._create_node_set(graph, start_node)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._make_target_set(graph)
             self._choose_new_node(graph)
