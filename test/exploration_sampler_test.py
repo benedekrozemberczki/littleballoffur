@@ -320,6 +320,27 @@ def test_circulated_neighbors_random_walk_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
+    new_graph = sampler.sample(graph, 0)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+
+    new_graph = sampler.sample(graph, 199)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+
+    new_graph = sampler.sample(graph, 92)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+
     sampler = CirculatedNeighborsRandomWalkSampler(number_of_nodes=25)
 
     graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(100, 10, 0))
