@@ -29,7 +29,8 @@ class RandomWalkSampler(Sampler):
         """
         if start_node is not None:
             if start_node >= 0 and start_node <= self.backend.get_number_of_nodes(graph):
-                self.sampled_nodes = set([start_node])
+                self._current_node = start_node
+                self._sampled_nodes = set([self._current_node])
             else:
                 raise ValueError("Starting node index is out of range.")
         else:
