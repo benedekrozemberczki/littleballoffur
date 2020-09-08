@@ -27,8 +27,14 @@ class DepthFirstSearchSampler(Sampler):
         Creating a visited node set and a traversal path list.
         """
         self._queue = LifoQueue()
-        start_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
-        self._queue.put(start_node)
+        if start_node is not None:
+            if start_node >= 0 and start_node < self.backend.get_number_of_nodes(graph):
+                self._queue.put(start_node)
+            else:
+                raise ValueError("Starting node index is out of range.")
+        else:
+            start_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            self._queue.put(start_node)
         self._nodes = set()
         self._path = [] 
 
