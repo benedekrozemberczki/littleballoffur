@@ -28,7 +28,7 @@ class RandomWalkSampler(Sampler):
         Choosing an initial node.
         """
         if start_node is not None:
-            if start_node >= 0 and start_node <= self.backend.get_number_of_nodes(graph):
+            if start_node >= 0 and start_node < self.backend.get_number_of_nodes(graph):
                 self._current_node = start_node
                 self._sampled_nodes = set([self._current_node])
             else:
