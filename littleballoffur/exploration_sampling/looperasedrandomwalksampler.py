@@ -25,12 +25,19 @@ class LoopErasedRandomWalkSampler(Sampler):
         self._set_seed()
 
 
-    def _create_initial_node_set(self, graph):
+    def _create_initial_node_set(self, graph, start_node):
         """
         Choosing an initial node.
         """
-        self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
-        self._sampled_nodes = set([self._current_node])
+        if start_node is not None:
+            if start_node >= 0 and start_node < self.backend.get_number_of_nodes(graph):
+                self._current_node = start_node
+                self._sampled_nodes = set([self._current_node])
+            else:
+                raise ValueError("Starting node index is out of range.")
+        else:
+            self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            self._sampled_nodes = set([self._current_node])
         self._sampled_edges = set()
 
 
@@ -46,7 +53,7 @@ class LoopErasedRandomWalkSampler(Sampler):
         self._current_node = new_node
 
 
-    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
+    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single loop-erased random walk.
 
@@ -58,7 +65,7 @@ class LoopErasedRandomWalkSampler(Sampler):
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._create_initial_node_set(graph)
+        self._create_initial_node_set(graph, start_node)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step(graph)
         new_graph = self.backend.graph_from_edgelist(self._sampled_edges)
