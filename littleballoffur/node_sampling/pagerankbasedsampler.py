@@ -36,7 +36,7 @@ class PageRankBasedSampler(Sampler):
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
-        Sampling nodes randomly proportional to the pagerank.
+        Sampling nodes randomly proportional to the normalized pagerank score.
 
         Arg types:
             * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
