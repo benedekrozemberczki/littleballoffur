@@ -192,7 +192,7 @@ Now let's use the ``Metropolis-Hastings Random Walk Sampler`` method from `Metro
     sampler = MetropolisHastingsRandomWalkSampler(number_of_nodes = number_of_nodes)
     new_graph = sampler.sample(graph)
 
-The constructor defines a graph sampler, we sample from the Github graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a graph sampler, we sample from the Github graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs. We overestimated the transitivity.
 
 .. code-block:: python
 
