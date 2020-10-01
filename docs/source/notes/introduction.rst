@@ -33,7 +33,7 @@ We shortly overview the fundamental concepts and features of Little Ball of Fur 
 Standardized dataset ingestion
 ------------------------------
 
-Little Ball of Fur assumes that the ``NetworkX`` graph provided by the user has the following important properties:
+Little Ball of Fur assumes that the ``NetworkX`` or ``NetworKit`` graph provided by the user has the following important properties:
 
 - The graph is undirected.
 - The graph is connected (it consists of a single strongly connected component).
