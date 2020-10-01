@@ -46,7 +46,7 @@ The returned ``NetworkX`` or``NetworKit`` graph uses the same indexing.
 API driven design
 -----------------
 
-Little Ball of Fur uses the design principles of Scikit-Learn which means that the algorithms in the package share the same API. Each graph sampling procedure is implemented as a class which inherits from ``Sampler``. The constructors of the sampling algorithms are used to set the hyperparameters. The sampling procedures have default hyperparameters that work well out of the box. This means that non expert users do not have to make decisions about these in advance and only a little fine tuning is required. For each class the ``sample`` public method provides sampling from the graph. This API driven design in practice means that one can sample a subgraph from a Watts-Strogatz graph with a ``RandomWalkSampler`` just like this.
+Little Ball of Fur uses the design principles of Scikit-Learn which means that the algorithms in the package share the same API. Each graph sampling procedure is implemented as a class which inherits from the ``Sampler`` class. The constructors of the sampling algorithms are used to set the hyperparameters. The sampling procedures have default hyperparameters that work well out of the box. This means that non expert users do not have to make decisions about these in advance and only a little fine tuning is required. For each class the ``sample`` public method provides sampling from the graph. This API driven design in practice means that one can sample a subgraph from a Watts-Strogatz graph with a ``RandomWalkSampler`` just like this.
 
 .. code-block:: python
 
