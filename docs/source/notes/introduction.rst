@@ -41,7 +41,7 @@ Little Ball of Fur assumes that the ``NetworkX`` or ``NetworKit`` graph provided
 - There are no orphaned nodes in the graph.
 - The node indexing starts with zero and the indices are consecutive.
 
-The returned ``NetworkX`` graph uses the same indexing.
+The returned ``NetworkX`` or``NetworKit`` graph uses the same indexing.
 
 API driven design
 -----------------
