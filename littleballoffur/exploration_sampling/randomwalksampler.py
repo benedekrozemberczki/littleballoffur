@@ -11,7 +11,7 @@ NXGraph = nx.classes.graph.Graph
 
 class RandomWalkSampler(Sampler):
     r"""An implementation of node sampling by random walks. A simple random walker
-    which created an induced subgraph by walking around. `"For details about the
+    which creates an induced subgraph by walking around. `"For details about the
     algorithm see this paper." <https://ieeexplore.ieee.org/document/5462078>`_
 
     Args:
