@@ -210,7 +210,7 @@ The constructor defines a graph sampler, we sample from the Github graph with th
 Benchmark datasets
 ------------------
 
-We included a number of datasets which can be used for comparing the performance of sampling algorithms. These are the following:
+We included a number of social network and webgraph datasets which can be used for comparing the performance of sampling algorithms. These are the following:
 
 - `Twitch user network from the UK. <https://arxiv.org/abs/1909.13021>`_
 - `Wikipedia page-page network with articles about Crocodiles. <https://arxiv.org/abs/1909.13021>`_
