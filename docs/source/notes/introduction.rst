@@ -82,7 +82,7 @@ The first task that we will look at is sampling a subgraph by drawing a represen
 nodes represent official verified Facebook pages and the links between them are mutual likes. For details
 about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
 
-We first need to load the Facebook page-page network dataset which is returned as a ``NetworkX`` graph.
+We first need to load the Facebook Page-Page network dataset which is returned as a ``NetworkX`` graph.
 
 .. code-block:: python
 
