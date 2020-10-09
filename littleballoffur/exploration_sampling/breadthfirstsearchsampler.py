@@ -24,30 +24,37 @@ class BreadthFirstSearchSampler(Sampler):
         self._set_seed()
 
 
-    def _create_seed_set(self, graph):
+    def _create_seed_set(self, graph, start_node):
         """
         Creating seed sets of nodes and edges.
         """
         self._queue = Queue()
-        start_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
-        self._queue.put(start_node)
+        if start_node is not None:
+            if start_node >= 0 and start_node < self.backend.get_number_of_nodes(graph):
+                self._queue.put(start_node)
+            else:
+                raise ValueError("Starting node index is out of range.")
+        else:
+            start_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            self._queue.put(start_node)
         self._nodes = set([start_node])
         self._edges = set()  
 
 
-    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
+    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
         """
         Sampling a graph with randomized breadth first search.
 
         Arg types:
             * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
+            * **start_node** *(int, optional)* - The start node.
 
         Return types:
             * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._create_seed_set(graph)
+        self._create_seed_set(graph, start_node)
         while len(self._nodes) < self.number_of_nodes:
             source = self._queue.get()
             neighbors = self.backend.get_neighbors(graph, source)

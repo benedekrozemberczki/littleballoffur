@@ -11,7 +11,7 @@ NXGraph = nx.classes.graph.Graph
 
 class RandomWalkSampler(Sampler):
     r"""An implementation of node sampling by random walks. A simple random walker
-    which created an induced subgraph by walking around. `"For details about the
+    which creates an induced subgraph by walking around. `"For details about the
     algorithm see this paper." <https://ieeexplore.ieee.org/document/5462078>`_
 
     Args:
@@ -23,12 +23,19 @@ class RandomWalkSampler(Sampler):
         self.seed = seed
         self._set_seed()
 
-    def _create_initial_node_set(self, graph):
+    def _create_initial_node_set(self, graph, start_node):
         """
         Choosing an initial node.
         """
-        self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
-        self._sampled_nodes = set([self._current_node])
+        if start_node is not None:
+            if start_node >= 0 and start_node < self.backend.get_number_of_nodes(graph):
+                self._current_node = start_node
+                self._sampled_nodes = set([self._current_node])
+            else:
+                raise ValueError("Starting node index is out of range.")
+        else:
+            self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            self._sampled_nodes = set([self._current_node])
 
     def _do_a_step(self, graph):
         """
@@ -37,19 +44,20 @@ class RandomWalkSampler(Sampler):
         self._current_node = self.backend.get_random_neighbor(graph, self._current_node)
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
+    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single random walk.
 
         Arg types:
             * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
+            * **start_node** *(int, optional)* - The start node.
 
         Return types:
             * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._create_initial_node_set(graph)
+        self._create_initial_node_set(graph, start_node)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step(graph)
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)

@@ -42,7 +42,7 @@ class RandomNodeEdgeSampler(Sampler):
             * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
 
         Return types:
-            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled edges.
         """
         self._deploy_backend(graph)
         self._check_number_of_edges(graph)

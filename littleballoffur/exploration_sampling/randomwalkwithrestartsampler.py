@@ -26,13 +26,20 @@ class RandomWalkWithRestartSampler(Sampler):
         self.p = p
         self._set_seed()
 
-    def _create_initial_node_set(self, graph):
+    def _create_initial_node_set(self, graph, start_node):
         """
         Choosing an initial node.
         """
-        self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+        if start_node is not None:
+            if start_node >= 0 and start_node < self.backend.get_number_of_nodes(graph):
+                self._current_node = start_node
+                self._sampled_nodes = set([self._current_node])
+            else:
+                raise ValueError("Starting node index is out of range.")
+        else:
+            self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            self._sampled_nodes = set([self._current_node])
         self._initial_node = self._current_node
-        self._sampled_nodes = set([self._initial_node])
 
     def _do_a_step(self, graph):
         """
@@ -46,19 +53,20 @@ class RandomWalkWithRestartSampler(Sampler):
             self._sampled_nodes.add(new_node)
             self._current_node = new_node
 
-    def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
+    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single random walk that restarts.
 
         Arg types:
             * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
+            * **start_node** *(int, optional)* - The start node.
 
         Return types:
             * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._create_initial_node_set(graph)
+        self._create_initial_node_set(graph, start_node)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step(graph)
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)

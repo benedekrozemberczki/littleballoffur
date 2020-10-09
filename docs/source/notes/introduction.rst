@@ -33,7 +33,7 @@ We shortly overview the fundamental concepts and features of Little Ball of Fur 
 Standardized dataset ingestion
 ------------------------------
 
-Little Ball of Fur assumes that the ``NetworkX`` graph provided by the user has the following important properties:
+Little Ball of Fur assumes that the ``NetworkX`` or ``NetworKit`` graph provided by the user has the following important properties:
 
 - The graph is undirected.
 - The graph is connected (it consists of a single strongly connected component).
@@ -41,12 +41,12 @@ Little Ball of Fur assumes that the ``NetworkX`` graph provided by the user has 
 - There are no orphaned nodes in the graph.
 - The node indexing starts with zero and the indices are consecutive.
 
-The returned ``NetworkX`` graph uses the same indexing.
+The returned ``NetworkX`` or``NetworKit`` graph uses the same indexing.
 
 API driven design
 -----------------
 
-Little Ball of Fur uses the design principles of Scikit-Learn which means that the algorithms in the package share the same API. Each graph sampling procedure is implemented as a class which inherits from ``Sampler``. The constructors of the sampling algorithms are used to set the hyperparameters. The sampling procedures have default hyperparameters that work well out of the box. This means that non expert users do not have to make decisions about these in advance and only a little fine tuning is required. For each class the ``sample`` public method provides sampling from the graph. This API driven design in practice means that one can sample a subgraph from a Watts-Strogatz graph with a ``RandomWalkSampler`` just like this.
+Little Ball of Fur uses the design principles of Scikit-Learn which means that the algorithms in the package share the same API. Each graph sampling procedure is implemented as a class which inherits from the ``Sampler`` class. The constructors of the sampling algorithms are used to set the hyperparameters. The sampling procedures have default hyperparameters that work well out of the box. This means that non expert users do not have to make decisions about these in advance and only a little fine tuning is required. For each class the ``sample`` public method provides sampling from the graph. This API driven design in practice means that one can sample a subgraph from a Watts-Strogatz graph with a ``RandomWalkSampler`` just like this.
 
 .. code-block:: python
 
@@ -82,7 +82,7 @@ The first task that we will look at is sampling a subgraph by drawing a represen
 nodes represent official verified Facebook pages and the links between them are mutual likes. For details
 about the dataset `see this paper <https://arxiv.org/abs/1909.13021>`_.
 
-We first need to load the Facebook page-page network dataset which is returned as a ``NetworkX`` graph.
+We first need to load the Facebook Page-Page network dataset which is returned as a ``NetworkX`` graph.
 
 .. code-block:: python
 
@@ -192,7 +192,7 @@ Now let's use the ``Metropolis-Hastings Random Walk Sampler`` method from `Metro
     sampler = MetropolisHastingsRandomWalkSampler(number_of_nodes = number_of_nodes)
     new_graph = sampler.sample(graph)
 
-The constructor defines a graph sampler, we sample from the Github graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs.
+The constructor defines a graph sampler, we sample from the Github graph with the ``sample`` method and return the new graph. Finally, we can evaluate the sampling by comparing clustering coefficient values calculated from the original and subsampled graphs. We overestimated the transitivity.
 
 .. code-block:: python
 
@@ -210,7 +210,7 @@ The constructor defines a graph sampler, we sample from the Github graph with th
 Benchmark datasets
 ------------------
 
-We included a number of datasets which can be used for comparing the performance of sampling algorithms. These are the following:
+We included a number of social network and webgraph datasets which can be used for comparing the performance of sampling algorithms. These are the following:
 
 - `Twitch user network from the UK. <https://arxiv.org/abs/1909.13021>`_
 - `Wikipedia page-page network with articles about Crocodiles. <https://arxiv.org/abs/1909.13021>`_

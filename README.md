@@ -94,11 +94,11 @@ In detail, the following sampling methods were implemented.
 
 * **[Community Structure Expansion Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.communitystructureexpansionsampler.CommunityStructureExpansionSampler)** from Maiya *et al.*: [Sampling Community Structure](http://arun.maiya.net/papers/maiya_etal-sampcomm.pdf) (WWW 2010)
 
-* **[Non-Backtracking Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.nonbacktrackingrandomwalksampler.NonBackTrackingRandomWalkSampler)** from Lee *et al.*: [Beyond Random Walk and Metropolis-Hastings Samplers: Why You Should Not Backtrack for Unbiased Graph Sampling](https://dl.acm.org/doi/10.1145/2491159.2491168) (SIGMETRICS 2012)
+* **[Non-Backtracking Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.nonbacktrackingrandomwalksampler.NonBackTrackingRandomWalkSampler)** from Lee *et al.*: [Beyond Random Walk and Metropolis-Hastings Samplers: Why You Should Not Backtrack for Unbiased Graph Sampling](https://dl.acm.org/doi/10.1145/2318857.2254795) (SIGMETRICS 2012)
 
 * **[Randomized Depth First Search Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.depthfirstsearchsampler.DepthFirstSearchSampler)** from Doerr *et al.*: [Metric Convergence in Social Network Sampling](https://dl.acm.org/doi/10.1145/2491159.2491168) (HotPlanet 2013)
 
-* **[Randomized Breadth First Search Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.breadthfirstsearchsampler.BreadthFirstSearchSampler)** from Doerr *et al.*: [Metric Convergence in Social Network Sampling](https://arxiv.org/abs/1204.4140) (HotPlanet 2013)
+* **[Randomized Breadth First Search Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.breadthfirstsearchsampler.BreadthFirstSearchSampler)** from Doerr *et al.*: [Metric Convergence in Social Network Sampling](https://dl.acm.org/doi/10.1145/2491159.2491168) (HotPlanet 2013)
 
 * **[Rejection Constrained Metropolis Hastings Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler.MetropolisHastingsRandomWalkSampler)** from Li *et al.*: [On Random Walk Based Graph Sampling](https://ieeexplore.ieee.org/document/7113345) (ICDE 2015)
 
@@ -140,10 +140,11 @@ $ pip install littleballoffur --upgrade
 As part of the documentation we provide a number of use cases to show how to use various sampling techniques. These can accessed [here](https://little-ball-of-fur.readthedocs.io/en/latest/notes/introduction.html) with detailed explanations.
 
 
-Besides the case studies we provide synthetic examples for each model. These can be tried out by running the examples script.
+Besides the case studies we provide synthetic examples for each model. These can be tried out by running the scripts in the examples folder. You can try out the random walk sampling example by running:
 
 ```sh
-$ python examples.py
+$ cd examples
+$ python ./exploration_sampling/randomwalk_sampler.py
 ```
 
 --------------------------------------------------------------------------------
