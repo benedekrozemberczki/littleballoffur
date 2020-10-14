@@ -40,28 +40,26 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
             self._sampled_nodes = set([self._current_node])
 
     def _create_sampler(self, graph):
-        """
-        Assigning edge weights.
-        """
         self._sampler = {}
-        for node in self.backend.get_node_iterator(graph):
-            neighbors = self.backend.get_neighbors(graph, node)
-            neighbors = set(neighbors)
-            scores = []
-            for neighbor in neighbors:
-                fringe = set(self.backend.get_neighbors(graph, neighbor))
-                overlap = len(neighbors.intersection(fringe))
-                scores.append(1.0-(overlap)/min(self.backend.get_degree(graph, node), self.backend.get_degree(graph, neighbor)))
-            scores = np.array(scores)
-            self._sampler[node] = {}
-            self._sampler[node]["neighbors"] = list(neighbors)
-            self._sampler[node]["scores"] = scores/np.sum(scores)
         
+    def _get_node_scores(self, graph, node):
+        if node in self._sampler:  # no need to recompute
+            return
+        neighbors = set(self.backend.get_neighbors(graph, node))
+        scores = []
+        for neighbor in neighbors:
+            fringe = set(self.backend.get_neighbors(graph, neighbor))
+            overlap = len(neighbors.intersection(fringe))
+            scores.append(1.0 - (overlap) / min(self.backend.get_degree(graph, node), self.backend.get_degree(graph, neighbor)))
+        self._sampler[node] = {}
+        self._sampler[node]["neighbors"] = list(neighbors)
+        self._sampler[node]["scores"] = scores / np.sum(scores)
 
-    def _do_a_step(self):
+    def _do_a_step(self, graph):
         """
         Doing a single random walk step.
         """
+        self._get_node_scores(graph, self._current_node)
         self._current_node = sample = np.random.choice(self._sampler[self._current_node]["neighbors"],
                                                        1,
                                                        replace=False,
@@ -84,6 +82,6 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         self._create_initial_node_set(graph, start_node)
         self._create_sampler(graph)
         while len(self._sampled_nodes) < self.number_of_nodes:
-            self._do_a_step()
+            self._do_a_step(graph)
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
