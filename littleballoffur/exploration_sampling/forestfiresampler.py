@@ -61,11 +61,12 @@ class ForestFireSampler(Sampler):
             count = min(len(unvisited_neighbors), score)
             neighbors = random.sample(unvisited_neighbors, count)
             # keep a backlog in case node queue gets empty
-            self._visited_nodes.extendleft(set(neighbors).difference(unvisited_neighbors))
+            self._visited_nodes.extendleft(unvisited_neighbors.difference(set(neighbors)))
             for neighbor in neighbors:
                 if len(self._sampled_nodes) >= self.number_of_nodes:
                     break
                 node_queue.extend([neighbor])
+
 
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
