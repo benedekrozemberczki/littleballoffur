@@ -22,11 +22,14 @@ class ForestFireSampler(Sampler):
         p (float): Burning probability. Default is 0.4.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, p: float=0.4, seed: int=42):
+    def __init__(self, number_of_nodes: int=100, p: float=0.4, seed: int=42, max_visited_nodes_backlog: int=100,
+                 restart_hop_size: int = 10):
         self.number_of_nodes = number_of_nodes
         self.p = p
         self.seed = seed
         self._set_seed()
+        self.restart_hop_size = restart_hop_size
+        self.max_visited_nodes_backlog = max_visited_nodes_backlog
 
     def _create_node_sets(self, graph):
         """
@@ -34,6 +37,7 @@ class ForestFireSampler(Sampler):
         """
         self._sampled_nodes = set()
         self._set_of_nodes = set(range(self.backend.get_number_of_nodes(graph)))
+        self._visited_nodes = deque(maxlen=self.max_visited_nodes_backlog)
 
     def _start_a_fire(self, graph):
         """
@@ -44,6 +48,11 @@ class ForestFireSampler(Sampler):
         self._sampled_nodes.add(seed_node)
         node_queue = deque([seed_node])
         while len(self._sampled_nodes) < self.number_of_nodes:
+            if len(node_queue) == 0:
+                # fallback mechanism: we are "cornered", let's try to use the previously visited nodes
+                # and move on from there
+                node_queue = [self._visited_nodes.popleft() for k in range(self.restart_hop_size)]
+
             top_node = node_queue.popleft()
             self._sampled_nodes.add(top_node)
             neighbors = set(self.backend.get_neighbors(graph, top_node))
@@ -51,6 +60,8 @@ class ForestFireSampler(Sampler):
             score = np.random.geometric(self.p)
             count = min(len(unvisited_neighbors), score)
             neighbors = random.sample(unvisited_neighbors, count)
+            # keep a backlog in case node queue gets empty
+            self._visited_nodes.extendleft(set(neighbors).difference(unvisited_neighbors))
             for neighbor in neighbors:
                 if len(self._sampled_nodes) >= self.number_of_nodes:
                     break
