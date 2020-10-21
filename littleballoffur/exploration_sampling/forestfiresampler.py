@@ -51,7 +51,8 @@ class ForestFireSampler(Sampler):
             if len(node_queue) == 0:
                 # fallback mechanism: we are "cornered", let's try to use the previously visited nodes
                 # and move on from there
-                node_queue = [self._visited_nodes.popleft() for k in range(self.restart_hop_size)]
+                node_queue = [self._visited_nodes.popleft()
+                              for k in range(min(self.restart_hop_size, len(self._visited_nodes)))]
 
             top_node = node_queue.popleft()
             self._sampled_nodes.add(top_node)

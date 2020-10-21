@@ -138,7 +138,8 @@ class SpikyBallSampler(Sampler):
             if len(new_nodes) == 0:
                 # fallback mechanism: we are "cornered", let's try to use the previously visited nodes
                 # and move on from there
-                layer_nodes = [self._visited_nodes.popleft() for k in range(self.restart_hop_size)]
+                layer_nodes = [self._visited_nodes.popleft()
+                               for k in range(min(self.restart_hop_size, len(self._visited_nodes)))]
                 continue  # restart hop
 
             sampled_edges = np.random.choice(new_nodes, max(round(self.sampling_probability * len(new_nodes)), 1),
