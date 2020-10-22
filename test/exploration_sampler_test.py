@@ -824,7 +824,7 @@ def test_edgeball_sampler():
 
 def test_edgeball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.4*graph.number_of_nodes())
+    num_nodes = int(0.2*graph.number_of_nodes())
     sampler = SpikyBallSampler(mode='edgeball', number_of_nodes=num_nodes,
                                initial_nodes_ratio=1e-3, sampling_probability=0.1)
 
@@ -842,7 +842,7 @@ def test_fireball_sampler():
 
 def test_fireball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.4*graph.number_of_nodes())
+    num_nodes = int(0.2*graph.number_of_nodes())
     sampler = SpikyBallSampler(mode='fireball', number_of_nodes=num_nodes,
                                initial_nodes_ratio=1e-3, sampling_probability=0.1)
 
@@ -860,9 +860,9 @@ def test_hubball_sampler():
 
 def test_hubball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.4*graph.number_of_nodes())
+    num_nodes = int(0.2*graph.number_of_nodes())
     sampler = SpikyBallSampler(mode='hubball', number_of_nodes=num_nodes,
-                               initial_nodes_ratio=1e-3, sampling_probability=0.1, distrib_coeff=2)
+                               initial_nodes_ratio=1e-3, sampling_probability=0.01, distrib_coeff=2)
 
     new_graph = sampler.sample(graph)
     assert type(new_graph) == nx.classes.graph.Graph
@@ -878,9 +878,9 @@ def test_coreball_sampler():
 
 def test_coreball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.4*graph.number_of_nodes())
+    num_nodes = int(0.2*graph.number_of_nodes())
     sampler = SpikyBallSampler(mode='coreball', number_of_nodes=num_nodes,
-                               initial_nodes_ratio=1e-3, sampling_probability=0.1, distrib_coeff=2)
+                               initial_nodes_ratio=1e-3, sampling_probability=0.01, distrib_coeff=2)
 
     new_graph = sampler.sample(graph)
     assert type(new_graph) == nx.classes.graph.Graph
@@ -896,7 +896,7 @@ def test_firecoreball_sampler():
 
 def test_firecoreball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.4*graph.number_of_nodes())
+    num_nodes = int(0.2*graph.number_of_nodes())
     sampler = SpikyBallSampler(mode='firecoreball', number_of_nodes=num_nodes,
                                initial_nodes_ratio=1e-3, sampling_probability=0.1, distrib_coeff=2)
 
