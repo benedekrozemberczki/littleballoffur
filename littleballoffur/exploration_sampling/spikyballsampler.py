@@ -14,10 +14,10 @@ NXGraph = nx.classes.graph.Graph
 
 
 class SpikyBallSampler(Sampler):
-    r"""An implementation of spiky ball sampling. The procedure is a filtered
-     breadth-first search sampling method where the expansion is is performed 
-     over a random subset of neighbors. `"For details about the algorithm see 
-     this paper." <https://arxiv.org/pdf/2010.11786.pdf>`_
+    r"""An implementation of spiky ball sampling. The procedure is a filtered 
+    breadth-first search sampling method where the expansion is is performed 
+    over a random subset of neighbors. `"For details about the algorithm see 
+    this paper." <https://arxiv.org/pdf/2010.11786.pdf>`_
 
     Args:
         number_of_nodes (int): Number of sampled nodes. Default is 100.
