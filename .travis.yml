@@ -11,8 +11,8 @@ install:
   - source script/conda.sh
   - conda create --yes -n test python="${PYTHON_VERSION}"
   - source activate test
-  - conda install scipy
-  - conda -c conda-force install networkit
+  - conda install -n test -y scipy
+  - conda install -n test -y -c conda-forge networkit
   - pip install codecov
   - python setup.py install
 script:
