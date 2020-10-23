@@ -1,11 +1,12 @@
-from littleballoffur.sampler import Sampler
+import copy
+import itertools
+import numpy as np
 import networkx as nx
 import networkit as nk
-import numpy as np
-import itertools
 from typing import Union
 from collections import deque
-import copy
+
+from littleballoffur.sampler import Sampler
 
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
@@ -31,15 +32,18 @@ class SpikyBallSampler(Sampler):
         self.mode = mode
         self.max_visited_nodes_backlog = max_visited_nodes_backlog
         self.restart_hop_size = restart_hop_size
+        self.distrib_coeff = distrib_coeff
+        self._set_modes()
+        self._set_seed()
+
+    def _set_modes(self):
         self._mode_computations = {
             'edgeball': {'source': False, 'target': False},
-            'hubball': {'source': True, 'target': False},
+            'hubball':  {'source': True, 'target': False},
             'coreball': {'source': False, 'target': True},
             'fireball': {'source': True, 'target': False},
-            'firecoreball': {'source': True, 'target': True},
-        }
-        self.distrib_coeff = distrib_coeff
-        self._set_seed()
+            'firecoreball': {'source': True, 'target': True}}
+
 
     def _get_edge_weight(self, u, v):
         if self._is_weighted_graph:
@@ -148,8 +152,6 @@ class SpikyBallSampler(Sampler):
         """
         Assigning the source graph and making a decision about weighting.
         """
-        #self._graph = None
-        #self._is_weighted_graph = False
         self._graph = graph
         self._is_weighted_graph = self.backend.is_weighted(graph)        
 
