@@ -49,8 +49,6 @@ class ForestFireSampler(Sampler):
         node_queue = deque([seed_node])
         while len(self._sampled_nodes) < self.number_of_nodes:
             if len(node_queue) == 0:
-                # fallback mechanism: we are "cornered", let's try to use the previously visited nodes
-                # and move on from there
                 node_queue = [self._visited_nodes.popleft()
                               for k in range(min(self.restart_hop_size, len(self._visited_nodes)))]
 
@@ -61,7 +59,6 @@ class ForestFireSampler(Sampler):
             score = np.random.geometric(self.p)
             count = min(len(unvisited_neighbors), score)
             neighbors = random.sample(unvisited_neighbors, count)
-            # keep a backlog in case node queue gets empty
             self._visited_nodes.extendleft(unvisited_neighbors.difference(set(neighbors)))
             for neighbor in neighbors:
                 if len(self._sampled_nodes) >= self.number_of_nodes:
