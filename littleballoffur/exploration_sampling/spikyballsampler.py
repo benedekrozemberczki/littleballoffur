@@ -108,7 +108,6 @@ class SpikyBallSampler(Sampler):
         return p_norm
 
     def _get_probability_density(self, edges_data, coeff):
-        # Taking the weights into account for the random selection
         if self.mode == 'edgeball':
             source_coeff, edge_coeff, target_coeff = 0, 1, 0
         elif self.mode == 'hubball':
