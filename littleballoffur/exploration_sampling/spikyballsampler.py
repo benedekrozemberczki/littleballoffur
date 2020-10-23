@@ -149,6 +149,10 @@ class SpikyBallSampler(Sampler):
             self._sampled_nodes.update(layer_nodes)
             hop_cnt += 1
 
+    def assign_graph(self, graph: Union[NXGraph, NKGraph]):
+        self._graph = graph
+        self._is_weighted_graph = self.backend.is_weighted(graph)        
+
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes iteratively with a spiky ball sampler.
@@ -161,8 +165,7 @@ class SpikyBallSampler(Sampler):
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-        self._graph = graph
-        self._is_weighted_graph = self.backend.is_weighted(graph)
+        self._assign_graph(graph)
         self._create_node_sets()
         self._process_hops()
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
