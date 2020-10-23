@@ -21,8 +21,8 @@ class Edge:
 
 class SpikyBallSampler(Sampler):
     def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2,
-                 initial_nodes_ratio: float = 0.1,
-                 seed: int = 42, max_hops: int = 100000, mode: str = 'fireball', max_visited_nodes_backlog: int = 100,
+                 initial_nodes_ratio: float = 0.1, seed: int = 42, max_hops: int = 100000,
+                 mode: str = 'fireball', max_visited_nodes_backlog: int = 100,
                  restart_hop_size: int = 10, distrib_coeff: float = 1.0):
         self.number_of_nodes = number_of_nodes
         self.sampling_probability = sampling_probability
