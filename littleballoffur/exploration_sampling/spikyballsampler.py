@@ -32,17 +32,15 @@ class SpikyBallSampler(Sampler):
         self.mode = mode
         self.max_visited_nodes_backlog = max_visited_nodes_backlog
         self.restart_hop_size = restart_hop_size
-        # internal members
         self._graph = None
         self._is_weighted_graph = False
-        self._mode_computations = { # is source/target degree used in computation ?
+        self._mode_computations = {
             'edgeball': {'source': False, 'target': False},
             'hubball': {'source': True, 'target': False},
             'coreball': {'source': False, 'target': True},
             'fireball': {'source': True, 'target': False},
             'firecoreball': {'source': True, 'target': True},
         }
-        # depending on the mode chosen, power exponent used for computing probability distribution of edges
         self.distrib_coeff = distrib_coeff
         self._set_seed()
 
@@ -60,8 +58,6 @@ class SpikyBallSampler(Sampler):
         self._set_of_nodes = set(range(num_nodes))
         num_initial_nodes = max(int(num_nodes * self.initial_nodes_ratio), 1)
         self._seed_nodes = set(np.random.choice(list(self._set_of_nodes), num_initial_nodes, replace=False))
-        # keep the visited but not sampled nodes in case we get "cornered" and find nothing new to sample
-        # this can happen when sampling_probability is low
         self._visited_nodes = deque(maxlen=self.max_visited_nodes_backlog)
 
     def _get_degree(self, edge_list, selector):
@@ -137,11 +133,9 @@ class SpikyBallSampler(Sampler):
             p_norm = self._get_probability_density(edges_data, self.distrib_coeff)
             new_nodes = list(map(lambda x: x.target, edges_data['raw']))
             if len(new_nodes) == 0:
-                # fallback mechanism: we are "cornered", let's try to use the previously visited nodes
-                # and move on from there
                 layer_nodes = [self._visited_nodes.popleft()
                                for k in range(min(self.restart_hop_size, len(self._visited_nodes)))]
-                continue  # restart hop
+                continue
 
             sampled_edges = np.random.choice(new_nodes, max(round(self.sampling_probability * len(new_nodes)), 1),
                                              p=p_norm, replace=False)
