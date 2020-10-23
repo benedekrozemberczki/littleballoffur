@@ -24,8 +24,8 @@ class SpikyBallSampler(Sampler):
         sampling_probability (float): Edge sampling probability. Default is 0.1.
         initial_nodes_ratio (float): Initial ratio of sampled nodes. Default is 0.1.
         seed (int): Random seed. Default is 42.
-        max_hops (int): ..... Default is 100000.
-        mode (str): .... Default is 'fireball'.
+        max_hops (int): Number of hops. Default is 100000.
+        mode (str): Sampling modes. Default is 'fireball'.
         max_visited_nodes_backlog (int): ..... Default is 100.
         restart_hop_size (int): ..... Default is 10.
         distrib_coeff (float): ..... Default is 1.0.
