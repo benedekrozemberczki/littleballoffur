@@ -27,7 +27,7 @@ class SpikyBallSampler(Sampler):
         max_hops (int): Number of hops. Default is 100000.
         mode (str): Sampling procedure, one of:  (:obj:`"edgeball"`, :obj:`"hubball"`, :obj:`"coreball"`,
                      :obj:`"fireball"`, :obj:`"firecoreball"`). Default is 'fireball'.
-        max_visited_nodes_backlog (int): ..... Default is 100.
+        max_visited_nodes_backlog (int): Maximal number of nodes in queue. Default is 100.
         restart_hop_size (int): ..... Default is 10.
         distrib_coeff (float): Proposal distribution power coefficient. Default is 1.0.
     """
