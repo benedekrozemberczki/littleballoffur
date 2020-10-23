@@ -45,8 +45,10 @@ class SpikyBallSampler(Sampler):
 
     def _get_edge_weight(self, u, v):
         if self._is_weighted_graph:
-            return self.backend.get_edge_weight(self._graph, u, v)
-        return 1.0
+            weight =  self.backend.get_edge_weight(self._graph, u, v)
+        else:
+            weight = 1.0
+        return weight
 
     def _create_node_sets(self):
         """
