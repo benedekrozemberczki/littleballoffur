@@ -29,7 +29,7 @@ class SpikyBallSampler(Sampler):
                      :obj:`"fireball"`, :obj:`"firecoreball"`). Default is 'fireball'.
         max_visited_nodes_backlog (int): ..... Default is 100.
         restart_hop_size (int): ..... Default is 10.
-        distrib_coeff (float): ..... Default is 1.0.
+        distrib_coeff (float): Proposal distribution power coefficient. Default is 1.0.
     """
     def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2,
                  initial_nodes_ratio: float = 0.1, seed: int = 42, max_hops: int = 100000,
