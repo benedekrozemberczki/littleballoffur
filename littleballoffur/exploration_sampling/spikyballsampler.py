@@ -20,7 +20,8 @@ class Edge:
 
 
 class SpikyBallSampler(Sampler):
-    def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2, initial_nodes_ratio: float = 0.1,
+    def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2,
+                 initial_nodes_ratio: float = 0.1,
                  seed: int = 42, max_hops: int = 100000, mode: str = 'fireball', max_visited_nodes_backlog: int = 100,
                  restart_hop_size: int = 10, distrib_coeff: float = 1.0):
         self.number_of_nodes = number_of_nodes
@@ -145,7 +146,6 @@ class SpikyBallSampler(Sampler):
             sampled_edges = np.random.choice(new_nodes, max(round(self.sampling_probability * len(new_nodes)), 1),
                                              p=p_norm, replace=False)
             layer_nodes = set(sampled_edges)
-            # keep track of visited but non-sampled nodes, in case we end up in a dead-end
             self._visited_nodes.extendleft(set(new_nodes).difference(layer_nodes))
             remaining = min(self.number_of_nodes - len(self._sampled_nodes), len(layer_nodes))
             layer_nodes = list(layer_nodes)[:remaining]
