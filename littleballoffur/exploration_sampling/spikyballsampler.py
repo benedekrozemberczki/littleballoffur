@@ -135,8 +135,10 @@ class SpikyBallSampler(Sampler):
                                for k in range(min(self.restart_hop_size, len(self._visited_nodes)))]
                 continue
 
-            sampled_edges = np.random.choice(new_nodes, max(round(self.sampling_probability * len(new_nodes)), 1),
-                                             p=p_norm, replace=False)
+            sampled_edges = np.random.choice(new_nodes,
+                                             max(round(self.sampling_probability * len(new_nodes)), 1),
+                                             p=p_norm,
+                                             replace=False)
             layer_nodes = set(sampled_edges)
             self._visited_nodes.extendleft(set(new_nodes).difference(layer_nodes))
             remaining = min(self.number_of_nodes - len(self._sampled_nodes), len(layer_nodes))
