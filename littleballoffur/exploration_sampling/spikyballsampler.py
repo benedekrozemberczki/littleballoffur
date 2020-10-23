@@ -21,7 +21,7 @@ class SpikyBallSampler(Sampler):
 
     Args:
         number_of_nodes (int): Number of sampled nodes. Default is 100.
-        sampling_probability (float): ..... Default is 0.1.
+        sampling_probability (float): Edge sampling probability. Default is 0.1.
         initial_nodes_ratio (float): Initial ratio of sampled nodes. Default is 0.1.
         seed (int): Random seed. Default is 42.
         max_hops (int): ..... Default is 100000.
