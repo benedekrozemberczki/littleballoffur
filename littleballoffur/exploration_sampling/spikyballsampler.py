@@ -20,6 +20,16 @@ class Edge:
         self.target_degree = 0
 
 class SpikyBallSampler(Sampler):
+    r"""An implementation of forest fire sampling. The procedure is a stochastic
+    snowball sampling method where the expansion is proportional to the burning probability. 
+    `"For details about the algorithm see this paper." <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
+
+
+    Args:
+        number_of_nodes (int): Number of sampled nodes. Default is 100.
+        p (float): Burning probability. Default is 0.4.
+        seed (int): Random seed. Default is 42.
+    """
     def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2,
                  initial_nodes_ratio: float = 0.1, seed: int = 42, max_hops: int = 100000,
                  mode: str = 'fireball', max_visited_nodes_backlog: int = 100,
