@@ -58,6 +58,7 @@ class SpikyBallSampler(Sampler):
         num_initial_nodes = max(int(num_nodes * self.initial_nodes_ratio), 1)
         self._seed_nodes = set(np.random.choice(list(self._set_of_nodes), num_initial_nodes, replace=False))
         self._visited_nodes = deque(maxlen=self.max_visited_nodes_backlog)
+        self._sampled_nodes.update(self._seed_nodes)
 
     def _get_degree(self, edge_list, selector):
         return {k: sum(map(lambda x: x.weight, g))
@@ -161,7 +162,6 @@ class SpikyBallSampler(Sampler):
         self._graph = graph
         self._is_weighted_graph = self.backend.is_weighted(graph)
         self._create_node_sets()
-        self._sampled_nodes.update(self._seed_nodes)
         self._process_hops()
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
