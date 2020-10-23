@@ -18,7 +18,6 @@ class Edge:
         self.source_degree = 0
         self.target_degree = 0
 
-
 class SpikyBallSampler(Sampler):
     def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2,
                  initial_nodes_ratio: float = 0.1, seed: int = 42, max_hops: int = 100000,
