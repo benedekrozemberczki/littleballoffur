@@ -31,8 +31,6 @@ class SpikyBallSampler(Sampler):
         self.mode = mode
         self.max_visited_nodes_backlog = max_visited_nodes_backlog
         self.restart_hop_size = restart_hop_size
-        self._graph = None
-        self._is_weighted_graph = False
         self._mode_computations = {
             'edgeball': {'source': False, 'target': False},
             'hubball': {'source': True, 'target': False},
@@ -150,6 +148,8 @@ class SpikyBallSampler(Sampler):
         """
         Assigning the source graph and making a decision about weighting.
         """
+        #self._graph = None
+        #self._is_weighted_graph = False
         self._graph = graph
         self._is_weighted_graph = self.backend.is_weighted(graph)        
 
