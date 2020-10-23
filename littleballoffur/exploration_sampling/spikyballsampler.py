@@ -7,17 +7,10 @@ from typing import Union
 from collections import deque
 
 from littleballoffur.sampler import Sampler
+from littleballoffur.helpers import Edge
 
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
-
-class Edge:
-    def __init__(self, source, target, weight=1):
-        self.source = source
-        self.target = target
-        self.weight = weight
-        self.source_degree = 0
-        self.target_degree = 0
 
 class SpikyBallSampler(Sampler):
     r"""An implementation of spiky ball sampling. The procedure is a filtered
