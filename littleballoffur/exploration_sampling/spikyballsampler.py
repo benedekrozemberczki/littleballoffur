@@ -28,7 +28,7 @@ class SpikyBallSampler(Sampler):
         mode (str): Sampling procedure, one of:  (:obj:`"edgeball"`, :obj:`"hubball"`, :obj:`"coreball"`,
                      :obj:`"fireball"`, :obj:`"firecoreball"`). Default is 'fireball'.
         max_visited_nodes_backlog (int): Maximal number of nodes in queue. Default is 100.
-        restart_hop_size (int): ..... Default is 10.
+        restart_hop_size (int): Mimimal number of nodes to pop from queue. Default is 10.
         distrib_coeff (float): Proposal distribution power coefficient. Default is 1.0.
     """
     def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2,
