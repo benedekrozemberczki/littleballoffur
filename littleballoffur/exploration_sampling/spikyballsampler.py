@@ -156,12 +156,10 @@ class SpikyBallSampler(Sampler):
         """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
-
         self._graph = graph
         self._is_weighted_graph = self.backend.is_weighted(graph)
         self._create_node_sets()
         self._sampled_nodes.update(self._seed_nodes)
         self._process_hops()
-
         new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
         return new_graph
