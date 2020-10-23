@@ -144,7 +144,7 @@ class SpikyBallSampler(Sampler):
             self._sampled_nodes.update(layer_nodes)
             hop_count = hop_count + 1
 
-    def assign_graph(self, graph: Union[NXGraph, NKGraph]):
+    def _assign_graph(self, graph: Union[NXGraph, NKGraph]):
         """
         Assigning the source graph and making a decision about weighting.
         """
