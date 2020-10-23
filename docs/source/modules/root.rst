@@ -109,7 +109,3 @@ Exploration Sampling
 .. automodule:: littleballoffur.exploration_sampling.nonbacktrackingrandomwalksampler
     :members:
     :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.spikyballsampler
-    :members:
-    :undoc-members:
