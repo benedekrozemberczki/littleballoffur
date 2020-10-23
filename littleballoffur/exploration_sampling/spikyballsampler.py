@@ -5,12 +5,13 @@ import networkx as nx
 import networkit as nk
 from typing import Union
 from collections import deque
-
 from littleballoffur.sampler import Sampler
 from littleballoffur.helpers import Edge
 
+
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
+
 
 class SpikyBallSampler(Sampler):
     r"""An implementation of spiky ball sampling. The procedure is a filtered
@@ -21,7 +22,7 @@ class SpikyBallSampler(Sampler):
     Args:
         number_of_nodes (int): Number of sampled nodes. Default is 100.
         sampling_probability (float): ..... Default is 0.1.
-        initial_nodes_ratio (float): ..... Default is 0.1.
+        initial_nodes_ratio (float): Initial ratio of sampled nodes. Default is 0.1.
         seed (int): Random seed. Default is 42.
         max_hops (int): ..... Default is 100000.
         mode (str): .... Default is 'fireball'.
