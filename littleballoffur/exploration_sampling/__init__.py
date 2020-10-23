@@ -1,3 +1,4 @@
+from .spikysampler import SpikySampler
 from .frontiersampler import FrontierSampler
 from .snowballsampler import SnowBallSampler
 from .randomwalksampler import RandomWalkSampler
