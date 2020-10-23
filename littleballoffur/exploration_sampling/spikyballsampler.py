@@ -67,10 +67,8 @@ class SpikyBallSampler(Sampler):
                 for k, g in itertools.groupby(sorted(edge_list, key=selector), selector)}
 
     def _get_new_edges(self, nodes):
-        # build new edges list
         edge_list = []
         for node in nodes:
-            # get new edges but remove those pointing to already sampled nodes
             new_neighbors = set(self.backend.get_neighbors(self._graph, node)).difference(self._sampled_nodes)
             for e in new_neighbors:
                 edge_list.append(Edge(node, e, self._get_edge_weight(node, e)))
@@ -126,10 +124,9 @@ class SpikyBallSampler(Sampler):
         return self._get_probability_density_generic(edges_data, source_coeff, edge_coeff, target_coeff)
 
     def _process_hops(self):
-        hop_cnt = 0
+        hop_count = 0
         layer_nodes = self._seed_nodes.copy()
-
-        while hop_cnt < self.max_hops and len(self._sampled_nodes) < self.number_of_nodes:
+        while hop_count < self.max_hops and len(self._sampled_nodes) < self.number_of_nodes:
             edges_data = self._get_new_edges(layer_nodes)
             p_norm = self._get_probability_density(edges_data, self.distrib_coeff)
             new_nodes = [edge.target for edge in edges_data['raw']]
@@ -147,9 +144,12 @@ class SpikyBallSampler(Sampler):
             remaining = min(self.number_of_nodes - len(self._sampled_nodes), len(layer_nodes))
             layer_nodes = list(layer_nodes)[:remaining]
             self._sampled_nodes.update(layer_nodes)
-            hop_cnt += 1
+            hop_count = hop_count + 1
 
     def assign_graph(self, graph: Union[NXGraph, NKGraph]):
+        """
+        Assigning the source graph and making a decision about weighting.
+        """
         self._graph = graph
         self._is_weighted_graph = self.backend.is_weighted(graph)        
 
