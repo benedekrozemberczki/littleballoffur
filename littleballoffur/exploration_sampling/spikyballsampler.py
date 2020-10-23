@@ -132,7 +132,7 @@ class SpikyBallSampler(Sampler):
         while hop_cnt < self.max_hops and len(self._sampled_nodes) < self.number_of_nodes:
             edges_data = self._get_new_edges(layer_nodes)
             p_norm = self._get_probability_density(edges_data, self.distrib_coeff)
-            new_nodes = list(map(lambda x: x.target, edges_data['raw']))
+            new_nodes = [edge.target for edge in edges_data['raw']]
             if len(new_nodes) == 0:
                 layer_nodes = [self._visited_nodes.popleft()
                                for k in range(min(self.restart_hop_size, len(self._visited_nodes)))]
