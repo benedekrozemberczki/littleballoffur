@@ -145,6 +145,15 @@ class SpikyBallSampler(Sampler):
             hop_cnt += 1
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
+        """
+        Sampling nodes iteratively with a spiky ball sampler.
+
+        Arg types:
+            * **graph** *(NetworkX or NetworKit graph)* - The graph to be sampled from.
+
+        Return types:
+            * **new_graph** *(NetworkX or NetworKit graph)* - The graph of sampled nodes.
+        """
         self._deploy_backend(graph)
         self._check_number_of_nodes(graph)
 
