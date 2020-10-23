@@ -29,8 +29,9 @@ class SpikyBallSampler(Sampler):
         number_of_nodes (int): Number of sampled nodes. Default is 100.
         sampling_probability (float): ..... Default is 0.4.
         initial_nodes_ratio (float): ..... Default is 0.1.
-        max_hops (int): ..... Defailt is 100000.
         seed (int): Random seed. Default is 42.
+        max_hops (int): ..... Default is 100000.
+        mode (str): .... Default is 'fireball'.
     """
     def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2,
                  initial_nodes_ratio: float = 0.1, seed: int = 42, max_hops: int = 100000,
