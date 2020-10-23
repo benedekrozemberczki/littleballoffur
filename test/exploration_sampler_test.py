@@ -5,13 +5,14 @@ from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, Br
 
 from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler, SnowBallSampler
 from littleballoffur.exploration_sampling import RandomWalkSampler, MetropolisHastingsRandomWalkSampler, CommonNeighborAwareRandomWalkSampler
-from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler
+from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler, SpikyBallSampler
 
 from littleballoffur.exploration_sampling import ShortestPathSampler, RandomWalkWithJumpSampler, FrontierSampler, RandomNodeNeighborSampler
-
+from littleballoffur.dataset import GraphReader
 
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
+
 
 #-----------------------------------#
 # TESTS FOR SPANNING TREE SAMPLERS. #
@@ -812,6 +813,96 @@ def test_forest_fire_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
+
+def test_edgeball_sampler():
+    sampler = SpikyBallSampler(mode='edgeball')
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+def test_edgeball_sampler_fb():
+    graph = GraphReader("facebook").get_graph()
+    num_nodes = int(0.2*graph.number_of_nodes())
+    sampler = SpikyBallSampler(mode='edgeball', number_of_nodes=num_nodes,
+                               initial_nodes_ratio=1e-3, sampling_probability=0.1)
+
+    new_graph = sampler.sample(graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+
+def test_fireball_sampler():
+    sampler = SpikyBallSampler(mode='fireball')
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+def test_fireball_sampler_fb():
+    graph = GraphReader("facebook").get_graph()
+    num_nodes = int(0.2*graph.number_of_nodes())
+    sampler = SpikyBallSampler(mode='fireball', number_of_nodes=num_nodes,
+                               initial_nodes_ratio=1e-3, sampling_probability=0.1)
+
+    new_graph = sampler.sample(graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+
+def test_hubball_sampler():
+    sampler = SpikyBallSampler(mode='hubball', distrib_coeff=2)
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+def test_hubball_sampler_fb():
+    graph = GraphReader("facebook").get_graph()
+    num_nodes = int(0.2*graph.number_of_nodes())
+    sampler = SpikyBallSampler(mode='hubball', number_of_nodes=num_nodes,
+                               initial_nodes_ratio=1e-3, sampling_probability=0.01, distrib_coeff=2)
+
+    new_graph = sampler.sample(graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+
+def test_coreball_sampler():
+    sampler = SpikyBallSampler(mode='coreball', distrib_coeff=2)
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+def test_coreball_sampler_fb():
+    graph = GraphReader("facebook").get_graph()
+    num_nodes = int(0.2*graph.number_of_nodes())
+    sampler = SpikyBallSampler(mode='coreball', number_of_nodes=num_nodes,
+                               initial_nodes_ratio=1e-3, sampling_probability=0.01, distrib_coeff=2)
+
+    new_graph = sampler.sample(graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+
+def test_firecoreball_sampler():
+    sampler = SpikyBallSampler(mode='firecoreball', distrib_coeff=2)
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert type(new_graph) == nx.classes.graph.Graph
+
+def test_firecoreball_sampler_fb():
+    graph = GraphReader("facebook").get_graph()
+    num_nodes = int(0.2*graph.number_of_nodes())
+    sampler = SpikyBallSampler(mode='firecoreball', number_of_nodes=num_nodes,
+                               initial_nodes_ratio=1e-3, sampling_probability=0.1, distrib_coeff=2)
+
+    new_graph = sampler.sample(graph)
+    assert type(new_graph) == nx.classes.graph.Graph
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
 
 #---------------------------------------#
 # TESTS FOR UNCONNECTED GRAPH SAMPLERS  #

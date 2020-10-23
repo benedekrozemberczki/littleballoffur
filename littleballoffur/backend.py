@@ -103,6 +103,11 @@ class NetworKitBackEnd(object):
         pagerank = pagerank / pagerank.sum()
         return pagerank
 
+    def is_weighted(self, graph: NKGraph) -> bool:
+        return graph.isWeighted()
+
+    def get_edge_weight(self, graph: NKGraph, u: int, v: int) -> float:
+        return graph.weight(u, v)
 
     def graph_from_edgelist(self, edges: List) -> NKGraph:
         """
@@ -241,6 +246,11 @@ class NetworkXBackEnd(object):
         pagerank = pagerank / pagerank.sum()
         return pagerank
 
+    def is_weighted(self, graph: NXGraph) -> bool:
+        return nx.is_weighted(graph)
+
+    def get_edge_weight(self, graph: NXGraph, u: int, v: int) -> float:
+        return graph.get_edge_data(u, v)['weight']
 
     def graph_from_edgelist(self, edges: List) -> NXGraph:
         """

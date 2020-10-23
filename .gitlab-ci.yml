@@ -1,0 +1,29 @@
+image: continuumio/miniconda3:4.8.2
+
+stages:
+  - test
+
+Run tests and coverage:
+  stage: test
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+    TRAVIS_OS_NAME: "linux"
+    PYTHON_VERSION: "3.6"
+
+  cache:
+    paths:
+      - .cache/pip
+
+  before_script:
+    - conda create --yes -n test python="${PYTHON_VERSION}"
+    - conda init bash
+    - source ~/.bashrc
+    - conda activate test
+    - conda install -y -c conda-forge networkit
+    - pip install scipy
+    - pip install codecov
+    - python setup.py install
+
+  script:
+    - python setup.py test
+    - codecov
