@@ -17,7 +17,7 @@ class SpikyBallSampler(Sampler):
     r"""An implementation of spiky ball sampling. The procedure is a filtered 
     breadth-first search sampling method where the expansion is is performed 
     over a random subset of neighbors. `"For details about the algorithm see 
-    this paper." <https://arxiv.org/pdf/2010.11786.pdf>`_
+    this paper." <https://www.mdpi.com/1999-4893/13/11/275>`_
 
     Args:
         number_of_nodes (int): Number of sampled nodes. Default is 100.
@@ -27,8 +27,8 @@ class SpikyBallSampler(Sampler):
         max_hops (int): Number of hops. Default is 100000.
         mode (str): Sampling procedure, one of:  (:obj:`"edgeball"`, :obj:`"hubball"`, :obj:`"coreball"`,
                      :obj:`"fireball"`, :obj:`"firecoreball"`). Default is 'fireball'.
-        max_visited_nodes_backlog (int): Maximal number of nodes in queue. Default is 100.
-        restart_hop_size (int): Mimimal number of nodes to pop from queue. Default is 10.
+        max_visited_nodes_backlog (int): Maximal number of nodes in restart queue. Default is 100.
+        restart_hop_size (int): Mimimal number of nodes to pop from restart queue. Default is 10.
         distrib_coeff (float): Proposal distribution power coefficient. Default is 1.0.
     """
     def __init__(self, number_of_nodes: int = 100, sampling_probability: float = 0.2,
