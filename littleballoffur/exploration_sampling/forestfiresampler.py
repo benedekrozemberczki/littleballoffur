@@ -53,17 +53,20 @@ class ForestFireSampler(Sampler):
                               for k in range(min(self.restart_hop_size, len(self._visited_nodes)))]
 
             top_node = node_queue.popleft()
-            self._sampled_nodes.add(top_node)
-            neighbors = set(self.backend.get_neighbors(graph, top_node))
-            unvisited_neighbors = neighbors.difference(self._sampled_nodes)
-            score = np.random.geometric(self.p)
-            count = min(len(unvisited_neighbors), score)
-            neighbors = random.sample(unvisited_neighbors, count)
-            self._visited_nodes.extendleft(unvisited_neighbors.difference(set(neighbors)))
-            for neighbor in neighbors:
-                if len(self._sampled_nodes) >= self.number_of_nodes:
-                    break
-                node_queue.extend([neighbor])
+            if len(node_queue) == 0:
+                break
+            else:
+                self._sampled_nodes.add(top_node)
+                neighbors = set(self.backend.get_neighbors(graph, top_node))
+                unvisited_neighbors = neighbors.difference(self._sampled_nodes)
+                score = np.random.geometric(self.p)
+                count = min(len(unvisited_neighbors), score)
+                neighbors = random.sample(unvisited_neighbors, count)
+                self._visited_nodes.extendleft(unvisited_neighbors.difference(set(neighbors)))
+                for neighbor in neighbors:
+                    if len(self._sampled_nodes) >= self.number_of_nodes:
+                        break
+                    node_queue.extend([neighbor])
 
 
 
