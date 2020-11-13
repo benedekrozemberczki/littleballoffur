@@ -64,7 +64,6 @@ class ForestFireSampler(Sampler):
             self._visited_nodes.extendleft(unvisited_neighbors.difference(set(burned_neighbors)))
             for neighbor in burned_neighbors:
                 if len(self._sampled_nodes) >= self.number_of_nodes:
-                    print('break')
                     break
                 node_queue.extend([neighbor])
 
