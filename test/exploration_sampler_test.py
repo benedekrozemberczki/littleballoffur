@@ -813,6 +813,46 @@ def test_forest_fire_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
+    sampler = ForestFireSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NXGraph
+
+    sampler = ForestFireSampler(number_of_nodes=25)
+
+    graph = nx.gnm_random_graph(100, 2000)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NXGraph
+
+    sampler = ForestFireSampler()
+
+    graph = nk.nxadapter.nx2nk(nx.gnm_random_graph(100, 2000))
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    sampler = ForestFireSampler(number_of_nodes=25)
+
+    graph = nk.nxadapter.nx2nk(nx.gnm_random_graph(100, 2000))
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
 
 def test_edgeball_sampler():
     sampler = SpikyBallSampler(mode='edgeball')
