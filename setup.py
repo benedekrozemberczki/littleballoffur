@@ -36,7 +36,7 @@ setup(
   name = "littleballoffur",
   version = "2.1.2",
   license = "MIT",
-  description = "A general purpose library for subsampling large graphs.",
+  description = "A general purpose library for subsampling graphs.",
   author = "Benedek Rozemberczki",
   author_email = "benedek.rozemberczki@gmail.com",
   url = "https://github.com/benedekrozemberczki/littleballoffur",
