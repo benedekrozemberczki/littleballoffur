@@ -3,7 +3,9 @@ from setuptools import find_packages, setup
 
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
-install_requires = ["networkx",
+install_requires = ['cmake',
+                    'Cython',
+                    "networkx",
                     "tqdm",
                     "python-louvain",
                     "pandas",
