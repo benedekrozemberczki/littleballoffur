@@ -8,8 +8,6 @@ Little Ball of Fur
 Node Sampling
 --------------
 
-Convolutional Layers
---------------------
 .. currentmodule:: littleballoffur.node_sampling
 
 .. autosummary::
