@@ -15,6 +15,10 @@ Node Sampling
      {{ cls }}
    {% endfor %}
 
+.. automodule:: torch_geometric.node_sampling
+    :members:
+    :exclude-members:
+
 .. automodule:: littleballoffur.node_sampling.randomnodesampler
     :members:
     :undoc-members:
