@@ -19,7 +19,7 @@ Little Ball of Fur Documentation
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Notes
 
    notes/installation
@@ -30,7 +30,7 @@ Little Ball of Fur Documentation
 
 .. toctree::
    :glob:
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Package Reference
 
    modules/node_sampling
