@@ -21,25 +21,16 @@ Node Sampling
 Edge Sampling
 --------------
 
-.. automodule:: littleballoffur.edge_sampling.randomedgesampler
-    :members:
-    :undoc-members:
+.. currentmodule:: littleballoffur.edge_sampling
+.. autosummary::
+   :nosignatures:
+   {% for cls in littleballoffur.edge_sampling.classes %}
+     {{ cls }}
+   {% endfor %}
 
-.. automodule:: littleballoffur.edge_sampling.randomnodeedgesampler
+.. automodule:: littleballoffur.edge_sampling
     :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.edge_sampling.hybridnodeedgesampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.edge_sampling.randomedgesamplerwithinduction
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.edge_sampling.randomedgesamplerwithpartialinduction
-    :members:
-    :undoc-members:
+    :exclude-members:
 
 Exploration Sampling
 --------------------
