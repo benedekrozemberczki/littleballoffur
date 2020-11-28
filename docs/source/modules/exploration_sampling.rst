@@ -1,8 +1,5 @@
-littleballoffur.exploration_sampling
+Exploration Sampling
 ====================================
-
-.. contents:: Contents
-    :local:
 
 Exploration Sampling
 --------------------

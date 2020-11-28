@@ -1,9 +1,5 @@
-littleballoffur.node_sampling
+Node Sampling
 =============================
-
-.. contents:: Contents
-    :local:
-
 
 Node Sampling
 --------------

@@ -1,8 +1,5 @@
-littleballoffur.edge_sampling
+Edge Sampling
 =============================
-
-.. contents:: Contents
-    :local:
 
 
 Edge Sampling
