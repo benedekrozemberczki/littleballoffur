@@ -15,3 +15,9 @@ from .communitystructureexpansionsampler import CommunityStructureExpansionSampl
 from .metropolishastingsrandomwalksampler import MetropolisHastingsRandomWalkSampler
 from .circulatedneighborsrandomwalksampler import CirculatedNeighborsRandomWalkSampler
 from .commonneighborawarerandomwalksampler import CommonNeighborAwareRandomWalkSampler
+
+__all__ = ["FrontierSampler",
+           "SnowBallSampler"]
+
+classes = __all__
+
