@@ -20,7 +20,6 @@ Node Sampling
 
 Edge Sampling
 --------------
-
 .. currentmodule:: littleballoffur.edge_sampling
 .. autosummary::
    :nosignatures:
@@ -34,7 +33,6 @@ Edge Sampling
 
 Exploration Sampling
 --------------------
-
 .. currentmodule:: littleballoffur.exploration_sampling
 .. autosummary::
    :nosignatures:
