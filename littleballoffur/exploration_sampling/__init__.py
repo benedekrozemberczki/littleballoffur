@@ -32,7 +32,7 @@ __all__ = ["FrontierSampler",
            "MetropolisHastingsRandomWalkSampler",
            "CommunityStructureExpansionSampler",
            "CirculatedNeighborsRandomWalkSampler",
-           "CommonNeighborAwareRandomWalkSampler"]
+           "CommonNeighborAwareRandomWalkSampler",]
 
 classes = __all__
 
