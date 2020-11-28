@@ -7,5 +7,5 @@ __all__ = ["RandomNodeSampler",
            "DegreeBasedSampler",
            "PageRankBasedSampler"]
 
-classes == __all__
+classes = __all__
 
