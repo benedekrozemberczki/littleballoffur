@@ -11,9 +11,9 @@ Node Sampling
 .. currentmodule:: littleballoffur.node_sampling
 .. autosummary::
    :nosignatures:
-   littleballoffur.node_sampling.randomnodesampler
-   littleballoffur.node_sampling.degreebasedsampler
-   littleballoffur.node_sampling.pagerankbasedsampler
+   randomnodesampler
+   degreebasedsampler
+   pagerankbasedsampler
 
 .. automodule:: littleballoffur.node_sampling.randomnodesampler
     :members:
