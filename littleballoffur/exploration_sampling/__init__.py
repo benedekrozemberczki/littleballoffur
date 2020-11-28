@@ -17,7 +17,13 @@ from .circulatedneighborsrandomwalksampler import CirculatedNeighborsRandomWalkS
 from .commonneighborawarerandomwalksampler import CommonNeighborAwareRandomWalkSampler
 
 __all__ = ["FrontierSampler",
-           "SnowBallSampler"]
+           "SnowBallSampler",
+           "RandomWalkSampler",
+           "ForestFireSampler",
+           "SpikyBallSampler",
+           "ShortestPathSampler",
+           "BreadthFirstSearchSampler",
+           "DepthFirstSearchSampler"]
 
 classes = __all__
 
