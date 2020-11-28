@@ -7,6 +7,16 @@ Little Ball of Fur
 Node Sampling
 --------------
 
+Convolutional Layers
+--------------------
+.. currentmodule:: littleballoffur.node_sampling
+
+.. autosummary::
+   :nosignatures:
+   {% for cls in littleballoffur.node_sampling.classes %}
+     {{ cls }}
+   {% endfor %}
+
 .. automodule:: littleballoffur.node_sampling.randomnodesampler
     :members:
     :undoc-members:
