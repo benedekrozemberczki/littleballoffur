@@ -3,7 +3,9 @@ from .degreebasedsampler import DegreeBasedSampler
 from .pagerankbasedsampler import PageRankBasedSampler
 
 
-classes = ["RandomNodeSampler",
+__all__ = ["RandomNodeSampler",
            "DegreeBasedSampler",
            "PageRankBasedSampler"]
+
+classes == __all__
 
