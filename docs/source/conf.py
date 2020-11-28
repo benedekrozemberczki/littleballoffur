@@ -1,5 +1,4 @@
 import datetime
-import littleballoffur
 import sphinx_rtd_theme
 import doctest
 import sys
@@ -48,7 +47,6 @@ html_theme_options = {
 html_logo = '_static/img/littleballoffur_logo_text.jpg'
 html_static_path = ['_static']
 html_context = {'css_files': ['_static/css/custom.css']}
-rst_context = {'littleballoffur': littleballoffur}
 
 add_module_names = False
 
