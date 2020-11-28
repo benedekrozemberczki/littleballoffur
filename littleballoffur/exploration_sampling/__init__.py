@@ -28,7 +28,11 @@ __all__ = ["FrontierSampler",
            "RandomWalkWithJumpSampler",
            "LoopErasedRandomWalkSampler",
            "RandomWalkWithRestartSampler",
-           "NonBackTrackingRandomWalkSampler"]
+           "NonBackTrackingRandomWalkSampler",
+           "MetropolisHastingsRandomWalkSampler",
+           "CommunityStructureExpansionSampler",
+           "CirculatedNeighborsRandomWalkSampler",
+           "CommonNeighborAwareRandomWalkSampler"]
 
 classes = __all__
 
