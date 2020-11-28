@@ -33,5 +33,7 @@ Little Ball of Fur Documentation
    :maxdepth: 2
    :caption: Package Reference
 
-   modules/root
+   modules/node_sampling
+   modules/edge_sampling
+   modules/exploration_sampling
    modules/dataset
