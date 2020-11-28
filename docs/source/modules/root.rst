@@ -1,4 +1,4 @@
-Little Ball of Fur
+littleballoffur
 ==================
 
 .. contents:: Contents
