@@ -1,7 +1,6 @@
 Edge Sampling
 =============
-Edge Sampling
---------------
+
 .. currentmodule:: littleballoffur.edge_sampling
 .. autosummary::
    :nosignatures:

@@ -1,8 +1,6 @@
 Exploration Sampling
 ====================
 
-Exploration Sampling
---------------------
 .. currentmodule:: littleballoffur.exploration_sampling
 .. autosummary::
    :nosignatures:

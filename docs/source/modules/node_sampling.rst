@@ -1,8 +1,6 @@
 Node Sampling
 =============
 
-Node Sampling
---------------
 .. currentmodule:: littleballoffur.node_sampling
 .. autosummary::
    :nosignatures:
