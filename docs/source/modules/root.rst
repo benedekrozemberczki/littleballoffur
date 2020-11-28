@@ -35,70 +35,13 @@ Edge Sampling
 Exploration Sampling
 --------------------
 
-.. automodule:: littleballoffur.exploration_sampling.snowballsampler
-    :members:
-    :undoc-members:
+.. currentmodule:: littleballoffur.exploration_sampling
+.. autosummary::
+   :nosignatures:
+   {% for cls in littleballoffur.exploration_sampling.classes %}
+     {{ cls }}
+   {% endfor %}
 
-.. automodule:: littleballoffur.exploration_sampling.depthfirstsearchsampler
+.. automodule:: littleballoffur.exploration_sampling
     :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.breadthfirstsearchsampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.randomwalksampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.looperasedrandomwalksampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.randomnodeneighborsampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.randomwalkwithrestartsampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.randomwalkwithjumpsampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.frontiersampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.forestfiresampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.communitystructureexpansionsampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.cirulatedneighborsrandomwalksampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.shortestpathsampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.nonbacktrackingrandomwalksampler
-    :members:
-    :undoc-members:
-
-.. automodule:: littleballoffur.exploration_sampling.spikyballsampler
-    :members:
-    :undoc-members:
+    :exclude-members:
