@@ -23,7 +23,12 @@ __all__ = ["FrontierSampler",
            "SpikyBallSampler",
            "ShortestPathSampler",
            "BreadthFirstSearchSampler",
-           "DepthFirstSearchSampler"]
+           "DepthFirstSearchSampler",
+           "RandomNodeNeighborSampler",
+           "RandomWalkWithJumpSampler",
+           "LoopErasedRandomWalkSampler",
+           "RandomWalkWithRestartSampler",
+           "NonBackTrackingRandomWalkSampler"]
 
 classes = __all__
 
