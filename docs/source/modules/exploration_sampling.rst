@@ -1,13 +1,34 @@
 Exploration Sampling
 ====================
 
-.. currentmodule:: littleballoffur.exploration_sampling
-.. autosummary::
-   :nosignatures:
-   {% for cls in littleballoffur.exploration_sampling.classes %}
-     {{ cls }}
-   {% endfor %}
-
-.. automodule:: littleballoffur.exploration_sampling
+.. automodule:: littleballoffur.exploration_sampling.diffusionsampler
     :members:
-    :exclude-members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.forestfiresampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.spikyballsampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.nonbacktrackingrandomwalksampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.looperasedrandomwalksampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.randomwalksampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.randomwalkwithrestartsampler
+    :members:
+    :undoc-members:
