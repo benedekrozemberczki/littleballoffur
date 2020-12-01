@@ -19,6 +19,7 @@ from .commonneighborawarerandomwalksampler import CommonNeighborAwareRandomWalkS
 
 __all__ = ["FrontierSampler",
            "SnowBallSampler",
+           "DiffusionSampler",
            "RandomWalkSampler",
            "ForestFireSampler",
            "SpikyBallSampler",
