@@ -9,7 +9,7 @@ NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
 
-class RandomWalkSampler(Sampler):
+class DiffusionSampler(Sampler):
     r"""An implementation of node sampling by random walks. A simple random walker
     which creates an induced subgraph by walking around. `"For details about the
     algorithm see this paper." <https://ieeexplore.ieee.org/document/5462078>`_
