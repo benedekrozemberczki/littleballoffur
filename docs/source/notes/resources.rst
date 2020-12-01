@@ -1,6 +1,8 @@
 External resources
 ==================
 
+* Benedek Rozemberczki and Rik Sarkar: **Fast Sequence-Based Embedding with Diffusion Graphs** `Paper <https://arxiv.org/abs/2001.07463>`_
+
 * Lada A. Adamic, Rajan M. Lukose, Amit R. Puniyani, Bernardo A. Huberman: **Search in Power-Law Networks** `Paper <https://arxiv.org/pdf/cs/0103016.pdf>`_
 
 * Michael P. H. Stumpf, Carsten Wiuf, and Robert M. May: **SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks** `Paper <https://www.pnas.org/content/102/12/4221>`_
