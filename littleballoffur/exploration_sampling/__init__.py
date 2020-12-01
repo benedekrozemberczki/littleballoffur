@@ -1,5 +1,6 @@
 from .frontiersampler import FrontierSampler
 from .snowballsampler import SnowBallSampler
+from .diffusionsampler import DiffusionSampler
 from .randomwalksampler import RandomWalkSampler
 from .forestfiresampler import ForestFireSampler
 from .spikyballsampler import SpikyBallSampler
