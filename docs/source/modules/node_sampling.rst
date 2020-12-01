@@ -1,12 +1,14 @@
 Node Sampling
 =============
 
-.. currentmodule:: littleballoffur.node_sampling
-.. autosummary::
-   {% for cls in littleballoffur.node_sampling.classes %}
-     {{ cls }}
-   {% endfor %}
-
-.. automodule:: littleballoffur.node_sampling
+.. automodule:: littleballoffur.node_sampling.randomnodesampler
     :members:
-    :exclude-members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.node_sampling.degreebasedsampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.node_sampling.pagerankbasedsampler
+    :members:
+    :undoc-members:
