@@ -107,6 +107,8 @@ In detail, the following sampling methods were implemented.
 
 * **[Shortest Path Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.shortestpathsampler.ShortestPathSampler)** from Rezvanian *et al.*: [Sampling Social Networks Using Shortest Paths](https://www.sciencedirect.com/science/article/pii/S0378437115000321) (Physica A 2015)
 
+* **[Diffusion Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.diffusionsampler.DiffusionSampler)** from Rozemberczki *et al.*: [](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (Complex Networks 2018)
+
 * **[Common Neighbor Aware Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler.CommonNeighborAwareRandomWalkSampler)** from Li *et al.*: [Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness](https://ieeexplore.ieee.org/document/8731555) (ICDE 2019)
 
 * **[Spiky Ball Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.spikyballsampler.SpikyBallSampler)** from Ricaud *et al.*: [Spikyball Sampling: Exploring Large Networks via an Inhomogeneous Filtered Diffusion](https://www.mdpi.com/1999-4893/13/11/275) (Algorithms 2020)
