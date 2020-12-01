@@ -1,14 +1,22 @@
 Edge Sampling
 =============
 
-.. currentmodule:: littleballoffur.edge_sampling
-.. autosummary::
-   :nosignatures:
-   {% for cls in littleballoffur.edge_sampling.classes %}
-     {{ cls }}
-   {% endfor %}
-
-.. automodule:: littleballoffur.edge_sampling
+.. automodule:: littleballoffur.edge_sampling.randomedgesampler
     :members:
-    :exclude-members:
+    :undoc-members:
 
+.. automodule:: littleballoffur.edge_sampling.randomnodeedgesampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.edge_sampling.hybridnodeedgesampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.edge_sampling.randomedgesamplerwithpartialinduction
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.edge_sampling.randomedgesamplerwithinduction
+    :members:
+    :undoc-members:
