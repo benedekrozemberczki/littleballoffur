@@ -62,17 +62,17 @@ Exploration Sampling
     :undoc-members:
 
 
-.. automodule:: littleballoffur.exploration_sampling.
+.. automodule:: littleballoffur.exploration_sampling.frontiersampler
     :members:
     :undoc-members:
 
 
-.. automodule:: littleballoffur.exploration_sampling.
+.. automodule:: littleballoffur.exploration_sampling.randomnodeneighborsampler
     :members:
     :undoc-members:
 
 
-.. automodule:: littleballoffur.exploration_sampling.
+.. automodule:: littleballoffur.exploration_sampling.shortestpathsampler
     :members:
     :undoc-members:
 
