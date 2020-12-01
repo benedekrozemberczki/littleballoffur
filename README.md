@@ -55,37 +55,37 @@ In detail, the following sampling methods were implemented.
 
 **Node Sampling**
 
-* **[Degree Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.degreebasedsampler.DegreeBasedSampler)** from Adamic *et al.*: [Search In Power-Law Networks](https://arxiv.org/abs/cs/0103016) (Physical Review E 2001)
+* **[Degree Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/node_sampling.html#littleballoffur.node_sampling.degreebasedsampler.DegreeBasedSampler)** from Adamic *et al.*: [Search In Power-Law Networks](https://arxiv.org/abs/cs/0103016) (Physical Review E 2001)
 
-* **[Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)** from Stumpf *et al.*: [SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks](https://www.pnas.org/content/102/12/4221) (PNAS 2005)
+* **[Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/node_sampling.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)** from Stumpf *et al.*: [SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks](https://www.pnas.org/content/102/12/4221) (PNAS 2005)
 
-* **[PageRank Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.node_sampling.pagerankbasedsampler.PageRankBasedSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
+* **[PageRank Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/node_sampling.html#littleballoffur.node_sampling.pagerankbasedsampler.PageRankBasedSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
 
 **Edge Sampling**
 
-* **[Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologies for Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
+* **[Random Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/edge_sampling.html#littleballoffur.edge_sampling.randomedgesampler.RandomEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologies for Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
 
-* **[Random Node-Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomnodeedgesampler.RandomNodeEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologies for Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
+* **[Random Node-Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/edge_sampling.html#littleballoffur.edge_sampling.randomnodeedgesampler.RandomNodeEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologies for Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
 
-* **[Hybrid Node-Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.hybridnodeedgesampler.HybridNodeEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologies for Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
+* **[Hybrid Node-Edge Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/edge_sampling.html#littleballoffur.edge_sampling.hybridnodeedgesampler.HybridNodeEdgeSampler)** from Krishnamurthy *et al.*: [Reducing Large Internet Topologies for Faster Simulations](http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf) (Networking 2005)
 
-* **[Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)** from Ahmed *et al.*: [Network Sampling: From Static to Streaming Graphs](https://dl.acm.org/doi/10.1145/2601438) (TKDD 2013)
+* **[Random Edge Sampler with Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/edge_sampling.html#littleballoffur.edge_sampling.randomedgesamplerwithinduction.RandomEdgeSamplerWithInduction)** from Ahmed *et al.*: [Network Sampling: From Static to Streaming Graphs](https://dl.acm.org/doi/10.1145/2601438) (TKDD 2013)
 
-* **[Random Edge Sampler with Partial Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.edge_sampling.randomedgesamplerwithpartialinduction.RandomEdgeSamplerWithPartialInduction)** from Ahmed *et al.*: [Network Sampling: From Static to Streaming Graphs](https://dl.acm.org/doi/10.1145/2601438) (TKDD 2013)
+* **[Random Edge Sampler with Partial Induction](https://little-ball-of-fur.readthedocs.io/en/latest/modules/edge_sampling.html#littleballoffur.edge_sampling.randomedgesamplerwithpartialinduction.RandomEdgeSamplerWithPartialInduction)** from Ahmed *et al.*: [Network Sampling: From Static to Streaming Graphs](https://dl.acm.org/doi/10.1145/2601438) (TKDD 2013)
 
 **Exploration Based Sampling**
 
-* **[Snowball Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.snowballsampler.SnowBallSampler)** from Goodman: [Snowball Sampling](https://projecteuclid.org/euclid.aoms/1177705148) (The Annals of Mathematical Statistics 1961)
+* **[Snowball Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.snowballsampler.SnowBallSampler)** from Goodman: [Snowball Sampling](https://projecteuclid.org/euclid.aoms/1177705148) (The Annals of Mathematical Statistics 1961)
 
-* **[Loop-Erased Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.looperasedrandomwalksampler.LoopErasedRandomWalkSampler)** from Wilson: [Generating Random Spanning Trees More Quickly Than the Cover Time](https://link.springer.com/chapter/10.1007/978-1-4612-2168-5_12) (STOC 1996)
+* **[Loop-Erased Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.looperasedrandomwalksampler.LoopErasedRandomWalkSampler)** from Wilson: [Generating Random Spanning Trees More Quickly Than the Cover Time](https://link.springer.com/chapter/10.1007/978-1-4612-2168-5_12) (STOC 1996)
 
-* **[Forest Fire Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.forestfiresampler.ForestFireSampler)** from Leskovec *et al.*: [Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2005)
+* **[Forest Fire Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.forestfiresampler.ForestFireSampler)** from Leskovec *et al.*: [Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2005)
 
-* **[Random Node-Neighbor Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.randomnodeneighborsampler.RandomNodeNeighborSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
+* **[Random Node-Neighbor Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.randomnodeneighborsampler.RandomNodeNeighborSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
 
-* **[Random Walk With Restart Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.randomwalkwithrestartsampler.RandomWalkWithRestartSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
+* **[Random Walk With Restart Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.randomwalkwithrestartsampler.RandomWalkWithRestartSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
 
-* **[Metropolis Hastings Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler.MetropolisHastingsRandomWalkSampler)** from Hubler *et al.*: [Metropolis Algorithms for Representative Subgraph Sampling](http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf) (ICDM 2008)
+* **[Metropolis Hastings Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler.MetropolisHastingsRandomWalkSampler)** from Hubler *et al.*: [Metropolis Algorithms for Representative Subgraph Sampling](http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf) (ICDM 2008)
 
 * **[Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/root.html#littleballoffur.exploration_sampling.randomwalksampler.RandomWalkSampler)** from Gjoka *et al.*: [Walking in Facebook: A Case Study of Unbiased Sampling of OSNs](https://ieeexplore.ieee.org/document/5462078) (INFOCOM 2010)
 
