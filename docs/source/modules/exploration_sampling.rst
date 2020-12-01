@@ -32,3 +32,48 @@ Exploration Sampling
 .. automodule:: littleballoffur.exploration_sampling.randomwalkwithrestartsampler
     :members:
     :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.metropolishastingsrandomwalksampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.snowballsampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.circulatedneighborsrandomwalksampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.breadthfirstsearchsampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.depthfirstsearchsampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.randomwalkwithjumpsampler
+    :members:
+    :undoc-members:
+
+.. automodule:: littleballoffur.exploration_sampling.communitystructureexpansionsampler
+    :members:
+    :undoc-members:
+
+
+.. automodule:: littleballoffur.exploration_sampling.
+    :members:
+    :undoc-members:
+
+
+.. automodule:: littleballoffur.exploration_sampling.
+    :members:
+    :undoc-members:
+
+
+.. automodule:: littleballoffur.exploration_sampling.
+    :members:
+    :undoc-members:
+
+
