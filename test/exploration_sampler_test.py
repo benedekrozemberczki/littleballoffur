@@ -7,6 +7,8 @@ from littleballoffur.exploration_sampling import CommunityStructureExpansionSamp
 from littleballoffur.exploration_sampling import RandomWalkSampler, MetropolisHastingsRandomWalkSampler, CommonNeighborAwareRandomWalkSampler
 from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler, SpikyBallSampler
 
+from littleballoffur.exploration_sampling import DiffusionSampler
+
 from littleballoffur.exploration_sampling import ShortestPathSampler, RandomWalkWithJumpSampler, FrontierSampler, RandomNodeNeighborSampler
 from littleballoffur.dataset import GraphReader
 
