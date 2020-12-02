@@ -1095,12 +1095,12 @@ def test_random_walk_with_jump_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
-    new_graph = sampler.sample(graph, 53)
+    new_graph = sampler.sample(graph, 13)
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
-    new_graph = sampler.sample(graph, 99)
+    new_graph = sampler.sample(graph, 42)
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
