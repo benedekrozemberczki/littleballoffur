@@ -10,9 +10,10 @@ NXGraph = nx.classes.graph.Graph
 
 
 class DiffusionSampler(Sampler):
-    r"""An implementation of node sampling by random walks. A simple random walker
-    which creates an induced subgraph by walking around. `"For details about the
-    algorithm see this paper." <https://ieeexplore.ieee.org/document/5462078>`_
+    r"""An implementation of exploration sampling by a diffusion branching 
+    process. A simple diffusion which creates an induced subgraph by an 
+    incrementally diffusion. `"For details about the algorithm see this paper."
+     <https://arxiv.org/abs/2001.07463>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
