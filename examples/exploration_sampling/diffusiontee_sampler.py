@@ -10,4 +10,3 @@ sampler = DiffusionTreeSampler()
 
 new_graph = sampler.sample(graph)
 
-
