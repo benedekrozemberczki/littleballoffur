@@ -7,7 +7,7 @@ from littleballoffur.exploration_sampling import CommunityStructureExpansionSamp
 from littleballoffur.exploration_sampling import RandomWalkSampler, MetropolisHastingsRandomWalkSampler, CommonNeighborAwareRandomWalkSampler
 from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler, SpikyBallSampler
 
-from littleballoffur.exploration_sampling import DiffusionSampler
+from littleballoffur.exploration_sampling import DiffusionSampler, DiffusionTreeSampler
 
 from littleballoffur.exploration_sampling import ShortestPathSampler, RandomWalkWithJumpSampler, FrontierSampler, RandomNodeNeighborSampler
 from littleballoffur.dataset import GraphReader
@@ -595,7 +595,7 @@ def test_diffusion_tree_sampler():
     """
     Testing the number of nodes and the connectivity.
     """
-    sampler = DiffusionSampler()
+    sampler = DiffusionTreeSampler()
 
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
@@ -605,7 +605,7 @@ def test_diffusion_tree_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
-    sampler = DiffusionSampler(number_of_nodes=25)
+    sampler = DiffusionTreeSampler(number_of_nodes=25)
 
     graph = nx.watts_strogatz_graph(100, 10, 0)
 
@@ -615,7 +615,7 @@ def test_diffusion_tree_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
-    sampler = DiffusionSampler()
+    sampler = DiffusionTreeSampler()
 
     graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
 
@@ -625,7 +625,7 @@ def test_diffusion_tree_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
-    sampler = DiffusionSampler(number_of_nodes=25)
+    sampler = DiffusionTreeSampler(number_of_nodes=25)
 
     graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(100, 10, 0))
 
@@ -635,7 +635,7 @@ def test_diffusion_tree_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
-    sampler = DiffusionSampler()
+    sampler = DiffusionTreeSampler()
 
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
@@ -645,7 +645,7 @@ def test_diffusion_tree_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
-    sampler = DiffusionSampler(number_of_nodes=25)
+    sampler = DiffusionTreeSampler(number_of_nodes=25)
 
     graph = nx.watts_strogatz_graph(100, 10, 0)
 
