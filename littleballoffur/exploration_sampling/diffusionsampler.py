@@ -65,5 +65,5 @@ class DiffusionSampler(Sampler):
         self._create_initial_node_set(graph, start_node)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step(graph)
-        out_graph = self.backend.get_subgraph(graph, list(self._sampled_nodes))
-        return out_graph
+        new_graph = self.backend.get_subgraph(graph, list(self._sampled_nodes))
+        return new_graph
