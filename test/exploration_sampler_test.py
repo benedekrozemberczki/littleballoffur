@@ -515,6 +515,82 @@ def test_random_walk_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
+def test_diffusion_sampler():
+    """
+    Testing the number of nodes and the connectivity.
+    """
+    sampler = RandomWalkSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NXGraph
+
+    sampler = RandomWalkSampler(number_of_nodes=25)
+
+    graph = nx.watts_strogatz_graph(100, 10, 0)
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NXGraph
+
+    sampler = RandomWalkSampler()
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    sampler = RandomWalkSampler(number_of_nodes=25)
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(100, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
+    sampler = RandomWalkSampler()
+
+    graph = nx.watts_strogatz_graph(200, 10, 0)
+
+    new_graph = sampler.sample(graph, 17)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NXGraph
+
+    sampler = RandomWalkSampler(number_of_nodes=25)
+
+    graph = nx.watts_strogatz_graph(100, 10, 0)
+
+    new_graph = sampler.sample(graph, 17)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NXGraph
+
+    new_graph = sampler.sample(graph, 0)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NXGraph
+
+    new_graph = sampler.sample(graph, 99)
+
+    assert sampler.number_of_nodes == new_graph.number_of_nodes()
+    assert nx.is_connected(new_graph)
+    assert type(new_graph) == NXGraph
+
 
 def test_metropolis_hastings_random_walk_sampler():
     """
