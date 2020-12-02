@@ -109,6 +109,8 @@ In detail, the following sampling methods were implemented.
 
 * **[Diffusion Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.diffusionsampler.DiffusionSampler)** from Rozemberczki *et al.*: [Fast Sequence-Based Embedding with Diffusion Graphs](https://arxiv.org/abs/2001.07463) (Complex Networks 2018)
 
+* **[Diffusion Tree Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.diffusiontreesampler.DiffusionTreeSampler)** from Rozemberczki *et al.*: [Fast Sequence-Based Embedding with Diffusion Graphs](https://arxiv.org/abs/2001.07463) (Complex Networks 2018)
+
 * **[Common Neighbor Aware Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.commonneighborawarerandomwalksampler.CommonNeighborAwareRandomWalkSampler)** from Li *et al.*: [Walking with Perception: Efficient Random Walk Sampling via Common Neighbor Awareness](https://ieeexplore.ieee.org/document/8731555) (ICDE 2019)
 
 * **[Spiky Ball Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.spikyballsampler.SpikyBallSampler)** from Ricaud *et al.*: [Spikyball Sampling: Exploring Large Networks via an Inhomogeneous Filtered Diffusion](https://www.mdpi.com/1999-4893/13/11/275) (Algorithms 2020)
