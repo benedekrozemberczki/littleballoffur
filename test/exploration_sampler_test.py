@@ -559,7 +559,7 @@ def test_diffusion_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
-    sampler = RandomWalkSampler()
+    sampler = DiffusionSampler()
 
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
@@ -569,7 +569,7 @@ def test_diffusion_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
-    sampler = RandomWalkSampler(number_of_nodes=25)
+    sampler = DiffusionSampler(number_of_nodes=25)
 
     graph = nx.watts_strogatz_graph(100, 10, 0)
 
