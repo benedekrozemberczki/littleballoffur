@@ -5,6 +5,7 @@ from .randomwalksampler import RandomWalkSampler
 from .forestfiresampler import ForestFireSampler
 from .spikyballsampler import SpikyBallSampler
 from .shortestpathsampler import ShortestPathSampler
+from .diffusiontreesampler import DiffusionTreeSampler
 from .breadthfirstsearchsampler import BreadthFirstSearchSampler
 from .depthfirstsearchsampler import DepthFirstSearchSampler
 from .randomnodeneighborsampler import RandomNodeNeighborSampler
@@ -20,6 +21,7 @@ from .commonneighborawarerandomwalksampler import CommonNeighborAwareRandomWalkS
 __all__ = ["FrontierSampler",
            "SnowBallSampler",
            "DiffusionSampler",
+           "DiffusionTreeSampler",
            "RandomWalkSampler",
            "ForestFireSampler",
            "SpikyBallSampler",
