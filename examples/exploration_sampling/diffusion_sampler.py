@@ -1,4 +1,4 @@
-"""Random walk sampler example"""
+"""Diffusion sampler example"""
 
 import networkx as nx
 
