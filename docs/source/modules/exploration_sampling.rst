@@ -5,6 +5,11 @@ Exploration Sampling
     :members:
     :undoc-members:
 
+
+.. automodule:: littleballoffur.exploration_sampling.diffusiontreesampler
+    :members:
+    :undoc-members:
+
 .. automodule:: littleballoffur.exploration_sampling.forestfiresampler
     :members:
     :undoc-members:

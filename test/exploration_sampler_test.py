@@ -15,11 +15,9 @@ from littleballoffur.dataset import GraphReader
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
-
 #-----------------------------------#
 # TESTS FOR SPANNING TREE SAMPLERS. #
 #-----------------------------------#
-
 
 def test_loop_erased_random_walk_sampler_1():
     """
