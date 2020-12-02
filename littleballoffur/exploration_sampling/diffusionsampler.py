@@ -28,6 +28,7 @@ class DiffusionSampler(Sampler):
         """
         Choosing an initial node.
         """
+        self._sampled_edges = []
         if start_node is not None:
             if start_node >= 0 and start_node < self.backend.get_number_of_nodes(graph):
                 self._sampled_nodes = set([start_node])
@@ -43,7 +44,10 @@ class DiffusionSampler(Sampler):
         """
         source_node = random.sample(self._sampled_nodes, 1)[0]
         neighbor = self.backend.get_random_neighbor(graph, source_node)
-        self._sampled_nodes.add(neighbor)
+        if neighbor not in self._sampled_nodes:
+            self._sampled_nodes.add(neighbor)
+            self._sampled_edges.append([source_node, neighbor])
+            self._sampled_edges.append([neighbor, source_node])
 
     def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
         """
@@ -61,5 +65,5 @@ class DiffusionSampler(Sampler):
         self._create_initial_node_set(graph, start_node)
         while len(self._sampled_nodes) < self.number_of_nodes:
             self._do_a_step(graph)
-        new_graph = self.backend.get_subgraph(graph, self._sampled_nodes)
-        return new_graph
+        out_graph = self.backend.graph_from_edgelist(self._sampled_edges)
+        return out_graph
