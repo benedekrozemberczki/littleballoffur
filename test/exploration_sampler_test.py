@@ -519,7 +519,7 @@ def test_diffusion_sampler():
     """
     Testing the number of nodes and the connectivity.
     """
-    sampler = RandomWalkSampler()
+    sampler = DiffusionSampler()
 
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
