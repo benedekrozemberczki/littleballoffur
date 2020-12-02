@@ -1,4 +1,4 @@
-"""Diffusion sampler example"""
+"""Diffusion-tree sampler example"""
 
 import networkx as nx
 
