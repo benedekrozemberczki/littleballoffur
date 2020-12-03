@@ -163,6 +163,17 @@ def test_breadth_first_search_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
+    sampler = BreadthFirstSearchSampler(number_of_nodes=1)
+
+    graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
+
+    new_graph = sampler.sample(graph)
+
+    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert sampler.number_of_nodes == new_graph.numberOfNodes()
+    assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
+    assert type(new_graph) == NKGraph
+
 
 def test_depth_first_search_sampler():
     """
