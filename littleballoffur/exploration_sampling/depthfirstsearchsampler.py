@@ -68,8 +68,11 @@ class DepthFirstSearchSampler(Sampler):
                 self._nodes.add(source)
                 self._path.append(source)
         self._extract_edges()
-        new_graph = self.backend.graph_from_edgelist(self._edges)
-        new_graph = self.backend.get_subgraph(new_graph, self._nodes)
+        if len(self._edges) >0:
+            new_graph = self.backend.graph_from_edgelist(self._edges)
+            new_graph = self.backend.get_subgraph(new_graph, self._nodes)
+        else:
+            new_graph = self.backend.get_subgraph(graph, self._nodes)  
         return new_graph
 
 
