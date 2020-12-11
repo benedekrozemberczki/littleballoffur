@@ -21,7 +21,6 @@ jobs:
         run: |
          source script/conda.sh
          conda init bash
-         source ~/anaconda3/etc/profile.d/conda.sh
          conda create --yes -n test
          conda activate test
          conda install -n test -y scipy
