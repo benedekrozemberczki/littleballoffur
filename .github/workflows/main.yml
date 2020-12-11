@@ -20,4 +20,4 @@ jobs:
       - name: Run installation.
         run: |
          source script/conda.sh
-         conda activate test
+         source activate test
