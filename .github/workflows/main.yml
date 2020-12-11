@@ -27,3 +27,5 @@ jobs:
          conda install -n test -y -c conda-forge networkit
          pip install codecov
          python setup.py install
+         python setup.py test
+         codecov
