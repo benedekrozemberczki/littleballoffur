@@ -19,7 +19,7 @@ jobs:
           python-version: 3.6.12
       - uses: s-weigand/setup-conda@v1
         with:
-          activate-conda: false
+          activate-conda: true
       - run: conda --version
       - run: which python
       - name: Run installation.
