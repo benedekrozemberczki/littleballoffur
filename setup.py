@@ -31,6 +31,7 @@ keywords = ["community",
             "spiky ball",
             "graph sampling",
             "sampling",
+            "tree sampling",
             "random walk",
             "forest fire"]
 
