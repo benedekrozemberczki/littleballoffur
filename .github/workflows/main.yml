@@ -20,14 +20,13 @@ jobs:
       - uses: s-weigand/setup-conda@v1
         with:
           activate-conda: true
-          activate-environment: test
           python-version: 3.6
       - run: conda --version
       - run: which python
       - name: Run installation.
         run: |
-         conda install -n test -y scipy
-         conda install -n test -y -c conda-forge networkit
+         pip install scipy
+         pip install networkit
          pip install codecov
          python setup.py install
          coverage run setup.py test
