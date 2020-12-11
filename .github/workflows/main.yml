@@ -11,8 +11,9 @@ on:
 
 jobs:
     build:
-    steps:
-    - name: Set up Python 3.6.9
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.6.9
+      runs-on: ubuntu-latest
+      steps:
+      - name: Set up Python 3.6.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.6.9
