@@ -21,3 +21,4 @@ jobs:
         run: |
          source script/conda.sh
          conda create --yes -n test python="3.6.12"
+         source activate test
