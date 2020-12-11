@@ -21,4 +21,4 @@ jobs:
         run: |
          source script/conda.sh
          conda init bash
-         activate test
+         conda activate test
