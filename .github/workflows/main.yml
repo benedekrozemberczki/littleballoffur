@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v1
         with:
-          python-version: 3.6.12
+          python-version: 3.7.12
       - uses: s-weigand/setup-conda@v1
         with:
           activate-conda: true
@@ -29,6 +29,8 @@ jobs:
          conda install -c conda-forge networkit
          pip install codecov
          python setup.py install
+      - name: Test coverage.
+        run: |
          coverage run setup.py test
          coverage xml -i
          echo "YOLO"
