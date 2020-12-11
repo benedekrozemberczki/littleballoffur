@@ -1,28 +1,21 @@
-language: shell
+name: CI
 
-os:
-  - linux
-  - osx
+on:
 
-env:
-  jobs:
-    - PYTHON_VERSION=3.6
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
-install:
-  - source script/conda.sh
-  - conda create --yes -n test python="${PYTHON_VERSION}"
-  - source activate test
-  - pip install codecov
-  - python setup.py install
+  workflow_dispatch:
 
-script:
-  - python setup.py test
+jobs:
 
-after_success:
-  - codecov
+    build:
+    steps:
+    runs-on: ubuntu-latest
 
-notifications:
-    recipients:
-      - benedek.rozemberczki@gmail.com
-    on_success: always
-    on_failure: always
+    - name: Set up Python 3.6.9
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.6.9
