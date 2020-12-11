@@ -20,5 +20,5 @@ jobs:
       - name: Run installation.
         run: |
          source script/conda.sh
-         conda create --yes -n test python="3.6.12"
+         conda create --yes -n test
          source activate test
