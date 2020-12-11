@@ -23,3 +23,7 @@ jobs:
          conda init bash
          exec bash
          conda activate test
+         conda install -n test -y scipy
+         conda install -n test -y -c conda-forge networkit
+         pip install codecov
+         python setup.py install
