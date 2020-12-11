@@ -21,4 +21,3 @@ jobs:
         run: |
          source script/conda.sh
          conda create --yes -n test
-         source activate test
