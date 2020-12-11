@@ -21,3 +21,8 @@ jobs:
         run: |
          source script/conda.sh
          conda create --yes -n test python="${PYTHON_VERSION}"
+         source activate test
+         conda install -n test -y scipy
+         conda install -n test -y -c conda-forge networkit
+         pip install codecov
+         python setup.py install
