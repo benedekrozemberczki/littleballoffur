@@ -22,8 +22,8 @@ jobs:
          source script/conda.sh
          conda activate
          conda init bash
-         conda activate test
          conda create --yes -n test
+         conda activate test
          conda install -n test -y scipy
          conda install -n test -y -c conda-forge networkit
          pip install codecov
