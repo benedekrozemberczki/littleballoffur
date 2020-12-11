@@ -21,6 +21,7 @@ jobs:
         run: |
          source script/conda.sh
          conda init bash
+         source ~/anaconda3/etc/profile.d/conda.sh
          conda activate
          conda create --yes -n test
          conda activate test
@@ -28,8 +29,8 @@ jobs:
          conda install -n test -y -c conda-forge networkit
          pip install codecov
          python setup.py install
-         python -m coverage run --branch setup.py test
-         python -m coverage xml -i
+         coverage run setup.py test
+         coverage xml -i
          echo "YOLO"
       - name: Code Coverage
         uses: codecov/codecov-action@v1
