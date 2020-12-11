@@ -31,8 +31,7 @@ jobs:
          python setup.py install
       - name: Test coverage.
         run: |
-         coverage run setup.py test
-         coverage xml -i
+         python setup.py test
          codecov
       - name: Code Coverage
         uses: codecov/codecov-action@v1
