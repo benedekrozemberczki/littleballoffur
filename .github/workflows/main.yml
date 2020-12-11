@@ -25,8 +25,8 @@ jobs:
       - run: which python
       - name: Run installation.
         run: |
-         pip install scipy
-         conda install conda-forge networkit
+         conda install -y scipy
+         conda install -c conda-forge networkit
          pip install codecov
          python setup.py install
          coverage run setup.py test
