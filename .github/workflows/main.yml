@@ -29,4 +29,5 @@ jobs:
          python setup.py install
          python setup.py test
          codecov
+      - uses: actions/checkout@master
       - uses: codecov/codecov-action@v1
