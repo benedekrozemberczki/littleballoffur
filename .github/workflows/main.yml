@@ -20,8 +20,8 @@ jobs:
       - name: Run installation.
         run: |
          source script/conda.sh
-         conda activate
          conda init bash
+         conda activate
          conda create --yes -n test
          conda activate test
          conda install -n test -y scipy
