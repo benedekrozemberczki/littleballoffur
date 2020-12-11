@@ -29,5 +29,6 @@ jobs:
          python setup.py install
          python -m coverage run --branch setup.py test
          python -m coverage xml -i
+         echo "YOLO"
       - name: Code Coverage
         uses: codecov/codecov-action@v1
