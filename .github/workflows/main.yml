@@ -19,3 +19,4 @@ jobs:
           python-version: 3.6.12
       - name: Run installation.
         run: source script/conda.sh
+        run: conda create --yes -n test python="${PYTHON_VERSION}"
