@@ -10,7 +10,6 @@ on:
   workflow_dispatch:
 
 jobs:
-
     build:
     steps:
     - name: Set up Python 3.6.9
