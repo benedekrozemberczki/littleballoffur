@@ -20,14 +20,12 @@ jobs:
       - uses: s-weigand/setup-conda@v1
         with:
           activate-conda: true
+          activate-environment: test
+          python-version: 3.6
       - run: conda --version
       - run: which python
       - name: Run installation.
         run: |
-         source script/conda.sh
-         source ~/anaconda3/etc/profile.d/conda.sh
-         conda create --yes -n test
-         conda activate test
          conda install -n test -y scipy
          conda install -n test -y -c conda-forge networkit
          pip install codecov
