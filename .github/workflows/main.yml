@@ -22,8 +22,6 @@ jobs:
          source script/conda.sh
          conda init bash
          exec bash
-      - name: Run installation.
-        run: |
          conda activate test
          conda install -n test -y scipy
          conda install -n test -y -c conda-forge networkit
