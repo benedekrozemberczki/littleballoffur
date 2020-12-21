@@ -14,7 +14,7 @@ install_requires = ['cmake',
                     "scipy"]
 
 if not on_rtd:
-    install_requires.append("networkit")
+    install_requires.append("networkit==7.1")
 
 setup_requires = ["cython", "numpy", "pytest-runner"]
 
