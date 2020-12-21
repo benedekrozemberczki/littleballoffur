@@ -280,7 +280,7 @@ class NetworkXBackEnd(object):
     def _check_indexing(self, graph: NXGraph):
         """Checking the consecutive numeric indexing."""
         numeric_indices = [index for index in range(graph.number_of_nodes())]
-        node_indices = sorted([node for node in graph.iterNodes()])
+        node_indices = sorted([node for node in graph.nodes()])
         assert numeric_indices == node_indices, "The node indexing is wrong."
 
 
