@@ -160,11 +160,11 @@ class IGraphBackEnd(object):
     def __init__(self):
         pass
 
-    def get_number_of_nodes(self, graph: NKGraph) -> int:
+    def get_number_of_nodes(self, graph: IGraph) -> int:
         """
         Given a graph return the number of nodes.
         """
-        return graph.numberOfNodes()
+        return graph.vcount()
 
 
     def get_number_of_edges(self, graph: NKGraph) -> int:
