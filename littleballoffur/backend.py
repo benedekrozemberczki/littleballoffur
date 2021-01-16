@@ -185,7 +185,7 @@ class IGraphBackEnd(object):
         """
         Given a graph return the edges.
         """
-        return graph.get_edge_list()
+        return [[e.source, e.target] for e in graph.es]
 
 
     def get_node_iterator(self, graph: NKGraph):

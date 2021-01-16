@@ -56,8 +56,7 @@ def test_igraph_backend_get_basics():
     backend = IGraphBackEnd()
 
     graph = ig.Graph(n=6, edges=[[0, 1], [2, 1], [3, 2], [4, 2], [5, 2]])
-    
-    print(graph.es)
+
 
     nodes = backend.get_nodes(graph)
     edges = backend.get_edges(graph)
@@ -69,11 +68,11 @@ def test_igraph_backend_get_basics():
     assert 4 in nodes
     assert 5 in nodes
 
-    assert (1, 0) in edges
-    assert (2, 1) in edges
-    assert (3, 2) in edges
-    assert (4, 2) in edges
-    assert (5, 2) in edges
+    assert [0, 1] in edges
+    assert [1, 2] in edges
+    assert [2, 3] in edges
+    assert [2, 4] in edges
+    assert [2, 5] in edges
 
 def test_networkit_backend_graph_from_edgelist():
 
