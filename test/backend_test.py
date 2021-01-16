@@ -1,6 +1,16 @@
+import igraph as ig
 import networkx as nx
 import networkit as nk
-from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
+from littleballoffur import NetworKitBackEnd, NetworkXBackEnd, IGraphBackEnd
+
+def test_igraph_backend_basics():
+
+    backend = IGraphBackEnd()
+    graph = ig.Graph.Graph.Watts_Strogatz(1000, 10, 0.0)
+
+    assert 1000 == backend.get_number_of_nodes(graph)
+    assert 10000 == backend.get_number_of_edges(graph)
+    assert 20 == backend.get_degree(graph, 0)
 
 
 def test_networkit_backend_basics():
