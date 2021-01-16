@@ -10,6 +10,39 @@ NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 IGraph = type(ig.Graph())
 
+class IGraphEdgeIterator(object):
+    """
+    """
+    def __iter__(self, graph: IGraph):
+        self.ecount = graph.ecount()
+        self.es = graph.es
+        self.index = 0
+        return self
+
+    def __next__(self):
+        if self.index < self.ecount:
+            edge = (self.es[self.index].source, self.es[self.index].target)
+            self.index += 1
+            return edge
+        else:
+            raise StopIteration
+
+class IGraphNodeIterator(object):
+    """
+    """
+    def __iter__(self, graph: IGraph):
+        self.vcount = graph.vcount()
+        self.vs = graph.vs
+        self.index = 0
+        return self
+
+    def __next__(self):
+        if self.index < self.vcount:
+            v = vs[self.index].index
+            self.index += 1
+            return v
+        else:
+            raise StopIteration
 
 class NetworKitBackEnd(object):
     """
@@ -185,21 +218,21 @@ class IGraphBackEnd(object):
         """
         Given a graph return the edges.
         """
-        return [[e.source, e.target] for e in graph.es]
+        return [(e.source, e.target) for e in graph.es]
 
 
-    def get_node_iterator(self, graph: NKGraph):
+    def get_node_iterator(self, graph: IGraph):
         """
         Given a graph return the node iterator.
         """
-        return graph.iterNodes()
+        return IGraphNodeIterator(graph)
 
 
-    def get_edge_iterator(self, graph: NKGraph):
+    def get_edge_iterator(self, graph: IGraph):
         """
         Given a graph return the edge iterator.
         """
-        return graph.iterEdges()
+        return IGraphEdgeIterator(graph)
 
 
     def get_degree(self, graph: IGraph, node: int) -> int:
@@ -257,9 +290,7 @@ class IGraphBackEnd(object):
         """
         Given an edge list generate a graph.
         """
-        new_graph = nk.graph.Graph(directed=False)
-        for edge in edges:
-            new_graph.addEdge(edge[0], edge[1], addMissing=True)
+        new_graph = ig.Graph(edges)
         return new_graph
 
 
