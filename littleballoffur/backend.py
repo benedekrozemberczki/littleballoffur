@@ -42,7 +42,7 @@ class IGraphNodeIterator(object):
 
     def __next__(self):
         if self.index < self.vcount:
-            v = self.vs[self.index].name
+            v = self.vs[self.index].index
             self.index += 1
             return v
         else:
@@ -244,6 +244,14 @@ class IGraphBackEnd(object):
         Given a graph and node return the degree.
         """
         return graph.degree(node)
+
+    def graph_from_edgelist(self, edges: List) -> NKGraph:
+        """
+        Given an edge list generate a graph.
+        """
+        new_graph = ig.Graph(edges)
+        return new_graph
+
 
 
 class NetworkXBackEnd(object):
