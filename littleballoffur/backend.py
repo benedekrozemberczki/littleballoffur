@@ -174,18 +174,18 @@ class IGraphBackEnd(object):
         return graph.ecount()
 
 
-    def get_nodes(self, graph: NKGraph) -> List:
+    def get_nodes(self, graph: IGraph) -> List:
         """
         Given a graph return the nodes.
         """
-        return graph.nodes()
+        return graph.ns()
 
 
-    def get_edges(self, graph: NKGraph) -> List[Tuple]:
+    def get_edges(self, graph: IGraph) -> List[Tuple]:
         """
         Given a graph return the edges.
         """
-        return graph.edges()
+        return graph.es()
 
 
     def get_node_iterator(self, graph: NKGraph):
