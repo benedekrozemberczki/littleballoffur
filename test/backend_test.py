@@ -34,6 +34,7 @@ def test_networkit_backend_get_basics():
     graph.addEdge(2, 4, addMissing=True)
     graph.addEdge(2, 5, addMissing=True)
 
+
     nodes = backend.get_nodes(graph)
     edges = backend.get_edges(graph)
 
@@ -54,7 +55,9 @@ def test_igraph_backend_get_basics():
 
     backend = IGraphBackEnd()
 
-    graph = ig.Graph(n=5, edges=[[0, 1], [2, 1], [3, 2], [4, 2], [5, 2]])
+    graph = ig.Graph(n=6, edges=[[0, 1], [2, 1], [3, 2], [4, 2], [5, 2]])
+    
+    print(graph.es)
 
     nodes = backend.get_nodes(graph)
     edges = backend.get_edges(graph)

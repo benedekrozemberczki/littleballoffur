@@ -178,14 +178,14 @@ class IGraphBackEnd(object):
         """
         Given a graph return the nodes.
         """
-        return graph.ns()
+        return graph.vs.indices
 
 
     def get_edges(self, graph: IGraph) -> List[Tuple]:
         """
         Given a graph return the edges.
         """
-        return graph.es()
+        return graph.get_edge_list()
 
 
     def get_node_iterator(self, graph: NKGraph):
