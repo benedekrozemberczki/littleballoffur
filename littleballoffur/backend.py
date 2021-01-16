@@ -13,9 +13,11 @@ IGraph = type(ig.Graph())
 class IGraphEdgeIterator(object):
     """
     """
-    def __iter__(self, graph: IGraph):
+    def __init__(self, graph: IGraph):
         self.ecount = graph.ecount()
         self.es = graph.es
+        
+    def __iter__(self):
         self.index = 0
         return self
 
@@ -30,15 +32,17 @@ class IGraphEdgeIterator(object):
 class IGraphNodeIterator(object):
     """
     """
-    def __iter__(self, graph: IGraph):
+    def __init__(self, graph: IGraph):
         self.vcount = graph.vcount()
         self.vs = graph.vs
+        
+    def __iter__(self):
         self.index = 0
         return self
 
     def __next__(self):
         if self.index < self.vcount:
-            v = vs[self.index].index
+            v = self.vs[self.index].index
             self.index += 1
             return v
         else:
