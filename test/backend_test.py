@@ -158,22 +158,6 @@ def test_networkit_backend_induction():
     graph.addEdge(2, 5, addMissing=True)
 
     subgraph = backend.get_subgraph(graph, [2, 3, 4])
-
-    for node in backend.get_node_iterator(subgraph):
-        assert node in [2, 3, 4]
-
-    for edge in backend.get_edge_iterator(subgraph):
-        assert edge in [(2, 3), (2, 4)]
-        
-def test_igraph_backend_induction():
-
-    backend = IGra[hBackEnd()
-    graph = nk.graph.Graph()
-
-    graph = ig.Graph(n=6, edges=[[0, 1], [2, 1], [3, 2], [4, 2], [5, 2]])
-
-    subgraph = backend.get_subgraph(graph, [2, 3, 4])
-
     for node in backend.get_node_iterator(subgraph):
         assert node in [2, 3, 4]
 
