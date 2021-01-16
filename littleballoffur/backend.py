@@ -246,11 +246,11 @@ class IGraphBackEnd(object):
         return graph.degree(node)
 
 
-    def get_subgraph(self, graph: NKGraph, nodes: List[int]) -> NKGraph:
+    def get_subgraph(self, graph: IGraph, nodes: List[int]) -> IGraph:
         """
         Given a graph and set of inducing nodes return a subgraph.
         """
-        return graph.subgraphFromNodes(nodes)
+        return graph.subgraph(nodes)
 
 
     def get_neighbors(self, graph: NKGraph, node: int) -> List[int]:
