@@ -1,7 +1,7 @@
 from littleballoffur.dataset import *
 
 from littleballoffur.sampler import Sampler
-from littleballoffur.backend import NetworKitBackEnd, NetworkXBackEnd, IGraphBackend
+from littleballoffur.backend import NetworKitBackEnd, NetworkXBackEnd, IGraphBackEnd
 from littleballoffur.node_sampling import *
 from littleballoffur.edge_sampling import *
 from littleballoffur.exploration_sampling import *

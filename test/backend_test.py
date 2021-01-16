@@ -6,7 +6,7 @@ from littleballoffur import NetworKitBackEnd, NetworkXBackEnd, IGraphBackEnd
 def test_igraph_backend_basics():
 
     backend = IGraphBackEnd()
-    graph = ig.Graph.Graph.Watts_Strogatz(1000, 10, 0.0)
+    graph = ig.Graph.Watts_Strogatz(1, 1000, 10, 0.0)
 
     assert 1000 == backend.get_number_of_nodes(graph)
     assert 10000 == backend.get_number_of_edges(graph)

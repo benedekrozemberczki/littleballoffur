@@ -60,7 +60,7 @@ class NetworKitBackEnd(object):
         return graph.iterEdges()
 
 
-    def get_degree(self, graph: IGraph, node: int) -> int:
+    def get_degree(self, graph: NKGraph, node: int) -> int:
         """
         Given a graph and node return the degree.
         """
@@ -202,7 +202,7 @@ class IGraphBackEnd(object):
         return graph.iterEdges()
 
 
-    def get_degree(self, graph: NKGraph, node: int) -> int:
+    def get_degree(self, graph: IGraph, node: int) -> int:
         """
         Given a graph and node return the degree.
         """
