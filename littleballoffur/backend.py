@@ -155,7 +155,7 @@ class NetworKitBackEnd(object):
 
 class IGraphBackEnd(object):
     """
-    Binding the NetworKit backend to serve graph operations.
+    Binding the IGraph backend to serve graph operations.
     """
     def __init__(self):
         pass
