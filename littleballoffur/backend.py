@@ -9,8 +9,6 @@ from typing import List, Tuple
 
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
-IGraph = type(ig.Graph())
-
 
 
 class NetworKitBackEnd(object):
