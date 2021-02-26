@@ -1,6 +1,7 @@
 import random
 import numpy as np
 import igraph as ig
+import sknetwork as skn
 import networkx as nx
 import networkit as nk
 from typing import List, Tuple
