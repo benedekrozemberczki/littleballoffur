@@ -11,24 +11,6 @@ NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 IGraph = type(ig.Graph())
 
-class IGraphEdgeIterator(object):
-    """
-    """
-    def __init__(self, graph: IGraph):
-        self.ecount = graph.ecount()
-        self.es = graph.es
-        
-    def __iter__(self):
-        self.index = 0
-        return self
-
-    def __next__(self):
-        if self.index < self.ecount:
-            edge = (self.es[self.index].source, self.es[self.index].target)
-            self.index += 1
-            return edge
-        else:
-            raise StopIteration
 
 
 class NetworKitBackEnd(object):
