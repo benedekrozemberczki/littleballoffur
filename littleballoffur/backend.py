@@ -30,24 +30,6 @@ class IGraphEdgeIterator(object):
         else:
             raise StopIteration
 
-class IGraphNodeIterator(object):
-    """
-    """
-    def __init__(self, graph: IGraph):
-        self.vcount = graph.vcount()
-        self.vs = graph.vs
-        
-    def __iter__(self):
-        self.index = 0
-        return self
-
-    def __next__(self):
-        if self.index < self.vcount:
-            v = self.vs[self.index].index
-            self.index += 1
-            return v
-        else:
-            raise StopIteration
 
 class NetworKitBackEnd(object):
     """
