@@ -1,7 +1,6 @@
-import igraph as ig
 import networkx as nx
 import networkit as nk
-from littleballoffur import NetworKitBackEnd, NetworkXBackEnd, IGraphBackEnd
+from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
 
 def test_igraph_backend_basics():
 
