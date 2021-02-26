@@ -2,16 +2,6 @@ import networkx as nx
 import networkit as nk
 from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
 
-def test_igraph_backend_basics():
-
-    backend = IGraphBackEnd()
-    graph = ig.Graph.Watts_Strogatz(1, 1000, 10, 0.0)
-
-    assert 1000 == backend.get_number_of_nodes(graph)
-    assert 10000 == backend.get_number_of_edges(graph)
-    assert 20 == backend.get_degree(graph, 0)
-
-
 def test_networkit_backend_basics():
 
     backend = NetworKitBackEnd()
@@ -49,29 +39,7 @@ def test_networkit_backend_get_basics():
     assert (3, 2) in edges
     assert (4, 2) in edges
     assert (5, 2) in edges
-    
-def test_igraph_backend_get_basics():
 
-    backend = IGraphBackEnd()
-
-    graph = ig.Graph(n=6, edges=[[0, 1], [2, 1], [3, 2], [4, 2], [5, 2]])
-
-
-    nodes = backend.get_nodes(graph)
-    edges = backend.get_edges(graph)
-
-    assert 0 in nodes
-    assert 1 in nodes
-    assert 2 in nodes
-    assert 3 in nodes
-    assert 4 in nodes
-    assert 5 in nodes
-
-    assert (0, 1) in edges
-    assert (1, 2) in edges
-    assert (2, 3) in edges
-    assert (2, 4) in edges
-    assert (2, 5) in edges
 
 def test_networkit_backend_graph_from_edgelist():
 
@@ -95,28 +63,6 @@ def test_networkit_backend_graph_from_edgelist():
     assert (5, 2) in edges
 
 
-def test_igraph_backend_graph_from_edgelist():
-
-
-    backend = IGraphBackEnd()
-    graph = backend.graph_from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
-
-    nodes = backend.get_nodes(graph)
-    edges = backend.get_edges(graph)
-
-    assert 0 in nodes
-    assert 1 in nodes
-    assert 2 in nodes
-    assert 3 in nodes
-    assert 4 in nodes
-    assert 5 in nodes
-
-    assert (0, 1) in edges
-    assert (1, 2) in edges
-    assert (2, 3) in edges
-    assert (2, 4) in edges
-    assert (2, 5) in edges
-
 def test_networkit_backend_get_iterator():
 
     backend = NetworKitBackEnd()
@@ -127,17 +73,6 @@ def test_networkit_backend_get_iterator():
     graph.addEdge(2, 3, addMissing=True)
     graph.addEdge(2, 4, addMissing=True)
     graph.addEdge(2, 5, addMissing=True)
-
-    for node in backend.get_node_iterator(graph):
-        assert node in [0, 1, 2, 3, 4, 5]
-    for edge in backend.get_edge_iterator(graph):
-        assert edge in [(0, 1), (1, 2), (2, 3), (2, 4), (2, 5)]
-        
-
-def test_igraph_backend_get_iterator():
-
-    backend = IGraphBackEnd()
-    graph = ig.Graph(n=6, edges=[[0, 1], [2, 1], [3, 2], [4, 2], [5, 2]])
 
     for node in backend.get_node_iterator(graph):
         assert node in [0, 1, 2, 3, 4, 5]
