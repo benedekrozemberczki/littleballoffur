@@ -2,13 +2,11 @@ import random
 import numpy as np
 import networkx as nx
 import networkit as nk
-import sknetwork as skn
 from typing import List, Tuple
 
 
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
-
 
 class NetworKitBackEnd(object):
     """
