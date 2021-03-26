@@ -12,8 +12,7 @@ NXGraph = nx.classes.graph.Graph
 class DiffusionTreeSampler(Sampler):
     r"""An implementation of exploration sampling by a diffusion branching 
     process. A simple diffusion which creates an induced tree by an 
-    incrementally diffusion. `"For details about the algorithm see this paper."
-     <https://arxiv.org/abs/2001.07463>`_
+    incrementally diffusion. `"For details about the algorithm see this paper." <https://arxiv.org/abs/2001.07463>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
