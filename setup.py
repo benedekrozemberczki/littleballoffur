@@ -3,8 +3,8 @@ from setuptools import find_packages, setup
 
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
-install_requires = ['cmake',
-                    'Cython',
+install_requires = ["cmake",
+                    "Cython",
                     "networkx==2.4",
                     "tqdm",
                     "python-louvain",
@@ -12,7 +12,8 @@ install_requires = ['cmake',
                     "pandas",
                     "numpy",
                     "six",
-                    "scipy"]
+                    "scipy",
+                    "networkx==2.4"]
 
 if not on_rtd:
     install_requires.append("networkit==7.1")
