@@ -5,7 +5,7 @@ on_rtd = os.environ.get("READTHEDOCS") == "True"
 
 install_requires = ['cmake',
                     'Cython',
-                    "networkx",
+                    "networkx==2.5",
                     "tqdm",
                     "python-louvain",
                     "scikit-network",
