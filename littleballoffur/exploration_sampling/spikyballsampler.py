@@ -70,7 +70,7 @@ class SpikyBallSampler(Sampler):
         self._sampled_nodes = set()
         num_nodes = self.backend.get_number_of_nodes(self._graph)
         self._set_of_nodes = set(range(num_nodes))
-        num_initial_nodes = max(int(num_nodes * self.initial_nodes_ratio), 1)
+        num_initial_nodes = max(int(self.number_of_nodes * self.initial_nodes_ratio), 1)
         self._seed_nodes = set(np.random.choice(list(self._set_of_nodes), num_initial_nodes, replace=False))
         self._visited_nodes = deque(maxlen=self.max_visited_nodes_backlog)
         self._sampled_nodes.update(self._seed_nodes)
