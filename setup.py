@@ -13,8 +13,7 @@ install_requires = ["decorator==4.4.2",
                     "pandas",
                     "numpy",
                     "six",
-                    "scipy",
-                    "networkx==2.4"]
+                    "scipy"]
 
 if not on_rtd:
     install_requires.append("networkit==7.1")
