@@ -20,7 +20,8 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, seed: int=42):
+
+    def __init__(self, number_of_nodes: int = 100, seed: int = 42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
@@ -36,12 +37,14 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
             else:
                 raise ValueError("Starting node index is out of range.")
         else:
-            self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            self._current_node = random.choice(
+                range(self.backend.get_number_of_nodes(graph))
+            )
             self._sampled_nodes = set([self._current_node])
 
     def _create_sampler(self, graph):
         self._sampler = {}
-        
+
     def _get_node_scores(self, graph, node):
         if node in self._sampler:  # no need to recompute
             return
@@ -50,7 +53,14 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         for neighbor in neighbors:
             fringe = set(self.backend.get_neighbors(graph, neighbor))
             overlap = len(neighbors.intersection(fringe))
-            scores.append(1.0 - (overlap) / min(self.backend.get_degree(graph, node), self.backend.get_degree(graph, neighbor)))
+            scores.append(
+                1.0
+                - (overlap)
+                / min(
+                    self.backend.get_degree(graph, node),
+                    self.backend.get_degree(graph, neighbor),
+                )
+            )
         self._sampler[node] = {}
         self._sampler[node]["neighbors"] = list(neighbors)
         self._sampler[node]["scores"] = scores / np.sum(scores)
@@ -60,13 +70,17 @@ class CommonNeighborAwareRandomWalkSampler(Sampler):
         Doing a single random walk step.
         """
         self._get_node_scores(graph, self._current_node)
-        self._current_node = sample = np.random.choice(self._sampler[self._current_node]["neighbors"],
-                                                       1,
-                                                       replace=False,
-                                                       p=self._sampler[self._current_node]["scores"])[0]
+        self._current_node = sample = np.random.choice(
+            self._sampler[self._current_node]["neighbors"],
+            1,
+            replace=False,
+            p=self._sampler[self._current_node]["scores"],
+        )[0]
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
+    def sample(
+        self, graph: Union[NXGraph, NKGraph], start_node: int = None
+    ) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single common neighbor aware random walk.
 

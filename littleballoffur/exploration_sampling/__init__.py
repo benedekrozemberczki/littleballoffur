@@ -18,25 +18,26 @@ from .metropolishastingsrandomwalksampler import MetropolisHastingsRandomWalkSam
 from .circulatedneighborsrandomwalksampler import CirculatedNeighborsRandomWalkSampler
 from .commonneighborawarerandomwalksampler import CommonNeighborAwareRandomWalkSampler
 
-__all__ = ["FrontierSampler",
-           "SnowBallSampler",
-           "DiffusionSampler",
-           "DiffusionTreeSampler",
-           "RandomWalkSampler",
-           "ForestFireSampler",
-           "SpikyBallSampler",
-           "ShortestPathSampler",
-           "BreadthFirstSearchSampler",
-           "DepthFirstSearchSampler",
-           "RandomNodeNeighborSampler",
-           "RandomWalkWithJumpSampler",
-           "LoopErasedRandomWalkSampler",
-           "RandomWalkWithRestartSampler",
-           "NonBackTrackingRandomWalkSampler",
-           "MetropolisHastingsRandomWalkSampler",
-           "CommunityStructureExpansionSampler",
-           "CirculatedNeighborsRandomWalkSampler",
-           "CommonNeighborAwareRandomWalkSampler",]
+__all__ = [
+    "FrontierSampler",
+    "SnowBallSampler",
+    "DiffusionSampler",
+    "DiffusionTreeSampler",
+    "RandomWalkSampler",
+    "ForestFireSampler",
+    "SpikyBallSampler",
+    "ShortestPathSampler",
+    "BreadthFirstSearchSampler",
+    "DepthFirstSearchSampler",
+    "RandomNodeNeighborSampler",
+    "RandomWalkWithJumpSampler",
+    "LoopErasedRandomWalkSampler",
+    "RandomWalkWithRestartSampler",
+    "NonBackTrackingRandomWalkSampler",
+    "MetropolisHastingsRandomWalkSampler",
+    "CommunityStructureExpansionSampler",
+    "CirculatedNeighborsRandomWalkSampler",
+    "CommonNeighborAwareRandomWalkSampler",
+]
 
 classes = __all__
-

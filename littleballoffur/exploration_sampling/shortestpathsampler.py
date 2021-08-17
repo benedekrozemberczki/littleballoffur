@@ -10,7 +10,7 @@ NXGraph = nx.classes.graph.Graph
 
 
 class ShortestPathSampler(Sampler):
-    r"""An implementation of shortest path sampling. The procedure samples pairs 
+    r"""An implementation of shortest path sampling. The procedure samples pairs
     of nodes and chooses a random shortest path between them. Vertices and edges
     on this shortest path are added to the induces subgraph that is extracted.
     `"For details about the algorithm see this paper." <https://www.sciencedirect.com/science/article/pii/S0378437115000321>`_
@@ -19,7 +19,8 @@ class ShortestPathSampler(Sampler):
         number_of_nodes (int): Number of nodes to sample. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, seed: int=42):
+
+    def __init__(self, number_of_nodes: int = 100, seed: int = 42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()

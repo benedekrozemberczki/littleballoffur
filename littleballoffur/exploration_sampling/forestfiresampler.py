@@ -13,7 +13,7 @@ NXGraph = nx.classes.graph.Graph
 
 class ForestFireSampler(Sampler):
     r"""An implementation of forest fire sampling. The procedure is a stochastic
-    snowball sampling method where the expansion is proportional to the burning probability. 
+    snowball sampling method where the expansion is proportional to the burning probability.
     `"For details about the algorithm see this paper." <https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf>`_
 
 
@@ -22,8 +22,15 @@ class ForestFireSampler(Sampler):
         p (float): Burning probability. Default is 0.4.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, p: float=0.4, seed: int=42, max_visited_nodes_backlog: int=100,
-                 restart_hop_size: int = 10):
+
+    def __init__(
+        self,
+        number_of_nodes: int = 100,
+        p: float = 0.4,
+        seed: int = 42,
+        max_visited_nodes_backlog: int = 100,
+        restart_hop_size: int = 10,
+    ):
         self.number_of_nodes = number_of_nodes
         self.p = p
         self.seed = seed
@@ -49,10 +56,18 @@ class ForestFireSampler(Sampler):
         node_queue = deque([seed_node])
         while len(self._sampled_nodes) < self.number_of_nodes:
             if len(node_queue) == 0:
-                node_queue = deque([self._visited_nodes.popleft()
-                              for k in range(min(self.restart_hop_size, len(self._visited_nodes)))])
+                node_queue = deque(
+                    [
+                        self._visited_nodes.popleft()
+                        for k in range(
+                            min(self.restart_hop_size, len(self._visited_nodes))
+                        )
+                    ]
+                )
                 if len(node_queue) == 0:
-                    print('Warning: could not collect the required number of nodes. The fire could not find enough nodes to burn.')
+                    print(
+                        "Warning: could not collect the required number of nodes. The fire could not find enough nodes to burn."
+                    )
                     break
             top_node = node_queue.popleft()
             self._sampled_nodes.add(top_node)
@@ -61,13 +76,13 @@ class ForestFireSampler(Sampler):
             score = np.random.geometric(self.p)
             count = min(len(unvisited_neighbors), score)
             burned_neighbors = random.sample(unvisited_neighbors, count)
-            self._visited_nodes.extendleft(unvisited_neighbors.difference(set(burned_neighbors)))
+            self._visited_nodes.extendleft(
+                unvisited_neighbors.difference(set(burned_neighbors))
+            )
             for neighbor in burned_neighbors:
                 if len(self._sampled_nodes) >= self.number_of_nodes:
                     break
                 node_queue.extend([neighbor])
-
-
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """

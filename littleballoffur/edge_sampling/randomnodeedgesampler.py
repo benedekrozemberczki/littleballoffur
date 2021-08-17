@@ -7,16 +7,18 @@ from littleballoffur.sampler import Sampler
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
+
 class RandomNodeEdgeSampler(Sampler):
     r"""An implementation of random node-edge sampling. The algorithm first randomly
-    samples a node. From this node it samples an edge with a neighbor. `"For details about the algorithm see 
+    samples a node. From this node it samples an edge with a neighbor. `"For details about the algorithm see
     this paper." <http://www.cs.ucr.edu/~michalis/PAPERS/sampling-networking-05.pdf>`_
 
     Args:
         number_of_edges (int): Number of edges. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_edges: int=100, seed: int=42):
+
+    def __init__(self, number_of_edges: int = 100, seed: int = 42):
         self.number_of_edges = number_of_edges
         self.seed = seed
         self._set_seed()
@@ -32,7 +34,6 @@ class RandomNodeEdgeSampler(Sampler):
             edge = sorted([source_node, target_node])
             edge = tuple(edge)
             self._sampled_edges.add(edge)
-
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """

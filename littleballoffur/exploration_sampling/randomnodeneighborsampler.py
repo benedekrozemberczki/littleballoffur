@@ -7,6 +7,7 @@ from littleballoffur.sampler import Sampler
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
+
 class RandomNodeNeighborSampler(Sampler):
     r"""An implementation of random node-neighbor sampling. The process uniformly
     samples  a fixed number of nodes first. Later it induces the neighboring nodes
@@ -17,7 +18,8 @@ class RandomNodeNeighborSampler(Sampler):
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, seed: int=42):
+
+    def __init__(self, number_of_nodes: int = 100, seed: int = 42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
@@ -28,7 +30,11 @@ class RandomNodeNeighborSampler(Sampler):
         """
         nodes = self.backend.get_nodes(graph)
         self._sampled_nodes = random.sample(nodes, self.number_of_nodes)
-        neighbors = [neighbor for node in self._sampled_nodes for neighbor in self.backend.get_neighbors(graph, node)]
+        neighbors = [
+            neighbor
+            for node in self._sampled_nodes
+            for neighbor in self.backend.get_neighbors(graph, node)
+        ]
         self._sampled_nodes = set(self._sampled_nodes + neighbors)
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:

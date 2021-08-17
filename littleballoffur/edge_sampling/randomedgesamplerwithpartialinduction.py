@@ -10,7 +10,7 @@ NXGraph = nx.classes.graph.Graph
 
 
 class RandomEdgeSamplerWithPartialInduction(Sampler):
-    r"""An implementation of random edge sampling with partial edge set induction. 
+    r"""An implementation of random edge sampling with partial edge set induction.
     The algorithm randomly samples edges in a streaming fashion with a fixed probability.
     Edges between nodes which are already in the sample are retained with an induction step. `"For details about the algorithm see this paper." <https://dl.acm.org/doi/10.1145/2601438>`_
 
@@ -18,7 +18,8 @@ class RandomEdgeSamplerWithPartialInduction(Sampler):
         p (float): Sampling probability. Default is 0.5.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, p: float=0.5, seed: int=42):
+
+    def __init__(self, p: float = 0.5, seed: int = 42):
         self.p = p
         self.seed = seed
         self._set_seed()

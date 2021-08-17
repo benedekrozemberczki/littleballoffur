@@ -10,15 +10,16 @@ NXGraph = nx.classes.graph.Graph
 
 
 class DiffusionSampler(Sampler):
-    r"""An implementation of exploration sampling by a diffusion branching 
-    process. A simple diffusion which creates an induced subgraph by an 
+    r"""An implementation of exploration sampling by a diffusion branching
+    process. A simple diffusion which creates an induced subgraph by an
     incrementally diffusion. `"For details about the algorithm see this paper." <https://arxiv.org/abs/2001.07463>`_
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, seed: int=42):
+
+    def __init__(self, number_of_nodes: int = 100, seed: int = 42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
@@ -48,7 +49,9 @@ class DiffusionSampler(Sampler):
             self._sampled_edges.append([source_node, neighbor])
             self._sampled_edges.append([neighbor, source_node])
 
-    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
+    def sample(
+        self, graph: Union[NXGraph, NKGraph], start_node: int = None
+    ) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a diffusion process.
 

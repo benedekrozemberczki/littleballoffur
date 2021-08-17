@@ -1,4 +1,3 @@
-
 class Edge:
     def __init__(self, source, target, weight=1):
         self.source = source

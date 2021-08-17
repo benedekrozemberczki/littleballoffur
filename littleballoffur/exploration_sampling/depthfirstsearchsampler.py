@@ -8,16 +8,18 @@ from littleballoffur.sampler import Sampler
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
+
 class DepthFirstSearchSampler(Sampler):
     r"""An implementation of node sampling by depth first search. The starting node
-    is selected randomly and neighbors are added to the last in first out queue 
+    is selected randomly and neighbors are added to the last in first out queue
     by shuffling them randomly.
 
     Args:
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, seed: int=42):
+
+    def __init__(self, number_of_nodes: int = 100, seed: int = 42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
@@ -36,15 +38,19 @@ class DepthFirstSearchSampler(Sampler):
             start_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
             self._queue.put(start_node)
         self._nodes = set()
-        self._path = [] 
+        self._path = []
 
     def _extract_edges(self):
         """
         Extracting edges from the depth first search tree.
         """
-        self._edges = [[self._path[i],self._path[i+1]] for i in range(len(self._path)-1)]
+        self._edges = [
+            [self._path[i], self._path[i + 1]] for i in range(len(self._path) - 1)
+        ]
 
-    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
+    def sample(
+        self, graph: Union[NXGraph, NKGraph], start_node: int = None
+    ) -> Union[NXGraph, NKGraph]:
         """
         Sampling a graph with randomized depth first search.
 
@@ -68,11 +74,9 @@ class DepthFirstSearchSampler(Sampler):
                 self._nodes.add(source)
                 self._path.append(source)
         self._extract_edges()
-        if len(self._edges) >0:
+        if len(self._edges) > 0:
             new_graph = self.backend.graph_from_edgelist(self._edges)
             new_graph = self.backend.get_subgraph(new_graph, self._nodes)
         else:
-            new_graph = self.backend.get_subgraph(graph, self._nodes)  
+            new_graph = self.backend.get_subgraph(graph, self._nodes)
         return new_graph
-
-

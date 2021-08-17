@@ -20,7 +20,8 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         number_of_nodes (int): Number of nodes. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_nodes: int=100, seed: int=42):
+
+    def __init__(self, number_of_nodes: int = 100, seed: int = 42):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self._set_seed()
@@ -36,7 +37,9 @@ class NonBackTrackingRandomWalkSampler(Sampler):
             else:
                 raise ValueError("Starting node index is out of range.")
         else:
-            self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            self._current_node = random.choice(
+                range(self.backend.get_number_of_nodes(graph))
+            )
             self._sampled_nodes = set([self._current_node])
         self._previous_node = -1
 
@@ -53,7 +56,9 @@ class NonBackTrackingRandomWalkSampler(Sampler):
         self._current_node = self._target_node
         self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
+    def sample(
+        self, graph: Union[NXGraph, NKGraph], start_node: int = None
+    ) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a single non back-tracking random walk.
 

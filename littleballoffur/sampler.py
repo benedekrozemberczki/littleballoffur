@@ -40,7 +40,9 @@ class Sampler(object):
 
     def _check_networkx_graph(self, graph):
         """Chechking the input type."""
-        assert isinstance(graph, nx.classes.graph.Graph), "This is not a NetworkX graph."
+        assert isinstance(
+            graph, nx.classes.graph.Graph
+        ), "This is not a NetworkX graph."
 
     def _check_connectivity(self, graph):
         """Checking the connected nature of a single graph."""
@@ -68,9 +70,13 @@ class Sampler(object):
     def _check_number_of_nodes(self, graph):
         """Checking the size of the graph - nodes."""
         if self.number_of_nodes > self.backend.get_number_of_nodes(graph):
-            raise ValueError("The number of nodes is too large. Please see requirements.")
+            raise ValueError(
+                "The number of nodes is too large. Please see requirements."
+            )
 
     def _check_number_of_edges(self, graph):
         """Checking the size of the graph -- edges."""
         if self.number_of_edges > self.backend.get_number_of_edges(graph):
-            raise ValueError("The number of edges is too large. Please see requirements.")  
+            raise ValueError(
+                "The number of edges is too large. Please see requirements."
+            )

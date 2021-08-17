@@ -20,12 +20,12 @@ class HybridNodeEdgeSampler(Sampler):
         seed (int): Random seed. Default is 42.
         p (float): Hybridization probability. Default is 0.8.
     """
-    def __init__(self, number_of_edges: int=100, seed: int=42, p: float=0.8):
+
+    def __init__(self, number_of_edges: int = 100, seed: int = 42, p: float = 0.8):
         self.number_of_edges = number_of_edges
         self.seed = seed
         self.p = p
         self._set_seed()
-
 
     def _create_initial_edge_set(self, graph):
         """
@@ -36,14 +36,17 @@ class HybridNodeEdgeSampler(Sampler):
         while len(self._sampled_edges) < self.number_of_edges:
             score = random.uniform(0, 1)
             if score < self.p:
-                source_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
-                target_node = random.choice([node for node in self.backend.get_neighbors(graph, source_node)])
+                source_node = random.choice(
+                    range(self.backend.get_number_of_nodes(graph))
+                )
+                target_node = random.choice(
+                    [node for node in self.backend.get_neighbors(graph, source_node)]
+                )
                 edge = sorted([source_node, target_node])
                 edge = tuple(edge)
             else:
                 edge = random.choice(edges)
             self._sampled_edges.add(edge)
-
 
     def sample(self, graph: Union[NXGraph, NKGraph]) -> Union[NXGraph, NKGraph]:
         """

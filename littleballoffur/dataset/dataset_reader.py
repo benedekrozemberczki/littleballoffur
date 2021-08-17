@@ -5,24 +5,27 @@ import pandas as pd
 import networkx as nx
 from six.moves import urllib
 
+
 class GraphReader(object):
     r"""Class to read benchmark datasets for the sampling task.
 
     Args:
         dataset (str): Dataset of interest. One of facebook/wikipedia/github/twitch/deezer/lastfm. Default is 'wikipedia'.
     """
-    def __init__(self, dataset: str="wikipedia"):
+
+    def __init__(self, dataset: str = "wikipedia"):
         self.dataset = dataset + "_edges.csv"
-        self.base_url = "https://github.com/benedekrozemberczki/littleballoffur/raw/master/dataset/"
+        self.base_url = (
+            "https://github.com/benedekrozemberczki/littleballoffur/raw/master/dataset/"
+        )
 
     def _pandas_reader(self, bytes):
         """
         Reading bytes as a Pandas dataframe.
         """
-        tab = pd.read_csv(io.BytesIO(bytes),
-                          encoding="utf8",
-                          sep=",",
-                          dtype={"switch": np.int32})
+        tab = pd.read_csv(
+            io.BytesIO(bytes), encoding="utf8", sep=",", dtype={"switch": np.int32}
+        )
         return tab
 
     def _dataset_reader(self):
@@ -33,7 +36,7 @@ class GraphReader(object):
         data = urllib.request.urlopen(path).read()
         data = self._pandas_reader(data)
         return data
-   
+
     def get_graph(self) -> nx.classes.graph.Graph:
         r"""Getting the graph.
 
@@ -43,4 +46,3 @@ class GraphReader(object):
         data = self._dataset_reader()
         graph = nx.convert_matrix.from_pandas_edgelist(data, "id_1", "id_2")
         return graph
-

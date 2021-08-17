@@ -10,8 +10,8 @@ NXGraph = nx.classes.graph.Graph
 
 
 class MetropolisHastingsRandomWalkSampler(Sampler):
-    r"""An implementation of node sampling by Metropolis Hastings random walks. 
-    The random walker has a probabilistic acceptance condition for adding new nodes 
+    r"""An implementation of node sampling by Metropolis Hastings random walks.
+    The random walker has a probabilistic acceptance condition for adding new nodes
     to the sampled node set. This constraint can be parametrized by the rejection
     constraint exponent. The sampled graph is always connected.  `"For details about the algorithm see this paper." <http://mlcb.is.tuebingen.mpg.de/Veroeffentlichungen/papers/HueBorKriGha08.pdf>`_
 
@@ -20,7 +20,8 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
         seed (int): Random seed. Default is 42.
         alpha (float): Rejection constraint exponent. Default is 1.0.
     """
-    def __init__(self, number_of_nodes: int=100, seed: int=42, alpha: float=1.0):
+
+    def __init__(self, number_of_nodes: int = 100, seed: int = 42, alpha: float = 1.0):
         self.number_of_nodes = number_of_nodes
         self.seed = seed
         self.alpha = alpha
@@ -37,7 +38,9 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
             else:
                 raise ValueError("Starting node index is out of range.")
         else:
-            self._current_node = random.choice(range(self.backend.get_number_of_nodes(graph)))
+            self._current_node = random.choice(
+                range(self.backend.get_number_of_nodes(graph))
+            )
             self._sampled_nodes = set([self._current_node])
 
     def _do_a_step(self, graph):
@@ -46,13 +49,17 @@ class MetropolisHastingsRandomWalkSampler(Sampler):
         """
         score = random.uniform(0, 1)
         new_node = self.backend.get_random_neighbor(graph, self._current_node)
-        ratio = float(self.backend.get_degree(graph, self._current_node))/float(self.backend.get_degree(graph, new_node))
+        ratio = float(self.backend.get_degree(graph, self._current_node)) / float(
+            self.backend.get_degree(graph, new_node)
+        )
         ratio = ratio ** self.alpha
         if score < ratio:
             self._current_node = new_node
             self._sampled_nodes.add(self._current_node)
 
-    def sample(self, graph: Union[NXGraph, NKGraph], start_node: int=None) -> Union[NXGraph, NKGraph]:
+    def sample(
+        self, graph: Union[NXGraph, NKGraph], start_node: int = None
+    ) -> Union[NXGraph, NKGraph]:
         """
         Sampling nodes with a Metropolis Hastings single random walk.
 

@@ -9,7 +9,7 @@ NXGraph = nx.classes.graph.Graph
 
 
 class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
-    r"""An implementation of random edge sampling with edge set induction. The 
+    r"""An implementation of random edge sampling with edge set induction. The
     algorithm randomly samples edges with a fixed probability. Edges between nodes
     which are already in the sample are retained with an induction step. `"For details
     about the algorithm see this paper." <https://dl.acm.org/doi/10.1145/2601438>`_
@@ -18,7 +18,8 @@ class RandomEdgeSamplerWithInduction(RandomEdgeSampler):
         number_of_edges (int): Number of edges. Default is 100.
         seed (int): Random seed. Default is 42.
     """
-    def __init__(self, number_of_edges: int=100, seed: int=42):
+
+    def __init__(self, number_of_edges: int = 100, seed: int = 42):
         self.number_of_edges = number_of_edges
         self.seed = seed
         self._set_seed()
