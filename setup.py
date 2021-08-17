@@ -3,22 +3,6 @@ from setuptools import find_packages, setup
 
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
-<<<<<<< HEAD
-install_requires = [
-    "decorator==4.4.2",
-    "cmake",
-    "Cython",
-    "networkx==2.4",
-    "tqdm",
-    "python-louvain",
-    "scikit-network",
-    "pandas",
-    "numpy",
-    "six",
-    "scipy",
-    "networkx==2.4",
-]
-=======
 install_requires = ["decorator==4.4.2",
                     "cmake",
                     "Cython",
@@ -30,7 +14,6 @@ install_requires = ["decorator==4.4.2",
                     "numpy",
                     "six",
                     "scipy"]
->>>>>>> a9766c8244b5e41da71b40871374655e3ccac19b
 
 if not on_rtd:
     install_requires.append("networkit==7.1")
