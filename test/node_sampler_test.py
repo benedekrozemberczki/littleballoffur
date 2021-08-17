@@ -88,7 +88,6 @@ def test_degree_based_sampler():
     assert type(sub_graph) == NKGraph
 
 
-
 def test_pagerank_based_sampler():
     """
     Testing the size of the sample.

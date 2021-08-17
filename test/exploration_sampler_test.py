@@ -1,23 +1,46 @@
 import networkx as nx
 import networkit as nk
 
-from littleballoffur.exploration_sampling import LoopErasedRandomWalkSampler, BreadthFirstSearchSampler, DepthFirstSearchSampler
+from littleballoffur.exploration_sampling import (
+    LoopErasedRandomWalkSampler,
+    BreadthFirstSearchSampler,
+    DepthFirstSearchSampler,
+)
 
-from littleballoffur.exploration_sampling import CommunityStructureExpansionSampler, CirculatedNeighborsRandomWalkSampler, SnowBallSampler
-from littleballoffur.exploration_sampling import RandomWalkSampler, MetropolisHastingsRandomWalkSampler, CommonNeighborAwareRandomWalkSampler
-from littleballoffur.exploration_sampling import NonBackTrackingRandomWalkSampler, RandomWalkWithRestartSampler, ForestFireSampler, SpikyBallSampler
+from littleballoffur.exploration_sampling import (
+    CommunityStructureExpansionSampler,
+    CirculatedNeighborsRandomWalkSampler,
+    SnowBallSampler,
+)
+from littleballoffur.exploration_sampling import (
+    RandomWalkSampler,
+    MetropolisHastingsRandomWalkSampler,
+    CommonNeighborAwareRandomWalkSampler,
+)
+from littleballoffur.exploration_sampling import (
+    NonBackTrackingRandomWalkSampler,
+    RandomWalkWithRestartSampler,
+    ForestFireSampler,
+    SpikyBallSampler,
+)
 
 from littleballoffur.exploration_sampling import DiffusionSampler, DiffusionTreeSampler
 
-from littleballoffur.exploration_sampling import ShortestPathSampler, RandomWalkWithJumpSampler, FrontierSampler, RandomNodeNeighborSampler
+from littleballoffur.exploration_sampling import (
+    ShortestPathSampler,
+    RandomWalkWithJumpSampler,
+    FrontierSampler,
+    RandomNodeNeighborSampler,
+)
 from littleballoffur.dataset import GraphReader
 
 NKGraph = type(nk.graph.Graph())
 NXGraph = nx.classes.graph.Graph
 
-#-----------------------------------#
+# -----------------------------------#
 # TESTS FOR SPANNING TREE SAMPLERS. #
-#-----------------------------------#
+# -----------------------------------#
+
 
 def test_loop_erased_random_walk_sampler_1():
     """
@@ -29,10 +52,11 @@ def test_loop_erased_random_walk_sampler_1():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert new_graph.number_of_edges() + 1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
+
 
 def test_loop_erased_random_walk_sampler_2():
 
@@ -42,10 +66,11 @@ def test_loop_erased_random_walk_sampler_2():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert new_graph.number_of_edges() + 1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
+
 
 def test_loop_erased_random_walk_sampler_3():
 
@@ -55,31 +80,32 @@ def test_loop_erased_random_walk_sampler_3():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
     new_graph = sampler.sample(graph, 0)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
     new_graph = sampler.sample(graph, 199)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
     new_graph = sampler.sample(graph, 20)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
+
 
 def test_loop_erased_random_walk_sampler_4():
 
@@ -88,7 +114,7 @@ def test_loop_erased_random_walk_sampler_4():
     graph = nk.nxadapter.nx2nk(nx.watts_strogatz_graph(200, 10, 0))
 
     new_graph = sampler.sample(graph)
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
@@ -104,7 +130,7 @@ def test_breadth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert new_graph.number_of_edges() + 1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
@@ -115,7 +141,7 @@ def test_breadth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert new_graph.number_of_edges() + 1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
@@ -126,28 +152,28 @@ def test_breadth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
     new_graph = sampler.sample(graph, 0)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
     new_graph = sampler.sample(graph, 173)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
     new_graph = sampler.sample(graph, 199)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
@@ -158,7 +184,7 @@ def test_breadth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
@@ -169,7 +195,7 @@ def test_breadth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
@@ -185,7 +211,7 @@ def test_depth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert new_graph.number_of_edges() + 1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
@@ -196,7 +222,7 @@ def test_depth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.number_of_edges()+1 == new_graph.number_of_nodes()
+    assert new_graph.number_of_edges() + 1 == new_graph.number_of_nodes()
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
@@ -207,30 +233,28 @@ def test_depth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
     new_graph = sampler.sample(graph, 0)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
-
 
     new_graph = sampler.sample(graph, 57)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
-
     new_graph = sampler.sample(graph, 199)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
@@ -241,7 +265,7 @@ def test_depth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
@@ -252,16 +276,16 @@ def test_depth_first_search_sampler():
 
     new_graph = sampler.sample(graph)
 
-    assert new_graph.numberOfEdges()+1 == new_graph.numberOfNodes()
+    assert new_graph.numberOfEdges() + 1 == new_graph.numberOfNodes()
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
 
-
-#----------------------------------------#
+# ----------------------------------------#
 # TESTS FOR CONNECTED SUBGRAPH SAMPLERS. #
-#----------------------------------------#
+# ----------------------------------------#
+
 
 def test_community_structure_expansion_sampler():
     """
@@ -370,20 +394,17 @@ def test_circulated_neighbors_random_walk_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
-
     new_graph = sampler.sample(graph, 199)
 
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
-
     new_graph = sampler.sample(graph, 92)
 
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
-
 
     sampler = CirculatedNeighborsRandomWalkSampler(number_of_nodes=25)
 
@@ -535,6 +556,7 @@ def test_random_walk_sampler():
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
 
+
 def test_diffusion_sampler():
     """
     Testing the number of nodes and the connectivity.
@@ -610,6 +632,7 @@ def test_diffusion_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == NXGraph
+
 
 def test_diffusion_tree_sampler():
     """
@@ -836,7 +859,7 @@ def test_non_back_tracking_random_walk_sampler():
 
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
-    assert type(new_graph) ==  NXGraph
+    assert type(new_graph) == NXGraph
 
     sampler = NonBackTrackingRandomWalkSampler()
 
@@ -854,13 +877,11 @@ def test_non_back_tracking_random_walk_sampler():
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
 
-
     new_graph = sampler.sample(graph, 131)
 
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert 1 == nk.components.ConnectedComponents(new_graph).run().numberOfComponents()
     assert type(new_graph) == NKGraph
-
 
     new_graph = sampler.sample(graph, 199)
 
@@ -902,7 +923,6 @@ def test_random_walk_with_restart_sampler():
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert nx.is_connected(new_graph)
     assert type(new_graph) == nx.classes.graph.Graph
-
 
     sampler = RandomWalkWithRestartSampler()
 
@@ -1029,98 +1049,132 @@ def test_forest_fire_sampler():
 
 
 def test_edgeball_sampler():
-    sampler = SpikyBallSampler(mode='edgeball')
+    sampler = SpikyBallSampler(mode="edgeball")
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
     new_graph = sampler.sample(graph)
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
+
 
 def test_edgeball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.2*graph.number_of_nodes())
-    sampler = SpikyBallSampler(mode='edgeball', number_of_nodes=num_nodes,
-                               initial_nodes_ratio=1e-3, sampling_probability=0.1)
+    num_nodes = int(0.2 * graph.number_of_nodes())
+    sampler = SpikyBallSampler(
+        mode="edgeball",
+        number_of_nodes=num_nodes,
+        initial_nodes_ratio=1e-3,
+        sampling_probability=0.1,
+    )
 
     new_graph = sampler.sample(graph)
     assert type(new_graph) == nx.classes.graph.Graph
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
 
+
 def test_fireball_sampler():
-    sampler = SpikyBallSampler(mode='fireball')
+    sampler = SpikyBallSampler(mode="fireball")
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
     new_graph = sampler.sample(graph)
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
+
 
 def test_fireball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.2*graph.number_of_nodes())
-    sampler = SpikyBallSampler(mode='fireball', number_of_nodes=num_nodes,
-                               initial_nodes_ratio=1e-3, sampling_probability=0.1)
+    num_nodes = int(0.2 * graph.number_of_nodes())
+    sampler = SpikyBallSampler(
+        mode="fireball",
+        number_of_nodes=num_nodes,
+        initial_nodes_ratio=1e-3,
+        sampling_probability=0.1,
+    )
 
     new_graph = sampler.sample(graph)
     assert type(new_graph) == nx.classes.graph.Graph
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
 
+
 def test_hubball_sampler():
-    sampler = SpikyBallSampler(mode='hubball', distrib_coeff=2)
+    sampler = SpikyBallSampler(mode="hubball", distrib_coeff=2)
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
     new_graph = sampler.sample(graph)
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
+
 
 def test_hubball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.2*graph.number_of_nodes())
-    sampler = SpikyBallSampler(mode='hubball', number_of_nodes=num_nodes,
-                               initial_nodes_ratio=1e-3, sampling_probability=0.01, distrib_coeff=2)
+    num_nodes = int(0.2 * graph.number_of_nodes())
+    sampler = SpikyBallSampler(
+        mode="hubball",
+        number_of_nodes=num_nodes,
+        initial_nodes_ratio=1e-3,
+        sampling_probability=0.01,
+        distrib_coeff=2,
+    )
 
     new_graph = sampler.sample(graph)
     assert type(new_graph) == nx.classes.graph.Graph
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
 
+
 def test_coreball_sampler():
-    sampler = SpikyBallSampler(mode='coreball', distrib_coeff=2)
+    sampler = SpikyBallSampler(mode="coreball", distrib_coeff=2)
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
     new_graph = sampler.sample(graph)
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
+
 
 def test_coreball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.2*graph.number_of_nodes())
-    sampler = SpikyBallSampler(mode='coreball', number_of_nodes=num_nodes,
-                               initial_nodes_ratio=1e-3, sampling_probability=0.01, distrib_coeff=2)
+    num_nodes = int(0.2 * graph.number_of_nodes())
+    sampler = SpikyBallSampler(
+        mode="coreball",
+        number_of_nodes=num_nodes,
+        initial_nodes_ratio=1e-3,
+        sampling_probability=0.01,
+        distrib_coeff=2,
+    )
 
     new_graph = sampler.sample(graph)
     assert type(new_graph) == nx.classes.graph.Graph
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
 
+
 def test_firecoreball_sampler():
-    sampler = SpikyBallSampler(mode='firecoreball', distrib_coeff=2)
+    sampler = SpikyBallSampler(mode="firecoreball", distrib_coeff=2)
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
     new_graph = sampler.sample(graph)
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
     assert type(new_graph) == nx.classes.graph.Graph
 
+
 def test_firecoreball_sampler_fb():
     graph = GraphReader("facebook").get_graph()
-    num_nodes = int(0.2*graph.number_of_nodes())
-    sampler = SpikyBallSampler(mode='firecoreball', number_of_nodes=num_nodes,
-                               initial_nodes_ratio=1e-3, sampling_probability=0.1, distrib_coeff=2)
+    num_nodes = int(0.2 * graph.number_of_nodes())
+    sampler = SpikyBallSampler(
+        mode="firecoreball",
+        number_of_nodes=num_nodes,
+        initial_nodes_ratio=1e-3,
+        sampling_probability=0.1,
+        distrib_coeff=2,
+    )
 
     new_graph = sampler.sample(graph)
     assert type(new_graph) == nx.classes.graph.Graph
     assert sampler.number_of_nodes == new_graph.number_of_nodes()
 
-#---------------------------------------#
+
+# ---------------------------------------#
 # TESTS FOR UNCONNECTED GRAPH SAMPLERS  #
-#---------------------------------------#
+# ---------------------------------------#
+
 
 def test_shortest_path_sampler():
     """
@@ -1161,7 +1215,6 @@ def test_shortest_path_sampler():
 
     assert sampler.number_of_nodes == new_graph.numberOfNodes()
     assert type(new_graph) == NKGraph
-
 
 
 def test_random_walk_with_jump_sampler():

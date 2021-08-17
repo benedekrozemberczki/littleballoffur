@@ -2,6 +2,7 @@ import networkx as nx
 import networkit as nk
 from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
 
+
 def test_networkit_backend_basics():
 
     backend = NetworKitBackEnd()
@@ -22,7 +23,6 @@ def test_networkit_backend_get_basics():
     graph.addEdge(2, 3, addMissing=True)
     graph.addEdge(2, 4, addMissing=True)
     graph.addEdge(2, 5, addMissing=True)
-
 
     nodes = backend.get_nodes(graph)
     edges = backend.get_edges(graph)
@@ -162,6 +162,7 @@ def test_networkx_backend_basics():
     assert 5000 == backend.get_number_of_edges(graph)
     assert 10 == backend.get_degree(graph, 0)
 
+
 def test_networkx_backend_get_basics():
 
     backend = NetworkXBackEnd()
@@ -194,6 +195,7 @@ def test_networkx_backend_iterator_basics():
 
     for edge in backend.get_edge_iterator(graph):
         assert edge in [(0, 1), (1, 2), (2, 3), (2, 4), (2, 5)]
+
 
 def test_networkx_backend_induction():
 

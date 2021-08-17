@@ -1,7 +1,14 @@
 import networkx as nx
 import networkit as nk
-from littleballoffur.edge_sampling import RandomEdgeSampler, RandomNodeEdgeSampler, HybridNodeEdgeSampler
-from littleballoffur.edge_sampling import RandomEdgeSamplerWithPartialInduction, RandomEdgeSamplerWithInduction
+from littleballoffur.edge_sampling import (
+    RandomEdgeSampler,
+    RandomNodeEdgeSampler,
+    HybridNodeEdgeSampler,
+)
+from littleballoffur.edge_sampling import (
+    RandomEdgeSamplerWithPartialInduction,
+    RandomEdgeSamplerWithInduction,
+)
 
 
 NKGraph = type(nk.graph.Graph())
@@ -29,7 +36,6 @@ def test_random_edge_sampler():
 
     assert sampler.number_of_edges == new_graph.number_of_edges()
     assert type(new_graph) == NXGraph
-
 
     sampler = RandomEdgeSampler()
 
