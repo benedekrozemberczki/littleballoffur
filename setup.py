@@ -3,10 +3,10 @@ from setuptools import find_packages, setup
 
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
-install_requires = ["decorator==4.4.2",
+install_requires = ["decorator",
                     "cmake",
                     "Cython",
-                    "networkx==2.4",
+                    "networkx",
                     "tqdm",
                     "python-louvain",
                     "scikit-network",
