@@ -28,6 +28,7 @@ jobs:
          conda install -y scipy
          conda install -c conda-forge networkit==7.1
          pip install codecov
+         pip install pytest
          python setup.py install
       - name: Install main package
         run: |
