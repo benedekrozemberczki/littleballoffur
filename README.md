@@ -56,6 +56,7 @@ In detail, the following sampling methods were implemented.
 
 **Node Sampling**
 
+
 * **[Degree Based Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/node_sampling.html#littleballoffur.node_sampling.degreebasedsampler.DegreeBasedSampler)** from Adamic *et al.*: [Search In Power-Law Networks](https://arxiv.org/abs/cs/0103016) (Physical Review E 2001)
 
 * **[Random Node Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/node_sampling.html#littleballoffur.node_sampling.randomnodesampler.RandomNodeSampler)** from Stumpf *et al.*: [SubNets of Scale-Free Networks Are Not Scale-Free: Sampling Properties of Networks](https://www.pnas.org/content/102/12/4221) (PNAS 2005)
@@ -81,6 +82,10 @@ In detail, the following sampling methods were implemented.
 * **[Loop-Erased Random Walk Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.looperasedrandomwalksampler.LoopErasedRandomWalkSampler)** from Wilson: [Generating Random Spanning Trees More Quickly Than the Cover Time](https://link.springer.com/chapter/10.1007/978-1-4612-2168-5_12) (STOC 1996)
 
 * **[Forest Fire Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.forestfiresampler.ForestFireSampler)** from Leskovec *et al.*: [Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2005)
+
+<details>
+<summary><b>Expand to see all exploration samplers...</b></summary>
+
 
 * **[Random Node-Neighbor Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.randomnodeneighborsampler.RandomNodeNeighborSampler)** from Leskovec *et al.*: [Sampling From Large Graphs](https://cs.stanford.edu/people/jure/pubs/sampling-kdd06.pdf) (KDD 2006)
 
@@ -116,6 +121,7 @@ In detail, the following sampling methods were implemented.
 
 * **[Spiky Ball Sampler](https://little-ball-of-fur.readthedocs.io/en/latest/modules/exploration_sampling.html#littleballoffur.exploration_sampling.spikyballsampler.SpikyBallSampler)** from Ricaud *et al.*: [Spikyball Sampling: Exploring Large Networks via an Inhomogeneous Filtered Diffusion](https://www.mdpi.com/1999-4893/13/11/275) (Algorithms 2020)
 
+  </details>
 
 Head over to our [documentation](https://little-ball-of-fur.readthedocs.io) to find out more about installation and data handling, a full list of implemented methods, and datasets.
 For a quick start, check out our [examples](https://github.com/benedekrozemberczki/littleballoffur/tree/master/examples.py).
