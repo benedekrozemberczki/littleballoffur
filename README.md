@@ -147,7 +147,7 @@ As we create new releases frequently, upgrading the package casually might be be
 $ pip install littleballoffur --upgrade
 ```
 
---------------------------------------------------------------------------------
+--------------------------------------------------------------------------
 
 **Running examples**
 
@@ -161,7 +161,7 @@ $ cd examples
 $ python ./exploration_sampling/randomwalk_sampler.py
 ```
 
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
 
 **Running tests**
@@ -170,7 +170,7 @@ $ python ./exploration_sampling/randomwalk_sampler.py
 $ python setup.py test
 ```
 
---------------------------------------------------------------------------------
+-------------------------------------------------------------------------
 
 
 **License**
