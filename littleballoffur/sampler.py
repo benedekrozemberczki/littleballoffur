@@ -22,6 +22,9 @@ class Sampler(object):
         """Sample from a model."""
         pass
 
+    def allow_disconnected(self):
+        self.disconnected = True
+
     def _set_seed(self):
         """Creating the initial random seed."""
         random.seed(self.seed)
@@ -47,7 +50,7 @@ class Sampler(object):
     def _check_connectivity(self, graph):
         """Checking the connected nature of a single graph."""
         connected = nx.is_connected(graph)
-        assert connected, "Graph is not connected."
+        assert (connected == True or self.disconnected == True), "Graph is not connected."
 
     def _check_directedness(self, graph):
         """Checking the undirected nature of a single graph."""
