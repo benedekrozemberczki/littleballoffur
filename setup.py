@@ -42,13 +42,13 @@ keywords = [
 
 setup(
     name="littleballoffur",
-    version="2.1.8",
+    version="2.1.9",
     license="MIT",
     description="A general purpose library for subsampling graphs.",
     author="Benedek Rozemberczki",
     author_email="benedek.rozemberczki@gmail.com",
     url="https://github.com/benedekrozemberczki/littleballoffur",
-    download_url="https://github.com/benedekrozemberczki/littleballoffur/archive/v_20008.tar.gz",
+    download_url="https://github.com/benedekrozemberczki/littleballoffur/archive/v_20009.tar.gz",
     keywords=keywords,
     install_requires=install_requires,
     setup_requires=setup_requires,
