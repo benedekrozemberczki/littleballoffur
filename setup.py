@@ -6,7 +6,7 @@ on_rtd = os.environ.get("READTHEDOCS") == "True"
 install_requires = ["decorator",
                     "cmake",
                     "Cython",
-                    "networkx",
+                    "networkx<=2.7",
                     "tqdm",
                     "python-louvain",
                     "pandas<=1.3.5",
