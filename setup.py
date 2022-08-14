@@ -3,8 +3,8 @@ from setuptools import find_packages, setup
 
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
-install_requires = ["numpy",
-                    "networkx",
+install_requires = ["numpy==1.23.0",
+                    "networkx==2.6.0",
                     "decorator==4.4.2",
                     "cmake",
                     "Cython",
