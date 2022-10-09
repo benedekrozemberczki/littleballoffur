@@ -15,7 +15,7 @@ class Sampler(object):
     """Sampler base class with constructor and private methods."""
 
     def __init__(self):
-        """Creatinng a sampler."""
+        """Creating a sampler."""
         pass
 
     def sample(self):
