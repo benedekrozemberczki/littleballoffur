@@ -12,7 +12,7 @@ install_requires = [
     "Cython",
     "tqdm",
     "python-louvain",
-    "pandas",
+    "pandas<2.0",
     "six",
     "scipy",
 ]
