@@ -1,26 +1,28 @@
 import os
+
 from setuptools import find_packages, setup
 
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
-install_requires = ["numpy<1.23.0",
-                    "networkx<2.7",
-                    "decorator==4.4.2",
-                    "cmake",
-                    "Cython",
-                    "tqdm",
-                    "python-louvain",
-                    "pandas<=1.3.5",
-                    "six",
-                    "scipy"]
+install_requires = [
+    "numpy",
+    "networkx",
+    "decorator",
+    "cmake",
+    "Cython",
+    "tqdm",
+    "python-louvain",
+    "pandas",
+    "six",
+    "scipy",
+]
 
 if not on_rtd:
-    install_requires.append("networkit==7.1")
+    install_requires.append("networkit")
 
 setup_requires = ["cython", "numpy", "pytest-runner"]
 
 tests_require = ["pytest", "pytest-cov", "mock", "unittest"]
-
 
 
 keywords = [
