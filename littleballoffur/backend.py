@@ -63,7 +63,7 @@ class NetworKitBackEnd(object):
         """
         Given a graph and set of inducing nodes return a subgraph.
         """
-        return graph.subgraphFromNodes(nodes)
+        return nk.graphtools.subgraphFromNodes(graph, nodes)
 
     def get_neighbors(self, graph: NKGraph, node: int) -> List[int]:
         """

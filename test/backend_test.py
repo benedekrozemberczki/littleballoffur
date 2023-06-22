@@ -56,11 +56,11 @@ def test_networkit_backend_graph_from_edgelist():
     assert 4 in nodes
     assert 5 in nodes
 
-    assert (1, 0) in edges
-    assert (2, 1) in edges
-    assert (3, 2) in edges
-    assert (4, 2) in edges
-    assert (5, 2) in edges
+    assert (0, 1) in edges
+    assert (1, 2) in edges
+    assert (2, 3) in edges
+    assert (2, 4) in edges
+    assert (2, 5) in edges
 
 
 def test_networkit_backend_get_iterator():
