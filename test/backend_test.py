@@ -260,4 +260,3 @@ def test_networkx_backend_graph_from_edgelist():
     assert (2, 3) in edges
     assert (2, 4) in edges
     assert (2, 5) in edges
-    assert (2, 5) in edges
