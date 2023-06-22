@@ -69,13 +69,13 @@ class NetworKitBackEnd(object):
         """
         Given a graph and node return the neighbors.
         """
-        return graph.neighbors(node)
+        return [node for node in graph.iterNeighbors(node)]
 
     def get_random_neighbor(self, graph: NKGraph, node: int) -> int:
         """
         Given a graph and node returns a random neighbor.
         """
-        return graph.randomNeighbor(node)
+        return nk.graphtools.randomNeighbor(graph, node)
 
     def get_shortest_path(self, graph: NKGraph, source: int, target: int) -> List[int]:
         """
