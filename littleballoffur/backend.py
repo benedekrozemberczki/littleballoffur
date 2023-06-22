@@ -33,13 +33,13 @@ class NetworKitBackEnd(object):
         """
         Given a graph return the nodes.
         """
-        return graph.nodes()
+        return [node for node in self.get_node_iterator(graph)]
 
     def get_edges(self, graph: NKGraph) -> List[Tuple]:
         """
         Given a graph return the edges.
         """
-        return graph.edges()
+        return [edge for edge in self.get_edge_iterator(graph)]
 
     def get_node_iterator(self, graph: NKGraph):
         """

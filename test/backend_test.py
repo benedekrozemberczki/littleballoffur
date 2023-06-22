@@ -1,10 +1,10 @@
-import networkx as nx
 import networkit as nk
+import networkx as nx
+
 from littleballoffur import NetworKitBackEnd, NetworkXBackEnd
 
 
 def test_networkit_backend_basics():
-
     backend = NetworKitBackEnd()
     graph = nk.generators.WattsStrogatzGenerator(1000, 10, 0.0).generate()
 
@@ -14,10 +14,10 @@ def test_networkit_backend_basics():
 
 
 def test_networkit_backend_get_basics():
-
     backend = NetworKitBackEnd()
-    graph = nk.graph.Graph()
+    graph = nk.graph.Graph(directed=False)
 
+    # addMissing adds missing nodes
     graph.addEdge(0, 1, addMissing=True)
     graph.addEdge(1, 2, addMissing=True)
     graph.addEdge(2, 3, addMissing=True)
@@ -34,15 +34,15 @@ def test_networkit_backend_get_basics():
     assert 4 in nodes
     assert 5 in nodes
 
-    assert (1, 0) in edges
-    assert (2, 1) in edges
-    assert (3, 2) in edges
-    assert (4, 2) in edges
-    assert (5, 2) in edges
+    # Edges are always sorted low to high.
+    assert (0, 1) in edges
+    assert (1, 2) in edges
+    assert (2, 3) in edges
+    assert (2, 4) in edges
+    assert (2, 5) in edges
 
 
 def test_networkit_backend_graph_from_edgelist():
-
     backend = NetworKitBackEnd()
     graph = backend.graph_from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
@@ -64,7 +64,6 @@ def test_networkit_backend_graph_from_edgelist():
 
 
 def test_networkit_backend_get_iterator():
-
     backend = NetworKitBackEnd()
     graph = nk.graph.Graph()
 
@@ -81,7 +80,6 @@ def test_networkit_backend_get_iterator():
 
 
 def test_networkit_backend_induction():
-
     backend = NetworKitBackEnd()
     graph = nk.graph.Graph()
 
@@ -100,7 +98,6 @@ def test_networkit_backend_induction():
 
 
 def test_networkit_backend_neighbors():
-
     backend = NetworKitBackEnd()
     graph = nk.graph.Graph()
 
@@ -126,7 +123,6 @@ def test_networkit_backend_neighbors():
 
 
 def test_networkit_backend_shortest_path():
-
     backend = NetworKitBackEnd()
 
     graph = nk.graph.Graph()
@@ -144,7 +140,6 @@ def test_networkit_backend_shortest_path():
 
 
 def test_networkit_backend_pagerank():
-
     backend = NetworKitBackEnd()
     graph = nk.generators.WattsStrogatzGenerator(1000, 10, 0.0).generate()
 
@@ -154,7 +149,6 @@ def test_networkit_backend_pagerank():
 
 
 def test_networkx_backend_basics():
-
     backend = NetworkXBackEnd()
     graph = nx.watts_strogatz_graph(1000, 10, 0.0)
 
@@ -164,7 +158,6 @@ def test_networkx_backend_basics():
 
 
 def test_networkx_backend_get_basics():
-
     backend = NetworkXBackEnd()
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
@@ -186,7 +179,6 @@ def test_networkx_backend_get_basics():
 
 
 def test_networkx_backend_iterator_basics():
-
     backend = NetworkXBackEnd()
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
@@ -198,7 +190,6 @@ def test_networkx_backend_iterator_basics():
 
 
 def test_networkx_backend_induction():
-
     backend = NetworkXBackEnd()
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
@@ -212,7 +203,6 @@ def test_networkx_backend_induction():
 
 
 def test_networkx_backend_neighbors():
-
     backend = NetworkXBackEnd()
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
@@ -232,7 +222,6 @@ def test_networkx_backend_neighbors():
 
 
 def test_networkx_backend_shortest_path():
-
     backend = NetworkXBackEnd()
     graph = nx.from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
@@ -244,7 +233,6 @@ def test_networkx_backend_shortest_path():
 
 
 def test_networkx_backend_pagerank():
-
     backend = NetworkXBackEnd()
     graph = nx.watts_strogatz_graph(1000, 10, 0.0)
 
@@ -254,7 +242,6 @@ def test_networkx_backend_pagerank():
 
 
 def test_networkx_backend_graph_from_edgelist():
-
     backend = NetworkXBackEnd()
     graph = backend.graph_from_edgelist([[0, 1], [1, 2], [2, 3], [2, 4], [2, 5]])
 
@@ -272,4 +259,5 @@ def test_networkx_backend_graph_from_edgelist():
     assert (1, 2) in edges
     assert (2, 3) in edges
     assert (2, 4) in edges
+    assert (2, 5) in edges
     assert (2, 5) in edges
