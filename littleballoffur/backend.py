@@ -5,7 +5,18 @@ import networkit as nk
 import networkx as nx
 import numpy as np
 
-NKGraph = type(nk.graph.Graph())
+
+class NetworKitGraph(nx.graph.Graph):
+    """Subclass of nx.graph.Graph with .nodes/edges() methods."""
+
+    def nodes(self):
+        return [node for node in self.iterNodes()]
+
+    def edges(self):
+        return [edge for edge in self.iterEdges()]
+
+
+NKGraph = NetworKitGraph
 NXGraph = nx.classes.graph.Graph
 
 
