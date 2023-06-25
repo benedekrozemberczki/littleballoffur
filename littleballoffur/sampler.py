@@ -45,14 +45,16 @@ class Sampler(object):
     def _check_directedness(self, graph):
         """Checking the undirected nature of a single graph."""
         directed = nx.is_directed(graph)
-        assert directed == False, "Graph is directed."
+        assert directed is False, "Graph is directed."
 
     def _check_indexing(self, graph):
         """Checking the consecutive numeric indexing."""
         numeric_indices = [index for index in range(graph.number_of_nodes())]
-        if isinstance(self.backend, NetworKitBackEnd):
+        if hasattr(self, "backend") and isinstance(self.backend, NetworKitBackEnd):
             node_indices = sorted([node for node in self.backend.get_nodes(graph)])
-        if isinstance(self.backend, NetworkXBackEnd):
+        elif hasattr(self, "backend") and isinstance(self.backend, NetworkXBackEnd):
+            node_indices = sorted([node for node in graph.nodes()])
+        else:
             node_indices = sorted([node for node in graph.nodes()])
         assert numeric_indices == node_indices, "The node indexing is wrong."
 

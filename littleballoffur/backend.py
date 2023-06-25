@@ -159,7 +159,7 @@ class NetworkXBackEnd(object):
         """
         Given a graph return the nodes.
         """
-        return [node for node in self.get_nodes(graph)]
+        return [node for node in self.get_node_iterator(graph)]
 
     def get_edges(self, graph: NXGraph) -> List[Tuple]:
         """
