@@ -125,7 +125,7 @@ class NetworKitBackEnd(object):
     def _check_indexing(self, graph: NKGraph):
         """Checking the consecutive numeric indexing."""
         numeric_indices = [index for index in range(graph.numberOfNodes())]
-        node_indices = sorted([node for node in graph.nodes()])
+        node_indices = sorted([node for node in self.get_nodes(graph)])
         assert numeric_indices == node_indices, "The node indexing is wrong."
 
     def check_graph(self, graph: NKGraph):
@@ -159,7 +159,7 @@ class NetworkXBackEnd(object):
         """
         Given a graph return the nodes.
         """
-        return [node for node in graph.nodes()]
+        return [node for node in self.get_nodes(graph)]
 
     def get_edges(self, graph: NXGraph) -> List[Tuple]:
         """
