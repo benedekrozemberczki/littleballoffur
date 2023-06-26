@@ -5,20 +5,20 @@ from setuptools import find_packages, setup
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
 install_requires = [
-    "numpy",
-    "networkx",
-    "decorator",
-    "cmake",
-    "Cython",
+    "numpy>=1.25",
+    "networkx>=3.1",
+    "decorator>=5.1",
+    "cmake>=3.26",
+    "Cython>=0.29",
     "tqdm",
-    "python-louvain",
+    "python-louvain>=0.16",
     "pandas<2.0",
     "six",
-    "scipy",
+    "scipy>=1.10",
 ]
 
 if not on_rtd:
-    install_requires.append("networkit")
+    install_requires.append("networkit>=10.1")
 
 setup_requires = ["cython", "numpy", "pytest-runner"]
 
@@ -44,7 +44,7 @@ keywords = [
 
 setup(
     name="littleballoffur",
-    version="2.2.0",
+    version="2.3.0",
     license="MIT",
     description="A general purpose library for subsampling graphs.",
     author="Benedek Rozemberczki",
