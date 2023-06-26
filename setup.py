@@ -5,16 +5,16 @@ from setuptools import find_packages, setup
 on_rtd = os.environ.get("READTHEDOCS") == "True"
 
 install_requires = [
-    "numpy>=1.25",
-    "networkx>=3.1",
-    "decorator>=5.1",
     "cmake>=3.26",
     "Cython>=0.29",
-    "tqdm",
-    "python-louvain>=0.16",
+    "decorator>=5.1",
+    "networkx>=3.1",
+    "numpy>=1.25",
     "pandas<2.0",
+    "python-louvain>=0.16",
     "six",
     "scipy>=1.10",
+    "tqdm",
 ]
 
 if not on_rtd:
