@@ -13,7 +13,7 @@ install_requires = [
     "pandas<2.0",
     "python-louvain>=0.16",
     "six",
-    "scipy>=1.10",
+    "scipy>=1.10.0",
     "tqdm",
 ]
 
