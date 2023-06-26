@@ -9,7 +9,7 @@ install_requires = [
     "Cython>=0.29",
     "decorator>=5.1",
     "networkx>=3.1",
-    "numpy>=1.25",
+    "numpy>=1.21",
     "pandas<2.0",
     "python-louvain>=0.16",
     "six",
