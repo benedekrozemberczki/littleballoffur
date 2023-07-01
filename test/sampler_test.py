@@ -28,6 +28,6 @@ def test_sampler():
 
     graph = nx.watts_strogatz_graph(200, 10, 0)
 
-    new_graph = sampler.sample(graph)
+    new_graph = sampler.sample(graph)  # noqa: F841
 
     assert sampler.seed == 42
